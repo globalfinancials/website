@@ -1,0 +1,665 @@
+<!DOCTYPE html>
+<html class="scroll-smooth">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Contact</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link href="./output.css" rel="stylesheet" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"
+      rel="stylesheet"
+    />
+
+    <link rel="shortcut icon" href="./public/Vector.svg" type="image/x-icon" />
+  </head>
+  <body>
+    <nav class="bg-white shadow-lg fixed top-0 left-0 right-0 z-50">
+      <div class="justify-center">
+        <div
+          class="flex max-w-7xl mx-auto px-2 justify-between items-center h-16"
+        >
+          <div class="flex items-center justify-center p-4 gap-3">
+            <img class="size-10" src="./public/logo2.svg" alt="" />
+            <div>
+              <h1 class="text-xl font-semibold">Global Financials</h1>
+              <h6 class="text-gray-400 text-sm">
+                Financial Excellence Worldwide
+              </h6>
+            </div>
+          </div>
+          <!-- Desktop Navigation -->
+          <div class="hidden md:flex space-x-8">
+            <a
+              href="./index.html"
+              class="nav-link p-1 rounded-sm hover:text-blue-700 transition-colors"
+              >Home</a
+            >
+            <a
+              href="./services.html"
+              class="nav-link p-1 rounded-sm hover:text-blue-700 transition-colors"
+              >Services</a
+            >
+            <a
+              href="./projects.html"
+              class="nav-link p-1 rounded-sm hover:text-blue-700 transition-colors"
+              >Projects</a
+            >
+            <a
+              href="./articles.html"
+              class="nav-link p-1 rounded-sm hover:text-blue-700 transition-colors"
+              >Articles</a
+            >
+            <a
+              href="./#"
+              class="nav-link p-1 rounded-sm text-blue-700 transition-colors"
+              >Contact</a
+            >
+          </div>
+
+          <!-- Mobile menu button -->
+          <div class="md:hidden">
+            <button
+              id="mobile-menu-btn"
+              class="text-black p-2 hover:text-gray-500 focus:outline-none flex justify-between items-center"
+            >
+              <i class="fas fa-bars text-xl"></i>
+            </button>
+          </div>
+        </div>
+
+        <!-- Mobile Navigation -->
+        <div id="mobile-menu" class="md:hidden hidden">
+          <div class="m-4 bg-gray-100 rounded-lg">
+            <a
+              href="./index.html"
+              class="mobile-nav-link block px-3 py-2 text-black"
+              >Home</a
+            >
+            <a
+              href="./services.html"
+              class="mobile-nav-link block px-3 py-2 text-black"
+              >Services</a
+            >
+            <a
+              href="./projects.html"
+              class="mobile-nav-link block px-3 py-2 text-black"
+              >Projects</a
+            >
+            <a
+              href="./articles.html"
+              class="mobile-nav-link block px-3 py-2 text-black"
+              >Articles</a
+            >
+            <a
+              href="#"
+              class="mobile-nav-link block px-3 py-2 text-white font-bold bg-blue-600 rounded-lg"
+              >Contact</a
+            >
+          </div>
+        </div>
+      </div>
+    </nav>
+
+    <main class="flex-1">
+      <div class="min-h-screen bg-white">
+        <section class="bg-gradient-to-br from-blue-50 to-slate-50 py-20 pt-40">
+          <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center">
+              <h1 class="text-5xl font-bold text-slate-800 mb-6">
+                Get In Touch<span class="text-blue-600 block"
+                  >Let's Discuss Your Needs</span
+                >
+              </h1>
+              <p class="text-xl text-slate-600 mb-8 max-w-3xl mx-auto">
+                Ready to transform your financial operations? Contact our expert
+                team for a free consultation and discover how we can help your
+                business thrive.
+              </p>
+            </div>
+          </div>
+        </section>
+        <section class="py-20">
+          <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid lg:grid-cols-2 gap-16">
+              <div class="bg-white">
+                <div class="bg-slate-50 rounded-2xl p-8">
+                  <h2 class="text-3xl font-bold text-slate-800 mb-6">
+                    Send Us a Message
+                  </h2>
+                  <form id="message-form" class="space-y-6">
+                    <input
+                type="hidden"
+                name="access_key"
+                value="43b0c3df-5dc6-4786-bc15-cbc498fd657f"
+              />
+              <input
+                type="hidden"
+                name="subject"
+                value="A new customer submits a form on website"
+              />
+                    <div class="grid md:grid-cols-2 gap-6">
+                      <div>
+                        <label
+                          for="name"
+                          class="block text-sm font-medium text-slate-700 mb-2"
+                          >Full Name *</label
+                        ><input
+                          type="text"
+                          id="name"
+                          name="name"
+                          required=""
+                          class="w-full px-4 py-3 border border-slate-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition-colors"
+                          placeholder="Your full name"
+                          value=""
+                        />
+                      </div>
+                      <div>
+                        <label
+                          for="email"
+                          class="block text-sm font-medium text-slate-700 mb-2"
+                          >Email Address *</label
+                        ><input
+                          type="email"
+                          id="email"
+                          name="email"
+                          required=""
+                          class="w-full px-4 py-3 border border-slate-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition-colors"
+                          placeholder="your.email@company.com"
+                          value=""
+                        />
+                      </div>
+                    </div>
+                    <div class="grid md:grid-cols-2 gap-6">
+                      <div>
+                        <label
+                          for="company"
+                          class="block text-sm font-medium text-slate-700 mb-2"
+                          >Company Name *</label
+                        ><input
+                          type="text"
+                          id="company"
+                          name="company"
+                          required=""
+                          class="w-full px-4 py-3 border border-slate-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition-colors"
+                          placeholder="Your company name"
+                          value=""
+                        />
+                      </div>
+                      <div>
+                        <label
+                          for="country"
+                          class="block text-sm font-medium text-slate-700 mb-2"
+                          >Country *</label
+                        ><select
+                          id="country"
+                          name="country"
+                          required=""
+                          class="w-full px-4 py-3 border border-slate-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition-colors"
+                        >
+                          <option value="">Select your country</option>
+                          <option value="Australia">Australia</option>
+                          <option value="United States">United States</option>
+                          <option value="Canada">Canada</option>
+                          <option value="United Kingdom">United Kingdom</option>
+                          <option value="Other">Other</option>
+                        </select>
+                      </div>
+                    </div>
+                    <div class="grid md:grid-cols-2 gap-6">
+                      <div>
+                        <label
+                          for="phone"
+                          class="block text-sm font-medium text-slate-700 mb-2"
+                          >Phone Number</label
+                        ><input
+                          type="tel"
+                          id="phone"
+                          name="phone"
+                          class="w-full px-4 py-3 border border-slate-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition-colors"
+                          placeholder="+1 (555) 123-4567"
+                          value=""
+                        />
+                      </div>
+                      <div>
+                        <label
+                          for="service"
+                          class="block text-sm font-medium text-slate-700 mb-2"
+                          >Service Interested In *</label
+                        ><select
+                          id="service"
+                          name="service"
+                          required=""
+                          class="w-full px-4 py-3 border border-slate-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition-colors"
+                        >
+                          <option value="">Select a service</option>
+                          <option value="Bookkeeping Services">
+                            Bookkeeping Services
+                          </option>
+                          <option value="Financial Statement Preparation">
+                            Financial Statement Preparation
+                          </option>
+                          <option value="Data Cleaning &amp; Extraction">
+                            Data Cleaning &amp; Extraction
+                          </option>
+                          <option value="Financial Analysis">
+                            Financial Analysis
+                          </option>
+                          <option value="Custom Financial Consulting">
+                            Custom Financial Consulting
+                          </option>
+                          <option value="Comprehensive Financial Solutions">
+                            Comprehensive Financial Solutions
+                          </option>
+                          <option value="Other (Please specify in message)">
+                            Other (Please specify in message)
+                          </option>
+                        </select>
+                      </div>
+                    </div>
+                    <div>
+                      <label
+                        for="message"
+                        class="block text-sm font-medium text-slate-700 mb-2"
+                        >Message *</label
+                      ><textarea
+                        id="message"
+                        name="message"
+                        required=""
+                        rows="5"
+                        class="w-full px-4 py-3 border border-slate-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition-colors resize-none"
+                        placeholder="Please describe your financial needs and any specific requirements..."
+                      ></textarea>
+                    </div>
+                    <button
+                      type="submit"
+                      class="w-full bg-blue-600 text-white px-8 py-4 rounded-lg text-lg font-semibold hover:bg-blue-700 transition-colors flex items-center justify-center group"
+                    >
+                      Send Message<svg
+                        xmlns="http://www.w3.org/2000/svg"
+                        width="24"
+                        height="24"
+                        viewBox="0 0 24 24"
+                        fill="none"
+                        stroke="currentColor"
+                        stroke-width="2"
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                        class="lucide lucide-send ml-2 h-5 w-5 group-hover:translate-x-1 transition-transform"
+                      >
+                        <path d="m22 2-7 20-4-9-9-4Z"></path>
+                        <path d="M22 2 11 13"></path>
+                      </svg>
+                    </button>
+                    <div id="result" class="flex justify-center items-center py-1 text-xl text-gray-500"></div>
+                  </form>
+                </div>
+              </div>
+              <div class="space-y-8">
+                <div>
+                  <h2 class="text-3xl font-bold text-slate-800 mb-6">
+                    Get In Touch Directly
+                  </h2>
+                  <div class="space-y-6">
+                    <div class="flex items-center space-x-4">
+                      <div class="bg-blue-100 p-3 rounded-lg">
+                        <svg
+                          xmlns="http://www.w3.org/2000/svg"
+                          width="24"
+                          height="24"
+                          viewBox="0 0 24 24"
+                          fill="none"
+                          stroke="currentColor"
+                          stroke-width="2"
+                          stroke-linecap="round"
+                          stroke-linejoin="round"
+                          class="lucide lucide-phone h-6 w-6 text-blue-600"
+                        >
+                          <path
+                            d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"
+                          ></path>
+                        </svg>
+                      </div>
+                      <div>
+                        <h3 class="font-semibold text-slate-800">Call Us</h3>
+                        <p class="text-slate-600">+92 323 0731517</p>
+                      </div>
+                    </div>
+                    <div class="flex items-center space-x-4">
+                      <div class="bg-blue-100 p-3 rounded-lg">
+                        <svg
+                          xmlns="http://www.w3.org/2000/svg"
+                          width="24"
+                          height="24"
+                          viewBox="0 0 24 24"
+                          fill="none"
+                          stroke="currentColor"
+                          stroke-width="2"
+                          stroke-linecap="round"
+                          stroke-linejoin="round"
+                          class="lucide lucide-mail h-6 w-6 text-blue-600"
+                        >
+                          <rect
+                            width="20"
+                            height="16"
+                            x="2"
+                            y="4"
+                            rx="2"
+                          ></rect>
+                          <path
+                            d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"
+                          ></path>
+                        </svg>
+                      </div>
+                      <div>
+                        <h3 class="font-semibold text-slate-800">Email Us</h3>
+                        <p class="text-slate-600">globalfinancials.org@gmail.com</p>
+                      </div>
+                    </div>
+                    <div class="flex items-center space-x-4">
+                      <div class="bg-blue-100 p-3 rounded-lg">
+                        <svg
+                          xmlns="http://www.w3.org/2000/svg"
+                          width="24"
+                          height="24"
+                          viewBox="0 0 24 24"
+                          fill="none"
+                          stroke="currentColor"
+                          stroke-width="2"
+                          stroke-linecap="round"
+                          stroke-linejoin="round"
+                          class="lucide lucide-clock h-6 w-6 text-blue-600"
+                        >
+                          <circle cx="12" cy="12" r="10"></circle>
+                          <polyline points="12 6 12 12 16 14"></polyline>
+                        </svg>
+                      </div>
+                      <div>
+                        <h3 class="font-semibold text-slate-800">
+                          Business Hours
+                        </h3>
+                        <p class="text-slate-600">
+                          Monday - Friday: 9:00 AM - 6:00 PM
+                        </p>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="bg-blue-50 rounded-2xl p-6">
+                  <h3 class="text-xl font-semibold text-slate-800 mb-3">
+                    Our Response Commitment
+                  </h3>
+                  <ul class="space-y-2">
+                    <li class="flex items-center space-x-3">
+                      <svg
+                        xmlns="http://www.w3.org/2000/svg"
+                        width="24"
+                        height="24"
+                        viewBox="0 0 24 24"
+                        fill="none"
+                        stroke="currentColor"
+                        stroke-width="2"
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                        class="lucide lucide-check-circle h-5 w-5 text-blue-600 flex-shrink-0"
+                      >
+                        <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path>
+                        <path d="m9 11 3 3L22 4"></path></svg
+                      ><span class="text-slate-700"
+                        >Initial response within 24 hours</span
+                      >
+                    </li>
+                    <li class="flex items-center space-x-3">
+                      <svg
+                        xmlns="http://www.w3.org/2000/svg"
+                        width="24"
+                        height="24"
+                        viewBox="0 0 24 24"
+                        fill="none"
+                        stroke="currentColor"
+                        stroke-width="2"
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                        class="lucide lucide-check-circle h-5 w-5 text-blue-600 flex-shrink-0"
+                      >
+                        <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path>
+                        <path d="m9 11 3 3L22 4"></path></svg
+                      ><span class="text-slate-700"
+                        >Free 30-minute consultation</span
+                      >
+                    </li>
+                    <li class="flex items-center space-x-3">
+                      <svg
+                        xmlns="http://www.w3.org/2000/svg"
+                        width="24"
+                        height="24"
+                        viewBox="0 0 24 24"
+                        fill="none"
+                        stroke="currentColor"
+                        stroke-width="2"
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                        class="lucide lucide-check-circle h-5 w-5 text-blue-600 flex-shrink-0"
+                      >
+                        <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path>
+                        <path d="m9 11 3 3L22 4"></path></svg
+                      ><span class="text-slate-700"
+                        >Custom proposal within 48 hours</span
+                      >
+                    </li>
+                    <li class="flex items-center space-x-3">
+                      <svg
+                        xmlns="http://www.w3.org/2000/svg"
+                        width="24"
+                        height="24"
+                        viewBox="0 0 24 24"
+                        fill="none"
+                        stroke="currentColor"
+                        stroke-width="2"
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                        class="lucide lucide-check-circle h-5 w-5 text-blue-600 flex-shrink-0"
+                      >
+                        <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path>
+                        <path d="m9 11 3 3L22 4"></path></svg
+                      ><span class="text-slate-700"
+                        >Flexible scheduling across time zones</span
+                      >
+                    </li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+      </div>
+    </main>
+    <footer class="bg-slate-900 text-white">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+          <div class="lg:col-span-2">
+            <div class="flex items-center mb-4">
+              <img class="size-10" src="./public/logo2.svg" alt="" />
+              <div class="ml-3">
+                <h3 class="text-xl font-bold">Global Financials</h3>
+                <p class="text-slate-300">Financial Excellence Worldwide</p>
+              </div>
+            </div>
+            <p class="text-slate-300 mb-6 max-w-md">
+              Providing comprehensive financial solutions to businesses across
+              Australia, United States, Canada, and the United Kingdom. Your
+              trusted partner for financial success.
+            </p>
+            <div class="flex space-x-4">
+              <div
+                class="bg-slate-800 p-2 rounded-lg hover:bg-slate-700 transition-colors cursor-pointer"
+              >
+                <a
+                  href="https://www.linkedin.com/company/globalfinancials/"
+                  target="_blank"
+                >
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    class="lucide h-5 w-5 text-blue-400"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    stroke-width="2"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                  >
+                    <path
+                      d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"
+                    ></path>
+                    <rect x="2" y="9" width="4" height="12"></rect>
+                    <circle cx="4" cy="4" r="2"></circle>
+                  </svg>
+                </a>
+              </div>
+              <div
+                class="bg-slate-800 p-2 rounded-lg hover:bg-slate-700 transition-colors cursor-pointer"
+              >
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  class="lucide h-5 w-5 text-blue-400"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="2"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                >
+                  <rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect>
+                  <path
+                    d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"
+                  ></path>
+                  <line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line>
+                </svg>
+              </div>
+              <div
+                class="bg-slate-800 p-2 rounded-lg hover:bg-slate-700 transition-colors cursor-pointer"
+              >
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  class="lucide h-5 w-5 text-blue-400"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="2"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                >
+                  <path
+                    d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"
+                  ></path>
+                </svg>
+              </div>
+            </div>
+          </div>
+          <div>
+            <h3 class="text-lg font-semibold mb-4">Quick Links</h3>
+            <ul class="space-y-2">
+              <li>
+                <button
+                  class="text-slate-300 hover:text-white transition-colors duration-200"
+                >
+                  Home
+                </button>
+              </li>
+              <li>
+                <button
+                  class="text-slate-300 hover:text-white transition-colors duration-200"
+                >
+                  Services
+                </button>
+              </li>
+              <li>
+                <button
+                  class="text-slate-300 hover:text-white transition-colors duration-200"
+                >
+                  Portfolio
+                </button>
+              </li>
+              <li>
+                <button
+                  class="text-slate-300 hover:text-white transition-colors duration-200"
+                >
+                  Contact
+                </button>
+              </li>
+            </ul>
+          </div>
+          <div>
+            <h3 class="text-lg font-semibold mb-4">Contact Info</h3>
+            <ul class="space-y-3">
+              <li class="flex items-center space-x-3">
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  width="24"
+                  height="24"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="2"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  class="lucide lucide-phone h-5 w-5 text-blue-400"
+                >
+                  <path
+                    d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"
+                  ></path></svg
+                ><span class="text-slate-300">+92 323 0731517</span>
+              </li>
+              <li class="flex items-center space-x-3">
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  width="24"
+                  height="24"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="2"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  class="lucide lucide-mail h-5 w-5 text-blue-400"
+                >
+                  <rect width="20" height="16" x="2" y="4" rx="2"></rect>
+                  <path
+                    d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"
+                  ></path></svg
+                ><span class="text-slate-300">globalfinancials.org@gmail.com</span>
+              </li>
+            </ul>
+          </div>
+        </div>
+        <div class="border-t border-slate-800 pt-8 mt-8">
+          <div class="flex flex-col md:flex-row justify-between items-center">
+            <p class="text-slate-400 text-sm">
+              © 2025 Global Financials. All rights reserved.
+            </p>
+            <div class="flex space-x-6 mt-4 md:mt-0">
+              <a
+                href="#"
+                class="text-slate-400 hover:text-white text-sm transition-colors"
+                >Privacy Policy</a
+              ><a
+                href="#"
+                class="text-slate-400 hover:text-white text-sm transition-colors"
+                >Terms of Service</a
+              ><a
+                href="#"
+                class="text-slate-400 hover:text-white text-sm transition-colors"
+                >Cookie Policy</a
+              >
+            </div>
+          </div>
+        </div>
+      </div>
+    </footer>
+    <script src="./mobile_menu.js"></script>
+    <script src="./form-submition.js"></script>
+  </body>
+</html>
