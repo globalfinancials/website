@@ -16,36 +16,9 @@
 
     <link rel="shortcut icon" href="./public/Vector.svg" type="image/x-icon" />
 
-    <style>
-      /* Base class for scroll-reveal elements (initial HIDDEN state) */
-      .js-scroll {
-        opacity: 0;
-        transform: translateY(30px); /* Increased offset for a stronger animation */
-        transition: opacity 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94),
-          transform 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94);
-        will-change: opacity, transform;
-      }
-
-      /* Class added by JavaScript when element is in view (VISIBLE state) */
-      .js-scroll.scrolled {
-        opacity: 1;
-        transform: translateY(0);
-      }
-      
-      /* Delay Utilities for staggered card reveals */
-      .delay-200 { transition-delay: 0.2s; }
-      .delay-400 { transition-delay: 0.4s; }
-      .delay-600 { transition-delay: 0.6s; }
-      .delay-800 { transition-delay: 0.8s; }
-
-      /* Header animation: adds a distinct shadow when scrolled */
-      .scrolled-nav {
-        box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -2px rgba(0, 0, 0, 0.06);
-      }
-    </style>
-  </head>
+    </head>
   <body>
-    <nav id="navbar" class="bg-white fixed top-0 left-0 right-0 z-50 transition-shadow duration-300 shadow-lg">
+    <nav class="bg-white shadow-lg fixed top-0 left-0 right-0 z-50">
       <div class="justify-center">
         <div
           class="flex max-w-7xl mx-auto px-2 justify-between items-center h-16"
@@ -142,7 +115,7 @@
             <div class="grid lg:grid-cols-2 gap-12">
               
               <div
-                class="bg-white border border-slate-200 rounded-xl p-8 hover:shadow-lg transition-all duration-300 group js-scroll"
+                class="bg-white border border-slate-200 rounded-xl p-8 hover:shadow-lg transition-all duration-300 group"
               >
                 <div class="flex items-start space-x-4">
                   <div
@@ -332,7 +305,7 @@
               </div>
               
               <div
-                class="bg-white border border-slate-200 rounded-xl p-8 hover:shadow-lg transition-all duration-300 group js-scroll delay-200"
+                class="bg-white border border-slate-200 rounded-xl p-8 hover:shadow-lg transition-all duration-300 group"
               >
                 <div class="flex items-start space-x-4">
                   <div
@@ -515,7 +488,7 @@
               </div>
 
               <div
-                class="bg-white border border-slate-200 rounded-xl p-8 hover:shadow-lg transition-all duration-300 group js-scroll delay-400"
+                class="bg-white border border-slate-200 rounded-xl p-8 hover:shadow-lg transition-all duration-300 group"
               >
                 <div class="flex items-start space-x-4">
                   <div
@@ -694,7 +667,7 @@
               </div>
 
               <div
-                class="bg-white border border-slate-200 rounded-xl p-8 hover:shadow-lg transition-all duration-300 group js-scroll delay-600"
+                class="bg-white border border-slate-200 rounded-xl p-8 hover:shadow-lg transition-all duration-300 group"
               >
                 <div class="flex items-start space-x-4">
                   <div
@@ -873,7 +846,7 @@
               </div>
               
               <div
-                class="bg-white border border-slate-200 rounded-xl p-8 hover:shadow-lg transition-all duration-300 group js-scroll delay-800"
+                class="bg-white border border-slate-200 rounded-xl p-8 hover:shadow-lg transition-all duration-300 group"
               >
                 <div class="flex items-start space-x-4">
                   <div
@@ -920,7 +893,7 @@
                             xmlns="http://www.w3.org/2000/svg"
                             width="24"
                             height="24"
-                            viewBox="0 0 24 24"
+                            viewbox="0 0 24 24"
                             fill="none"
                             stroke="currentColor"
                             stroke-width="2"
@@ -939,7 +912,7 @@
                             xmlns="http://www.w3.org/2000/svg"
                             width="24"
                             height="24"
-                            viewBox="0 0 24 24"
+                            viewbox="0 0 24 24"
                             fill="none"
                             stroke="currentColor"
                             stroke-width="2"
@@ -956,7 +929,7 @@
                             xmlns="http://www.w3.org/2000/svg"
                             width="24"
                             height="24"
-                            viewBox="0 0 24 24"
+                            viewbox="0 0 24 24"
                             fill="none"
                             stroke="currentColor"
                             stroke-width="2"
@@ -975,7 +948,7 @@
                             xmlns="http://www.w3.org/2000/svg"
                             width="24"
                             height="24"
-                            viewBox="0 0 24 24"
+                            viewbox="0 0 24 24"
                             fill="none"
                             stroke="currentColor"
                             stroke-width="2"
@@ -994,7 +967,7 @@
                             xmlns="http://www.w3.org/2000/svg"
                             width="24"
                             height="24"
-                            viewBox="0 0 24 24"
+                            viewbox="0 0 24 24"
                             fill="none"
                             stroke="currentColor"
                             stroke-width="2"
@@ -1013,7 +986,7 @@
                             xmlns="http://www.w3.org/2000/svg"
                             width="24"
                             height="24"
-                            viewBox="0 0 24 24"
+                            viewbox="0 0 24 24"
                             fill="none"
                             stroke="currentColor"
                             stroke-width="2"
@@ -1042,7 +1015,7 @@
                           xmlns="http://www.w3.org/2000/svg"
                           width="24"
                           height="24"
-                          viewBox="0 0 24 24"
+                          viewbox="0 0 24 24"
                           fill="none"
                           stroke="currentColor"
                           stroke-width="2"
@@ -1062,7 +1035,7 @@
           </div>
         </section>
         
-        <section class="py-20 bg-slate-50 js-scroll delay-800">
+        <section class="py-20 bg-slate-50">
           <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
             <h2 class="text-3xl font-bold text-slate-800 mb-4">
               Ready to Optimize Your Finances?
@@ -1232,7 +1205,7 @@
                   xmlns="http://www.w3.org/2000/svg"
                   width="24"
                   height="24"
-                  viewBox="0 0 24 24"
+                  viewbox="0 0 24 24"
                   fill="none"
                   stroke="currentColor"
                   stroke-width="2"
@@ -1253,7 +1226,7 @@
                   xmlns="http://www.w3.org/2000/svg"
                   width="24"
                   height="24"
-                  viewBox="0 0 24 24"
+                  viewbox="0 0 24 24"
                   fill="none"
                   stroke="currentColor"
                   stroke-width="2"
@@ -1271,7 +1244,7 @@
                   xmlns="http://www.w3.org/2000/svg"
                   width="24"
                   height="24"
-                  viewBox="0 0 24 24"
+                  viewbox="0 0 24 24"
                   fill="none"
                   stroke="currentColor"
                   stroke-width="2"
@@ -1316,65 +1289,12 @@
     </footer>
     
     <script>
-      // 1. Mobile Menu Toggle
       const mobileMenuBtn = document.getElementById('mobile-menu-btn');
       const mobileMenu = document.getElementById('mobile-menu');
 
       mobileMenuBtn.addEventListener('click', () => {
         mobileMenu.classList.toggle('hidden');
       });
-
-      // 2. Real-time Scroll Reveal Animation Logic
-      const scrollElements = document.querySelectorAll(".js-scroll");
-      const navbar = document.getElementById('navbar');
-      const SCROLL_THRESHOLD = 50; 
-      
-      // Determines if an element is entering the bottom 80% of the viewport.
-      const elementInView = (el) => {
-        const elementTop = el.getBoundingClientRect().top;
-        // Triggers when the element's top edge is above the bottom 80% mark of the viewport.
-        return elementTop < (window.innerHeight - (window.innerHeight / 5)); 
-      };
-
-      // Determines if an element is completely outside the viewport (above or below).
-      const elementOutView = (el) => {
-        const elementBottom = el.getBoundingClientRect().bottom;
-        const elementTop = el.getBoundingClientRect().top;
-        
-        // Element is completely above the viewport
-        const completelyAbove = elementBottom < 0; 
-        
-        // Element is completely below the viewport
-        const completelyBelow = elementTop > window.innerHeight;
-        
-        return completelyAbove || completelyBelow;
-      };
-
-      const handleScrollAnimation = () => {
-        // --- Card/Element Reveal Logic (Replays on scroll up/down) ---
-        scrollElements.forEach((el) => {
-          if (elementInView(el)) {
-            // Element scrolled into view -> ADD animation class
-            el.classList.add("scrolled");
-          } else if (elementOutView(el)) {
-            // Element scrolled completely out of view -> REMOVE animation class to reset it
-            el.classList.remove("scrolled"); 
-          }
-        });
-
-        // --- Sticky Header Shadow Logic ---
-        if (window.scrollY > SCROLL_THRESHOLD) {
-          navbar.classList.add('scrolled-nav');
-        } else {
-          navbar.classList.remove('scrolled-nav');
-        }
-      };
-
-      // Listen for scroll events
-      window.addEventListener("scroll", handleScrollAnimation);
-
-      // Run once on load to animate any elements initially in view
-      handleScrollAnimation();
     </script>
   </body>
 </html>
