@@ -15,84 +15,7 @@
     />
 
     <link rel="shortcut icon" href="./public/Vector.svg" type="image/x-icon" />
-
-    <style>
-      /* Scroll Animation Classes */
-      .animate-scroll {
-        opacity: 0;
-        transform: translateY(20px);
-        transition: opacity 0.8s ease-out, transform 0.8s ease-out;
-      }
-      .is-active {
-        opacity: 1;
-        transform: translateY(0);
-      }
-      /* Animation Delays/Types (optional, for staggered effect) */
-      .animate-fade-up {
-        transition: opacity 0.8s ease-out, transform 0.8s ease-out;
-      }
-      .animate-fade-left {
-        transform: translateX(-20px);
-        transition: opacity 0.8s ease-out, transform 0.8s ease-out;
-      }
-      .animate-fade-right {
-        transform: translateX(20px);
-        transition: opacity 0.8s ease-out, transform 0.8s ease-out;
-      }
-      .animate-zoom-in {
-        transform: scale(0.9);
-        transition: opacity 1s ease-out, transform 1s ease-out;
-      }
-
-      /* Pulse Hover Effect for Icons */
-      @keyframes pulse {
-        0% {
-          transform: scale(1);
-        }
-        50% {
-          transform: scale(1.1);
-        }
-        100% {
-          transform: scale(1);
-        }
-      }
-      .pulse-hover:hover {
-        animation: pulse 0.5s ease-in-out;
-      }
-
-      /* Glow on Hover for CTA Button */
-      .glow-on-hover {
-        transition: box-shadow 0.3s ease-in-out, transform 0.2s ease-in-out;
-      }
-      .glow-on-hover:hover {
-        box-shadow: 0 0 15px rgba(59, 130, 246, 0.8),
-          0 0 25px rgba(59, 130, 246, 0.4);
-        transform: translateY(-2px);
-      }
-
-      /* Nav Link Effect */
-      .nav-link-effect {
-        position: relative;
-        padding-bottom: 2px;
-      }
-      .nav-link-effect::after {
-        content: '';
-        position: absolute;
-        width: 0;
-        height: 2px;
-        bottom: 0;
-        left: 50%;
-        background-color: #3b82f6; /* Blue-600 */
-        transition: width 0.3s ease-out, left 0.3s ease-out;
-      }
-      .nav-link-effect:hover::after,
-      .nav-link.text-blue-700::after {
-        /* Active link should have the bar immediately */
-        width: 100%;
-        left: 0;
-      }
-    </style>
-    </head>
+  </head>
   <body>
     <nav class="bg-white shadow-lg fixed top-0 left-0 right-0 z-50">
       <div class="justify-center">
@@ -108,34 +31,36 @@
               </h6>
             </div>
           </div>
+          <!-- Desktop Navigation -->
           <div class="hidden md:flex space-x-8">
             <a
               href="./index.html"
-              class="nav-link nav-link-effect p-1 rounded-sm hover:text-blue-700 transition-colors"
+              class="nav-link p-1 rounded-sm hover:text-blue-700 transition-colors"
               >Home</a
             >
             <a
               href="#"
-              class="nav-link nav-link-effect p-1 rounded-sm text-blue-700 transition-colors"
+              class="nav-link p-1 rounded-sm text-blue-700 transition-colors"
               >Services</a
             >
             <a
               href="./projects.html"
-              class="nav-link nav-link-effect p-1 rounded-sm hover:text-blue-700 transition-colors"
+              class="nav-link p-1 rounded-sm hover:text-blue-700 transition-colors"
               >Projects</a
             >
             <a
               href="./articles.html"
-              class="nav-link nav-link-effect p-1 rounded-sm hover:text-blue-700 transition-colors"
+              class="nav-link p-1 rounded-sm hover:text-blue-700 transition-colors"
               >Articles</a
             >
             <a
               href="./contact.html"
-              class="nav-link nav-link-effect p-1 rounded-sm hover:text-blue-700 transition-colors"
+              class="nav-link p-1 rounded-sm hover:text-blue-700 transition-colors"
               >Contact</a
             >
           </div>
 
+          <!-- Mobile menu button -->
           <div class="md:hidden">
             <button
               id="mobile-menu-btn"
@@ -146,6 +71,7 @@
           </div>
         </div>
 
+        <!-- Mobile Navigation -->
         <div id="mobile-menu" class="md:hidden hidden">
           <div class="m-4 bg-gray-100 rounded-lg">
             <a
@@ -179,21 +105,18 @@
     </nav>
     <main class="flex-1">
       <div class="min-h-screen bg-white">
-        <section class="pt-40 pb-30 bg-slate-50">
+        <section class="pt-40 pb-30 bg-slate-50 ">
           <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-            <h1
-              class="text-4xl md:text-5xl font-bold text-blue-600 mb-6 animate-scroll animate-fade-up"
-            >
+            <h1 class="text-4xl md:text-5xl font-bold text-blue-600 mb-6">
               Services Designed for Your Growth
             </h1>
           </div>
         </section>
-
         <section class="py-20">
           <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="grid lg:grid-cols-2 gap-12">
               <div
-                class="bg-white border border-slate-200 rounded-xl p-8 hover:shadow-lg transition-all duration-300 group animate-scroll animate-fade-right"
+                class="bg-white border border-slate-200 rounded-xl p-8 hover:shadow-lg transition-all duration-300 group"
               >
                 <div class="flex items-start space-x-4">
                   <div
@@ -381,9 +304,8 @@
                   </div>
                 </div>
               </div>
-
               <div
-                class="bg-white border border-slate-200 rounded-xl p-8 hover:shadow-lg transition-all duration-300 group animate-scroll animate-fade-left"
+                class="bg-white border border-slate-200 rounded-xl p-8 hover:shadow-lg transition-all duration-300 group"
               >
                 <div class="flex items-start space-x-4">
                   <div
@@ -564,9 +486,8 @@
                   </div>
                 </div>
               </div>
-
               <div
-                class="bg-white border border-slate-200 rounded-xl p-8 hover:shadow-lg transition-all duration-300 group animate-scroll animate-fade-right"
+                class="bg-white border border-slate-200 rounded-xl p-8 hover:shadow-lg transition-all duration-300 group"
               >
                 <div class="flex items-start space-x-4">
                   <div
@@ -743,9 +664,8 @@
                   </div>
                 </div>
               </div>
-
               <div
-                class="bg-white border border-slate-200 rounded-xl p-8 hover:shadow-lg transition-all duration-300 group animate-scroll animate-fade-left"
+                class="bg-white border border-slate-200 rounded-xl p-8 hover:shadow-lg transition-all duration-300 group"
               >
                 <div class="flex items-start space-x-4">
                   <div
@@ -925,9 +845,8 @@
                   </div>
                 </div>
               </div>
-
               <div
-                class="bg-white border border-slate-200 rounded-xl p-8 hover:shadow-lg transition-all duration-300 group animate-scroll animate-fade-right"
+                class="bg-white border border-slate-200 rounded-xl p-8 hover:shadow-lg transition-all duration-300 group"
               >
                 <div class="flex items-start space-x-4">
                   <div
@@ -945,7 +864,9 @@
                       stroke-linejoin="round"
                       class="lucide lucide-users h-8 w-8 text-blue-600"
                     >
-                      <path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"></path>
+                      <path
+                        d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"
+                      ></path>
                       <circle cx="9" cy="7" r="4"></circle>
                       <path d="M22 21v-2a4 4 0 0 0-3-3.87"></path>
                       <path d="M16 3.13a4 4 0 0 1 0 7.75"></path>
@@ -1057,13 +978,215 @@
                             >Training and support</span
                           >
                         </li>
+                        <li class="flex items-center space-x-3">
+                          <svg
+                            xmlns="http://www.w3.org/2000/svg"
+                            width="24"
+                            height="24"
+                            viewBox="0 0 24 24"
+                            fill="none"
+                            stroke="currentColor"
+                            stroke-width="2"
+                            stroke-linecap="round"
+                            stroke-linejoin="round"
+                            class="lucide lucide-check-circle h-5 w-5 text-green-500 flex-shrink-0"
+                          >
+                            <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path>
+                            <path d="m9 11 3 3L22 4"></path></svg
+                          ><span class="text-slate-600"
+                            >Ongoing advisory services</span
+                          >
+                        </li>
                       </ul>
                     </div>
                     <div
                       class="flex items-center justify-between pt-4 border-t border-slate-100"
                     >
                       <div class="text-blue-600 font-semibold">
-                        Starting from $99/hour
+                        Starting from $150/hour
+                      </div>
+                      <button
+                        class="text-blue-600 font-semibold hover:text-blue-700 flex items-center group"
+                      >
+                        Learn More<svg
+                          xmlns="http://www.w3.org/2000/svg"
+                          width="24"
+                          height="24"
+                          viewBox="0 0 24 24"
+                          fill="none"
+                          stroke="currentColor"
+                          stroke-width="2"
+                          stroke-linecap="round"
+                          stroke-linejoin="round"
+                          class="lucide lucide-arrow-right ml-1 h-4 w-4 group-hover:translate-x-1 transition-transform"
+                        >
+                          <path d="M5 12h14"></path>
+                          <path d="m12 5 7 7-7 7"></path>
+                        </svg>
+                      </button>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div
+                class="bg-white border border-slate-200 rounded-xl p-8 hover:shadow-lg transition-all duration-300 group"
+              >
+                <div class="flex items-start space-x-4">
+                  <div
+                    class="bg-blue-50 p-3 rounded-lg group-hover:bg-blue-100 transition-colors"
+                  >
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      width="24"
+                      height="24"
+                      viewBox="0 0 24 24"
+                      fill="none"
+                      stroke="currentColor"
+                      stroke-width="2"
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                      class="lucide lucide-settings h-8 w-8 text-blue-600"
+                    >
+                      <path
+                        d="M12.22 2h-.44a2 2 0 0 0-2 2v.18a2 2 0 0 1-1 1.73l-.43.25a2 2 0 0 1-2 0l-.15-.08a2 2 0 0 0-2.73.73l-.22.38a2 2 0 0 0 .73 2.73l.15.1a2 2 0 0 1 1 1.72v.51a2 2 0 0 1-1 1.74l-.15.09a2 2 0 0 0-.73 2.73l.22.38a2 2 0 0 0 2.73.73l.15-.08a2 2 0 0 1 2 0l.43.25a2 2 0 0 1 1 1.73V20a2 2 0 0 0 2 2h.44a2 2 0 0 0 2-2v-.18a2 2 0 0 1 1-1.73l.43-.25a2 2 0 0 1 2 0l.15.08a2 2 0 0 0 2.73-.73l.22-.39a2 2 0 0 0-.73-2.73l-.15-.08a2 2 0 0 1-1-1.74v-.5a2 2 0 0 1 1-1.74l.15-.09a2 2 0 0 0 .73-2.73l-.22-.38a2 2 0 0 0-2.73-.73l-.15.08a2 2 0 0 1-2 0l-.43-.25a2 2 0 0 1-1-1.73V4a2 2 0 0 0-2-2z"
+                      ></path>
+                      <circle cx="12" cy="12" r="3"></circle>
+                    </svg>
+                  </div>
+                  <div class="flex-1">
+                    <h3 class="text-2xl font-semibold text-slate-800 mb-3">
+                      Comprehensive Financial Solutions
+                    </h3>
+                    <p class="text-slate-600 mb-6">
+                      End-to-end financial management services combining
+                      multiple disciplines for complete peace of mind.
+                    </p>
+                    <div class="mb-6">
+                      <h4 class="font-semibold text-slate-800 mb-3">
+                        What's Included:
+                      </h4>
+                      <ul class="space-y-2">
+                        <li class="flex items-center space-x-3">
+                          <svg
+                            xmlns="http://www.w3.org/2000/svg"
+                            width="24"
+                            height="24"
+                            viewBox="0 0 24 24"
+                            fill="none"
+                            stroke="currentColor"
+                            stroke-width="2"
+                            stroke-linecap="round"
+                            stroke-linejoin="round"
+                            class="lucide lucide-check-circle h-5 w-5 text-green-500 flex-shrink-0"
+                          >
+                            <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path>
+                            <path d="m9 11 3 3L22 4"></path></svg
+                          ><span class="text-slate-600"
+                            >Full-service financial management</span
+                          >
+                        </li>
+                        <li class="flex items-center space-x-3">
+                          <svg
+                            xmlns="http://www.w3.org/2000/svg"
+                            width="24"
+                            height="24"
+                            viewBox="0 0 24 24"
+                            fill="none"
+                            stroke="currentColor"
+                            stroke-width="2"
+                            stroke-linecap="round"
+                            stroke-linejoin="round"
+                            class="lucide lucide-check-circle h-5 w-5 text-green-500 flex-shrink-0"
+                          >
+                            <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path>
+                            <path d="m9 11 3 3L22 4"></path></svg
+                          ><span class="text-slate-600"
+                            >Integrated reporting</span
+                          >
+                        </li>
+                        <li class="flex items-center space-x-3">
+                          <svg
+                            xmlns="http://www.w3.org/2000/svg"
+                            width="24"
+                            height="24"
+                            viewBox="0 0 24 24"
+                            fill="none"
+                            stroke="currentColor"
+                            stroke-width="2"
+                            stroke-linecap="round"
+                            stroke-linejoin="round"
+                            class="lucide lucide-check-circle h-5 w-5 text-green-500 flex-shrink-0"
+                          >
+                            <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path>
+                            <path d="m9 11 3 3L22 4"></path></svg
+                          ><span class="text-slate-600"
+                            >Multi-currency support</span
+                          >
+                        </li>
+                        <li class="flex items-center space-x-3">
+                          <svg
+                            xmlns="http://www.w3.org/2000/svg"
+                            width="24"
+                            height="24"
+                            viewBox="0 0 24 24"
+                            fill="none"
+                            stroke="currentColor"
+                            stroke-width="2"
+                            stroke-linecap="round"
+                            stroke-linejoin="round"
+                            class="lucide lucide-check-circle h-5 w-5 text-green-500 flex-shrink-0"
+                          >
+                            <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path>
+                            <path d="m9 11 3 3L22 4"></path></svg
+                          ><span class="text-slate-600"
+                            >Regulatory compliance</span
+                          >
+                        </li>
+                        <li class="flex items-center space-x-3">
+                          <svg
+                            xmlns="http://www.w3.org/2000/svg"
+                            width="24"
+                            height="24"
+                            viewBox="0 0 24 24"
+                            fill="none"
+                            stroke="currentColor"
+                            stroke-width="2"
+                            stroke-linecap="round"
+                            stroke-linejoin="round"
+                            class="lucide lucide-check-circle h-5 w-5 text-green-500 flex-shrink-0"
+                          >
+                            <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path>
+                            <path d="m9 11 3 3L22 4"></path></svg
+                          ><span class="text-slate-600"
+                            >Tax preparation assistance</span
+                          >
+                        </li>
+                        <li class="flex items-center space-x-3">
+                          <svg
+                            xmlns="http://www.w3.org/2000/svg"
+                            width="24"
+                            height="24"
+                            viewBox="0 0 24 24"
+                            fill="none"
+                            stroke="currentColor"
+                            stroke-width="2"
+                            stroke-linecap="round"
+                            stroke-linejoin="round"
+                            class="lucide lucide-check-circle h-5 w-5 text-green-500 flex-shrink-0"
+                          >
+                            <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path>
+                            <path d="m9 11 3 3L22 4"></path></svg
+                          ><span class="text-slate-600"
+                            >Dedicated account management</span
+                          >
+                        </li>
+                      </ul>
+                    </div>
+                    <div
+                      class="flex items-center justify-between pt-4 border-t border-slate-100"
+                    >
+                      <div class="text-blue-600 font-semibold">
+                        Custom enterprise packages
                       </div>
                       <button
                         class="text-blue-600 font-semibold hover:text-blue-700 flex items-center group"
@@ -1091,312 +1214,338 @@
             </div>
           </div>
         </section>
-
-        <section class="py-20 bg-blue-600">
-          <div
-            class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center animate-scroll animate-zoom-in"
-          >
-            <h2
-              class="text-3xl md:text-4xl font-bold text-white mb-4 animate-scroll animate-fade-up"
-            >
-              Ready to Optimize Your Finances?
-            </h2>
-            <p
-              class="text-blue-200 mb-8 max-w-2xl mx-auto animate-scroll animate-fade-up"
-            >
-              Contact us today for a free consultation and let's tailor a
-              financial solution that drives your success.
-            </p>
-            <a
-              href="./contact.html"
-              class="inline-block px-8 py-3 bg-white text-blue-600 font-semibold rounded-lg shadow-xl hover:bg-gray-100 transition-colors glow-on-hover animate-scroll animate-fade-up"
-              style="transition-delay: 0.2s"
-              >Get Started Today</a
-            >
+        <section class="bg-slate-50 py-20">
+          <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16">
+              <h2 class="text-4xl font-bold text-slate-800 mb-4">
+                Industries We Serve
+              </h2>
+              <p class="text-xl text-slate-600">
+                Specialized expertise across diverse business sectors
+              </p>
+            </div>
+            <div class="grid grid-cols-2 md:grid-cols-4 gap-6">
+              <div
+                class="bg-white rounded-lg p-6 text-center hover:shadow-md transition-shadow"
+              >
+                <div class="font-semibold text-slate-800">
+                  Technology &amp; Software
+                </div>
+              </div>
+              <div
+                class="bg-white rounded-lg p-6 text-center hover:shadow-md transition-shadow"
+              >
+                <div class="font-semibold text-slate-800">Manufacturing</div>
+              </div>
+              <div
+                class="bg-white rounded-lg p-6 text-center hover:shadow-md transition-shadow"
+              >
+                <div class="font-semibold text-slate-800">
+                  Professional Services
+                </div>
+              </div>
+              <div
+                class="bg-white rounded-lg p-6 text-center hover:shadow-md transition-shadow"
+              >
+                <div class="font-semibold text-slate-800">Healthcare</div>
+              </div>
+              <div
+                class="bg-white rounded-lg p-6 text-center hover:shadow-md transition-shadow"
+              >
+                <div class="font-semibold text-slate-800">
+                  Retail &amp; E-commerce
+                </div>
+              </div>
+              <div
+                class="bg-white rounded-lg p-6 text-center hover:shadow-md transition-shadow"
+              >
+                <div class="font-semibold text-slate-800">Real Estate</div>
+              </div>
+              <div
+                class="bg-white rounded-lg p-6 text-center hover:shadow-md transition-shadow"
+              >
+                <div class="font-semibold text-slate-800">
+                  Non-Profit Organizations
+                </div>
+              </div>
+              <div
+                class="bg-white rounded-lg p-6 text-center hover:shadow-md transition-shadow"
+              >
+                <div class="font-semibold text-slate-800">Construction</div>
+              </div>
+            </div>
           </div>
         </section>
-
-        <footer class="bg-gray-900 py-12">
+        <section class="py-20 bg-white">
           <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div
-              class="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-5 gap-8 border-b border-slate-800 pb-8"
-            >
-              <div class="col-span-2 lg:col-span-1">
-                <div class="flex items-center gap-2 mb-4">
-                  <img class="size-8" src="./public/logo2.svg" alt="" />
-                  <h3 class="text-xl font-semibold text-white">
-                    Global Financials
-                  </h3>
-                </div>
-                <p class="text-slate-400 text-sm">
-                  Financial Excellence Worldwide
-                </p>
-                <div class="flex space-x-4 mt-6">
-                  <a
-                    href="#"
-                    class="text-slate-400 hover:text-white transition-colors pulse-hover"
-                    ><i class="fab fa-facebook-f"></i
-                  ></a>
-                  <a
-                    href="#"
-                    class="text-slate-400 hover:text-white transition-colors pulse-hover"
-                    ><i class="fab fa-twitter"></i
-                  ></a>
-                  <a
-                    href="#"
-                    class="text-slate-400 hover:text-white transition-colors pulse-hover"
-                    ><i class="fab fa-linkedin-in"></i
-                  ></a>
-                  <a
-                    href="#"
-                    class="text-slate-400 hover:text-white transition-colors pulse-hover"
-                    ><i class="fab fa-instagram"></i
-                  ></a>
-                </div>
-              </div>
-              <div>
-                <h4 class="text-lg font-semibold text-white mb-4">Company</h4>
-                <ul class="space-y-3">
-                  <li>
-                    <a
-                      href="./index.html"
-                      class="text-slate-400 hover:text-white text-sm transition-colors"
-                      >Home</a
-                    >
-                  </li>
-                  <li>
-                    <a
-                      href="#"
-                      class="text-white text-sm transition-colors"
-                      >Services</a
-                    >
-                  </li>
-                  <li>
-                    <a
-                      href="./projects.html"
-                      class="text-slate-400 hover:text-white text-sm transition-colors"
-                      >Projects</a
-                    >
-                  </li>
-                  <li>
-                    <a
-                      href="./articles.html"
-                      class="text-slate-400 hover:text-white text-sm transition-colors"
-                      >Articles</a
-                    >
-                  </li>
-                  <li>
-                    <a
-                      href="./contact.html"
-                      class="text-slate-400 hover:text-white text-sm transition-colors"
-                      >Contact</a
-                    >
-                  </li>
-                </ul>
-              </div>
-              <div>
-                <h4 class="text-lg font-semibold text-white mb-4">Services</h4>
-                <ul class="space-y-3">
-                  <li>
-                    <a
-                      href="#"
-                      class="text-slate-400 hover:text-white text-sm transition-colors"
-                      >Bookkeeping</a
-                    >
-                  </li>
-                  <li>
-                    <a
-                      href="#"
-                      class="text-slate-400 hover:text-white text-sm transition-colors"
-                      >Financial Statements</a
-                    >
-                  </li>
-                  <li>
-                    <a
-                      href="#"
-                      class="text-slate-400 hover:text-white text-sm transition-colors"
-                      >Data Cleaning</a
-                    >
-                  </li>
-                  <li>
-                    <a
-                      href="#"
-                      class="text-slate-400 hover:text-white text-sm transition-colors"
-                      >Financial Analysis</a
-                    >
-                  </li>
-                </ul>
-              </div>
-              <div class="col-span-2 md:col-span-1">
-                <h4 class="text-lg font-semibold text-white mb-4">Contact</h4>
-                <ul class="space-y-3">
-                  <li class="flex items-center space-x-3">
-                    <svg
-                      xmlns="http://www.w3.org/2000/svg"
-                      width="24"
-                      height="24"
-                      viewBox="0 0 24 24"
-                      fill="none"
-                      stroke="currentColor"
-                      stroke-width="2"
-                      stroke-linecap="round"
-                      stroke-linejoin="round"
-                      class="lucide lucide-map-pin h-5 w-5 text-blue-400"
-                    >
-                      <path d="M12 18V2H7a4 4 0 0 0-4 4v12a4 4 0 0 0 4 4h10a4 4 0 0 0 4-4V6a4 4 0 0 0-4-4h-5v16"></path>
-                    </svg>
-                    <span class="text-slate-300"
-                      >123 Financial Tower, New York, USA</span
-                    >
-                  </li>
-                  <li class="flex items-center space-x-3">
-                    <svg
-                      xmlns="http://www.w3.org/2000/svg"
-                      width="24"
-                      height="24"
-                      viewBox="0 0 24 24"
-                      fill="none"
-                      stroke="currentColor"
-                      stroke-width="2"
-                      stroke-linecap="round"
-                      stroke-linejoin="round"
-                      class="lucide lucide-phone h-5 w-5 text-blue-400"
-                    >
-                      <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.63A2 2 0 0 1 3.08 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path>
-                    </svg>
-                    <span class="text-slate-300">+1 (555) 123-4567</span>
-                  </li>
-                  <li class="flex items-center space-x-3">
-                    <svg
-                      xmlns="http://www.w3.org/2000/svg"
-                      width="24"
-                      height="24"
-                      viewBox="0 0 24 24"
-                      fill="none"
-                      stroke="currentColor"
-                      stroke-width="2"
-                      stroke-linecap="round"
-                      stroke-linejoin="round"
-                      class="lucide lucide-mail h-5 w-5 text-blue-400"
-                    >
-                      <rect width="20" height="16" x="2" y="4" rx="2"></rect>
-                      <path
-                        d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"
-                      ></path></svg
-                    ><span class="text-slate-300"
-                      >globalfinancials.org@gmail.com</span
-                    >
-                  </li>
-                </ul>
-              </div>
+            <div class="text-center mb-16">
+              <h2 class="text-4xl font-bold text-slate-800 mb-4">
+                Our Process
+              </h2>
+              <p class="text-xl text-slate-600">
+                Simple, transparent, and results-driven
+              </p>
             </div>
-            <div class="border-t border-slate-800 pt-8 mt-8">
-              <div
-                class="flex flex-col md:flex-row justify-between items-center"
-              >
-                <p class="text-slate-400 text-sm">
-                  © 2025 Global Financials. All rights reserved.
-                </p>
-                <div class="flex space-x-6 mt-4 md:mt-0">
-                  <a
-                    href="#"
-                    class="text-slate-400 hover:text-white text-sm transition-colors"
-                    >Privacy Policy</a
-                  ><a
-                    href="#"
-                    class="text-slate-400 hover:text-white text-sm transition-colors"
-                    >Terms of Service</a
-                  ><a
-                    href="#"
-                    class="text-slate-400 hover:text-white text-sm transition-colors"
-                    >Sitemap</a
-                  >
+            <div class="grid md:grid-cols-4 gap-8">
+              <div class="text-center">
+                <div
+                  class="bg-blue-600 text-white w-16 h-16 rounded-full flex items-center justify-center text-xl font-bold mx-auto mb-4"
+                >
+                  01
                 </div>
+                <h3 class="text-xl font-semibold text-slate-800 mb-3">
+                  Consultation
+                </h3>
+                <p class="text-slate-600">
+                  Initial discussion to understand your needs
+                </p>
+              </div>
+              <div class="text-center">
+                <div
+                  class="bg-blue-600 text-white w-16 h-16 rounded-full flex items-center justify-center text-xl font-bold mx-auto mb-4"
+                >
+                  02
+                </div>
+                <h3 class="text-xl font-semibold text-slate-800 mb-3">
+                  Analysis
+                </h3>
+                <p class="text-slate-600">
+                  Comprehensive assessment of your current situation
+                </p>
+              </div>
+              <div class="text-center">
+                <div
+                  class="bg-blue-600 text-white w-16 h-16 rounded-full flex items-center justify-center text-xl font-bold mx-auto mb-4"
+                >
+                  03
+                </div>
+                <h3 class="text-xl font-semibold text-slate-800 mb-3">
+                  Implementation
+                </h3>
+                <p class="text-slate-600">
+                  Execute tailored solutions with precision
+                </p>
+              </div>
+              <div class="text-center">
+                <div
+                  class="bg-blue-600 text-white w-16 h-16 rounded-full flex items-center justify-center text-xl font-bold mx-auto mb-4"
+                >
+                  04
+                </div>
+                <h3 class="text-xl font-semibold text-slate-800 mb-3">
+                  Ongoing Support
+                </h3>
+                <p class="text-slate-600">
+                  Continuous monitoring and optimization
+                </p>
               </div>
             </div>
           </div>
-        </footer>
+        </section>
+        <section class="bg-gradient-to-r from-blue-600 to-blue-700 py-20">
+          <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+            <h2 class="text-4xl font-bold text-white mb-6">
+              Ready to Streamline Your Finances?
+            </h2>
+            <p class="text-xl text-blue-100 mb-8">
+              Let's discuss how our services can be tailored to meet your
+              specific business needs.
+            </p>
+            <a
+              class="cursor-pointer bg-white text-blue-600 px-8 py-4 rounded-lg text-lg font-semibold hover:bg-slate-50 transition-colors"
+            href="./contact.html"
+              >
+              Schedule Free Consultation
+          </a>
+          </div>
+        </section>
       </div>
     </main>
-
-    <script>
-      // 1. Mobile Menu Toggle
-      document
-        .getElementById('mobile-menu-btn')
-        .addEventListener('click', function () {
-          const mobileMenu = document.getElementById('mobile-menu');
-          mobileMenu.classList.toggle('hidden');
-        });
-
-      // 2. Scroll Animation Observer
-      const animateElements = document.querySelectorAll('.animate-scroll');
-
-      const observerOptions = {
-        root: null,
-        rootMargin: '0px',
-        threshold: 0.2, // Trigger when 20% of the element is visible
-      };
-
-      const observer = new IntersectionObserver((entries, observer) => {
-        entries.forEach(entry => {
-          if (entry.isIntersecting) {
-            entry.target.classList.add('is-active');
-            observer.unobserve(entry.target);
-            
-            // Check for counter animation logic
-            // Note: No counter elements found in services.html, but keeping logic for consistency
-            if (entry.target.querySelector('.animate-count')) {
-              const counters = entry.target.querySelectorAll('.animate-count');
-              counters.forEach(counter => startCounter(counter));
-            }
-          }
-        });
-      }, observerOptions);
-
-      animateElements.forEach(el => observer.observe(el));
-
-      // 3. Counter Animation Logic (Placeholder, included for completeness)
-      function startCounter(counterElement) {
-        const target = +counterElement.getAttribute('data-target');
-        const duration = 2000;
-        const start = 0;
-        let startTime = null;
-
-        function animate(currentTime) {
-          if (startTime === null) startTime = currentTime;
-          const progress = currentTime - startTime;
-          const value = Math.min(progress / duration, 1) * target;
-
-          counterElement.innerText = Math.floor(value).toLocaleString();
-
-          if (progress < duration) {
-            requestAnimationFrame(animate);
-          } else {
-            counterElement.innerText =
-              target.toLocaleString() +
-              (counterElement.getAttribute('data-suffix') || '');
-          }
-        }
-
-        // Set initial value before starting
-        counterElement.innerText = start.toLocaleString();
-        requestAnimationFrame(animate);
-      }
-      
-      // 4. Set active class for current nav link
-      const currentPath = window.location.pathname.split('/').pop();
-      document.querySelectorAll('.nav-link').forEach(link => {
-        const linkPath = link.getAttribute('href').split('/').pop();
-        // Check if the link href is empty/root or services.html, and mark as active
-        if (
-          linkPath === currentPath ||
-          (linkPath === '#' && currentPath === 'services.html') ||
-          (linkPath === '#' && currentPath === '')
-        ) {
-          link.classList.add('text-blue-700');
-          link.classList.remove('hover:text-blue-700'); // Remove default hover
-        }
-      });
-    </script>
-    </body>
+    <footer class="bg-slate-900 text-white">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+          <div class="lg:col-span-2">
+            <div class="flex items-center mb-4">
+              <img class="size-10" src="./public/logo2.svg" alt="" />
+              <div class="ml-3">
+                <h3 class="text-xl font-bold">Global Financials</h3>
+                <p class="text-slate-300">Financial Excellence Worldwide</p>
+              </div>
+            </div>
+            <p class="text-slate-300 mb-6 max-w-md">
+              Providing comprehensive financial solutions to businesses across
+              Australia, United States, Canada, and the United Kingdom. Your
+              trusted partner for financial success.
+            </p>
+            <div class="flex space-x-4">
+              <a
+                href="https://www.linkedin.com/company/globalfinancials/"
+                target="_blank"
+                class="bg-slate-800 p-2 rounded-lg hover:bg-slate-700 transition-colors cursor-pointer"
+              >
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  class="lucide h-5 w-5 text-blue-400"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="2"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                >
+                  <path
+                    d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"
+                  ></path>
+                  <rect x="2" y="9" width="4" height="12"></rect>
+                  <circle cx="4" cy="4" r="2"></circle>
+                </svg>
+              </a>
+              <a
+                href="https://www.instagram.com/global_financials"
+                target="_blank"
+                class="bg-slate-800 p-2 rounded-lg hover:bg-slate-700 transition-colors cursor-pointer"
+              >
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  class="lucide h-5 w-5 text-blue-400"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="2"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                >
+                  <rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect>
+                  <path
+                    d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"
+                  ></path>
+                  <line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line>
+                </svg>
+              </a>
+              <a
+                href="https://www.facebook.com/share/1C18jmnTSM/"
+                target="_blank"
+                class="bg-slate-800 p-2 rounded-lg hover:bg-slate-700 transition-colors cursor-pointer"
+              >
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  class="lucide h-5 w-5 text-blue-400"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="2"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                >
+                  <path
+                    d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"
+                  ></path>
+                </svg>
+              </a>
+            </div>
+          </div>
+          <div>
+            <h3 class="text-lg font-semibold mb-4">Quick Links</h3>
+            <ul class="space-y-2">
+              <li>
+                <button
+                  class="text-slate-300 hover:text-white transition-colors duration-200"
+                >
+                  Home
+                </button>
+              </li>
+              <li>
+                <button
+                  class="text-slate-300 hover:text-white transition-colors duration-200"
+                >
+                  Services
+                </button>
+              </li>
+              <li>
+                <button
+                  class="text-slate-300 hover:text-white transition-colors duration-200"
+                >
+                  Portfolio
+                </button>
+              </li>
+              <li>
+                <button
+                  class="text-slate-300 hover:text-white transition-colors duration-200"
+                >
+                  Contact
+                </button>
+              </li>
+            </ul>
+          </div>
+          <div>
+            <h3 class="text-lg font-semibold mb-4">Contact Info</h3>
+            <ul class="space-y-3">
+              <li class="flex items-center space-x-3">
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  width="24"
+                  height="24"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="2"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  class="lucide lucide-phone h-5 w-5 text-blue-400"
+                >
+                  <path
+                    d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"
+                  ></path></svg
+                ><span class="text-slate-300">+92 321 6647827</span>
+              </li>
+              <li class="flex items-center space-x-3">
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  width="24"
+                  height="24"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="2"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  class="lucide lucide-mail h-5 w-5 text-blue-400"
+                >
+                  <rect width="20" height="16" x="2" y="4" rx="2"></rect>
+                  <path
+                    d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"
+                  ></path></svg
+                ><span class="text-slate-300"
+                  >globalfinancials.org@gmail.com</span
+                >
+              </li>
+            </ul>
+          </div>
+        </div>
+        <div class="border-t border-slate-800 pt-8 mt-8">
+          <div class="flex flex-col md:flex-row justify-between items-center">
+            <p class="text-slate-400 text-sm">
+              © 2025 Global Financials. All rights reserved.
+            </p>
+            <div class="flex space-x-6 mt-4 md:mt-0">
+              <a
+                href="#"
+                class="text-slate-400 hover:text-white text-sm transition-colors"
+                >Privacy Policy</a
+              ><a
+                href="#"
+                class="text-slate-400 hover:text-white text-sm transition-colors"
+                >Terms of Service</a
+              ><a
+                href="#"
+                class="text-slate-400 hover:text-white text-sm transition-colors"
+                >Cookie Policy</a
+              >
+            </div>
+          </div>
+        </div>
+      </div>
+    </footer>
+    <script src="./mobile_menu.js"></script>
+  </body>
 </html>
