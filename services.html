@@ -17,16 +17,16 @@
     <link rel="shortcut icon" href="./public/Vector.svg" type="image/x-icon" />
 
     <style>
-      /* Base class for scroll-reveal elements (initial state) */
+      /* Base class for scroll-reveal elements (initial HIDDEN state) */
       .js-scroll {
         opacity: 0;
-        transform: translateY(20px);
-        transition: opacity 0.6s cubic-bezier(0.645, 0.045, 0.355, 1),
-          transform 0.6s cubic-bezier(0.645, 0.045, 0.355, 1);
-        will-change: opacity, transform; /* Optimization */
+        transform: translateY(30px); /* Increased offset for a stronger animation */
+        transition: opacity 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94),
+          transform 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+        will-change: opacity, transform;
       }
 
-      /* Class added by JavaScript when element is in view (final state) */
+      /* Class added by JavaScript when element is in view (VISIBLE state) */
       .js-scroll.scrolled {
         opacity: 1;
         transform: translateY(0);
@@ -1324,34 +1324,45 @@
         mobileMenu.classList.toggle('hidden');
       });
 
-      // 2. Scroll Reveal Animation Logic
+      // 2. Real-time Scroll Reveal Animation Logic
       const scrollElements = document.querySelectorAll(".js-scroll");
       const navbar = document.getElementById('navbar');
       const SCROLL_THRESHOLD = 50; 
-
-      const elementInView = (el, dividend = 1) => {
+      
+      // Determines if an element is entering the bottom 80% of the viewport.
+      const elementInView = (el) => {
         const elementTop = el.getBoundingClientRect().top;
-        // Check if the element is within the viewport, adjusted by the dividend
-        return (
-          elementTop <=
-          (window.innerHeight || document.documentElement.clientHeight) / dividend
-        );
+        // Triggers when the element's top edge is above the bottom 80% mark of the viewport.
+        return elementTop < (window.innerHeight - (window.innerHeight / 5)); 
       };
 
-      const displayScrollElement = (element) => {
-        element.classList.add("scrolled");
+      // Determines if an element is completely outside the viewport (above or below).
+      const elementOutView = (el) => {
+        const elementBottom = el.getBoundingClientRect().bottom;
+        const elementTop = el.getBoundingClientRect().top;
+        
+        // Element is completely above the viewport
+        const completelyAbove = elementBottom < 0; 
+        
+        // Element is completely below the viewport
+        const completelyBelow = elementTop > window.innerHeight;
+        
+        return completelyAbove || completelyBelow;
       };
 
       const handleScrollAnimation = () => {
-        // Handle element reveals
+        // --- Card/Element Reveal Logic (Replays on scroll up/down) ---
         scrollElements.forEach((el) => {
-          // Use a dividend of 1.25 to make the animation trigger a bit early
-          if (elementInView(el, 1.25)) {
-            displayScrollElement(el);
+          if (elementInView(el)) {
+            // Element scrolled into view -> ADD animation class
+            el.classList.add("scrolled");
+          } else if (elementOutView(el)) {
+            // Element scrolled completely out of view -> REMOVE animation class to reset it
+            el.classList.remove("scrolled"); 
           }
         });
 
-        // Handle sticky header shadow
+        // --- Sticky Header Shadow Logic ---
         if (window.scrollY > SCROLL_THRESHOLD) {
           navbar.classList.add('scrolled-nav');
         } else {
@@ -1362,7 +1373,7 @@
       // Listen for scroll events
       window.addEventListener("scroll", handleScrollAnimation);
 
-      // Run once on load to catch elements already in view
+      // Run once on load to animate any elements initially in view
       handleScrollAnimation();
     </script>
   </body>
