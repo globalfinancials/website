@@ -100,6 +100,24 @@
         /* Soft blue glow effect on primary buttons */
         box-shadow: 0 0 10px rgba(59, 130, 246, 0.7), 0 0 20px rgba(59, 130, 246, 0.3); /* blue-500 glow */
       }
+      
+      /* NEW: Glow and Zoom for Navigation Links */
+      .nav-link-effect {
+        /* Add relative positioning for stacking if needed, though not strictly required for this effect */
+        position: relative;
+        /* Ensure transition applies to transform and shadow */
+        transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+        /* Increase z-index slightly on hover to ensure it sits above adjacent elements, giving a "lifted" feel */
+        z-index: 10;
+      }
+      .nav-link-effect:hover {
+        transform: scale(1.05); /* Slight zoom: 5% larger */
+        /* Soft blue glow effect (using blue-600 equivalent) */
+        box-shadow: 0 0 5px rgba(37, 99, 235, 0.6);
+        /* Add a background color on hover to enhance the "tab" look and glow area */
+        background-color: rgba(37, 99, 235, 0.05); /* Very light blue wash */
+        border-radius: 4px; /* Matches the existing rounded-sm class style */
+      }
     </style>
   </head>
   <body>
@@ -120,27 +138,27 @@
           <div class="hidden md:flex space-x-8">
             <a
               href="#"
-              class="nav-link p-1 rounded-sm text-blue-700 transition-colors"
+              class="nav-link p-1 rounded-sm text-blue-700 transition-colors nav-link-effect"
               >Home</a
             >
             <a
               href="./services.html"
-              class="nav-link p-1 rounded-sm hover:text-blue-700 transition-colors"
+              class="nav-link p-1 rounded-sm hover:text-blue-700 transition-colors nav-link-effect"
               >Services</a
             >
             <a
               href="./projects.html"
-              class="nav-link p-1 rounded-sm hover:text-blue-700 transition-colors"
+              class="nav-link p-1 rounded-sm hover:text-blue-700 transition-colors nav-link-effect"
               >Projects</a
             >
             <a
               href="./articles.html"
-              class="nav-link p-1 rounded-sm hover:text-blue-700 transition-colors"
+              class="nav-link p-1 rounded-sm hover:text-blue-700 transition-colors nav-link-effect"
               >Articles</a
             >
             <a
               href="./contact.html"
-              class="nav-link p-1 rounded-sm hover:text-blue-700 transition-colors"
+              class="nav-link p-1 rounded-sm hover:text-blue-700 transition-colors nav-link-effect"
               >Contact</a
             >
           </div>
