@@ -90,6 +90,16 @@
           box-shadow: 0 0 0 8px rgba(59, 130, 246, 0);
         }
       }
+
+      /* NEW ANIMATION: Soft Glow for Buttons on Hover */
+      .glow-on-hover {
+        /* Ensure a transition on box-shadow as well */
+        transition: transform 0.3s ease, box-shadow 0.3s ease; 
+      }
+      .glow-on-hover:hover {
+        /* Soft blue glow effect on primary buttons */
+        box-shadow: 0 0 10px rgba(59, 130, 246, 0.7), 0 0 20px rgba(59, 130, 246, 0.3); /* blue-500 glow */
+      }
     </style>
   </head>
   <body>
@@ -200,7 +210,7 @@
             </div>
             <div class="flex flex-col sm:flex-row gap-4 justify-center">
               <a
-                class="bg-blue-600 text-white px-8 py-4 rounded-lg text-lg font-semibold hover:bg-blue-700 transition-all duration-200 flex items-center justify-center group animate-scroll animate-fade-right"
+                class="bg-blue-600 text-white px-8 py-4 rounded-lg text-lg font-semibold hover:bg-blue-700 transition-all duration-200 flex items-center justify-center group animate-scroll animate-fade-right transition-transform duration-300 hover:scale-105 glow-on-hover"
                 href="./services.html"
               >
                 Explore Our Services<svg
@@ -221,7 +231,7 @@
               </a>
 
               <a
-                class="border-2 border-blue-600 text-blue-600 px-8 py-4 rounded-lg text-lg font-semibold hover:bg-blue-600 hover:text-white transition-all duration-200 animate-scroll animate-fade-right"
+                class="border-2 border-blue-600 text-blue-600 px-8 py-4 rounded-lg text-lg font-semibold hover:bg-blue-600 hover:text-white transition-all duration-200 animate-scroll animate-fade-right transition-transform duration-300 hover:scale-105"
                 href="./contact.html"
               >
                 Get Free Consultation
@@ -530,7 +540,7 @@
             </div>
             <div class="text-center mt-12">
               <button
-                class="bg-blue-600 text-white px-8 py-3 rounded-lg font-semibold hover:bg-blue-700 transition-colors animate-scroll animate-fade-up"
+                class="bg-blue-600 text-white px-8 py-3 rounded-lg font-semibold hover:bg-blue-700 transition-colors animate-scroll animate-fade-up transition-transform duration-300 hover:scale-105 glow-on-hover"
               >
                 View All Services
               </button>
@@ -840,14 +850,14 @@
             <div class="flex flex-col sm:flex-row gap-4 justify-center">
               <a
                 href="./contact.html"
-                class="flex items-center justify-center bg-white text-blue-600 px-8 py-4 rounded-lg text-lg font-semibold hover:bg-slate-50 transition-colors"
+                class="flex items-center justify-center bg-white text-blue-600 px-8 py-4 rounded-lg text-lg font-semibold hover:bg-slate-50 transition-colors transition-transform duration-300 hover:scale-105 glow-on-hover"
               >
                 Start Your Free Consultation
               </a>
 
               <a
                 href="#"
-                class="border-2 border-white text-white px-8 py-4 rounded-lg text-lg font-semibold hover:bg-white hover:text-blue-600 transition-colors"
+                class="border-2 border-white text-white px-8 py-4 rounded-lg text-lg font-semibold hover:bg-white hover:text-blue-600 transition-colors transition-transform duration-300 hover:scale-105"
               >
                 View Our Work
               </a>
