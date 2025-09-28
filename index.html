@@ -1,359 +1,929 @@
 <!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Global Financials | Strategic Financial Clarity for Global Businesses</title>
-    <meta name="description" content="Comprehensive financial solutions for businesses across Australia, United States, Canada, and the United Kingdom. From bookkeeping to strategic consulting, we deliver results that drive growth.">
+<html class="scroll-smooth">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Global Financials</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link href="./output.css" rel="stylesheet" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"
+      rel="stylesheet"
+    />
 
-    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
-    
-    <link rel="stylesheet" href="css/style.css"> 
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
-    
-    <style>
-        /* ENHANCED BLUE THEME STYLES */
-        :root {
-            --primary-color: #011F4B; /* Deep Navy Blue (Theme Color) */
-            --secondary-color: #FFC300; /* Bright Gold/Amber (CTA/Accent) */
-            --tertiary-color: #00A8E8; /* Vibrant Cyan/Teal (Highlight/Icons) */
-            --text-color: #333;
-            --light-bg: #F0F4F8; /* Light Blue-Gray Background */
-        }
-        body { font-family: Arial, sans-serif; margin: 0; padding: 0; color: var(--text-color); }
-        .container { max-width: 1200px; margin: 0 auto; padding: 0 20px; }
-        header, footer { background-color: var(--primary-color); color: white; padding: 15px 0; }
-        nav a { color: white; text-decoration: none; margin-left: 20px; font-weight: bold; }
-        section { padding: 60px 0; }
-        .hero { background-color: var(--light-bg); text-align: center; padding: 100px 0; } 
-        .hero h1 { font-size: 3.5em; color: var(--primary-color); margin-bottom: 15px; }
-        .hero p { font-size: 1.3em; margin-bottom: 40px; }
-        .cta-button-primary { background-color: var(--secondary-color); color: var(--primary-color); padding: 15px 30px; text-decoration: none; font-size: 1.1em; font-weight: bold; border-radius: 5px; display: inline-block; margin: 10px; }
-        .cta-button-secondary { background: none; border: 2px solid var(--tertiary-color); color: var(--primary-color); padding: 15px 30px; text-decoration: none; font-size: 1.1em; font-weight: bold; border-radius: 5px; display: inline-block; margin: 10px; }
-        .trust-bar { background-color: var(--light-bg); padding: 15px 0; text-align: center; font-size: 1.1em; font-weight: 600; }
-        .stats-grid-wrapper { display: flex; justify-content: space-around; text-align: center; padding: 40px 0; }
-        .stats-section { background-color: var(--primary-color); color: white; }
-        .stat h2 { font-size: 3em; margin: 0; }
-        .services-grid { display: flex; gap: 30px; text-align: center; }
-        
-        /* Crystalline/Ceramic Effect for Service Cards */
-        .service-card { 
-            flex: 1; 
-            padding: 20px; 
-            border: none; /* Remove default border for cleaner look */
-            border-radius: 12px; /* Smoother edges */
-            background-color: white; 
-            box-shadow: 0 4px 15px rgba(1, 31, 75, 0.1); /* Deep navy shadow for depth */
-            transition: transform 0.3s ease, box-shadow 0.3s ease; /* Smooth transition */
-        }
-        .service-card:hover {
-            transform: translateY(-5px); /* Subtle lift on hover */
-            box-shadow: 0 8px 25px rgba(0, 168, 232, 0.2); /* Teal shadow for energy */
-        }
-
-        /* Crystalline/Ceramic Effect for Advantage Items */
-        .advantage-item { 
-            margin-bottom: 30px; 
-            padding: 20px; 
-            border-left: 6px solid var(--secondary-color); /* Thicker accent line */
-            background-color: white; 
-            border-radius: 8px; 
-            box-shadow: 0 2px 8px rgba(0,0,0,0.05); /* Soft shadow */
-            transition: background-color 0.3s ease;
-        } 
-        .advantage-item:hover {
-            background-color: #fcfcfc; /* Very subtle glow/lighten on hover */
-        }
-        
-        /* Crystalline/Ceramic Effect for Testimonial Card */
-        .testimonial-card { 
-            background-color: white; 
-            padding: 30px; 
-            border-radius: 12px; /* Smoother edges */
-            box-shadow: 0 10px 30px rgba(1, 31, 75, 0.15); /* More prominent shadow for focus */
-        }
-
-
-        .footer-links { margin-top: 20px; }
-        .footer-links a { color: #ccc; margin-right: 15px; text-decoration: none; font-size: 0.9em; }
-        .social-icons a { color: white; font-size: 1.5em; margin: 0 10px; text-decoration: none; }
-        .social-icons a:hover { color: var(--secondary-color); }
-        .logo-header { height: 40px; margin-right: 10px; vertical-align: middle; }
-
-        /* --- HOVER STYLES FOR GLOW AND ZOOM --- */
-        .cta-button-primary, 
-        .cta-button-secondary, 
-        nav a { 
-            transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out, color 0.3s ease-in-out, text-shadow 0.3s ease-in-out;
-        }
-
-        nav a:hover {
-            color: var(--secondary-color); 
-            transform: scale(1.05); 
-            text-shadow: 0 0 5px rgba(255, 255, 255, 0.8);
-        }
-
-        .cta-button-primary:hover {
-            transform: scale(1.05); 
-            box-shadow: 0 0 15px rgba(255, 195, 0, 0.8); 
-        }
-
-        .cta-button-secondary:hover {
-            color: white; 
-            background-color: var(--tertiary-color); 
-            border-color: var(--tertiary-color);
-            transform: scale(1.05); 
-            box-shadow: 0 0 15px rgba(0, 168, 232, 0.5); 
-        }
-        
-        /* Contact info specific styling for icons */
-        .contact-info-line {
-            display: flex;
-            align-items: center;
-            margin-bottom: 12px; /* Increased margin for better spacing */
-        }
-        .contact-info-line i {
-            margin-right: 8px;
-            color: var(--tertiary-color); /* Use accent color for better visibility */ 
-            font-size: 1.2em; /* Slightly larger icon */
-        }
-        .contact-info-line a {
-            color: white; 
-            text-decoration: none; 
-            transition: color 0.3s;
-        }
-        .contact-info-line a:hover {
-            color: var(--secondary-color); /* Gold hover effect */
-        }
-        
-        /* Quick Links color change */
-        footer ul li a {
-            color: white !important; 
-            text-decoration: none;
-            transition: color 0.3s;
-        }
-        footer ul li a:hover {
-            color: var(--secondary-color) !important; /* Gold hover effect */
-        }
-        
-        /* Service card link color change for consistency */
-        .service-card a {
-            color: var(--tertiary-color) !important; 
-        }
-
-        /* --- New Footer Grid Styling for Responsiveness --- */
-        .footer-grid {
-            display: grid;
-            grid-template-columns: repeat(4, 1fr);
-            gap: 30px;
-        }
-
-        @media (max-width: 992px) {
-            .footer-grid {
-                grid-template-columns: repeat(2, 1fr);
-            }
-            .footer-grid > div:first-child {
-                grid-column: span 2; /* Company Info spans full width on tablet */
-            }
-        }
-        
-        @media (max-width: 576px) {
-            .footer-grid {
-                grid-template-columns: 1fr; /* Stacked columns on mobile */
-            }
-            .footer-grid > div {
-                grid-column: span 1;
-            }
-        }
-    </style>
-</head>
-<body>
-
-    <header>
-        <div class="container">
-            <div style="display: flex; justify-content: space-between; align-items: center;">
-                <a href="/" style="font-size: 1.5em; color: white; text-decoration: none; font-weight: 900; display: flex; align-items: center;">
-                    <img src="Logo without background.png" alt="Global Financials Logo" class="logo-header"> 
-                    Global Financials
-                </a>
-                <nav>
-                    <a href="/services.html">Services</a>
-                    <a href="/case-studies.html">Success Stories</a>
-                    <a href="/about.html">About Us</a>
-                    <a href="/contact.html" class="cta-button-secondary" style="border-color: white; color: white;">Book Strategy Session</a>
-                </nav>
+    <link rel="shortcut icon" href="./public/Vector.svg" type="image/x-icon" />
+  </head>
+  <body>
+    <nav class="bg-white shadow-lg fixed top-0 left-0 right-0 z-50">
+      <div class="justify-center">
+        <div
+          class="flex max-w-7xl mx-auto px-2 justify-between items-center h-16"
+        >
+          <div class="flex items-center justify-center p-4 gap-3">
+            <img class="size-10" src="./public/logo2.svg" alt="" />
+            <div>
+              <h1 class="text-xl font-semibold">Global Financials</h1>
+              <h6 class="text-gray-400 text-sm">
+                Financial Excellence Worldwide
+              </h6>
             </div>
-        </div>
-    </header>
+          </div>
+          <!-- Desktop Navigation -->
+          <div class="hidden md:flex space-x-8">
+            <a
+              href="#"
+              class="nav-link p-1 rounded-sm text-blue-700 transition-colors"
+              >Home</a
+            >
+            <a
+              href="./services.html"
+              class="nav-link p-1 rounded-sm hover:text-blue-700 transition-colors"
+              >Services</a
+            >
+            <a
+              href="./projects.html"
+              class="nav-link p-1 rounded-sm hover:text-blue-700 transition-colors"
+              >Projects</a
+            >
+            <a
+              href="./articles.html"
+              class="nav-link p-1 rounded-sm hover:text-blue-700 transition-colors"
+              >Articles</a
+            >
+            <a
+              href="./contact.html"
+              class="nav-link p-1 rounded-sm hover:text-blue-700 transition-colors"
+              >Contact</a
+            >
+          </div>
 
-    <section class="hero">
-        <div class="container">
-            <h1 data-aos="fade-down" data-aos-duration="800">Strategic Financial Clarity for Global Businesses.</h1>
-            <p data-aos="fade-up" data-aos-delay="200" data-aos-duration="800">Comprehensive financial solutions for businesses across Australia, United States, Canada, and the United Kingdom. From bookkeeping to strategic consulting, we deliver results that drive growth.</p>
-            <div data-aos="fade-up" data-aos-delay="400" data-aos-duration="800">
-                <a href="/contact.html" class="cta-button-primary">Start Your Growth Strategy Session</a>
-                <a href="/case-studies.html" class="cta-button-secondary">View Our Case Studies</a>
+          <!-- Mobile menu button -->
+          <div class="md:hidden">
+            <button
+              id="mobile-menu-btn"
+              class="text-black p-2 hover:text-gray-500 focus:outline-none flex justify-between items-center"
+            >
+              <i class="fas fa-bars text-xl"></i>
+            </button>
+          </div>
+        </div>
+
+        <!-- Mobile Navigation -->
+        <div id="mobile-menu" class="md:hidden hidden">
+          <div class="m-4 bg-gray-100 rounded-lg">
+            <a
+              href="#"
+              class="mobile-nav-link block px-3 py-2 text-white font-bold bg-blue-600 rounded-lg"
+              >Home</a
+            >
+            <a
+              href="./services.html"
+              class="mobile-nav-link block px-3 py-2 text-black"
+              >Services</a
+            >
+            <a
+              href="./projects.html"
+              class="mobile-nav-link block px-3 py-2 text-black"
+              >Projects</a
+            >
+            <a
+              href="./articles.html"
+              class="mobile-nav-link block px-3 py-2 text-black"
+              >Articles</a
+            >
+            <a
+              href="./contact.html"
+              class="mobile-nav-link block px-3 py-2 text-black"
+              >Contact</a
+            >
+          </div>
+        </div>
+      </div>
+    </nav>
+
+    <main class="flex-1">
+      <div class="min-h-screen">
+        <section
+          class="bg-gradient-to-br from-blue-50 via-white to-slate-50 py-36"
+        >
+          <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+            <h1 class="text-5xl md:text-6xl font-bold text-slate-800 mb-6">
+              Financial Excellence<span class="text-blue-600 block"
+                >Delivered Globally</span
+              >
+            </h1>
+            <p
+              class="text-xl text-slate-600 mb-8 max-w-3xl mx-auto leading-relaxed"
+            >
+              Comprehensive financial solutions for businesses across Australia,
+              United States, Canada, and the United Kingdom. From bookkeeping to
+              strategic consulting, we deliver results that drive growth.
+            </p>
+            <div class="flex flex-col sm:flex-row gap-4 justify-center">
+              <a
+                class="bg-blue-600 text-white px-8 py-4 rounded-lg text-lg font-semibold hover:bg-blue-700 transition-all duration-200 flex items-center justify-center group"
+                href="./services.html"
+              >
+                Explore Our Services<svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  width="24"
+                  height="24"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="2"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  class="lucide lucide-arrow-right ml-2 h-5 w-5 group-hover:translate-x-1 transition-transform"
+                >
+                  <path d="M5 12h14"></path>
+                  <path d="m12 5 7 7-7 7"></path>
+                </svg>
+              </a>
+
+              <a
+                class="border-2 border-blue-600 text-blue-600 px-8 py-4 rounded-lg text-lg font-semibold hover:bg-blue-600 hover:text-white transition-all duration-200"
+                href="./contact.html"
+              >
+                Get Free Consultation
+              </a>
             </div>
-        </div>
-    </section>
-
-    <section class="stats-section">
-        <div class="container">
-            <div class="stats-grid-wrapper">
-                <div class="stat" data-aos="fade-up" data-aos-delay="200">
-                    <h2>150%</h2>
-                    <p>Average ROI for Consulting Clients</p>
+          </div>
+        </section>
+        <section class="bg-white py-16">
+          <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-2 lg:grid-cols-4 gap-8">
+              <div class="text-center group">
+                <div
+                  class="bg-blue-50 w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-4 group-hover:bg-blue-100 transition-colors"
+                >
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    width="24"
+                    height="24"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    stroke-width="2"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    class="lucide lucide-users h-8 w-8 text-blue-600"
+                  >
+                    <path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"></path>
+                    <circle cx="9" cy="7" r="4"></circle>
+                    <path d="M22 21v-2a4 4 0 0 0-3-3.87"></path>
+                    <path d="M16 3.13a4 4 0 0 1 0 7.75"></path>
+                  </svg>
                 </div>
-                <div class="stat" data-aos="fade-up" data-aos-delay="400">
-                    <h2>50+</h2>
-                    <p>Combined Years of Partner Experience</p>
+                <div class="text-3xl font-bold text-slate-800 mb-2">99%</div>
+                <div class="text-slate-600 font-medium">
+                  Client Satisfaction
                 </div>
-                <div class="stat" data-aos="fade-up" data-aos-delay="600">
-                    <h2>99%</h2>
-                    <p>Client Retention Rate</p>
+              </div>
+              <div class="text-center group">
+                <div
+                  class="bg-blue-50 w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-4 group-hover:bg-blue-100 transition-colors"
+                >
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    width="24"
+                    height="24"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    stroke-width="2"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    class="lucide lucide-globe h-8 w-8 text-blue-600"
+                  >
+                    <circle cx="12" cy="12" r="10"></circle>
+                    <path
+                      d="M12 2a14.5 14.5 0 0 0 0 20 14.5 14.5 0 0 0 0-20"
+                    ></path>
+                    <path d="M2 12h20"></path>
+                  </svg>
                 </div>
+                <div class="text-3xl font-bold text-slate-800 mb-2">4</div>
+                <div class="text-slate-600 font-medium">Countries Served</div>
+              </div>
+              <div class="text-center group">
+                <div
+                  class="bg-blue-50 w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-4 group-hover:bg-blue-100 transition-colors"
+                >
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    width="24"
+                    height="24"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    stroke-width="2"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    class="lucide lucide-award h-8 w-8 text-blue-600"
+                  >
+                    <circle cx="12" cy="8" r="6"></circle>
+                    <path d="M15.477 12.89 17 22l-5-3-5 3 1.523-9.11"></path>
+                  </svg>
+                </div>
+                <div class="text-3xl font-bold text-slate-800 mb-2">50+</div>
+                <div class="text-slate-600 font-medium">Projects Completed</div>
+              </div>
+              <div class="text-center group">
+                <div
+                  class="bg-blue-50 w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-4 group-hover:bg-blue-100 transition-colors"
+                >
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    width="24"
+                    height="24"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    stroke-width="2"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    class="lucide lucide-trending-up h-8 w-8 text-blue-600"
+                  >
+                    <polyline points="22 7 13.5 15.5 8.5 10.5 2 17"></polyline>
+                    <polyline points="16 7 22 7 22 13"></polyline>
+                  </svg>
+                </div>
+                <div class="text-3xl font-bold text-slate-800 mb-2">2+</div>
+                <div class="text-slate-600 font-medium">Years Experience</div>
+              </div>
             </div>
-        </div>
-    </section>
-
-    <section style="background-color: white;">
-        <div class="container" style="text-align: center;">
-            <h2 style="font-size: 2.5em; color: var(--primary-color);" data-aos="fade-down">Is Financial Complexity Slowing Your Global Ambitions?</h2>
-            <p style="max-width: 800px; margin: 20px auto; font-size: 1.1em;" data-aos="fade-up" data-aos-delay="200">Dealing with different tax codes, regulatory standards, and reporting needs across multiple countries can overwhelm even the best businesses. We remove that friction, providing a unified, compliant, and strategic financial foundation.</p>
-            <a href="/services.html" class="cta-button-secondary" style="margin-top: 15px;" data-aos="zoom-in" data-aos-delay="400">Discover Our Solutions</a>
-        </div>
-    </section>
-
-    <section style="background-color: var(--light-bg);">
-        <div class="container">
-            <h2 style="text-align: center; font-size: 2.5em; color: var(--primary-color); margin-bottom: 40px;" data-aos="fade-down">Our Strategic Services</h2>
-            <div class="services-grid">
-                <div class="service-card" data-aos="fade-right">
-                    <h3>Meticulous Global Bookkeeping</h3>
-                    <p>Accurate, compliant financial record-keeping tailored to multi-country regulatory requirements. Never worry about an audit again.</p>
-                    <a href="/services/bookkeeping.html">See Our Process →</a>
-                </div>
-                <div class="service-card" data-aos="fade-down" data-aos-delay="200">
-                    <h3>In-Depth Financial Analysis & Reporting</h3>
-                    <p>Unlock hidden efficiencies and identify clear pathways to profitability with deep-dive strategic reports and actionable insights.</p>
-                    <a href="/services/analysis.html">Explore Our Analytics →</a>
-                </div>
-                <div class="service-card" data-aos="fade-left">
-                    <h3>Custom Strategic Consulting</h3>
-                    <p>High-level advisory on tax optimization, market entry, and financial structuring to accelerate your business growth.</p>
-                    <a href="/services/consulting.html">Schedule Strategy Session →</a>
-                </div>
+          </div>
+        </section>
+        <section class="bg-slate-50 py-20">
+          <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16">
+              <h2 class="text-4xl font-bold text-slate-800 mb-4">
+                Our Core Services
+              </h2>
+              <p class="text-xl text-slate-600 max-w-2xl mx-auto">
+                We provide comprehensive financial solutions tailored to your
+                business needs
+              </p>
             </div>
-        </div>
-    </section>
-
-    <section>
-        <div class="container">
-            <h2 style="text-align: center; font-size: 2.5em; color: var(--primary-color); margin-bottom: 50px;" data-aos="fade-down">🌍 The Global Financials Advantage</h2>
-            <div style="display: flex; gap: 40px;">
-                <div style="flex: 1;">
-                    <img src="placeholder-image-of-team-or-global-map.jpg" alt="Our Expert Team and Global Reach" style="width: 100%; height: auto; border-radius: 8px;" data-aos="zoom-in">
+            <div class="grid md:grid-cols-3 gap-8">
+              <div
+                class="bg-white rounded-xl p-8 shadow-lg hover:shadow-xl transition-all duration-300 group"
+              >
+                <div
+                  class="bg-blue-50 w-16 h-16 rounded-lg flex items-center justify-center mb-6 group-hover:bg-blue-100 transition-colors"
+                >
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    width="24"
+                    height="24"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    stroke-width="2"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    class="lucide lucide-check-circle h-8 w-8 text-blue-600"
+                  >
+                    <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path>
+                    <path d="m9 11 3 3L22 4"></path>
+                  </svg>
                 </div>
-                <div style="flex: 1;">
-                    <div class="advantage-item" data-aos="slide-left">
-                        <h4 style="margin-top: 0; color: var(--primary-color);">The Four-Nation Specialist</h4>
-                        <p>Unlike general firms, we specialize in US, UK, Canadian, and Australian finance, providing seamless cross-border strategy and compliance assurance.</p>
-                    </div>
-                    <div class="advantage-item" data-aos="slide-left" data-aos-delay="200">
-                        <h4 style="margin-top: 0; color: var(--primary-color);">Strategy-First Approach</h4>
-                        <p>We don't just report the numbers; we provide the actionable advice and proactive forecasting needed to positively change them.</p>
-                    </div>
-                    <div class="advantage-item" data-aos="slide-left" data-aos-delay="400">
-                        <h4 style="margin-top: 0; color: var(--primary-color);">Dedicated Partner Support</h4>
-                        <p>You get direct access to seasoned financial experts—your dedicated strategic partner—for rapid, informed decision-making.</p>
-                    </div>
+                <h3 class="text-xl font-semibold text-slate-800 mb-4">
+                  Bookkeeping Services
+                </h3>
+                <p class="text-slate-600 mb-6">
+                  Comprehensive bookkeeping solutions to keep your financial
+                  records accurate and up-to-date.
+                </p>
+                <button
+                  class="text-blue-600 font-semibold hover:text-blue-700 flex items-center group"
+                >
+                  Learn More<svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    width="24"
+                    height="24"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    stroke-width="2"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    class="lucide lucide-arrow-right ml-1 h-4 w-4 group-hover:translate-x-1 transition-transform"
+                  >
+                    <path d="M5 12h14"></path>
+                    <path d="m12 5 7 7-7 7"></path>
+                  </svg>
+                </button>
+              </div>
+              <div
+                class="bg-white rounded-xl p-8 shadow-lg hover:shadow-xl transition-all duration-300 group"
+              >
+                <div
+                  class="bg-blue-50 w-16 h-16 rounded-lg flex items-center justify-center mb-6 group-hover:bg-blue-100 transition-colors"
+                >
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    width="24"
+                    height="24"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    stroke-width="2"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    class="lucide lucide-trending-up h-8 w-8 text-blue-600"
+                  >
+                    <polyline points="22 7 13.5 15.5 8.5 10.5 2 17"></polyline>
+                    <polyline points="16 7 22 7 22 13"></polyline>
+                  </svg>
                 </div>
+                <h3 class="text-xl font-semibold text-slate-800 mb-4">
+                  Financial Analysis
+                </h3>
+                <p class="text-slate-600 mb-6">
+                  In-depth financial analysis to help you make informed business
+                  decisions.
+                </p>
+                <button
+                  class="text-blue-600 font-semibold hover:text-blue-700 flex items-center group"
+                >
+                  Learn More<svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    width="24"
+                    height="24"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    stroke-width="2"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    class="lucide lucide-arrow-right ml-1 h-4 w-4 group-hover:translate-x-1 transition-transform"
+                  >
+                    <path d="M5 12h14"></path>
+                    <path d="m12 5 7 7-7 7"></path>
+                  </svg>
+                </button>
+              </div>
+              <div
+                class="bg-white rounded-xl p-8 shadow-lg hover:shadow-xl transition-all duration-300 group"
+              >
+                <div
+                  class="bg-blue-50 w-16 h-16 rounded-lg flex items-center justify-center mb-6 group-hover:bg-blue-100 transition-colors"
+                >
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    width="24"
+                    height="24"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    stroke-width="2"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    class="lucide lucide-users h-8 w-8 text-blue-600"
+                  >
+                    <path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"></path>
+                    <circle cx="9" cy="7" r="4"></circle>
+                    <path d="M22 21v-2a4 4 0 0 0-3-3.87"></path>
+                    <path d="M16 3.13a4 4 0 0 1 0 7.75"></path>
+                  </svg>
+                </div>
+                <h3 class="text-xl font-semibold text-slate-800 mb-4">
+                  Custom Consulting
+                </h3>
+                <p class="text-slate-600 mb-6">
+                  Tailored financial consulting services designed specifically
+                  for your business needs.
+                </p>
+                <button
+                  class="text-blue-600 font-semibold hover:text-blue-700 flex items-center group"
+                >
+                  Learn More<svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    width="24"
+                    height="24"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    stroke-width="2"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    class="lucide lucide-arrow-right ml-1 h-4 w-4 group-hover:translate-x-1 transition-transform"
+                  >
+                    <path d="M5 12h14"></path>
+                    <path d="m12 5 7 7-7 7"></path>
+                  </svg>
+                </button>
+              </div>
             </div>
-        </div>
-    </section>
-
-    <section style="background-color: var(--light-bg);">
-        <div class="container">
-            <h2 style="text-align: center; font-size: 2.5em; color: var(--primary-color); margin-bottom: 40px;" data-aos="fade-down">Trusted by Global Innovators</h2>
-            <div class="testimonial-card" data-aos="flip-up">
-                <blockquote style="font-size: 1.3em; line-height: 1.6; border-left: 3px solid var(--secondary-color); padding-left: 20px;">
-                    "Global Financials not only streamlined our Canadian and US payroll, but their strategic advice saved us **$50,000 in unforeseen tax liability** during our merger. The result was immediate and measurable."
-                </blockquote>
-                <p style="text-align: right; font-weight: bold; margin-top: 20px;">– Sarah K., CEO of Tech Innovations Ltd, Software Sector (Australia)</p>
+            <div class="text-center mt-12">
+              <button
+                class="bg-blue-600 text-white px-8 py-3 rounded-lg font-semibold hover:bg-blue-700 transition-colors"
+              >
+                View All Services
+              </button>
             </div>
-            <p style="text-align: center; margin-top: 30px;"><a href="/case-studies.html" style="color: var(--primary-color); font-weight: bold;">Read More Success Stories →</a></p>
-        </div>
-    </section>
-
-    <section class="hero" style="background-color: var(--primary-color); color: white; padding: 60px 0;">
-        <div class="container" data-aos="zoom-in">
-            <h2 style="font-size: 2.5em; margin-bottom: 15px; color: white;">Ready to Consolidate and Conquer Your Global Finances?</h2>
-            <p style="font-size: 1.2em; margin-bottom: 40px;">Stop navigating complex compliance and start driving real growth. Book your confidential, complimentary strategy session today.</p>
-            <a href="/contact.html" class="cta-button-primary" style="background-color: var(--secondary-color); color: var(--primary-color);">Book My Confidential Strategy Session</a>
-        </div>
-    </section>
-
-    <footer>
-        <div class="container">
-            <div class="footer-grid">
-                
-                <div style="grid-column: span 1;">
-                    <h4 style="margin-top: 0; color: white;">Global Financials</h4>
-                    <p style="font-size: 0.9em; color: #ccc;">Your trusted partner for financial success across North America, Europe, and Oceania.</p>
-                </div>
-
-                <div style="grid-column: span 1;">
-                    <h4 style="margin-top: 0; color: white;">Quick Links</h4>
-                    <ul style="list-style: none; padding: 0; line-height: 2;">
-                        <li><a href="/services.html">Services</a></li>
-                        <li><a href="/case-studies.html">Success Stories</a></li>
-                        <li><a href="/about.html">Our Team</a></li>
-                        <li><a href="/contact.html">Contact</a></li>
-                    </ul>
-                </div>
-
-                <div style="grid-column: span 1;">
-                    <h4 style="margin-top: 0; color: white;">Get In Touch</h4>
-                    
-                    <div class="contact-info-line">
-                        <i class="fab fa-whatsapp"></i> 
-                        <a href="https://wa.me/923216647827" target="_blank">+92 321 6647827 (WhatsApp)</a>
-                    </div>
-                    <div class="contact-info-line">
-                        <i class="fas fa-envelope"></i> 
-                        <a href="mailto:globalfinancials.org@gmail.com">globalfinancials.org@gmail.com</a>
-                    </div>
-                </div>
-
-                <div style="grid-column: span 1;">
-                    <h4 style="margin-top: 0; color: white;">Connect With Us</h4>
-                    <div class="social-icons">
-                        <a href="https://www.linkedin.com/company/globalfinancials/" target="_blank" aria-label="LinkedIn"><i class="fab fa-linkedin"></i></a>
-                        <a href="https://www.instagram.com/global_financials" target="_blank" aria-label="Instagram"><i class="fab fa-instagram"></i></a> 
-                        <a href="https://www.facebook.com/share/1C18jmnTSM/" target="_blank" aria-label="Facebook"><i class="fab fa-facebook-square"></i></a>
-                    </div>
-                </div>
+          </div>
+        </section>
+        <section class="bg-white py-20">
+          <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16">
+              <h2 class="text-4xl font-bold text-slate-800 mb-4">
+                What Our Clients Say
+              </h2>
+              <p class="text-xl text-slate-600">
+                Trusted by businesses worldwide
+              </p>
             </div>
-
-            <hr style="border-color: #555; margin: 20px 0;">
-            
-            <div class="footer-links" style="text-align: center;">
-                <p style="margin-bottom: 10px;">© 2025 Global Financials. All rights reserved.</p>
-                <a href="/privacy.html">Privacy Policy</a>
-                <a href="/terms.html">Terms of Service</a>
-                <a href="/cookie.html">Cookie Policy</a>
+            <div class="grid md:grid-cols-3 gap-8">
+              <div class="bg-slate-50 rounded-xl p-8">
+                <div class="flex items-center mb-4">
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    width="24"
+                    height="24"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    stroke-width="2"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    class="lucide lucide-star h-5 w-5 text-yellow-400 fill-current"
+                  >
+                    <polygon
+                      points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"
+                    ></polygon></svg
+                  ><svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    width="24"
+                    height="24"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    stroke-width="2"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    class="lucide lucide-star h-5 w-5 text-yellow-400 fill-current"
+                  >
+                    <polygon
+                      points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"
+                    ></polygon></svg
+                  ><svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    width="24"
+                    height="24"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    stroke-width="2"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    class="lucide lucide-star h-5 w-5 text-yellow-400 fill-current"
+                  >
+                    <polygon
+                      points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"
+                    ></polygon></svg
+                  ><svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    width="24"
+                    height="24"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    stroke-width="2"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    class="lucide lucide-star h-5 w-5 text-yellow-400 fill-current"
+                  >
+                    <polygon
+                      points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"
+                    ></polygon></svg
+                  ><svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    width="24"
+                    height="24"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    stroke-width="2"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    class="lucide lucide-star h-5 w-5 text-yellow-400 fill-current"
+                  >
+                    <polygon
+                      points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"
+                    ></polygon>
+                  </svg>
+                </div>
+                <p class="text-slate-700 mb-6 italic">
+                  "Global Financials transformed our financial processes. Their
+                  attention to detail and expertise is unmatched."
+                </p>
+                <div>
+                  <div class="font-semibold text-slate-800">Sarah Johnson</div>
+                  <div class="text-blue-600">Tech Innovations Ltd</div>
+                  <div class="text-slate-500 text-sm">Australia</div>
+                </div>
+              </div>
+              <div class="bg-slate-50 rounded-xl p-8">
+                <div class="flex items-center mb-4">
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    width="24"
+                    height="24"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    stroke-width="2"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    class="lucide lucide-star h-5 w-5 text-yellow-400 fill-current"
+                  >
+                    <polygon
+                      points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"
+                    ></polygon></svg
+                  ><svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    width="24"
+                    height="24"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    stroke-width="2"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    class="lucide lucide-star h-5 w-5 text-yellow-400 fill-current"
+                  >
+                    <polygon
+                      points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"
+                    ></polygon></svg
+                  ><svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    width="24"
+                    height="24"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    stroke-width="2"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    class="lucide lucide-star h-5 w-5 text-yellow-400 fill-current"
+                  >
+                    <polygon
+                      points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"
+                    ></polygon></svg
+                  ><svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    width="24"
+                    height="24"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    stroke-width="2"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    class="lucide lucide-star h-5 w-5 text-yellow-400 fill-current"
+                  >
+                    <polygon
+                      points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"
+                    ></polygon></svg
+                  ><svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    width="24"
+                    height="24"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    stroke-width="2"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    class="lucide lucide-star h-5 w-5 text-yellow-400 fill-current"
+                  >
+                    <polygon
+                      points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"
+                    ></polygon>
+                  </svg>
+                </div>
+                <p class="text-slate-700 mb-6 italic">
+                  "Professional, reliable, and incredibly knowledgeable. They
+                  helped us streamline our financial operations significantly."
+                </p>
+                <div>
+                  <div class="font-semibold text-slate-800">Michael Chen</div>
+                  <div class="text-blue-600">Growth Ventures Inc</div>
+                  <div class="text-slate-500 text-sm">Canada</div>
+                </div>
+              </div>
+              <div class="bg-slate-50 rounded-xl p-8">
+                <div class="flex items-center mb-4">
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    width="24"
+                    height="24"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    stroke-width="2"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    class="lucide lucide-star h-5 w-5 text-yellow-400 fill-current"
+                  >
+                    <polygon
+                      points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"
+                    ></polygon></svg
+                  ><svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    width="24"
+                    height="24"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    stroke-width="2"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    class="lucide lucide-star h-5 w-5 text-yellow-400 fill-current"
+                  >
+                    <polygon
+                      points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"
+                    ></polygon></svg
+                  ><svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    width="24"
+                    height="24"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    stroke-width="2"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    class="lucide lucide-star h-5 w-5 text-yellow-400 fill-current"
+                  >
+                    <polygon
+                      points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"
+                    ></polygon></svg
+                  ><svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    width="24"
+                    height="24"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    stroke-width="2"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    class="lucide lucide-star h-5 w-5 text-yellow-400 fill-current"
+                  >
+                    <polygon
+                      points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"
+                    ></polygon></svg
+                  ><svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    width="24"
+                    height="24"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    stroke-width="2"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    class="lucide lucide-star h-5 w-5 text-yellow-400 fill-current"
+                  >
+                    <polygon
+                      points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"
+                    ></polygon>
+                  </svg>
+                </div>
+                <p class="text-slate-700 mb-6 italic">
+                  "The team provided exceptional financial consulting that
+                  directly improved our bottom line. Highly recommended."
+                </p>
+                <div>
+                  <div class="font-semibold text-slate-800">Emma Thompson</div>
+                  <div class="text-blue-600">Strategic Solutions UK</div>
+                  <div class="text-slate-500 text-sm">United Kingdom</div>
+                </div>
+              </div>
             </div>
+          </div>
+        </section>
+        <section class="bg-gradient-to-r from-blue-600 to-blue-700 py-20">
+          <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+            <h2 class="text-4xl font-bold text-white mb-6">
+              Ready to Transform Your Financial Operations?
+            </h2>
+            <p class="text-xl text-blue-100 mb-8">
+              Join hundreds of successful businesses that trust Global
+              Financials with their financial needs.
+            </p>
+            <div class="flex flex-col sm:flex-row gap-4 justify-center">
+              <a
+                href="./contact.html"
+                class="flex items-center justify-center bg-white text-blue-600 px-8 py-4 rounded-lg text-lg font-semibold hover:bg-slate-50 transition-colors"
+              >
+                Start Your Free Consultation
+              </a>
+
+              <a
+                href="#"
+                class="border-2 border-white text-white px-8 py-4 rounded-lg text-lg font-semibold hover:bg-white hover:text-blue-600 transition-colors"
+              >
+                View Our Work
+              </a>
+
+            </div>
+          </div>
+        </section>
+      </div>
+    </main>
+    <footer class="bg-slate-900 text-white">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+          <div class="lg:col-span-2">
+            <div class="flex items-center mb-4">
+              <img class="size-10" src="./public/logo2.svg" alt="" />
+              <div class="ml-3">
+                <h3 class="text-xl font-bold">Global Financials</h3>
+                <p class="text-slate-300">Financial Excellence Worldwide</p>
+              </div>
+            </div>
+            <p class="text-slate-300 mb-6 max-w-md">
+              Providing comprehensive financial solutions to businesses across
+              Australia, United States, Canada, and the United Kingdom. Your
+              trusted partner for financial success.
+            </p>
+            <div class="flex space-x-4">
+              <a
+                href="https://www.linkedin.com/company/globalfinancials/"
+                target="_blank"
+                class="bg-slate-800 p-2 rounded-lg hover:bg-slate-700 transition-colors cursor-pointer"
+              >
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  class="lucide h-5 w-5 text-blue-400"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="2"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                >
+                  <path
+                    d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"
+                  ></path>
+                  <rect x="2" y="9" width="4" height="12"></rect>
+                  <circle cx="4" cy="4" r="2"></circle>
+                </svg>
+              </a>
+              <a
+                href="https://www.instagram.com/global_financials"
+                target="_blank"
+                class="bg-slate-800 p-2 rounded-lg hover:bg-slate-700 transition-colors cursor-pointer"
+              >
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  class="lucide h-5 w-5 text-blue-400"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="2"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                >
+                  <rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect>
+                  <path
+                    d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"
+                  ></path>
+                  <line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line>
+                </svg>
+              </a>
+              <a
+                href="https://www.facebook.com/share/1C18jmnTSM/"
+                target="_blank"
+                class="bg-slate-800 p-2 rounded-lg hover:bg-slate-700 transition-colors cursor-pointer"
+              >
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  class="lucide h-5 w-5 text-blue-400"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="2"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                >
+                  <path
+                    d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"
+                  ></path>
+                </svg>
+              </a>
+            </div>
+          </div>
+          <div>
+            <h3 class="text-lg font-semibold mb-4">Quick Links</h3>
+            <ul class="space-y-2">
+              <li>
+                <button
+                  class="text-slate-300 hover:text-white transition-colors duration-200"
+                >
+                  Home
+                </button>
+              </li>
+              <li>
+                <button
+                  class="text-slate-300 hover:text-white transition-colors duration-200"
+                >
+                  Services
+                </button>
+              </li>
+              <li>
+                <button
+                  class="text-slate-300 hover:text-white transition-colors duration-200"
+                >
+                  Portfolio
+                </button>
+              </li>
+              <li>
+                <button
+                  class="text-slate-300 hover:text-white transition-colors duration-200"
+                >
+                  Contact
+                </button>
+              </li>
+            </ul>
+          </div>
+          <div>
+            <h3 class="text-lg font-semibold mb-4">Contact Info</h3>
+            <ul class="space-y-3">
+              <li class="flex items-center space-x-3">
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  width="24"
+                  height="24"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="2"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  class="lucide lucide-phone h-5 w-5 text-blue-400"
+                >
+                  <path
+                    d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"
+                  ></path></svg
+                ><span class="text-slate-300">+92 321 6647827</span>
+              </li>
+              <li class="flex items-center space-x-3">
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  width="24"
+                  height="24"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="2"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  class="lucide lucide-mail h-5 w-5 text-blue-400"
+                >
+                  <rect width="20" height="16" x="2" y="4" rx="2"></rect>
+                  <path
+                    d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"
+                  ></path></svg
+                ><span class="text-slate-300"
+                  >globalfinancials.org@gmail.com</span
+                >
+              </li>
+            </ul>
+          </div>
         </div>
+        <div class="border-t border-slate-800 pt-8 mt-8">
+          <div class="flex flex-col md:flex-row justify-between items-center">
+            <p class="text-slate-400 text-sm">
+              © 2025 Global Financials. All rights reserved.
+            </p>
+            <div class="flex space-x-6 mt-4 md:mt-0">
+              <a
+                href="#"
+                class="text-slate-400 hover:text-white text-sm transition-colors"
+                >Privacy Policy</a
+              ><a
+                href="#"
+                class="text-slate-400 hover:text-white text-sm transition-colors"
+                >Terms of Service</a
+              ><a
+                href="#"
+                class="text-slate-400 hover:text-white text-sm transition-colors"
+                >Cookie Policy</a
+              >
+            </div>
+          </div>
+        </div>
+      </div>
     </footer>
-
-    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
-    
-    <script>
-        AOS.init({
-            duration: 1000, 
-            once: false,
-        });
-    </script>
-
-</body>
+    <script src="./mobile_menu.js"></script>
+  </body>
 </html>
