@@ -73,6 +73,9 @@
       }
 
       /* NEW ANIMATION 3: Pulse Hover (CSS only for footer icons) */
+      .pulse-hover {
+        transition: all 0.2s ease-in-out;
+      }
       .pulse-hover:hover {
         animation: pulse 1s infinite;
       }
@@ -1055,25 +1058,27 @@
         }
 
         // ----------------------------------------------------------------------
-        // 2. Scroll-Triggered Reveals (Fade-in-Up, Fade-in-Left, Zoom-in, Fade-in-Right)
+        // 2. Scroll-Triggered Reveals (Repeats every time element enters/leaves viewport)
         // ----------------------------------------------------------------------
 
-        // Select all elements tagged for animation
         const revealElements = document.querySelectorAll('.animate-scroll');
 
-        // Define the observer options: triggers when 100px from the bottom of the viewport
+        // Observer options: threshold 0.1 means the callback fires when 10% enters/leaves the viewport.
         const observerOptions = {
           root: null, // viewport
-          rootMargin: '0px 0px -100px 0px',
-          threshold: 0.01,
+          rootMargin: '0px',
+          threshold: 0.1,
         };
 
         const revealObserver = new IntersectionObserver((entries, observer) => {
           entries.forEach((entry) => {
             if (entry.isIntersecting) {
+              // Element enters view: trigger the animation by adding the active class
               entry.target.classList.add('is-active');
-              // Stop observing once animated for performance optimization
-              observer.unobserve(entry.target);
+              // NOTE: We DO NOT unobserve, allowing it to be triggered again.
+            } else {
+              // Element leaves view: reset the element to its initial (hidden/transformed) state
+              entry.target.classList.remove('is-active');
             }
           });
         }, observerOptions);
@@ -1081,7 +1086,7 @@
         revealElements.forEach((el) => revealObserver.observe(el));
 
         // ----------------------------------------------------------------------
-        // 3. Stats/Metrics Number Counter Animation
+        // 3. Stats/Metrics Number Counter Animation (Runs only once)
         // ----------------------------------------------------------------------
 
         const counterObserverOptions = {
@@ -1124,6 +1129,7 @@
         const counterObserver = new IntersectionObserver(
           (entries, observer) => {
             entries.forEach((entry) => {
+              // Ensure the counter runs only once
               if (
                 entry.isIntersecting &&
                 !entry.target.classList.contains('counted')
@@ -1134,7 +1140,7 @@
                 // Start the count up animation
                 animateCounter(entry.target, finalValue);
                 entry.target.classList.add('counted'); // Mark as counted
-                observer.unobserve(entry.target); // Stop observing
+                observer.unobserve(entry.target); // Stop observing after running once
               }
             });
           },
