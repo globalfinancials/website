@@ -50,12 +50,42 @@
       .animate-fade-left {
         transform: translateX(-40px); /* Starts 40px to the left */
       }
-      /* Staggering delays for the testimonials grid (Tailwind utility classes are still required for the rest) */
+      /* Staggering delays for the testimonials grid */
       .animate-fade-left:nth-child(2) {
         transition-delay: 0.15s;
       }
       .animate-fade-left:nth-child(3) {
         transition-delay: 0.3s;
+      }
+
+      /* NEW ANIMATION 1: Zoom-In (For Hero Section Content) */
+      .animate-zoom-in {
+        transform: scale(0.95); /* Starts 5% smaller */
+      }
+
+      /* NEW ANIMATION 2: Fade-in-Right (For Buttons/Secondary Content) */
+      .animate-fade-right {
+        transform: translateX(40px); /* Starts 40px to the right */
+      }
+      /* Staggering delays for Hero CTA buttons (nth-child in a flex container) */
+      .flex > .animate-fade-right:nth-child(2) {
+        transition-delay: 0.2s; /* Delay the second button */
+      }
+
+      /* NEW ANIMATION 3: Pulse Hover (CSS only for footer icons) */
+      .pulse-hover:hover {
+        animation: pulse 1s infinite;
+      }
+      @keyframes pulse {
+        0%,
+        100% {
+          transform: scale(1);
+          box-shadow: 0 0 0 0 rgba(59, 130, 246, 0.7); /* blue-500 equivalent */
+        }
+        50% {
+          transform: scale(1.05);
+          box-shadow: 0 0 0 8px rgba(59, 130, 246, 0);
+        }
       }
     </style>
   </head>
@@ -150,21 +180,24 @@
           class="bg-gradient-to-br from-blue-50 via-white to-slate-50 py-36"
         >
           <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-            <h1 class="text-5xl md:text-6xl font-bold text-slate-800 mb-6">
-              Financial Excellence<span class="text-blue-600 block"
-                >Delivered Globally</span
+            <div class="animate-scroll animate-zoom-in">
+              <h1 class="text-5xl md:text-6xl font-bold text-slate-800 mb-6">
+                Financial Excellence<span class="text-blue-600 block"
+                  >Delivered Globally</span
+                >
+              </h1>
+              <p
+                class="text-xl text-slate-600 mb-8 max-w-3xl mx-auto leading-relaxed"
               >
-            </h1>
-            <p
-              class="text-xl text-slate-600 mb-8 max-w-3xl mx-auto leading-relaxed"
-            >
-              Comprehensive financial solutions for businesses across Australia,
-              United States, Canada, and the United Kingdom. From bookkeeping to
-              strategic consulting, we deliver results that drive growth.
-            </p>
+                Comprehensive financial solutions for businesses across
+                Australia, United States, Canada, and the United Kingdom. From
+                bookkeeping to strategic consulting, we deliver results that
+                drive growth.
+              </p>
+            </div>
             <div class="flex flex-col sm:flex-row gap-4 justify-center">
               <a
-                class="bg-blue-600 text-white px-8 py-4 rounded-lg text-lg font-semibold hover:bg-blue-700 transition-all duration-200 flex items-center justify-center group"
+                class="bg-blue-600 text-white px-8 py-4 rounded-lg text-lg font-semibold hover:bg-blue-700 transition-all duration-200 flex items-center justify-center group animate-scroll animate-fade-right"
                 href="./services.html"
               >
                 Explore Our Services<svg
@@ -185,7 +218,7 @@
               </a>
 
               <a
-                class="border-2 border-blue-600 text-blue-600 px-8 py-4 rounded-lg text-lg font-semibold hover:bg-blue-600 hover:text-white transition-all duration-200"
+                class="border-2 border-blue-600 text-blue-600 px-8 py-4 rounded-lg text-lg font-semibold hover:bg-blue-600 hover:text-white transition-all duration-200 animate-scroll animate-fade-right"
                 href="./contact.html"
               >
                 Get Free Consultation
@@ -840,7 +873,7 @@
               <a
                 href="https://www.linkedin.com/company/globalfinancials/"
                 target="_blank"
-                class="bg-slate-800 p-2 rounded-lg hover:bg-slate-700 transition-colors cursor-pointer"
+                class="bg-slate-800 p-2 rounded-lg hover:bg-slate-700 transition-colors cursor-pointer pulse-hover"
               >
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
@@ -862,7 +895,7 @@
               <a
                 href="https://www.instagram.com/global_financials"
                 target="_blank"
-                class="bg-slate-800 p-2 rounded-lg hover:bg-slate-700 transition-colors cursor-pointer"
+                class="bg-slate-800 p-2 rounded-lg hover:bg-slate-700 transition-colors cursor-pointer pulse-hover"
               >
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
@@ -884,7 +917,7 @@
               <a
                 href="https://www.facebook.com/share/1C18jmnTSM/"
                 target="_blank"
-                class="bg-slate-800 p-2 rounded-lg hover:bg-slate-700 transition-colors cursor-pointer"
+                class="bg-slate-800 p-2 rounded-lg hover:bg-slate-700 transition-colors cursor-pointer pulse-hover"
               >
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
@@ -1022,7 +1055,7 @@
         }
 
         // ----------------------------------------------------------------------
-        // 2. Scroll-Triggered Reveals (Fade-in-Up, Fade-in-Left)
+        // 2. Scroll-Triggered Reveals (Fade-in-Up, Fade-in-Left, Zoom-in, Fade-in-Right)
         // ----------------------------------------------------------------------
 
         // Select all elements tagged for animation
