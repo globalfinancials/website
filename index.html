@@ -15,6 +15,49 @@
     />
 
     <link rel="shortcut icon" href="./public/Vector.svg" type="image/x-icon" />
+
+    <style>
+      /* ====================================================================== */
+      /* 1. SCROLL-TRIGGERED REVEAL BASE STYLES */
+      /* ====================================================================== */
+
+      /* Base class for all scroll-revealed elements: initially transparent */
+      .animate-scroll {
+        opacity: 0;
+        /* GPU-accelerated transition on opacity and transform for smoothness */
+        transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+        /* Optimization hint for the browser */
+        will-change: opacity, transform;
+      }
+
+      /* State when the element is intersecting (visible) */
+      .animate-scroll.is-active {
+        opacity: 1;
+        /* Reset transform to show the element at its natural position */
+        transform: translateY(0) translateX(0) scale(1) !important;
+      }
+
+      /* ====================================================================== */
+      /* 2. SPECIFIC ANIMATION EFFECTS */
+      /* ====================================================================== */
+
+      /* Fade-in-Up (For Core Services Cards and Section Headers) */
+      .animate-fade-up {
+        transform: translateY(30px); /* Starts 30px below its final position */
+      }
+
+      /* Fade-in-Left (For Testimonial Cards) - Provides a subtle slide effect */
+      .animate-fade-left {
+        transform: translateX(-40px); /* Starts 40px to the left */
+      }
+      /* Staggering delays for the testimonials grid (Tailwind utility classes are still required for the rest) */
+      .animate-fade-left:nth-child(2) {
+        transition-delay: 0.15s;
+      }
+      .animate-fade-left:nth-child(3) {
+        transition-delay: 0.3s;
+      }
+    </style>
   </head>
   <body>
     <nav class="bg-white shadow-lg fixed top-0 left-0 right-0 z-50">
@@ -150,7 +193,7 @@
             </div>
           </div>
         </section>
-        
+
         <section class="bg-white py-16">
           <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="grid grid-cols-2 lg:grid-cols-4 gap-8">
@@ -176,7 +219,13 @@
                     <path d="M16 3.13a4 4 0 0 1 0 7.75"></path>
                   </svg>
                 </div>
-                <div class="text-3xl font-bold text-slate-800 mb-2 animate-count" data-target="99" data-suffix="%">99%</div>
+                <div
+                  class="text-3xl font-bold text-slate-800 mb-2 animate-count"
+                  data-target="99"
+                  data-suffix="%"
+                >
+                  0%
+                </div>
                 <div class="text-slate-600 font-medium">
                   Client Satisfaction
                 </div>
@@ -204,7 +253,13 @@
                     <path d="M2 12h20"></path>
                   </svg>
                 </div>
-                <div class="text-3xl font-bold text-slate-800 mb-2 animate-count" data-target="4" data-suffix="">4</div>
+                <div
+                  class="text-3xl font-bold text-slate-800 mb-2 animate-count"
+                  data-target="4"
+                  data-suffix=""
+                >
+                  0
+                </div>
                 <div class="text-slate-600 font-medium">Countries Served</div>
               </div>
               <div class="text-center group">
@@ -227,7 +282,13 @@
                     <path d="M15.477 12.89 17 22l-5-3-5 3 1.523-9.11"></path>
                   </svg>
                 </div>
-                <div class="text-3xl font-bold text-slate-800 mb-2 animate-count" data-target="50" data-suffix="+">50+</div>
+                <div
+                  class="text-3xl font-bold text-slate-800 mb-2 animate-count"
+                  data-target="50"
+                  data-suffix="+"
+                >
+                  0+
+                </div>
                 <div class="text-slate-600 font-medium">Projects Completed</div>
               </div>
               <div class="text-center group">
@@ -250,20 +311,30 @@
                     <polyline points="16 7 22 7 22 13"></polyline>
                   </svg>
                 </div>
-                <div class="text-3xl font-bold text-slate-800 mb-2 animate-count" data-target="2" data-suffix="+">2+</div>
+                <div
+                  class="text-3xl font-bold text-slate-800 mb-2 animate-count"
+                  data-target="2"
+                  data-suffix="+"
+                >
+                  0+
+                </div>
                 <div class="text-slate-600 font-medium">Years Experience</div>
               </div>
             </div>
           </div>
         </section>
-        
+
         <section class="bg-slate-50 py-20">
           <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="text-center mb-16">
-              <h2 class="text-4xl font-bold text-slate-800 mb-4 animate-scroll animate-fade-up">
+              <h2
+                class="text-4xl font-bold text-slate-800 mb-4 animate-scroll animate-fade-up"
+              >
                 Our Core Services
               </h2>
-              <p class="text-xl text-slate-600 max-w-2xl mx-auto animate-scroll animate-fade-up">
+              <p
+                class="text-xl text-slate-600 max-w-2xl mx-auto animate-scroll animate-fade-up"
+              >
                 We provide comprehensive financial solutions tailored to your
                 business needs
               </p>
@@ -430,11 +501,13 @@
             </div>
           </div>
         </section>
-        
+
         <section class="bg-white py-20">
           <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="text-center mb-16">
-              <h2 class="text-4xl font-bold text-slate-800 mb-4 animate-scroll animate-fade-up">
+              <h2
+                class="text-4xl font-bold text-slate-800 mb-4 animate-scroll animate-fade-up"
+              >
                 What Our Clients Say
               </h2>
               <p class="text-xl text-slate-600 animate-scroll animate-fade-up">
@@ -442,7 +515,9 @@
               </p>
             </div>
             <div class="grid md:grid-cols-3 gap-8">
-              <div class="bg-slate-50 rounded-xl p-8 animate-scroll animate-fade-left">
+              <div
+                class="bg-slate-50 rounded-xl p-8 animate-scroll animate-fade-left"
+              >
                 <div class="flex items-center mb-4">
                   <svg
                     xmlns="http://www.w3.org/2000/svg"
@@ -531,7 +606,9 @@
                   <div class="text-slate-500 text-sm">Australia</div>
                 </div>
               </div>
-              <div class="bg-slate-50 rounded-xl p-8 animate-scroll animate-fade-left">
+              <div
+                class="bg-slate-50 rounded-xl p-8 animate-scroll animate-fade-left"
+              >
                 <div class="flex items-center mb-4">
                   <svg
                     xmlns="http://www.w3.org/2000/svg"
@@ -620,7 +697,9 @@
                   <div class="text-slate-500 text-sm">Canada</div>
                 </div>
               </div>
-              <div class="bg-slate-50 rounded-xl p-8 animate-scroll animate-fade-left">
+              <div
+                class="bg-slate-50 rounded-xl p-8 animate-scroll animate-fade-left"
+              >
                 <div class="flex items-center mb-4">
                   <svg
                     xmlns="http://www.w3.org/2000/svg"
@@ -712,7 +791,7 @@
             </div>
           </div>
         </section>
-        
+
         <section class="bg-gradient-to-r from-blue-600 to-blue-700 py-20">
           <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
             <h2 class="text-4xl font-bold text-white mb-6">
@@ -795,7 +874,7 @@
                   stroke-linecap="round"
                   stroke-linejoin="round"
                 >
-                  <rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect>
+                  <rect width="20" height="20" x="2" y="2" rx="5" ry="5"></rect>
                   <path
                     d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"
                   ></path>
@@ -926,7 +1005,111 @@
         </div>
       </div>
     </footer>
-    <script src="./mobile_menu.js"></script>
-    <script src="./scroll_animations.js"></script>
+
+    <script>
+      document.addEventListener('DOMContentLoaded', () => {
+        // ----------------------------------------------------------------------
+        // 1. Mobile Menu Toggle (Existing functionality)
+        // ----------------------------------------------------------------------
+
+        const mobileMenuBtn = document.getElementById('mobile-menu-btn');
+        const mobileMenu = document.getElementById('mobile-menu');
+
+        if (mobileMenuBtn) {
+          mobileMenuBtn.addEventListener('click', () => {
+            mobileMenu.classList.toggle('hidden');
+          });
+        }
+
+        // ----------------------------------------------------------------------
+        // 2. Scroll-Triggered Reveals (Fade-in-Up, Fade-in-Left)
+        // ----------------------------------------------------------------------
+
+        // Select all elements tagged for animation
+        const revealElements = document.querySelectorAll('.animate-scroll');
+
+        // Define the observer options: triggers when 100px from the bottom of the viewport
+        const observerOptions = {
+          root: null, // viewport
+          rootMargin: '0px 0px -100px 0px',
+          threshold: 0.01,
+        };
+
+        const revealObserver = new IntersectionObserver((entries, observer) => {
+          entries.forEach((entry) => {
+            if (entry.isIntersecting) {
+              entry.target.classList.add('is-active');
+              // Stop observing once animated for performance optimization
+              observer.unobserve(entry.target);
+            }
+          });
+        }, observerOptions);
+
+        revealElements.forEach((el) => revealObserver.observe(el));
+
+        // ----------------------------------------------------------------------
+        // 3. Stats/Metrics Number Counter Animation
+        // ----------------------------------------------------------------------
+
+        const counterObserverOptions = {
+          root: null,
+          rootMargin: '0px',
+          threshold: 0.5, // Trigger when 50% of the counter is visible
+        };
+
+        /**
+         * Animates the counter from 0 to the final value using requestAnimationFrame.
+         */
+        function animateCounter(element, finalValue) {
+          let startTimestamp = null;
+          const duration = 1500; // 1.5 seconds animation
+
+          const step = (timestamp) => {
+            if (!startTimestamp) startTimestamp = timestamp;
+            const progress = Math.min(
+              (timestamp - startTimestamp) / duration,
+              1
+            );
+
+            // Calculate the current value
+            const currentValue = Math.floor(progress * finalValue);
+
+            // Update the element's text content
+            element.textContent = currentValue + element.dataset.suffix;
+
+            // Continue the animation if not complete
+            if (progress < 1) {
+              window.requestAnimationFrame(step);
+            }
+          };
+
+          window.requestAnimationFrame(step);
+        }
+
+        const countElements = document.querySelectorAll('.animate-count');
+
+        const counterObserver = new IntersectionObserver(
+          (entries, observer) => {
+            entries.forEach((entry) => {
+              if (
+                entry.isIntersecting &&
+                !entry.target.classList.contains('counted')
+              ) {
+                const finalValue = parseInt(entry.target.dataset.target);
+                const suffix = entry.target.dataset.suffix || '';
+
+                // Start the count up animation
+                animateCounter(entry.target, finalValue);
+                entry.target.classList.add('counted'); // Mark as counted
+                observer.unobserve(entry.target); // Stop observing
+              }
+            });
+          },
+          counterObserverOptions
+        );
+
+        countElements.forEach((el) => counterObserver.observe(el));
+      });
+    </script>
   </body>
 </html>
