@@ -17,7 +17,7 @@
     <link rel="shortcut icon" href="./public/Vector.svg" type="image/x-icon" />
 
     <style>
-        /* Initial state for elements with data-animate attribute */
+        /* Initial state for elements with data-animate attribute (Scroll Reveal) */
         [data-animate] {
             opacity: 0;
             transform: translateY(20px); /* Start slightly below final position */
@@ -28,6 +28,16 @@
         [data-animate].animate-visible {
             opacity: 1;
             transform: translateY(0);
+        }
+
+        /* Zoom and Glow Effect for Buttons */
+        .glow-button {
+            transition: all 0.3s ease-in-out;
+        }
+        .glow-button:hover {
+            transform: scale(1.05); /* Zoom effect */
+            box-shadow: 0 0 10px rgba(59, 130, 246, 0.8), /* Inner glow */
+                        0 0 20px rgba(59, 130, 246, 0.5); /* Outer glow */
         }
     </style>
 </head>
@@ -109,7 +119,7 @@
                                 Download the organized and censored final ledger to see the quality of data transformation.
                             </p>
                             <a href="./public/Client Data 2023 sensored.xlsx" download
-                                class="inline-flex items-center bg-blue-600 text-white px-6 py-3 rounded-lg font-semibold hover:bg-blue-700 transition-colors shadow-md">
+                                class="inline-flex items-center bg-blue-600 text-white px-6 py-3 rounded-lg font-semibold hover:bg-blue-700 shadow-md glow-button">
                                 <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 mr-2" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 17V3"/><path d="m6 11 6 6 6-6"/><path d="M19 21H5"/></svg>
                                 Download Excel File
                             </a>
@@ -211,7 +221,7 @@
                   <a
                     href="https://www.linkedin.com/company/globalfinancials/"
                     target="_blank"
-                    class="bg-slate-800 p-2 rounded-lg hover:bg-slate-700 transition-colors cursor-pointer"
+                    class="bg-slate-800 p-2 rounded-lg hover:bg-slate-700 transition-colors cursor-pointer glow-button"
                   >
                     <svg
                       xmlns="http://www.w3.org/2000/svg"
@@ -233,7 +243,7 @@
                   <a
                     href="https://www.instagram.com/global_financials"
                     target="_blank"
-                    class="bg-slate-800 p-2 rounded-lg hover:bg-slate-700 transition-colors cursor-pointer"
+                    class="bg-slate-800 p-2 rounded-lg hover:bg-slate-700 transition-colors cursor-pointer glow-button"
                   >
                     <svg
                       xmlns="http://www.w3.org/2000/svg"
@@ -255,7 +265,7 @@
                   <a
                     href="https://www.facebook.com/share/1C18jmnTSM/"
                     target="_blank"
-                    class="bg-slate-800 p-2 rounded-lg hover:bg-slate-700 transition-colors cursor-pointer"
+                    class="bg-slate-800 p-2 rounded-lg hover:bg-slate-700 transition-colors cursor-pointer glow-button"
                   >
                     <svg
                       xmlns="http://www.w3.org/2000/svg"
@@ -311,13 +321,13 @@
                 <h3 class="text-lg font-semibold mb-4">Contact Info</h3>
                 <ul class="space-y-3">
                   <li class="flex items-center space-x-3">
-                    <a href="https://wa.me/923216647827" target="_blank" class="flex items-center space-x-3">
+                    <a href="https://wa.me/923216647827" target="_blank" class="flex items-center space-x-3 glow-button">
                       <i class="fab fa-whatsapp h-5 w-5 text-blue-400 text-xl"></i>
                       <span class="text-slate-300 hover:text-white transition-colors">+92 321 6647827</span>
                     </a>
                   </li>
                   <li class="flex items-center space-x-3">
-                    <a href="mailto:globalfinancials.org@gmail.com" target="_blank" class="flex items-center space-x-3">
+                    <a href="mailto:globalfinancials.org@gmail.com" target="_blank" class="flex items-center space-x-3 glow-button">
                         <svg
                           xmlns="http://www.w3.org/2000/svg"
                           width="24"
@@ -375,27 +385,21 @@
             menu.classList.toggle('hidden');
         });
         
-        // --- Scroll Reveal Animation Logic ---
+        // --- Scroll Reveal Animation Logic (Re-triggering) ---
         const observer = new IntersectionObserver((entries) => {
             entries.forEach(entry => {
                 if (entry.isIntersecting) {
-                    // Element is visible, add the visible class
+                    // Element is visible, add the visible class to trigger animation
                     entry.target.classList.add('animate-visible');
-                    // Stop observing once it's revealed (optional)
-                    observer.unobserve(entry.target);
-                }
-                /* // Uncomment this 'else' block if you want the animation to reset 
-                // every time the user scrolls the element out of view.
-                else {
+                } else {
+                    // Element is scrolled out of view, remove the visible class 
+                    // so it can animate again when scrolled back into view
                     entry.target.classList.remove('animate-visible');
                 }
-                */
             });
         }, {
-            // Options: rootMargin is used to start the animation slightly before 
-            // the element is perfectly in the viewport.
-            rootMargin: '0px',
-            threshold: 0.1 // 10% of the element must be visible
+            // Options: Set a threshold to 0.1 (10% visibility)
+            threshold: 0.1 
         });
 
         // Find all elements with the data-animate attribute and start observing them
