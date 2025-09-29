@@ -15,6 +15,32 @@
     />
 
     <link rel="shortcut icon" href="./public/Vector.svg" type="image/x-icon" />
+
+    <style>
+      /* Initial state for elements with data-animate attribute (Scroll Reveal) */
+      [data-animate] {
+        opacity: 0;
+        transform: translateY(20px);
+        transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+      }
+
+      /* Final state when element is visible */
+      [data-animate].animate-visible {
+        opacity: 1;
+        transform: translateY(0);
+      }
+
+      /* Zoom and Glow Effect for Buttons/Links */
+      .glow-button {
+        transition: all 0.3s ease-in-out;
+      }
+      .glow-button:hover {
+        transform: scale(1.05); /* Zoom effect */
+        box-shadow:
+          0 0 10px rgba(59, 130, 246, 0.8),
+          /* Inner glow */ 0 0 20px rgba(59, 130, 246, 0.5); /* Outer glow */
+      }
+    </style>
   </head>
   <body>
     <nav class="bg-white shadow-lg fixed top-0 left-0 right-0 z-50">
@@ -34,27 +60,27 @@
           <div class="hidden md:flex space-x-8">
             <a
               href="./index.html"
-              class="nav-link p-1 rounded-sm hover:text-blue-700 transition-all duration-300 hover:scale-105 inline-block"
+              class="nav-link p-1 rounded-sm hover:text-blue-700 glow-button"
               >Home</a
             >
             <a
               href="./services.html"
-              class="nav-link p-1 rounded-sm hover:text-blue-700 transition-all duration-300 hover:scale-105 inline-block"
+              class="nav-link p-1 rounded-sm hover:text-blue-700 glow-button"
               >Services</a
             >
             <a
               href="./projects.html"
-              class="nav-link p-1 rounded-sm hover:text-blue-700 transition-all duration-300 hover:scale-105 inline-block"
+              class="nav-link p-1 rounded-sm hover:text-blue-700 glow-button"
               >Projects</a
             >
             <a
               href="./articles.html"
-              class="nav-link p-1 rounded-sm hover:text-blue-700 transition-all duration-300 hover:scale-105 inline-block"
+              class="nav-link p-1 rounded-sm hover:text-blue-700 glow-button"
               >Articles</a
             >
             <a
               href="./#"
-              class="nav-link p-1 rounded-sm text-blue-700 transition-all duration-300 hover:scale-105 inline-block"
+              class="nav-link p-1 rounded-sm text-blue-700 glow-button"
               >Contact</a
             >
           </div>
@@ -73,27 +99,27 @@
           <div class="m-4 bg-gray-100 rounded-lg">
             <a
               href="./index.html"
-              class="mobile-nav-link block px-3 py-2 text-black transition-all duration-300 hover:scale-[1.02] hover:bg-gray-200 rounded-lg"
+              class="mobile-nav-link block px-3 py-2 text-black glow-button"
               >Home</a
             >
             <a
               href="./services.html"
-              class="mobile-nav-link block px-3 py-2 text-black transition-all duration-300 hover:scale-[1.02] hover:bg-gray-200 rounded-lg"
+              class="mobile-nav-link block px-3 py-2 text-black glow-button"
               >Services</a
             >
             <a
               href="./projects.html"
-              class="mobile-nav-link block px-3 py-2 text-black transition-all duration-300 hover:scale-[1.02] hover:bg-gray-200 rounded-lg"
+              class="mobile-nav-link block px-3 py-2 text-black glow-button"
               >Projects</a
             >
             <a
               href="./articles.html"
-              class="mobile-nav-link block px-3 py-2 text-black transition-all duration-300 hover:scale-[1.02] hover:bg-gray-200 rounded-lg"
+              class="mobile-nav-link block px-3 py-2 text-black glow-button"
               >Articles</a
             >
             <a
               href="#"
-              class="mobile-nav-link block px-3 py-2 text-white font-bold bg-blue-600 rounded-lg transition-all duration-300 hover:scale-[1.02] hover:bg-blue-700"
+              class="mobile-nav-link block px-3 py-2 text-white font-bold bg-blue-600 rounded-lg glow-button"
               >Contact</a
             >
           </div>
@@ -103,7 +129,10 @@
 
     <main class="flex-1">
       <div class="min-h-screen bg-white">
-        <section class="bg-gradient-to-br from-blue-50 to-slate-50 py-20 pt-40">
+        <section
+          class="bg-gradient-to-br from-blue-50 to-slate-50 py-20 pt-40"
+          data-animate
+        >
           <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="text-center">
               <h1 class="text-5xl font-bold text-slate-800 mb-6">
@@ -123,21 +152,21 @@
           <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="grid lg:grid-cols-2 gap-16">
               <div class="bg-white">
-                <div class="bg-slate-50 rounded-2xl p-8">
+                <div class="bg-slate-50 rounded-2xl p-8" data-animate>
                   <h2 class="text-3xl font-bold text-slate-800 mb-6">
                     Send Us a Message
                   </h2>
                   <form id="message-form" class="space-y-6">
                     <input
-                type="hidden"
-                name="access_key"
-                value="43b0c3df-5dc6-4786-bc15-cbc498fd657f"
-              />
-              <input
-                type="hidden"
-                name="subject"
-                value="A new customer submits a form on website"
-              />
+                      type="hidden"
+                      name="access_key"
+                      value="43b0c3df-5dc6-4786-bc15-cbc498fd657f"
+                    />
+                    <input
+                      type="hidden"
+                      name="subject"
+                      value="A new customer submits a form on website"
+                    />
                     <div class="grid md:grid-cols-2 gap-6">
                       <div>
                         <label
@@ -273,7 +302,7 @@
                     </div>
                     <button
                       type="submit"
-                      class="w-full bg-blue-600 text-white px-8 py-4 rounded-lg text-lg font-semibold hover:bg-blue-700 transition-all duration-300 hover:scale-[1.01] flex items-center justify-center group"
+                      class="w-full bg-blue-600 text-white px-8 py-4 rounded-lg text-lg font-semibold hover:bg-blue-700 transition-colors flex items-center justify-center group glow-button"
                     >
                       Send Message<svg
                         xmlns="http://www.w3.org/2000/svg"
@@ -291,23 +320,45 @@
                         <path d="M22 2 11 13"></path>
                       </svg>
                     </button>
-                    <div id="result" class="flex justify-center items-center py-1 text-xl text-gray-500"></div>
+                    <div
+                      id="result"
+                      class="flex justify-center items-center py-1 text-xl text-gray-500"
+                    ></div>
                   </form>
                 </div>
               </div>
               <div class="space-y-8">
-                <div>
+                <div data-animate>
                   <h2 class="text-3xl font-bold text-slate-800 mb-6">
                     Get In Touch Directly
                   </h2>
                   <div class="space-y-6">
                     <div class="flex items-center space-x-4">
                       <div class="bg-blue-100 p-3 rounded-lg">
-                        <i class="fab fa-whatsapp text-2xl text-blue-600"></i>
+                        <svg
+                          xmlns="http://www.w3.org/2000/svg"
+                          width="24"
+                          height="24"
+                          viewBox="0 0 24 24"
+                          fill="none"
+                          stroke="currentColor"
+                          stroke-width="2"
+                          stroke-linecap="round"
+                          stroke-linejoin="round"
+                          class="lucide lucide-phone h-6 w-6 text-blue-600"
+                        >
+                          <path
+                            d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"
+                          ></path>
+                        </svg>
                       </div>
                       <div>
-                        <h3 class="font-semibold text-slate-800">WhatsApp Us</h3>
-                        <a href="https://wa.me/923216647827" target="_blank" class="text-slate-600 hover:text-blue-600 transition-colors">+92 321 6647827</a>
+                        <h3 class="font-semibold text-slate-800">Call Us</h3>
+                        <a
+                          href="tel:+923216647827"
+                          class="text-slate-600 hover:text-blue-600 glow-button"
+                          >+92 321 6647827</a
+                        >
                       </div>
                     </div>
                     <div class="flex items-center space-x-4">
@@ -338,7 +389,11 @@
                       </div>
                       <div>
                         <h3 class="font-semibold text-slate-800">Email Us</h3>
-                        <a href="mailto:globalfinancials.org@gmail.com" class="text-slate-600 hover:text-blue-600 transition-colors">globalfinancials.org@gmail.com</a>
+                        <a
+                          href="mailto:globalfinancials.org@gmail.com"
+                          class="text-slate-600 hover:text-blue-600 glow-button"
+                          >globalfinancials.org@gmail.com</a
+                        >
                       </div>
                     </div>
                     <div class="flex items-center space-x-4">
@@ -370,7 +425,7 @@
                     </div>
                   </div>
                 </div>
-                <div class="bg-blue-50 rounded-2xl p-6">
+                <div class="bg-blue-50 rounded-2xl p-6" data-animate>
                   <h3 class="text-xl font-semibold text-slate-800 mb-3">
                     Our Response Commitment
                   </h3>
@@ -459,7 +514,7 @@
         </section>
       </div>
     </main>
-    <footer class="bg-slate-900 text-white">
+    <footer class="bg-slate-900 text-white" data-animate>
       <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
         <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
           <div class="lg:col-span-2">
@@ -479,7 +534,7 @@
               <a
                 href="https://www.linkedin.com/company/globalfinancials/"
                 target="_blank"
-                class="bg-slate-800 p-2 rounded-lg hover:bg-slate-700 transition-all duration-300 hover:scale-110 cursor-pointer inline-block"
+                class="bg-slate-800 p-2 rounded-lg hover:bg-slate-700 glow-button"
               >
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
@@ -501,7 +556,7 @@
               <a
                 href="https://www.instagram.com/global_financials"
                 target="_blank"
-                class="bg-slate-800 p-2 rounded-lg hover:bg-slate-700 transition-all duration-300 hover:scale-110 cursor-pointer inline-block"
+                class="bg-slate-800 p-2 rounded-lg hover:bg-slate-700 glow-button"
               >
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
@@ -523,7 +578,7 @@
               <a
                 href="https://www.facebook.com/share/1C18jmnTSM/"
                 target="_blank"
-                class="bg-slate-800 p-2 rounded-lg hover:bg-slate-700 transition-all duration-300 hover:scale-110 cursor-pointer inline-block"
+                class="bg-slate-800 p-2 rounded-lg hover:bg-slate-700 glow-button"
               >
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
@@ -548,7 +603,7 @@
               <li>
                 <a
                   href="./index.html"
-                  class="text-slate-300 hover:text-white transition-all duration-300 hover:scale-105 inline-block"
+                  class="text-slate-300 hover:text-white glow-button"
                 >
                   Home
                 </a>
@@ -556,7 +611,7 @@
               <li>
                 <a
                   href="./services.html"
-                  class="text-slate-300 hover:text-white transition-all duration-300 hover:scale-105 inline-block"
+                  class="text-slate-300 hover:text-white glow-button"
                 >
                   Services
                 </a>
@@ -564,15 +619,23 @@
               <li>
                 <a
                   href="./projects.html"
-                  class="text-slate-300 hover:text-white transition-all duration-300 hover:scale-105 inline-block"
+                  class="text-slate-300 hover:text-white glow-button"
                 >
                   Portfolio
                 </a>
               </li>
               <li>
                 <a
+                  href="./articles.html"
+                  class="text-slate-300 hover:text-white glow-button"
+                >
+                  Articles
+                </a>
+              </li>
+              <li>
+                <a
                   href="./#"
-                  class="text-slate-300 hover:text-white transition-all duration-300 hover:scale-105 inline-block"
+                  class="text-slate-300 hover:text-white glow-button"
                 >
                   Contact
                 </a>
@@ -582,14 +645,8 @@
           <div>
             <h3 class="text-lg font-semibold mb-4">Contact Info</h3>
             <ul class="space-y-3">
-              <li>
-                <a href="https://wa.me/923216647827" target="_blank" class="flex items-center space-x-3 group">
-                  <i class="fab fa-whatsapp text-xl text-blue-400 group-hover:text-blue-300 transition-colors"></i>
-                  <span class="text-slate-300 group-hover:text-white transition-colors">+92 321 6647827</span>
-                </a>
-              </li>
-              <li>
-                <a href="mailto:globalfinancials.org@gmail.com" class="flex items-center space-x-3 group">
+              <li class="flex items-center space-x-3">
+                <a href="tel:+923216647827" class="flex items-center space-x-3 glow-button">
                   <svg
                     xmlns="http://www.w3.org/2000/svg"
                     width="24"
@@ -600,13 +657,35 @@
                     stroke-width="2"
                     stroke-linecap="round"
                     stroke-linejoin="round"
-                    class="lucide lucide-mail h-5 w-5 text-blue-400 group-hover:text-blue-300 transition-colors"
+                    class="lucide lucide-phone h-5 w-5 text-blue-400"
+                  >
+                    <path
+                      d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"
+                    ></path></svg
+                  ><span class="text-slate-300 hover:text-white"
+                    >+92 321 6647827</span
+                  >
+                </a>
+              </li>
+              <li class="flex items-center space-x-3">
+                <a href="mailto:globalfinancials.org@gmail.com" class="flex items-center space-x-3 glow-button">
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    width="24"
+                    height="24"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    stroke-width="2"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    class="lucide lucide-mail h-5 w-5 text-blue-400"
                   >
                     <rect width="20" height="16" x="2" y="4" rx="2"></rect>
                     <path
                       d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"
                     ></path></svg
-                  ><span class="text-slate-300 group-hover:text-white transition-colors"
+                  ><span class="text-slate-300 hover:text-white"
                     >globalfinancials.org@gmail.com</span
                   >
                 </a>
@@ -638,6 +717,32 @@
         </div>
       </div>
     </footer>
+    <script>
+      // --- Scroll Reveal Animation Logic (Copied from articles.html) ---
+      const observer = new IntersectionObserver(
+        (entries) => {
+          entries.forEach((entry) => {
+            if (entry.isIntersecting) {
+              // Element is visible, add the visible class to trigger animation
+              entry.target.classList.add('animate-visible');
+            } else {
+              // Element is scrolled out of view, remove the visible class
+              // so it can animate again when scrolled back into view
+              entry.target.classList.remove('animate-visible');
+            }
+          });
+        },
+        {
+          // Options: Set a threshold to 0.1 (10% visibility)
+          threshold: 0.1,
+        }
+      );
+
+      // Find all elements with the data-animate attribute and start observing them
+      document.querySelectorAll('[data-animate]').forEach((element) => {
+        observer.observe(element);
+      });
+    </script>
     <script src="./mobile_menu.js"></script>
     <script src="./form-submition.js"></script>
   </body>
