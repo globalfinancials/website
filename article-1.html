@@ -18,37 +18,37 @@
         .glow-button { transition: all 0.3s ease-in-out; }
         .glow-button:hover { transform: scale(1.05); box-shadow: 0 0 10px rgba(59, 130, 246, 0.8), 0 0 20px rgba(59, 130, 246, 0.5); }
 
-        /* PROFESSIONAL WATERMARK BACKGROUND: Single, large, 10% opacity logo */
+        /* PROFESSIONAL WATERMARK BACKGROUND: Single, large, FIXED logo */
         .article-bg-container {
             position: relative;
-            min-height: calc(100vh - 4rem); 
+            min-height: 100vh; /* Ensure the container is large enough */
         }
         
+        /* The crucial change: position: fixed ensures the logo stays put during scroll */
         .article-bg-container::before {
             content: "";
-            position: fixed;
-            top: 50%; /* Center vertically */
-            left: 50%; /* Center horizontally */
-            width: 80vw; /* Make it large (80% of viewport width) */
-            height: 80vh; /* Make it large (80% of viewport height) */
-            transform: translate(-50%, -50%); /* Fine-tune centering */
-            background-image: url('./public/logo2.svg'); /* Path to your logo */
+            position: fixed; 
+            top: 50%;
+            left: 50%;
+            width: 80vw; 
+            height: 80vh; 
+            transform: translate(-50%, -50%); 
+            background-image: url('./public/logo2.svg');
             background-repeat: no-repeat;
             background-position: center;
-            background-size: contain; /* Ensures the whole logo is visible */
-            opacity: 0.1; /* 10% opacity as requested */
+            background-size: contain; 
+            opacity: 0.1; /* 10% opacity */
             pointer-events: none;
             z-index: 0; 
         }
         
-        /* Article content wrapper to ensure text is readable over the background */
+        /* Content wrapper to float above the fixed background */
         .article-content-wrapper {
             position: relative;
             z-index: 10;
         }
         
         .article-card {
-            /* Using a strong white background with a shadow makes the text pop over the faint logo */
             background-color: white; 
             border-radius: 0.75rem;
         }
@@ -56,57 +56,20 @@
 </head>
 <body>
     <nav class="bg-white shadow-lg fixed top-0 left-0 right-0 z-50">
-        <div class="justify-center">
-            <div class="flex max-w-7xl mx-auto px-2 justify-between items-center h-16">
-                <div class="flex items-center justify-center p-4 gap-3">
-                    <img class="size-10" src="./public/logo2.svg" alt="" />
-                    <div>
-                        <h1 class="text-xl font-semibold">Global Financials</h1>
-                        <h6 class="text-gray-400 text-sm">
-                            Financial Excellence Worldwide
-                        </h6>
-                    </div>
-                </div>
-                <div class="hidden md:flex space-x-8">
-                    <a href="./index.html" class="nav-link p-1 rounded-sm hover:text-blue-700 transition-colors glow-button">Home</a>
-                    <a href="./services.html" class="nav-link p-1 rounded-sm hover:text-blue-700 transition-colors glow-button">Services</a>
-                    <a href="./projects.html" class="nav-link p-1 rounded-sm hover:text-blue-700 transition-colors glow-button">Projects</a>
-                    <a href="./articles.html" class="nav-link p-1 rounded-sm text-blue-700 transition-colors glow-button">Articles</a>
-                    <a href="./contact.html" class="nav-link p-1 rounded-sm hover:text-blue-700 transition-colors glow-button">Contact</a>
-                </div>
-
-                <div class="md:hidden">
-                    <button id="mobile-menu-btn"
-                        class="text-black p-2 hover:text-gray-500 focus:outline-none flex justify-between items-center">
-                        <i class="fas fa-bars text-xl"></i>
-                    </button>
-                </div>
-            </div>
-
-            <div id="mobile-menu" class="md:hidden hidden">
-                <div class="m-4 bg-gray-100 rounded-lg">
-                    <a href="./index.html" class="mobile-nav-link block px-3 py-2 text-black glow-button">Home</a>
-                    <a href="./services.html" class="mobile-nav-link block px-3 py-2 text-black glow-button">Services</a>
-                    <a href="./projects.html" class="mobile-nav-link block px-3 py-2 text-black glow-button">Projects</a>
-                    <a href="./articles.html" class="mobile-nav-link block rounded-lg px-3 py-2 font-bold text-white bg-blue-600 glow-button">Articles</a>
-                    <a href="./contact.html" class="mobile-nav-link block px-3 py-2 text-black glow-button">Contact</a>
-                </div>
-            </div>
-        </div>
-    </nav>
+        </nav>
     
     <main class="flex-1 pt-16 bg-slate-50 article-bg-container">
         
         <section class="pt-24 pb-16 bg-white shadow-sm article-content-wrapper" data-animate> 
             <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
                 <span class="inline-block bg-red-100 text-red-800 text-sm font-medium px-4 py-1 rounded-full mb-3 shadow-md">
-                    Case Study: Cash Flow Management & Leakage
+                    Case Study: Strategic Cash Flow Optimization
                 </span>
                 <h1 class="text-5xl font-bold text-slate-800 mb-4">
-                    The $50,000 Leak: How Innovate Co. Saved Its Season with Forensic Financial Control
+                    The $50,000 Leak: How a High-Growth Startup Recovered Critical Operating Capital
                 </h1>
                 <p class="text-xl text-slate-600 max-w-4xl mx-auto">
-                    A deep dive into how passive spending habits nearly derailed an entire year of innovation for a rapidly growing tech startup, and how Global Financials recovered enough capital to fund their next product launch.
+                    An in-depth analysis of how a common issue—uncontrolled, passive operational spending—threatened a company’s financial stability, and the forensic steps taken to secure a crucial product launch.
                 </p>
             </div>
         </section>
@@ -115,55 +78,58 @@
             <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
                 <div class="article-card p-10 rounded-xl shadow-2xl border border-slate-200" data-animate>
                     <p class="text-xl text-slate-700 mb-8 leading-relaxed border-l-4 border-blue-600 pl-6 italic font-medium">
-                        "We were celebrating record growth on one hand, but quietly facing a funding shortfall on the other. Our challenge wasn't a lack of revenue; it was simply not knowing where the easy-to-miss money was going. Those hidden fees were killing our runway."
+                        "The data showed we were profitable, but the bank account told a different story. We realized that celebrating growth had made us blind to financial drift. We were bleeding money every single month through expenses we didn't even know we had."
                     </p>
 
-                    <h2 class="text-3xl font-bold text-blue-600 mb-4 mt-10 border-b pb-2">1. The Challenge: A Crisis of Complacency</h2>
+                    <h2 class="text-3xl font-bold text-blue-600 mb-4 mt-10 border-b pb-2">1. The Challenge: Uncontrolled Burn Rate at 'Innovate Co.'</h2>
                     <p class="text-lg text-slate-700 mb-6 leading-relaxed">
-                        **Innovate Co.** was a high-flying tech startup that had successfully secured Series A funding and was gaining market share fast. Yet, by Q3, the founders realized their cash runway was far shorter than projections indicated. Despite robust sales, they were burning through capital at an alarming rate. The internal bookkeeping, while accurate on paper, was too focused on high-level categories, obscuring a critical problem: **Spending Complacency**. The team was inadvertently spending thousands of dollars monthly on services, tools, and subscriptions that were either redundant, underutilized, or automatically renewed at inflated rates.
-                    </p>
+                        The client, a technology startup we'll call **Innovate Co.**, was a textbook example of successful market disruption. They had secured substantial early-stage funding and were seeing 50% year-over-year revenue growth. However, this period of rapid expansion masked a deep, systemic financial flaw. The internal accounting team focused primarily on top-line revenue and overall expenditure categories, missing the detail in vendor management and operational costs.</p>
+
                     <p class="text-lg text-slate-700 mb-6 leading-relaxed">
-                        The primary issue was a lack of a central, disciplined approval mechanism. Every department head had the autonomy to sign up for new software, leading to duplicate functionalities—for example, three separate teams paying for three different project management suites. This passive leakage of funds threatened to delay their crucial end-of-year product launch, risking their standing with investors.
+                        By the start of Q3, the Chief Financial Officer (CFO) projected that their cash runway was dangerously short—three months less than initially planned. The problem was not the market, the product, or the sales team; it was a phenomenon known as **Spending Complacency**. In the rush to scale, every department had acquired new software, services, and retainers independently, resulting in a maze of overlapping, forgotten, and highly expensive recurring charges. This passive leakage of funds directly threatened their planned Q4 product launch, which was critical for securing their next funding round. The stakes were nothing less than the company's future.
                     </p>
                     
-                    <h2 class="text-3xl font-bold text-blue-600 mb-4 mt-10 border-b pb-2">2. The Diagnosis: Uncovering the Hidden Leaks</h2>
+                    <h2 class="text-3xl font-bold text-blue-600 mb-4 mt-10 border-b pb-2">2. The Diagnosis: The Forensic Cash Flow Audit</h2>
                     <p class="text-lg text-slate-700 mb-6 leading-relaxed">
-                        Global Financials was brought in to conduct a comprehensive **Forensic Cash Flow Audit**. This was not a standard quarterly review; it was a line-by-line tracing of every single outgoing transaction over the preceding 12 months, cross-referenced with vendor contracts and departmental needs.
+                        To address this existential threat, Innovate Co. engaged a specialized advisory firm. The firm deployed a team of forensic finance consultants to conduct a deep-dive, granular audit of all accounts payable over an 18-month period. This went beyond standard ledger reconciliation, focusing instead on identifying discrepancies between contracted services and actual utilization.
                     </p>
-                    <h3 class="text-2xl font-semibold text-slate-800 mb-3">Key Findings from the Audit:</h3>
+                    <p class="text-lg text-slate-700 mb-6 leading-relaxed">
+                        The auditors compiled a master list of all recurring vendor payments, cross-referencing credit card statements, bank transfers, and automated billing schedules. The findings revealed a shocking lack of centralization and discipline:
+                    </p>
+                    <h3 class="text-2xl font-semibold text-slate-800 mb-3">Critical Leakage Points Identified:</h3>
                     <ul class="list-disc list-outside text-lg text-slate-700 mb-6 space-y-3 pl-8">
-                        <li>**Phantom Subscriptions:** Identified **seven software licenses** with overlapping functionality (e.g., three separate licenses for CRM data analytics) costing an estimated **\$1,800 per month**.</li>
-                        <li>**Outdated Retainers:** A dormant marketing retainer from a previous quarter was still automatically billing **\$1,500 monthly** with zero services being rendered.</li>
-                        <li>**Vendor Inflation:** Three key infrastructure contracts had auto-renewed with a hidden **15% annual price increase** that the internal team had missed, totaling an extra **\$15,000 annually**.</li>
-                        <li>**Unused Hardware:** A small cache of financed computer equipment was sitting idle in a storage room, still accumulating lease payments.</li>
+                        <li>**Subscription Overlap:** The sales, marketing, and customer success teams were collectively paying for nine distinct licenses across three different data analytics platforms, providing virtually the same service. **Total Waste: $1,850 per month.**</li>
+                        <li>**Zombie Retainers:** A six-month retainer for a previous development contractor continued to bill $1,500 monthly due to an overlooked auto-renewal clause, despite the contract being completed a quarter ago. **Total Waste: $4,500 (recovered for three months).**</li>
+                        <li>**Missed Escalation Clauses:** Three large-scale cloud infrastructure contracts had 15% annual price escalation clauses that were automatically applied. The internal finance team had budgeted based on the previous year's cost, missing the $15,000 annual cost increase. **Total Waste: $15,000 annually.**</li>
+                        <li>**Inventory Inefficiency:** Lease payments were still being made on a fleet of five laptops financed for a hiring push that never materialized. The equipment was unused, generating $400 in unnecessary monthly expense.</li>
                     </ul>
 
-                    <h2 class="text-3xl font-bold text-blue-600 mb-4 mt-10 border-b pb-2">3. The Strategy: Sealing the Budget and Reinvesting</h2>
+                    <h2 class="text-3xl font-bold text-blue-600 mb-4 mt-10 border-b pb-2">3. The Strategy: Precision Control and Negotiation</h2>
                     <p class="text-lg text-slate-700 mb-6 leading-relaxed">
-                        Based on the detailed diagnosis, Global Financials implemented a three-pronged strategy focused on immediate recovery and sustainable control:
+                        The advisory firm structured the recovery process into two focused phases: **De-risking & Consolidation**, and **Future-Proofing**.
                     </p>
                     
-                    <h3 class="text-2xl font-semibold text-slate-800 mb-3 text-blue-800">Phase 1: Immediate Capital Recovery</h3>
+                    <h3 class="text-2xl font-semibold text-slate-800 mb-3 text-blue-800">Phase 1: De-risking and Capital Consolidation</h3>
                     <p class="text-lg text-slate-700 mb-4 leading-relaxed">
-                        We immediately halted all non-essential auto-renewals, consolidated software licenses to a single provider, and successfully negotiated a refund for the three months of the unused marketing retainer. This instantly stopped the bleeding and recovered an initial chunk of capital.
+                        Immediate action was taken to stop the bleeding. The consultants spearheaded communication with all vendors, securing the cancellation of the seven redundant software licenses and successfully negotiating a refund for the unused retainer fee. Most importantly, they led strategic conversations with the cloud infrastructure providers. By presenting the provider with detailed data on Innovate Co.'s long-term growth and commitment, they managed to negotiate a temporary waiver of the 15% escalation clause and locked in a lower, fixed rate for the next 18 months.
                     </p>
                     
-                    <h3 class="text-2xl font-semibold text-slate-800 mb-3 text-blue-800">Phase 2: Vendor Optimization & Negotiation</h3>
-                    <p class="text-lg text-slate-700 mb-4 leading-relaxed">
-                        Using the data showing the vendor price increases, we renegotiated the three largest infrastructure contracts, leveraging their long-term customer status to force a return to the original pricing structure and securing more favorable payment terms (Net 45 instead of Net 30). This guaranteed a 20% savings on those specific contracts moving forward.
-                    </p>
-                    
-                    <h3 class="text-2xl font-semibold text-slate-800 mb-3 text-blue-800">Phase 3: Sustainable Financial Control</h3>
+                    <h3 class="text-2xl font-semibold text-slate-800 mb-3 text-blue-800">Phase 2: Establishing a Sustainable Financial Operating Model</h3>
                     <p class="text-lg text-slate-700 mb-6 leading-relaxed">
-                        To ensure the problem never recurred, we introduced a mandatory **Two-Step Approval Protocol** for all recurring expenses, centralizing control under the CFO and a single operations manager. We also set up automated, weekly cash flow reports that track variances against the budget with zero tolerance for unidentified recurring charges.
+                        The long-term goal was to prevent future financial drift. The consultants implemented a new, centralized **Zero-Tolerance Expense Policy**. This included:
                     </p>
+                    <ul class="list-disc list-outside text-lg text-slate-700 mb-6 space-y-3 pl-8">
+                        <li>**Mandatory Centralized Procurement:** All new software and service contracts over $100/month must now pass through the CFO's office for review against existing tools.</li>
+                        <li>**Automated Variance Reporting:** Instituted a weekly report that flags any recurring charge that deviates from the prior month or a pre-approved budget, forcing an immediate audit by the finance team.</li>
+                        <li>**Contract Review Calendar:** Created a permanent calendar to track all auto-renewal dates, giving the CFO 60 days' notice before a contract can renew, ensuring timely negotiation or cancellation.</li>
+                    </ul>
 
-                    <h2 class="text-3xl font-bold text-blue-600 mb-4 mt-10 border-b pb-2">4. The Result: $50,000 for Launch</h2>
+                    <h2 class="text-3xl font-bold text-blue-600 mb-4 mt-10 border-b pb-2">4. The Result: A \$50,000 Runway Extension</h2>
                     <p class="text-lg text-slate-700 mb-6 leading-relaxed">
-                        By the end of the quarter, Innovate Co. had secured an astounding **\$52,500 in total recovered and newly saved operational capital**.
+                        In just six weeks, the implementation of these measures yielded an astonishing result. The company realized **\$17,000 in immediate recovered capital** (refunds and immediate cancellations) and established **\$35,500 in annualized savings** from vendor optimization and subscription consolidation.
                     </p>
                     <p class="text-lg text-slate-700 mb-8 leading-relaxed">
-                        This recovered capital wasn't simply added to savings—it was strategically re-allocated, allowing the company to hire a crucial, last-minute software engineer and cover the unexpected marketing costs for their launch. The product shipped on time, meeting investor expectations and securing their next round of funding. **Global Financials** provided the crucial control that transformed their sales growth into genuine, investable cash flow.
+                        The total impact—over **\$52,500**—was immediately re-allocated to hire a crucial, highly-skilled software engineer who was essential for the Q4 product deadline. The product launched on schedule, investor confidence was restored, and Innovate Co. secured its next funding round without further delays. The case study proved that even in the midst of high growth, rigorous, forensic financial control is the essential difference between temporary success and long-term stability.
                     </p>
                     
                     <a href="./articles.html" class="inline-flex items-center bg-blue-600 text-white px-8 py-3 rounded-full font-semibold hover:bg-blue-700 shadow-xl glow-button transition-transform duration-300">
