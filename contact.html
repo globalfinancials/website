@@ -13,6 +13,10 @@
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"
       rel="stylesheet"
     />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"
+    />
 
     <link rel="shortcut icon" href="./public/Vector.svg" type="image/x-icon" />
   </head>
@@ -31,7 +35,6 @@
               </h6>
             </div>
           </div>
-          <!-- Desktop Navigation -->
           <div class="hidden md:flex space-x-8">
             <a
               href="./index.html"
@@ -60,7 +63,6 @@
             >
           </div>
 
-          <!-- Mobile menu button -->
           <div class="md:hidden">
             <button
               id="mobile-menu-btn"
@@ -71,7 +73,6 @@
           </div>
         </div>
 
-        <!-- Mobile Navigation -->
         <div id="mobile-menu" class="md:hidden hidden">
           <div class="m-4 bg-gray-100 rounded-lg">
             <a
@@ -106,7 +107,7 @@
 
     <main class="flex-1">
       <div class="min-h-screen bg-white">
-        <section class="bg-gradient-to-br from-blue-50 to-slate-50 py-20 pt-40">
+        <section class="bg-gradient-to-br from-blue-50 to-slate-50 py-20 pt-40 animate__animated animate__fadeInDown">
           <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="text-center">
               <h1 class="text-5xl font-bold text-slate-800 mb-6">
@@ -125,22 +126,22 @@
         <section class="py-20">
           <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="grid lg:grid-cols-2 gap-16">
-              <div class="bg-white">
+              <div class="bg-white animate__animated animate__fadeInLeft">
                 <div class="bg-slate-50 rounded-2xl p-8">
                   <h2 class="text-3xl font-bold text-slate-800 mb-6">
                     Send Us a Message
                   </h2>
                   <form id="message-form" class="space-y-6">
                     <input
-                type="hidden"
-                name="access_key"
-                value="43b0c3df-5dc6-4786-bc15-cbc498fd657f"
-              />
-              <input
-                type="hidden"
-                name="subject"
-                value="A new customer submits a form on website"
-              />
+                      type="hidden"
+                      name="access_key"
+                      value="43b0c3df-5dc6-4786-bc15-cbc498fd657f"
+                    />
+                    <input
+                      type="hidden"
+                      name="subject"
+                      value="A new customer submits a form on website"
+                    />
                     <div class="grid md:grid-cols-2 gap-6">
                       <div>
                         <label
@@ -298,7 +299,7 @@
                   </form>
                 </div>
               </div>
-              <div class="space-y-8">
+              <div class="space-y-8 animate__animated animate__fadeInRight">
                 <div>
                   <h2 class="text-3xl font-bold text-slate-800 mb-6">
                     Get In Touch Directly
@@ -558,38 +559,59 @@
                   ></path>
                 </svg>
               </a>
+              <a
+                href="https://wa.me/923216647827"
+                target="_blank"
+                class="bg-slate-800 p-2 rounded-lg hover:bg-slate-700 transition-colors cursor-pointer"
+              >
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  class="lucide h-5 w-5 text-blue-400"
+                  viewBox="0 0 24 24"
+                  fill="currentColor"
+                  stroke="none"
+                >
+                  <path
+                    d="M12.001 2c5.523 0 10 4.477 10 10 0 5.176-3.957 9.423-9.097 9.957l.006.002a.853.853 0 0 1-.773.045c-2.436-1.077-4.492-2.766-6.096-4.938A9.95 9.95 0 0 1 2 12c0-5.523 4.477-10 10.001-10zm0 1.6C7.305 3.6 3.6 7.305 3.6 12s3.705 8.4 8.401 8.4c1.84 0 3.565-.595 4.975-1.579l.001.001.002-.001a.853.853 0 0 1 .475.059l2.844.757-.775-2.771a.853.853 0 0 1 .013-.67c1.03-1.517 1.583-3.328 1.583-5.226C20.401 7.305 16.696 3.6 12.001 3.6zM9.548 7.373c.123 0 .245.021.368.064s.248.106.374.205c.125.099.245.215.358.349s.215.293.295.474l.056.12c.118.257.265.57.436.878s.38.647.607.973c.228.326.495.688.804 1.056s.664.717 1.053 1.052l.001.001a.853.853 0 0 0 .973.082c.117-.076.242-.162.378-.26l.001-.001a.853.853 0 0 1 1.007-.024l.001.001c.149.09.308.163.483.218s.356.082.527.082c.189 0 .376-.036.559-.11c.184-.075.361-.176.529-.304l.001-.001c.17-.128.318-.28.452-.46s.241-.397.318-.624a.853.853 0 0 0-.097-.773c-.042-.072-.11-.144-.199-.214s-.199-.17-.35-.308l-.001-.001c-.152-.138-.335-.297-.55-.477s-.474-.403-.76-.699c-.287-.296-.65-.675-1.076-1.127a.853.853 0 0 0-1.111-.274c-.161.09-.327.19-.496.3l-.002.001c-.17.11-.34.238-.507.382s-.32.312-.47.478l-.001.001c-.15.166-.29.35-.417.553a.853.853 0 0 0-.175.602c.002.164.04.328.113.486s.181.306.314.444l.001.001a.853.853 0 0 1 .184.22c.07.12.115.253.136.398l.002.016c.018.115.027.234.027.355 0 .16-.017.319-.052.474s-.089.308-.16.452a.853.853 0 0 1-.295.385l-.001.001c-.126.087-.265.155-.414.202s-.304.07-.463.07c-.169 0-.337-.035-.5-.105s-.318-.173-.464-.316l-.002-.002c-.146-.144-.27-.31-.371-.5s-.182-.397-.247-.638l-.001-.003c-.059-.22-.093-.45-.102-.686-.007-.234-.002-.468.016-.702.017-.234.053-.466.108-.696s.127-.454.222-.676l.002-.004z"
+                  />
+                </svg>
+              </a>
             </div>
           </div>
           <div>
             <h3 class="text-lg font-semibold mb-4">Quick Links</h3>
             <ul class="space-y-2">
               <li>
-                <button
+                <a
+                  href="./index.html"
                   class="text-slate-300 hover:text-white transition-colors duration-200"
                 >
                   Home
-                </button>
+                </a>
               </li>
               <li>
-                <button
+                <a
+                  href="./services.html"
                   class="text-slate-300 hover:text-white transition-colors duration-200"
                 >
                   Services
-                </button>
+                </a>
               </li>
               <li>
-                <button
+                <a
+                  href="./projects.html"
                   class="text-slate-300 hover:text-white transition-colors duration-200"
                 >
                   Portfolio
-                </button>
+                </a>
               </li>
               <li>
-                <button
+                <a
+                  href="./#"
                   class="text-slate-300 hover:text-white transition-colors duration-200"
                 >
                   Contact
-                </button>
+                </a>
               </li>
             </ul>
           </div>
