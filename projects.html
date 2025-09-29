@@ -15,6 +15,21 @@
     />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" />
     <link rel="shortcut icon" href="./public/Vector.svg" type="image/x-icon" />
+
+    <style>
+        /* Initial state for elements with data-animate attribute */
+        [data-animate] {
+            opacity: 0;
+            transform: translateY(20px); /* Start slightly below final position */
+            transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+        }
+
+        /* Final state when element is visible */
+        [data-animate].animate-visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    </style>
 </head>
 <body>
     <nav class="bg-white shadow-lg fixed top-0 left-0 right-0 z-50">
@@ -58,7 +73,7 @@
     </nav>
     
     <main class="flex-1 pt-16 bg-slate-50">
-        <section class="pt-24 pb-20 bg-white shadow-sm"> 
+        <section class="pt-24 pb-20 bg-white shadow-sm" data-animate> 
             <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
                 <span class="inline-block bg-blue-100 text-blue-800 text-sm font-medium px-4 py-1 rounded-full mb-3">
                     Featured Project
@@ -72,11 +87,11 @@
             </div>
         </section>
 
-        <section class="py-20">
+        <section class="py-20" data-animate>
             <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
                 <div class="grid grid-cols-1 lg:grid-cols-3 gap-10">
                     
-                    <div class="lg:col-span-2">
+                    <div class="lg:col-span-2" data-animate>
                         <h2 class="text-3xl font-semibold text-slate-800 mb-6 border-b pb-3">Project Overview</h2>
                         <p class="text-lg text-slate-700 mb-6 leading-relaxed">
                             The client provided a set of unorganized and randomly arranged images containing a full year’s cash inflow and outflow data, with each month spread over four photos. I extracted key details including dates, debit/credit descriptions, and balances, and organized them into clear monthly cash ledger accounts.
@@ -85,7 +100,7 @@
                             I then prepared a comprehensive yearly ledger and a concise summary report in Excel. The project was completed ahead of the deadline with **100% accuracy**, ensuring the client received well-structured, error-free, and ready-to-use financial records for decision-making and reporting purposes.
                         </p>
                         
-                        <div class="bg-white p-6 rounded-xl shadow-lg border border-slate-200">
+                        <div class="bg-white p-6 rounded-xl shadow-lg border border-slate-200 transition duration-700 ease-in-out hover:shadow-2xl">
                             <h3 class="text-xl font-bold text-blue-600 mb-4 flex items-center">
                                 <i class="fas fa-file-excel mr-3"></i>
                                 Key Deliverable: Final Excel Ledger
@@ -101,8 +116,8 @@
                         </div>
                     </div>
 
-                    <div class="lg:col-span-1">
-                        <div class="bg-white p-6 rounded-xl shadow-lg border border-slate-200">
+                    <div class="lg:col-span-1" data-animate>
+                        <div class="bg-white p-6 rounded-xl shadow-lg border border-slate-200 transition duration-700 ease-in-out hover:shadow-2xl">
                             <h3 class="text-xl font-bold text-slate-800 mb-4 border-b pb-2">Project Summary</h3>
                             <ul class="space-y-4">
                                 <li class="flex items-start">
@@ -138,33 +153,33 @@
                     </div>
                 </div>
 
-                <div class="mt-20">
+                <div class="mt-20" data-animate>
                     <h2 class="text-3xl font-semibold text-slate-800 mb-6 border-b pb-3">Client Data Sample (Unorganized Images)</h2>
                     <p class="text-slate-600 mb-8">
                         The following images are samples of the raw, unorganized data provided by the client (one month's worth).
                     </p>
                     <div class="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-6 gap-4">
-                        <a href="./public/5-1.jpg" target="_blank" class="block overflow-hidden rounded-lg shadow-md hover:shadow-xl transition-shadow">
+                        <a href="./public/5-1.jpg" target="_blank" class="block overflow-hidden rounded-lg shadow-md transition duration-300 hover:shadow-xl">
                             <img src="./public/5-1.jpg" alt="Client Data Image Sample 1" class="w-full h-36 object-cover transform hover:scale-105 transition-transform duration-300">
                             <p class="text-center text-xs text-slate-500 py-2">Image 1/6</p>
                         </a>
-                        <a href="./public/5-2.jpg" target="_blank" class="block overflow-hidden rounded-lg shadow-md hover:shadow-xl transition-shadow">
+                        <a href="./public/5-2.jpg" target="_blank" class="block overflow-hidden rounded-lg shadow-md transition duration-300 hover:shadow-xl">
                             <img src="./public/5-2.jpg" alt="Client Data Image Sample 2" class="w-full h-36 object-cover transform hover:scale-105 transition-transform duration-300">
                             <p class="text-center text-xs text-slate-500 py-2">Image 2/6</p>
                         </a>
-                        <a href="./public/5-3.jpg" target="_blank" class="block overflow-hidden rounded-lg shadow-md hover:shadow-xl transition-shadow">
+                        <a href="./public/5-3.jpg" target="_blank" class="block overflow-hidden rounded-lg shadow-md transition duration-300 hover:shadow-xl">
                             <img src="./public/5-3.jpg" alt="Client Data Image Sample 3" class="w-full h-36 object-cover transform hover:scale-105 transition-transform duration-300">
                             <p class="text-center text-xs text-slate-500 py-2">Image 3/6</p>
                         </a>
-                        <a href="./public/5-4.jpg" target="_blank" class="block overflow-hidden rounded-lg shadow-md hover:shadow-xl transition-shadow">
+                        <a href="./public/5-4.jpg" target="_blank" class="block overflow-hidden rounded-lg shadow-md transition duration-300 hover:shadow-xl">
                             <img src="./public/5-4.jpg" alt="Client Data Image Sample 4" class="w-full h-36 object-cover transform hover:scale-105 transition-transform duration-300">
                             <p class="text-center text-xs text-slate-500 py-2">Image 4/6</p>
                         </a>
-                        <a href="./public/5-5.jpg" target="_blank" class="block overflow-hidden rounded-lg shadow-md hover:shadow-xl transition-shadow">
+                        <a href="./public/5-5.jpg" target="_blank" class="block overflow-hidden rounded-lg shadow-md transition duration-300 hover:shadow-xl">
                             <img src="./public/5-5.jpg" alt="Client Data Image Sample 5" class="w-full h-36 object-cover transform hover:scale-105 transition-transform duration-300">
                             <p class="text-center text-xs text-slate-500 py-2">Image 5/6</p>
                         </a>
-                        <a href="./public/5-6.jpg" target="_blank" class="block overflow-hidden rounded-lg shadow-md hover:shadow-xl transition-shadow">
+                        <a href="./public/5-6.jpg" target="_blank" class="block overflow-hidden rounded-lg shadow-md transition duration-300 hover:shadow-xl">
                             <img src="./public/5-6.jpg" alt="Client Data Image Sample 6" class="w-full h-36 object-cover transform hover:scale-105 transition-transform duration-300">
                             <p class="text-center text-xs text-slate-500 py-2">Image 6/6</p>
                         </a>
@@ -176,7 +191,7 @@
             </div>
         </section>
 
-        <footer class="bg-slate-900 text-white">
+        <footer class="bg-slate-900 text-white" data-animate>
           <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
             <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
               <div class="lg:col-span-2">
@@ -351,7 +366,42 @@
             </div>
           </div>
         </footer>
-        <script src="./mobile_menu.js"></script>
     </main>
+    
+    <script>
+        // Mobile Menu Toggle Logic
+        document.getElementById('mobile-menu-btn').addEventListener('click', function() {
+            var menu = document.getElementById('mobile-menu');
+            menu.classList.toggle('hidden');
+        });
+        
+        // --- Scroll Reveal Animation Logic ---
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    // Element is visible, add the visible class
+                    entry.target.classList.add('animate-visible');
+                    // Stop observing once it's revealed (optional)
+                    observer.unobserve(entry.target);
+                }
+                /* // Uncomment this 'else' block if you want the animation to reset 
+                // every time the user scrolls the element out of view.
+                else {
+                    entry.target.classList.remove('animate-visible');
+                }
+                */
+            });
+        }, {
+            // Options: rootMargin is used to start the animation slightly before 
+            // the element is perfectly in the viewport.
+            rootMargin: '0px',
+            threshold: 0.1 // 10% of the element must be visible
+        });
+
+        // Find all elements with the data-animate attribute and start observing them
+        document.querySelectorAll('[data-animate]').forEach(element => {
+            observer.observe(element);
+        });
+    </script>
 </body>
 </html>
