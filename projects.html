@@ -30,7 +30,7 @@
             transform: translateY(0);
         }
 
-        /* Zoom and Glow Effect for Buttons */
+        /* Zoom and Glow Effect for Buttons/Links */
         .glow-button {
             transition: all 0.3s ease-in-out;
         }
@@ -38,6 +38,11 @@
             transform: scale(1.05); /* Zoom effect */
             box-shadow: 0 0 10px rgba(59, 130, 246, 0.8), /* Inner glow */
                         0 0 20px rgba(59, 130, 246, 0.5); /* Outer glow */
+        }
+
+        /* Specific override for the active Projects link in the nav to show the glow */
+        .nav-link.glow-button:hover {
+            color: #1d4ed8; /* Maintain active blue color on hover */
         }
     </style>
 </head>
@@ -55,11 +60,11 @@
                     </div>
                 </div>
                 <div class="hidden md:flex space-x-8">
-                    <a href="./index.html" class="nav-link p-1 rounded-sm hover:text-blue-700 transition-colors">Home</a>
-                    <a href="./services.html" class="nav-link p-1 rounded-sm hover:text-blue-700 transition-colors">Services</a>
-                    <a href="./projects.html" class="nav-link p-1 rounded-sm text-blue-700 transition-colors">Projects</a>
-                    <a href="./articles.html" class="nav-link p-1 rounded-sm hover:text-blue-700 transition-colors">Articles</a>
-                    <a href="./contact.html" class="nav-link p-1 rounded-sm hover:text-blue-700 transition-colors">Contact</a>
+                    <a href="./index.html" class="nav-link p-1 rounded-sm hover:text-blue-700 transition-colors glow-button">Home</a>
+                    <a href="./services.html" class="nav-link p-1 rounded-sm hover:text-blue-700 transition-colors glow-button">Services</a>
+                    <a href="./projects.html" class="nav-link p-1 rounded-sm text-blue-700 transition-colors glow-button">Projects</a>
+                    <a href="./articles.html" class="nav-link p-1 rounded-sm hover:text-blue-700 transition-colors glow-button">Articles</a>
+                    <a href="./contact.html" class="nav-link p-1 rounded-sm hover:text-blue-700 transition-colors glow-button">Contact</a>
                 </div>
 
                 <div class="md:hidden">
@@ -72,11 +77,11 @@
 
             <div id="mobile-menu" class="md:hidden hidden">
                 <div class="m-4 bg-gray-100 rounded-lg">
-                    <a href="./index.html" class="mobile-nav-link block px-3 py-2 text-black">Home</a>
-                    <a href="./services.html" class="mobile-nav-link block px-3 py-2 text-black">Services</a>
-                    <a href="./projects.html" class="mobile-nav-link block rounded-lg px-3 py-2 font-bold text-white bg-blue-600">Projects</a>
-                    <a href="./articles.html" class="mobile-nav-link block px-3 py-2 text-black">Articles</a>
-                    <a href="./contact.html" class="mobile-nav-link block px-3 py-2 text-black">Contact</a>
+                    <a href="./index.html" class="mobile-nav-link block px-3 py-2 text-black glow-button">Home</a>
+                    <a href="./services.html" class="mobile-nav-link block px-3 py-2 text-black glow-button">Services</a>
+                    <a href="./projects.html" class="mobile-nav-link block rounded-lg px-3 py-2 font-bold text-white bg-blue-600 glow-button">Projects</a>
+                    <a href="./articles.html" class="mobile-nav-link block px-3 py-2 text-black glow-button">Articles</a>
+                    <a href="./contact.html" class="mobile-nav-link block px-3 py-2 text-black glow-button">Contact</a>
                 </div>
             </div>
         </div>
@@ -289,28 +294,28 @@
                 <ul class="space-y-2">
                   <li>
                     <a href="./index.html"
-                      class="text-slate-300 hover:text-white transition-colors duration-200"
+                      class="text-slate-300 hover:text-white transition-colors duration-200 glow-button"
                     >
                       Home
                     </a>
                   </li>
                   <li>
                     <a href="./services.html"
-                      class="text-slate-300 hover:text-white transition-colors duration-200"
+                      class="text-slate-300 hover:text-white transition-colors duration-200 glow-button"
                     >
                       Services
                     </a>
                   </li>
                   <li>
                     <a href="./projects.html"
-                      class="text-slate-300 hover:text-white transition-colors duration-200"
+                      class="text-slate-300 hover:text-white transition-colors duration-200 glow-button"
                     >
                       Projects
                     </a>
                   </li>
                   <li>
                     <a href="./contact.html"
-                      class="text-slate-300 hover:text-white transition-colors duration-200"
+                      class="text-slate-300 hover:text-white transition-colors duration-200 glow-button"
                     >
                       Contact
                     </a>
@@ -385,7 +390,7 @@
             menu.classList.toggle('hidden');
         });
         
-        // --- Scroll Reveal Animation Logic (Re-triggering) ---
+        // --- Scroll Reveal Animation Logic (Re-triggering on scroll up/down) ---
         const observer = new IntersectionObserver((entries) => {
             entries.forEach(entry => {
                 if (entry.isIntersecting) {
