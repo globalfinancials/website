@@ -56,7 +56,44 @@
 </head>
 <body>
     <nav class="bg-white shadow-lg fixed top-0 left-0 right-0 z-50">
-        </nav>
+        <div class="justify-center">
+            <div class="flex max-w-7xl mx-auto px-2 justify-between items-center h-16">
+                <div class="flex items-center justify-center p-4 gap-3">
+                    <img class="size-10" src="./public/logo2.svg" alt="" />
+                    <div>
+                        <h1 class="text-xl font-semibold">Global Financials</h1>
+                        <h6 class="text-gray-400 text-sm">
+                            Financial Excellence Worldwide
+                        </h6>
+                    </div>
+                </div>
+                <div class="hidden md:flex space-x-8">
+                    <a href="./index.html" class="nav-link p-1 rounded-sm hover:text-blue-700 transition-colors glow-button">Home</a>
+                    <a href="./services.html" class="nav-link p-1 rounded-sm hover:text-blue-700 transition-colors glow-button">Services</a>
+                    <a href="./projects.html" class="nav-link p-1 rounded-sm hover:text-blue-700 transition-colors glow-button">Projects</a>
+                    <a href="./articles.html" class="nav-link p-1 rounded-sm text-blue-700 transition-colors glow-button">Articles</a>
+                    <a href="./contact.html" class="nav-link p-1 rounded-sm hover:text-blue-700 transition-colors glow-button">Contact</a>
+                </div>
+
+                <div class="md:hidden">
+                    <button id="mobile-menu-btn"
+                        class="text-black p-2 hover:text-gray-500 focus:outline-none flex justify-between items-center">
+                        <i class="fas fa-bars text-xl"></i>
+                    </button>
+                </div>
+            </div>
+
+            <div id="mobile-menu" class="md:hidden hidden">
+                <div class="m-4 bg-gray-100 rounded-lg">
+                    <a href="./index.html" class="mobile-nav-link block px-3 py-2 text-black glow-button">Home</a>
+                    <a href="./services.html" class="mobile-nav-link block px-3 py-2 text-black glow-button">Services</a>
+                    <a href="./projects.html" class="mobile-nav-link block px-3 py-2 text-black glow-button">Projects</a>
+                    <a href="./articles.html" class="mobile-nav-link block rounded-lg px-3 py-2 font-bold text-white bg-blue-600 glow-button">Articles</a>
+                    <a href="./contact.html" class="mobile-nav-link block px-3 py-2 text-black glow-button">Contact</a>
+                </div>
+            </div>
+        </div>
+    </nav>
     
     <main class="flex-1 pt-16 bg-slate-50 article-bg-container">
         
@@ -83,10 +120,10 @@
 
                     <h2 class="text-3xl font-bold text-blue-600 mb-4 mt-10 border-b pb-2">1. The Challenge: Uncontrolled Burn Rate at 'Innovate Co.'</h2>
                     <p class="text-lg text-slate-700 mb-6 leading-relaxed">
-                        The client, a technology startup we'll call **Innovate Co.**, was a textbook example of successful market disruption. They had secured substantial early-stage funding and were seeing 50% year-over-year revenue growth. However, this period of rapid expansion masked a deep, systemic financial flaw. The internal accounting team focused primarily on top-line revenue and overall expenditure categories, missing the detail in vendor management and operational costs.</p>
+                        The client, a technology startup we'll call <span class="font-semibold">Innovate Co.</span>, was a textbook example of successful market disruption. They had secured substantial early-stage funding and were seeing 50% year-over-year revenue growth. However, this period of rapid expansion masked a deep, systemic financial flaw. The internal accounting team focused primarily on top-line revenue and overall expenditure categories, missing the detail in vendor management and operational costs.</p>
 
                     <p class="text-lg text-slate-700 mb-6 leading-relaxed">
-                        By the start of Q3, the Chief Financial Officer (CFO) projected that their cash runway was dangerously short—three months less than initially planned. The problem was not the market, the product, or the sales team; it was a phenomenon known as **Spending Complacency**. In the rush to scale, every department had acquired new software, services, and retainers independently, resulting in a maze of overlapping, forgotten, and highly expensive recurring charges. This passive leakage of funds directly threatened their planned Q4 product launch, which was critical for securing their next funding round. The stakes were nothing less than the company's future.
+                        By the start of Q3, the Chief Financial Officer (CFO) projected that their cash runway was dangerously short—three months less than initially planned. The problem was not the market, the product, or the sales team; it was a phenomenon known as <span class="font-semibold">Spending Complacency</span>. In the rush to scale, every department had acquired new software, services, and retainers independently, resulting in a maze of overlapping, forgotten, and highly expensive recurring charges. This passive leakage of funds directly threatened their planned Q4 product launch, which was critical for securing their next funding round. The stakes were nothing less than the company's future.
                     </p>
                     
                     <h2 class="text-3xl font-bold text-blue-600 mb-4 mt-10 border-b pb-2">2. The Diagnosis: The Forensic Cash Flow Audit</h2>
@@ -98,38 +135,38 @@
                     </p>
                     <h3 class="text-2xl font-semibold text-slate-800 mb-3">Critical Leakage Points Identified:</h3>
                     <ul class="list-disc list-outside text-lg text-slate-700 mb-6 space-y-3 pl-8">
-                        <li>**Subscription Overlap:** The sales, marketing, and customer success teams were collectively paying for nine distinct licenses across three different data analytics platforms, providing virtually the same service. **Total Waste: $1,850 per month.**</li>
-                        <li>**Zombie Retainers:** A six-month retainer for a previous development contractor continued to bill $1,500 monthly due to an overlooked auto-renewal clause, despite the contract being completed a quarter ago. **Total Waste: $4,500 (recovered for three months).**</li>
-                        <li>**Missed Escalation Clauses:** Three large-scale cloud infrastructure contracts had 15% annual price escalation clauses that were automatically applied. The internal finance team had budgeted based on the previous year's cost, missing the $15,000 annual cost increase. **Total Waste: $15,000 annually.**</li>
-                        <li>**Inventory Inefficiency:** Lease payments were still being made on a fleet of five laptops financed for a hiring push that never materialized. The equipment was unused, generating $400 in unnecessary monthly expense.</li>
+                        <li><span class="font-semibold">Subscription Overlap:</span> Identified <span class="font-semibold">seven software licenses</span> with overlapping functionality (e.g., three separate licenses for CRM data analytics) costing an estimated <span class="font-semibold">$1,850 per month</span>.</li>
+                        <li><span class="font-semibold">Zombie Retainers:</span> A dormant marketing retainer from a previous quarter continued to bill $1,500 monthly due to an overlooked auto-renewal clause, despite the contract being completed a quarter ago. <span class="font-semibold">Total Waste: $4,500 (recovered for three months).</span></li>
+                        <li><span class="font-semibold">Missed Escalation Clauses:</span> Three large-scale cloud infrastructure contracts had 15% annual price escalation clauses that were automatically applied. The internal finance team had budgeted based on the previous year's cost, missing the $15,000 annual cost increase. <span class="font-semibold">Total Waste: $15,000 annually.</span></li>
+                        <li><span class="font-semibold">Unused Hardware:</span> Lease payments were still being made on a fleet of five laptops financed for a hiring push that never materialized. The equipment was unused, generating $400 in unnecessary monthly expense.</li>
                     </ul>
 
                     <h2 class="text-3xl font-bold text-blue-600 mb-4 mt-10 border-b pb-2">3. The Strategy: Precision Control and Negotiation</h2>
                     <p class="text-lg text-slate-700 mb-6 leading-relaxed">
-                        The advisory firm structured the recovery process into two focused phases: **De-risking & Consolidation**, and **Future-Proofing**.
+                        The advisory firm structured the recovery process into two focused phases: De-risking & Consolidation, and Future-Proofing.
                     </p>
                     
                     <h3 class="text-2xl font-semibold text-slate-800 mb-3 text-blue-800">Phase 1: De-risking and Capital Consolidation</h3>
                     <p class="text-lg text-slate-700 mb-4 leading-relaxed">
-                        Immediate action was taken to stop the bleeding. The consultants spearheaded communication with all vendors, securing the cancellation of the seven redundant software licenses and successfully negotiating a refund for the unused retainer fee. Most importantly, they led strategic conversations with the cloud infrastructure providers. By presenting the provider with detailed data on Innovate Co.'s long-term growth and commitment, they managed to negotiate a temporary waiver of the 15% escalation clause and locked in a lower, fixed rate for the next 18 months.
+                        The consultants immediately halted all non-essential auto-renewals, consolidated software licenses to a single provider, and successfully negotiated a refund for the three months of the unused marketing retainer. Most importantly, they led strategic conversations with the cloud infrastructure providers. By presenting the provider with detailed data on Innovate Co.'s long-term growth and commitment, they managed to negotiate a temporary waiver of the 15% escalation clause and locked in a lower, fixed rate for the next 18 months.
                     </p>
                     
                     <h3 class="text-2xl font-semibold text-slate-800 mb-3 text-blue-800">Phase 2: Establishing a Sustainable Financial Operating Model</h3>
                     <p class="text-lg text-slate-700 mb-6 leading-relaxed">
-                        The long-term goal was to prevent future financial drift. The consultants implemented a new, centralized **Zero-Tolerance Expense Policy**. This included:
+                        To ensure the problem never recurred, the consultants implemented a new, centralized <span class="font-semibold">Zero-Tolerance Expense Policy</span>. This included:
                     </p>
                     <ul class="list-disc list-outside text-lg text-slate-700 mb-6 space-y-3 pl-8">
-                        <li>**Mandatory Centralized Procurement:** All new software and service contracts over $100/month must now pass through the CFO's office for review against existing tools.</li>
-                        <li>**Automated Variance Reporting:** Instituted a weekly report that flags any recurring charge that deviates from the prior month or a pre-approved budget, forcing an immediate audit by the finance team.</li>
-                        <li>**Contract Review Calendar:** Created a permanent calendar to track all auto-renewal dates, giving the CFO 60 days' notice before a contract can renew, ensuring timely negotiation or cancellation.</li>
+                        <li><span class="font-semibold">Mandatory Centralized Procurement:</span> All new software and service contracts over $100/month must now pass through the CFO's office for review against existing tools.</li>
+                        <li><span class="font-semibold">Automated Variance Reporting:</span> Instituted a weekly report that flags any recurring charge that deviates from the prior month or a pre-approved budget, forcing an immediate audit by the finance team.</li>
+                        <li><span class="font-semibold">Contract Review Calendar:</span> Created a permanent calendar to track all auto-renewal dates, giving the CFO 60 days' notice before a contract can renew, ensuring timely negotiation or cancellation.</li>
                     </ul>
 
-                    <h2 class="text-3xl font-bold text-blue-600 mb-4 mt-10 border-b pb-2">4. The Result: A \$50,000 Runway Extension</h2>
+                    <h2 class="text-3xl font-bold text-blue-600 mb-4 mt-10 border-b pb-2">4. The Result: A $50,000 Runway Extension</h2>
                     <p class="text-lg text-slate-700 mb-6 leading-relaxed">
-                        In just six weeks, the implementation of these measures yielded an astonishing result. The company realized **\$17,000 in immediate recovered capital** (refunds and immediate cancellations) and established **\$35,500 in annualized savings** from vendor optimization and subscription consolidation.
+                        By the end of the quarter, Innovate Co. had secured <span class="font-semibold">$17,000 in immediate recovered capital</span> and established <span class="font-semibold">$35,500 in annualized savings</span> from vendor optimization and subscription consolidation.
                     </p>
                     <p class="text-lg text-slate-700 mb-8 leading-relaxed">
-                        The total impact—over **\$52,500**—was immediately re-allocated to hire a crucial, highly-skilled software engineer who was essential for the Q4 product deadline. The product launched on schedule, investor confidence was restored, and Innovate Co. secured its next funding round without further delays. The case study proved that even in the midst of high growth, rigorous, forensic financial control is the essential difference between temporary success and long-term stability.
+                        The total impact—over <span class="font-semibold">$52,500</span>—was immediately re-allocated to hire a crucial, highly-skilled software engineer who was essential for the Q4 product deadline. The product launched on schedule, investor confidence was restored, and Innovate Co. secured its next funding round without further delays. The case study proved that even in the midst of high growth, rigorous, forensic financial control is the essential difference between temporary success and long-term stability.
                     </p>
                     
                     <a href="./articles.html" class="inline-flex items-center bg-blue-600 text-white px-8 py-3 rounded-full font-semibold hover:bg-blue-700 shadow-xl glow-button transition-transform duration-300">
@@ -140,7 +177,7 @@
         </section>
 
         <footer class="bg-slate-900 text-white" data-animate>
-          </footer>
+            </footer>
     </main>
     
     <script>
