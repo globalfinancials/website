@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8" />
+    <title>Article 2: From Red Ink to Gold - Debt Restructuring Case Study</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link href="./output.css" rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet" />
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet" />
+    <link rel="shortcut icon" href="./public/Vector.svg" type="image/x-icon" />
+    <style>
+        /* SCROLL ANIMATION */
+        [data-animate] { opacity: 0; transform: translateY(20px); transition: opacity 0.8s ease-out, transform 0.8s ease-out; }
+        [data-animate].animate-visible { opacity: 1; transform: translateY(0); }
+        /* BUTTON GLOW EFFECT */
+        .glow-button { transition: all 0.3s ease-in-out; }
+        .glow-button:hover { transform: scale(1.05); box-shadow: 0 0 10px rgba(59, 130, 246, 0.8), 0 0 20px rgba(59, 130, 246, 0.5); }
+        /* PROFESSIONAL WATERMARK BACKGROUND: Single, large, FIXED logo */
+        .article-bg-container { position: relative; min-height: 100vh; }
+        .article-bg-container::before { content: ""; position: fixed; top: 50%; left: 50%; width: 80vw; height: 80vh; transform: translate(-50%, -50%); background-image: url('./public/logo2.svg'); background-repeat: no-repeat; background-position: center; background-size: contain; opacity: 0.1; pointer-events: none; z-index: 0; }
+        /* Content wrapper and Card */
+        .article-content-wrapper { position: relative; z-index: 10; }
+        .article-card { background-color: white; border-radius: 0.75rem; }
+    </style>
+</head>
+<body>
+    <nav class="bg-white shadow-lg fixed top-0 left-0 right-0 z-50">
+        <div class="justify-center">
+            <div class="flex max-w-7xl mx-auto px-2 justify-between items-center h-16">
+                <div class="flex items-center justify-center p-4 gap-3">
+                    <img class="size-10" src="./public/logo2.svg" alt="" />
+                    <div>
+                        <h1 class="text-xl font-semibold">Global Financials</h1>
+                        <h6 class="text-gray-400 text-sm">
+                            Financial Excellence Worldwide
+                        </h6>
+                    </div>
+                </div>
+                <div class="hidden md:flex space-x-8">
+                    <a href="./index.html" class="nav-link p-1 rounded-sm hover:text-blue-700 transition-colors glow-button">Home</a>
+                    <a href="./services.html" class="nav-link p-1 rounded-sm hover:text-blue-700 transition-colors glow-button">Services</a>
+                    <a href="./projects.html" class="nav-link p-1 rounded-sm hover:text-blue-700 transition-colors glow-button">Portfolio</a>
+                    <a href="./articles.html" class="nav-link p-1 rounded-sm text-blue-700 transition-colors glow-button">Articles</a>
+                    <a href="./contact.html" class="nav-link p-1 rounded-sm hover:text-blue-700 transition-colors glow-button">Contact</a>
+                </div>
+
+                <div class="md:hidden">
+                    <button id="mobile-menu-btn"
+                        class="text-black p-2 hover:text-gray-500 focus:outline-none flex justify-between items-center">
+                        <i class="fas fa-bars text-xl"></i>
+                    </button>
+                </div>
+            </div>
+
+            <div id="mobile-menu" class="md:hidden hidden">
+                <div class="m-4 bg-gray-100 rounded-lg">
+                    <a href="./index.html" class="mobile-nav-link block px-3 py-2 text-black glow-button">Home</a>
+                    <a href="./services.html" class="mobile-nav-link block px-3 py-2 text-black glow-button">Services</a>
+                    <a href="./projects.html" class="mobile-nav-link block px-3 py-2 text-black glow-button">Portfolio</a>
+                    <a href="./articles.html" class="mobile-nav-link block rounded-lg px-3 py-2 font-bold text-white bg-blue-600 glow-button">Articles</a>
+                    <a href="./contact.html" class="mobile-nav-link block px-3 py-2 text-black glow-button">Contact</a>
+                </div>
+            </div>
+        </div>
+    </nav>
+    
+    <main class="flex-1 pt-16 bg-slate-50 article-bg-container">
+        
+        <section class="pt-24 pb-16 bg-white shadow-sm article-content-wrapper" data-animate> 
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+                <span class="inline-block bg-green-100 text-green-800 text-sm font-medium px-4 py-1 rounded-full mb-3 shadow-md">
+                    Case Study: Debt Restructuring & Operational Efficiency
+                </span>
+                <h1 class="text-5xl font-bold text-slate-800 mb-4">
+                    From Red Ink to Gold: How Acme Retail Co. Reverted Years of Losses
+                </h1>
+                <p class="text-xl text-slate-600 max-w-4xl mx-auto">
+                    The dramatic story of a legacy retail chain that reversed crippling losses by combining radical debt consolidation with targeted, data-driven operational cleanup.
+                </p>
+            </div>
+        </section>
+
+        <section class="py-20 article-content-wrapper">
+            <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="article-card p-10 rounded-xl shadow-2xl border border-slate-200" data-animate>
+                    <p class="text-xl text-slate-700 mb-8 leading-relaxed border-l-4 border-blue-600 pl-6 italic font-medium">
+                        "For years, our balance sheet looked viable, but the high-interest debt was a silent predator. We were servicing the past instead of investing in the future. We needed more than advice; we needed a financial intervention to survive."
+                    </p>
+
+                    <h2 class="text-3xl font-bold text-blue-600 mb-4 mt-10 border-b pb-2">1. The Challenge: The Crushing Weight of Debt</h2>
+                    <p class="text-lg text-slate-700 mb-6 leading-relaxed">
+                        The client, a well-known regional brand operating over 50 physical stores we'll call <span class="font-semibold">Acme Retail Co.</span>, faced a severe financial crisis. Their challenge stemmed from an aggressive, ill-timed expansion drive five years prior, which relied heavily on variable-rate, high-interest loans. As the retail landscape shifted, their sales stabilized but their debt service costs became crippling. They faced three consecutive years of net losses, driven entirely by interest payments, not poor operational performance. The internal finance team lacked the negotiating leverage and specialized legal expertise to challenge the debt structure, leaving the company on a fast track to insolvency. The business was fundamentally sound, but financially fragile.
+                    </p>
+
+                    <h2 class="text-3xl font-bold text-blue-600 mb-4 mt-10 border-b pb-2">2. The Diagnosis: Analyzing the Debt-Profit Paradox</h2>
+                    <p class="text-lg text-slate-700 mb-6 leading-relaxed">
+                        An external advisory team was engaged to perform a deep-dive financial restructuring assessment. The diagnosis confirmed the paradox: the core business generated sufficient operating profit (EBITDA), but the debt-to-equity ratio was unsustainable, and the weighted average cost of capital (WACC) was astronomical due to punitive interest rates. The debt was not only expensive but fragmented across four different lending institutions with conflicting covenants.
+                    </p>
+                    <h3 class="text-2xl font-semibold text-slate-800 mb-3">Key Financial Flaws Discovered:</h3>
+                    <ul class="list-disc list-outside text-lg text-slate-700 mb-6 space-y-3 pl-8">
+                        <li><span class="font-semibold">Fragmented Liabilities:</span> Four separate loans with interest rates ranging from 8.5% to 12% were due to mature simultaneously, creating an unmanageable liquidity risk.</li>
+                        <li><span class="font-semibold">Inventory Drag:</span> Over 20% of store inventory was aged stock requiring massive write-downs, trapping capital in non-liquid assets.</li>
+                        <li><span class="font-semibold">Location Performance Blindness:</span> A comprehensive P&L analysis revealed that 12 stores (24% of the total) were consuming more capital in rent and utilities than they contributed in sales, effectively subsidizing their losses with the profitable locations.</li>
+                    </ul>
+
+                    <h2 class="text-3xl font-bold text-blue-600 mb-4 mt-10 border-b pb-2">3. The Strategy: Radical Restructuring and Optimization</h2>
+                    <p class="text-lg text-slate-700 mb-6 leading-relaxed">
+                        The advisory firm implemented a two-track recovery strategy: first, aggressive debt negotiation; second, a surgical cut to unprofitable operations.
+                    </p>
+                    
+                    <h3 class="text-2xl font-semibold text-slate-800 mb-3 text-blue-800">Phase 1: Debt Consolidation and Negotiation</h3>
+                    <p class="text-lg text-slate-700 mb-4 leading-relaxed">
+                        The restructuring team successfully negotiated a single, consolidated line of credit with a major national bank. By leveraging the company's strong brand equity and EBITDA performance (excluding interest), they secured a new, single-figure interest rate of <span class="font-semibold">5.8%</span>. This move instantly cut the annual interest expense by over 40% and simplified the entire financial structure.
+                    </p>
+                    
+                    <h3 class="text-2xl font-semibold text-slate-800 mb-3 text-blue-800">Phase 2: Operational Discipline</h3>
+                    <p class="text-lg text-slate-700 mb-6 leading-relaxed">
+                        Simultaneously, the consultants enforced difficult but necessary operational changes:
+                    </p>
+                    <ul class="list-disc list-outside text-lg text-slate-700 mb-6 space-y-3 pl-8">
+                        <li><span class="font-semibold">Store Rationalization:</span> The 12 identified underperforming locations were closed or sold off in a planned, quick manner, freeing up substantial capital from leases and overhead.</li>
+                        <li><span class="font-semibold">Liquidity Injection:</span> A firm-wide discount was applied to all aged inventory, converting slow-moving assets into immediate cash flow, which was used to further pay down the principal debt.</li>
+                        <li><span class="font-semibold">KPI Implementation:</span> New store-level Key Performance Indicators (KPIs) were introduced, forcing managers to track profit per square foot rather than just gross sales.</li>
+                    </ul>
+
+                    <h2 class="text-3xl font-bold text-blue-600 mb-4 mt-10 border-b pb-2">4. The Result: A Sustainable 15% Profit Margin</h2>
+                    <p class="text-lg text-slate-700 mb-6 leading-relaxed">
+                        The transformation was profound. Within 18 months of the restructuring plan, Acme Retail Co. reduced its total interest expense by over <span class="font-semibold">$2.1 million annually</span>. The operational cleanup, particularly the elimination of loss-making stores, reduced overhead by an additional 12%.
+                    </p>
+                    <p class="text-lg text-slate-700 mb-8 leading-relaxed">
+                        Acme Retail officially moved from a net annual loss of 8% to a strong, sustainable <span class="font-semibold">15% net profit margin</span>. The company not only survived but was reborn as a leaner, more disciplined, and highly profitable enterprise, proving that legacy businesses can thrive if they are willing to tackle their financial skeletons head-on.
+                    </p>
+                    
+                    <a href="./articles.html" class="inline-flex items-center bg-blue-600 text-white px-8 py-3 rounded-full font-semibold hover:bg-blue-700 shadow-xl glow-button transition-transform duration-300">
+                        <i class="fas fa-arrow-left mr-3"></i> Return to Success Stories
+                    </a>
+                </div>
+            </div>
+        </section>
+
+        <footer class="bg-slate-900 text-white"></footer>
+    </main>
+    
+    <script>
+        // Mobile Menu Toggle Logic
+        document.getElementById('mobile-menu-btn').addEventListener('click', function() {
+            var menu = document.getElementById('mobile-menu');
+            menu.classList.toggle('hidden');
+        });
+        
+        // --- Scroll Reveal Animation Logic (Re-triggering on scroll up/down) ---
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('animate-visible');
+                } else {
+                    entry.target.classList.remove('animate-visible');
+                }
+            });
+        }, {
+            threshold: 0.1 
+        });
+
+        document.querySelectorAll('[data-animate]').forEach(element => {
+            observer.observe(element);
+        });
+    </script>
+</body>
+</html>

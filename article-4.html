@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8" />
+    <title>Article 4: The Growth Trap - Working Capital Case Study</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link href="./output.css" rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet" />
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet" />
+    <link rel="shortcut icon" href="./public/Vector.svg" type="image/x-icon" />
+    <style>
+        /* SCROLL ANIMATION */
+        [data-animate] { opacity: 0; transform: translateY(20px); transition: opacity 0.8s ease-out, transform 0.8s ease-out; }
+        [data-animate].animate-visible { opacity: 1; transform: translateY(0); }
+        /* BUTTON GLOW EFFECT */
+        .glow-button { transition: all 0.3s ease-in-out; }
+        .glow-button:hover { transform: scale(1.05); box-shadow: 0 0 10px rgba(59, 130, 246, 0.8), 0 0 20px rgba(59, 130, 246, 0.5); }
+        /* PROFESSIONAL WATERMARK BACKGROUND: Single, large, FIXED logo */
+        .article-bg-container { position: relative; min-height: 100vh; }
+        .article-bg-container::before { content: ""; position: fixed; top: 50%; left: 50%; width: 80vw; height: 80vh; transform: translate(-50%, -50%); background-image: url('./public/logo2.svg'); background-repeat: no-repeat; background-position: center; background-size: contain; opacity: 0.1; pointer-events: none; z-index: 0; }
+        /* Content wrapper and Card */
+        .article-content-wrapper { position: relative; z-index: 10; }
+        .article-card { background-color: white; border-radius: 0.75rem; }
+    </style>
+</head>
+<body>
+    <nav class="bg-white shadow-lg fixed top-0 left-0 right-0 z-50">
+        <div class="justify-center">
+            <div class="flex max-w-7xl mx-auto px-2 justify-between items-center h-16">
+                <div class="flex items-center justify-center p-4 gap-3">
+                    <img class="size-10" src="./public/logo2.svg" alt="" />
+                    <div>
+                        <h1 class="text-xl font-semibold">Global Financials</h1>
+                        <h6 class="text-gray-400 text-sm">
+                            Financial Excellence Worldwide
+                        </h6>
+                    </div>
+                </div>
+                <div class="hidden md:flex space-x-8">
+                    <a href="./index.html" class="nav-link p-1 rounded-sm hover:text-blue-700 transition-colors glow-button">Home</a>
+                    <a href="./services.html" class="nav-link p-1 rounded-sm hover:text-blue-700 transition-colors glow-button">Services</a>
+                    <a href="./projects.html" class="nav-link p-1 rounded-sm hover:text-blue-700 transition-colors glow-button">Portfolio</a>
+                    <a href="./articles.html" class="nav-link p-1 rounded-sm text-blue-700 transition-colors glow-button">Articles</a>
+                    <a href="./contact.html" class="nav-link p-1 rounded-sm hover:text-blue-700 transition-colors glow-button">Contact</a>
+                </div>
+
+                <div class="md:hidden">
+                    <button id="mobile-menu-btn"
+                        class="text-black p-2 hover:text-gray-500 focus:outline-none flex justify-between items-center">
+                        <i class="fas fa-bars text-xl"></i>
+                    </button>
+                </div>
+            </div>
+
+            <div id="mobile-menu" class="md:hidden hidden">
+                <div class="m-4 bg-gray-100 rounded-lg">
+                    <a href="./index.html" class="mobile-nav-link block px-3 py-2 text-black glow-button">Home</a>
+                    <a href="./services.html" class="mobile-nav-link block px-3 py-2 text-black glow-button">Services</a>
+                    <a href="./projects.html" class="mobile-nav-link block px-3 py-2 text-black glow-button">Portfolio</a>
+                    <a href="./articles.html" class="mobile-nav-link block rounded-lg px-3 py-2 font-bold text-white bg-blue-600 glow-button">Articles</a>
+                    <a href="./contact.html" class="mobile-nav-link block px-3 py-2 text-black glow-button">Contact</a>
+                </div>
+            </div>
+        </div>
+    </nav>
+    
+    <main class="flex-1 pt-16 bg-slate-50 article-bg-container">
+        
+        <section class="pt-24 pb-16 bg-white shadow-sm article-content-wrapper" data-animate> 
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+                <span class="inline-block bg-purple-100 text-purple-800 text-sm font-medium px-4 py-1 rounded-full mb-3 shadow-md">
+                    Case Study: Working Capital Management
+                </span>
+                <h1 class="text-5xl font-bold text-slate-800 mb-4">
+                    The Growth Trap: When Doubling Sales Nearly Kills Your Business
+                </h1>
+                <p class="text-xl text-slate-600 max-w-4xl mx-auto">
+                    The counter-intuitive story of a logistics and distribution firm whose phenomenal sales success created an immediate and severe cash flow crisis, and how strategic intervention secured their liquidity.
+                </p>
+            </div>
+        </section>
+
+        <section class="py-20 article-content-wrapper">
+            <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="article-card p-10 rounded-xl shadow-2xl border border-slate-200" data-animate>
+                    <p class="text-xl text-slate-700 mb-8 leading-relaxed border-l-4 border-blue-600 pl-6 italic font-medium">
+                        "We celebrated our biggest quarter in history, but my heart sank when I realized we were three days away from missing payroll. We were cash-poor, despite being revenue-rich. It was the ultimate financial paradox: success creating failure."
+                    </p>
+
+                    <h2 class="text-3xl font-bold text-blue-600 mb-4 mt-10 border-b pb-2">1. The Challenge: A Liquidity Crisis Driven by Sales</h2>
+                    <p class="text-lg text-slate-700 mb-6 leading-relaxed">
+                        The client, a logistics and distribution firm we'll call <span class="font-semibold">Global Distribution Solutions (GDS)</span>, experienced a rapid and unexpected surge in demand for its industrial supply chain services. To capture this market share, the sales team offered generous credit terms (Net 60 to Net 90) to secure large, high-value corporate contracts. While this boosted the company's Accounts Receivable (AR) to record levels, it created a devastating pinch on its working capital. GDS was obliged to pay its suppliers and operational costs on much shorter terms (Net 30) to keep the supply chain running. The result was a widening gap in the <span class="font-semibold">Cash Conversion Cycle (CCC)</span>, where cash was leaving the company 30-60 days before the revenue from those goods arrived.
+                    </p>
+                    <p class="text-lg text-slate-700 mb-6 leading-relaxed">
+                        The company's P&L looked fantastic, but its balance sheet was collapsing under the strain of funding its own sales growth. They needed immediate cash to cover short-term liabilities (payroll, utilities, fuel) while waiting for large customer checks to clear.
+                    </p>
+
+                    <h2 class="text-3xl font-bold text-blue-600 mb-4 mt-10 border-b pb-2">2. The Diagnosis: The Unhealthy Cash Conversion Cycle</h2>
+                    <p class="text-lg text-slate-700 mb-6 leading-relaxed">
+                        A specialized advisory team immediately diagnosed the classic "Growth Trap." A detailed analysis of the company's working capital components confirmed the severity of the CCC problem.
+                    </p>
+                    <h3 class="text-2xl font-semibold text-slate-800 mb-3">Working Capital Metrics Before Intervention:</h3>
+                    <ul class="list-disc list-outside text-lg text-slate-700 mb-6 space-y-3 pl-8">
+                        <li><span class="font-semibold">Average Collection Period (DSO):</span> 78 days (Target: 45 days).</li>
+                        <li><span class="font-semibold">Average Payment Period (DPO):</span> 32 days (Target: 60 days).</li>
+                        <li><span class="font-semibold">Cash Conversion Cycle (CCC):</span> An unsustainable 55-day gap, meaning GDS had to internally fund its operations for nearly two months before being paid.</li>
+                        <li><span class="font-semibold">Credit Policy Drift:</span> The sales team had no formal credit approval mechanism and was granting 90-day terms without assessing the clients' payment history or credit risk.</li>
+                    </ul>
+
+                    <h2 class="text-3xl font-bold text-blue-600 mb-4 mt-10 border-b pb-2">3. The Strategy: Bridging the Liquidity Gap</h2>
+                    <p class="text-lg text-slate-700 mb-6 leading-relaxed">
+                        The strategy centered on two core objectives: shortening the collection period (getting paid faster) and lengthening the payment period (paying slower).
+                    </p>
+                    
+                    <h3 class="text-2xl font-semibold text-slate-800 mb-3 text-blue-800">Phase 1: Collection Acceleration</h3>
+                    <p class="text-lg text-slate-700 mb-4 leading-relaxed">
+                        The firm implemented a strict, four-tier credit policy. New high-risk clients were limited to Net 30 or required a small upfront deposit. Simultaneously, they automated the invoicing and collections process, deploying follow-up systems at the 15, 30, and 45-day marks, complete with early-payment discount incentives (2% Net 10). This cultural shift emphasized cash collection as the sales team's final key performance indicator.
+                    </p>
+                    
+                    <h3 class="text-2xl font-semibold text-slate-800 mb-3 text-blue-800">Phase 2: Supplier Synchronization</h3>
+                    <p class="text-lg text-slate-700 mb-6 leading-relaxed">
+                        Armed with data showing GDS's new stability and long-term contract growth, the advisory team successfully renegotiated terms with GDS's three largest suppliers, extending their average payment period from 30 days to 60 days. This required presenting a detailed, transparent cash flow forecast that mitigated the suppliers' risk.
+                    </p>
+
+                    <h2 class="text-3xl font-bold text-blue-600 mb-4 mt-10 border-b pb-2">4. The Result: Liquidity and Accelerated Growth</h2>
+                    <p class="text-lg text-slate-700 mb-6 leading-relaxed">
+                        The reforms had an immediate, stabilizing effect. Within six months, GDS's financial health was fundamentally transformed:
+                    </p>
+                    <ul class="list-disc list-outside text-lg text-slate-700 mb-6 space-y-3 pl-8">
+                        <li><span class="font-semibold">DSO was reduced from 78 days to 48 days.</span></li>
+                        <li><span class="font-semibold">DPO was extended from 32 days to 58 days.</span></li>
+                        <li><span class="font-semibold">The Cash Conversion Cycle reversed from a 55-day deficit to a 10-day surplus.</span></li>
+                    </ul>
+                    <p class="text-lg text-slate-700 mb-8 leading-relaxed">
+                        This turnaround means GDS now receives cash 10 days before they have to pay their suppliers, completely eliminating the internal funding gap. The company achieved the twin goals of aggressive sales growth and robust financial liquidity, allowing them to confidently scale operations without fear of a self-inflicted cash crisis.
+                    </p>
+                    
+                    <a href="./articles.html" class="inline-flex items-center bg-blue-600 text-white px-8 py-3 rounded-full font-semibold hover:bg-blue-700 shadow-xl glow-button transition-transform duration-300">
+                        <i class="fas fa-arrow-left mr-3"></i> Return to Success Stories
+                    </a>
+                </div>
+            </div>
+        </section>
+
+        <footer class="bg-slate-900 text-white"></footer>
+    </main>
+    
+    <script>
+        // Mobile Menu Toggle Logic
+        document.getElementById('mobile-menu-btn').addEventListener('click', function() {
+            var menu = document.getElementById('mobile-menu');
+            menu.classList.toggle('hidden');
+        });
+        
+        // --- Scroll Reveal Animation Logic (Re-triggering on scroll up/down) ---
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('animate-visible');
+                } else {
+                    entry.target.classList.remove('animate-visible');
+                }
+            });
+        }, {
+            threshold: 0.1 
+        });
+
+        document.querySelectorAll('[data-animate]').forEach(element => {
+            observer.observe(element);
+        });
+    </script>
+</body>
+</html>
