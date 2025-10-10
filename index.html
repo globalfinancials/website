@@ -1,1182 +1,784 @@
 <!DOCTYPE html>
 <html class="scroll-smooth">
-  <head>
-    <meta charset="UTF-8" />
-    <title>Global Financials</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link href="./output.css" rel="stylesheet" />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap"
-      rel="stylesheet"
-    />
-    <link
-      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"
-      rel="stylesheet"
-    />
 
-    <link rel="shortcut icon" href="./public/Vector.svg" type="image/x-icon" />
+<head>
+  <meta charset="UTF-8" />
+  <title>Global Financials</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link href="./output.css" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet" />
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet" />
 
-    <style>
-      /* ====================================================================== */
-      /* 1. SCROLL-TRIGGERED REVEAL BASE STYLES */
-      /* ====================================================================== */
+  <link rel="shortcut icon" href="./public/Vector.svg" type="image/x-icon" />
 
-      /* Base class for all scroll-revealed elements: initially transparent */
-      .animate-scroll {
-        opacity: 0;
-        /* GPU-accelerated transition on opacity and transform for smoothness */
-        transition: opacity 0.8s ease-out, transform 0.8s ease-out;
-        /* Optimization hint for the browser */
-        will-change: opacity, transform;
+  <style>
+    /* ====================================================================== */
+    /* 1. SCROLL-TRIGGERED REVEAL BASE STYLES */
+    /* ====================================================================== */
+
+    /* Base class for all scroll-revealed elements: initially transparent */
+    .animate-scroll {
+      opacity: 0;
+      /* GPU-accelerated transition on opacity and transform for smoothness */
+      transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+      /* Optimization hint for the browser */
+      will-change: opacity, transform;
+    }
+
+    /* State when the element is intersecting (visible) */
+    .animate-scroll.is-active {
+      opacity: 1;
+      /* Reset transform to show the element at its natural position */
+      transform: translateY(0) translateX(0) scale(1) !important;
+    }
+
+    /* ====================================================================== */
+    /* 2. SPECIFIC ANIMATION EFFECTS */
+    /* ====================================================================== */
+
+    /* Fade-in-Up (For Core Services Cards and Section Headers) */
+    .animate-fade-up {
+      transform: translateY(30px);
+      /* Starts 30px below its final position */
+    }
+
+    /* Fade-in-Left (For Testimonial Cards) - Provides a subtle slide effect */
+    .animate-fade-left {
+      transform: translateX(-40px);
+      /* Starts 40px to the left */
+    }
+
+    /* Staggering delays for the testimonials grid */
+    .animate-fade-left:nth-child(2) {
+      transition-delay: 0.15s;
+    }
+
+    .animate-fade-left:nth-child(3) {
+      transition-delay: 0.3s;
+    }
+
+    /* NEW ANIMATION 1: Zoom-In (For Hero Section Content) */
+    .animate-zoom-in {
+      transform: scale(0.95);
+      /* Starts 5% smaller */
+    }
+
+    /* NEW ANIMATION 2: Fade-in-Right (For Buttons/Secondary Content) */
+    .animate-fade-right {
+      transform: translateX(40px);
+      /* Starts 40px to the right */
+    }
+
+    /* Staggering delays for Hero CTA buttons (nth-child in a flex container) */
+    .flex>.animate-fade-right:nth-child(2) {
+      transition-delay: 0.2s;
+      /* Delay the second button */
+    }
+
+    /* NEW ANIMATION 3: Pulse Hover (CSS only for footer icons) */
+    .pulse-hover {
+      transition: all 0.2s ease-in-out;
+    }
+
+    .pulse-hover:hover {
+      animation: pulse 1s infinite;
+    }
+
+    @keyframes pulse {
+
+      0%,
+      100% {
+        transform: scale(1);
+        box-shadow: 0 0 0 0 rgba(59, 130, 246, 0.7);
+        /* blue-500 equivalent */
       }
 
-      /* State when the element is intersecting (visible) */
-      .animate-scroll.is-active {
-        opacity: 1;
-        /* Reset transform to show the element at its natural position */
-        transform: translateY(0) translateX(0) scale(1) !important;
+      50% {
+        transform: scale(1.05);
+        box-shadow: 0 0 0 8px rgba(59, 130, 246, 0);
       }
+    }
 
-      /* ====================================================================== */
-      /* 2. SPECIFIC ANIMATION EFFECTS */
-      /* ====================================================================== */
+    /* NEW ANIMATION: Soft Glow for Buttons on Hover */
+    .glow-on-hover {
+      /* Ensure a transition on box-shadow as well */
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
 
-      /* Fade-in-Up (For Core Services Cards and Section Headers) */
-      .animate-fade-up {
-        transform: translateY(30px); /* Starts 30px below its final position */
-      }
+    .glow-on-hover:hover {
+      /* Soft blue glow effect on primary buttons */
+      box-shadow: 0 0 10px rgba(59, 130, 246, 0.7), 0 0 20px rgba(59, 130, 246, 0.3);
+      /* blue-500 glow */
+    }
 
-      /* Fade-in-Left (For Testimonial Cards) - Provides a subtle slide effect */
-      .animate-fade-left {
-        transform: translateX(-40px); /* Starts 40px to the left */
-      }
-      /* Staggering delays for the testimonials grid */
-      .animate-fade-left:nth-child(2) {
-        transition-delay: 0.15s;
-      }
-      .animate-fade-left:nth-child(3) {
-        transition-delay: 0.3s;
-      }
+    /* NEW: Glow and Zoom for Navigation Links */
+    .nav-link-effect {
+      /* Add relative positioning for stacking if needed, though not strictly required for this effect */
+      position: relative;
+      /* Ensure transition applies to transform and shadow */
+      transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+      /* Increase z-index slightly on hover to ensure it sits above adjacent elements, giving a "lifted" feel */
+      z-index: 10;
+    }
 
-      /* NEW ANIMATION 1: Zoom-In (For Hero Section Content) */
-      .animate-zoom-in {
-        transform: scale(0.95); /* Starts 5% smaller */
-      }
+    .nav-link-effect:hover {
+      transform: scale(1.05);
+      /* Slight zoom: 5% larger */
+      /* Soft blue glow effect (using blue-600 equivalent) */
+      box-shadow: 0 0 5px rgba(37, 99, 235, 0.6);
+      /* Add a background color on hover to enhance the "tab" look and glow area */
+      background-color: rgba(37, 99, 235, 0.05);
+      /* Very light blue wash */
+      border-radius: 4px;
+      /* Matches the existing rounded-sm class style */
+    }
+  </style>
+</head>
 
-      /* NEW ANIMATION 2: Fade-in-Right (For Buttons/Secondary Content) */
-      .animate-fade-right {
-        transform: translateX(40px); /* Starts 40px to the right */
-      }
-      /* Staggering delays for Hero CTA buttons (nth-child in a flex container) */
-      .flex > .animate-fade-right:nth-child(2) {
-        transition-delay: 0.2s; /* Delay the second button */
-      }
-
-      /* NEW ANIMATION 3: Pulse Hover (CSS only for footer icons) */
-      .pulse-hover {
-        transition: all 0.2s ease-in-out;
-      }
-      .pulse-hover:hover {
-        animation: pulse 1s infinite;
-      }
-      @keyframes pulse {
-        0%,
-        100% {
-          transform: scale(1);
-          box-shadow: 0 0 0 0 rgba(59, 130, 246, 0.7); /* blue-500 equivalent */
-        }
-        50% {
-          transform: scale(1.05);
-          box-shadow: 0 0 0 8px rgba(59, 130, 246, 0);
-        }
-      }
-
-      /* NEW ANIMATION: Soft Glow for Buttons on Hover */
-      .glow-on-hover {
-        /* Ensure a transition on box-shadow as well */
-        transition: transform 0.3s ease, box-shadow 0.3s ease; 
-      }
-      .glow-on-hover:hover {
-        /* Soft blue glow effect on primary buttons */
-        box-shadow: 0 0 10px rgba(59, 130, 246, 0.7), 0 0 20px rgba(59, 130, 246, 0.3); /* blue-500 glow */
-      }
-      
-      /* NEW: Glow and Zoom for Navigation Links */
-      .nav-link-effect {
-        /* Add relative positioning for stacking if needed, though not strictly required for this effect */
-        position: relative;
-        /* Ensure transition applies to transform and shadow */
-        transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
-        /* Increase z-index slightly on hover to ensure it sits above adjacent elements, giving a "lifted" feel */
-        z-index: 10;
-      }
-      .nav-link-effect:hover {
-        transform: scale(1.05); /* Slight zoom: 5% larger */
-        /* Soft blue glow effect (using blue-600 equivalent) */
-        box-shadow: 0 0 5px rgba(37, 99, 235, 0.6);
-        /* Add a background color on hover to enhance the "tab" look and glow area */
-        background-color: rgba(37, 99, 235, 0.05); /* Very light blue wash */
-        border-radius: 4px; /* Matches the existing rounded-sm class style */
-      }
-    </style>
-  </head>
-  <body>
-    <nav class="bg-white shadow-lg fixed top-0 left-0 right-0 z-50">
-      <div class="justify-center">
-        <div
-          class="flex max-w-7xl mx-auto px-2 justify-between items-center h-16"
-        >
-          <div class="flex items-center justify-center p-4 gap-3">
-            <img class="size-10" src="./public/logo2.svg" alt="" />
-            <div>
-              <h1 class="text-xl font-semibold">Global Financials</h1>
-              <h6 class="text-gray-400 text-sm">
-                Financial Excellence Worldwide
-              </h6>
-            </div>
-          </div>
-          <div class="hidden md:flex space-x-8">
-            <a
-              href="#"
-              class="nav-link p-1 rounded-sm text-blue-700 transition-colors nav-link-effect"
-              >Home</a
-            >
-            <a
-              href="./services.html"
-              class="nav-link p-1 rounded-sm hover:text-blue-700 transition-colors nav-link-effect"
-              >Services</a
-            >
-            <a
-              href="./projects.html"
-              class="nav-link p-1 rounded-sm hover:text-blue-700 transition-colors nav-link-effect"
-              >Projects</a
-            >
-            <a
-              href="./articles.html"
-              class="nav-link p-1 rounded-sm hover:text-blue-700 transition-colors nav-link-effect"
-              >Articles</a
-            >
-            <a
-              href="./contact.html"
-              class="nav-link p-1 rounded-sm hover:text-blue-700 transition-colors nav-link-effect"
-              >Contact</a
-            >
-          </div>
-
-          <div class="md:hidden">
-            <button
-              id="mobile-menu-btn"
-              class="text-black p-2 hover:text-gray-500 focus:outline-none flex justify-between items-center"
-            >
-              <i class="fas fa-bars text-xl"></i>
-            </button>
+<body>
+  <nav class="bg-white shadow-lg fixed top-0 left-0 right-0 z-50">
+    <div class="justify-center">
+      <div class="flex max-w-7xl mx-auto px-2 justify-between items-center h-16">
+        <div class="flex items-center justify-center p-4 gap-3">
+          <img class="size-10" src="./public/logo2.svg" alt="" />
+          <div>
+            <h1 class="text-xl font-semibold">Global Financials</h1>
+            <h6 class="text-gray-400 text-sm">
+              Financial Excellence Worldwide
+            </h6>
           </div>
         </div>
+        <div class="hidden md:flex space-x-8">
+          <a href="#" class="nav-link p-1 rounded-sm text-blue-700 transition-colors nav-link-effect">Home</a>
+          <a href="./services.html"
+            class="nav-link p-1 rounded-sm hover:text-blue-700 transition-colors nav-link-effect">Services</a>
+          <a href="./projects.html"
+            class="nav-link p-1 rounded-sm hover:text-blue-700 transition-colors nav-link-effect">Portfolio</a>
+          <a href="./articles.html"
+            class="nav-link p-1 rounded-sm hover:text-blue-700 transition-colors nav-link-effect">Articles</a>
+          <a href="./contact.html"
+            class="nav-link p-1 rounded-sm hover:text-blue-700 transition-colors nav-link-effect">Contact</a>
+        </div>
 
-        <div id="mobile-menu" class="md:hidden hidden">
-          <div class="m-4 bg-gray-100 rounded-lg">
-            <a
-              href="#"
-              class="mobile-nav-link block px-3 py-2 text-white font-bold bg-blue-600 rounded-lg"
-              >Home</a
-            >
-            <a
-              href="./services.html"
-              class="mobile-nav-link block px-3 py-2 text-black"
-              >Services</a
-            >
-            <a
-              href="./projects.html"
-              class="mobile-nav-link block px-3 py-2 text-black"
-              >Projects</a
-            >
-            <a
-              href="./articles.html"
-              class="mobile-nav-link block px-3 py-2 text-black"
-              >Articles</a
-            >
-            <a
-              href="./contact.html"
-              class="mobile-nav-link block px-3 py-2 text-black"
-              >Contact</a
-            >
-          </div>
+        <div class="md:hidden">
+          <button id="mobile-menu-btn"
+            class="text-black p-2 hover:text-gray-500 focus:outline-none flex justify-between items-center">
+            <i class="fas fa-bars text-xl"></i>
+          </button>
         </div>
       </div>
-    </nav>
 
-    <main class="flex-1">
-      <div class="min-h-screen">
-        <section
-          class="bg-gradient-to-br from-blue-50 via-white to-slate-50 py-36"
-        >
-          <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-            <div class="animate-scroll animate-zoom-in">
-              <h1 class="text-5xl md:text-6xl font-bold text-slate-800 mb-6">
-                Financial Excellence<span class="text-blue-600 block"
-                  >Delivered Globally</span
-                >
-              </h1>
-              <p
-                class="text-xl text-slate-600 mb-8 max-w-3xl mx-auto leading-relaxed"
-              >
-                Comprehensive financial solutions for businesses across
-                Australia, United States, Canada, and the United Kingdom. From
-                bookkeeping to strategic consulting, we deliver results that
-                drive growth.
-              </p>
+      <div id="mobile-menu" class="md:hidden hidden">
+        <div class="m-4 bg-gray-100 rounded-lg">
+          <a href="#" class="mobile-nav-link block px-3 py-2 text-white font-bold bg-blue-600 rounded-lg">Home</a>
+          <a href="./services.html" class="mobile-nav-link block px-3 py-2 text-black">Services</a>
+          <a href="./projects.html" class="mobile-nav-link block px-3 py-2 text-black">Portfolio</a>
+          <a href="./articles.html" class="mobile-nav-link block px-3 py-2 text-black">Articles</a>
+          <a href="./contact.html" class="mobile-nav-link block px-3 py-2 text-black">Contact</a>
+        </div>
+      </div>
+    </div>
+  </nav>
+
+  <main class="flex-1">
+    <div class="min-h-screen">
+      <section class="bg-gradient-to-br from-blue-50 via-white to-slate-50 py-36">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+          <div class="animate-scroll animate-zoom-in">
+            <h1 class="text-5xl md:text-6xl font-bold text-slate-800 mb-6">
+              Financial Excellence<span class="text-blue-600 block">Delivered Globally</span>
+            </h1>
+            <p class="text-xl text-slate-600 mb-8 max-w-3xl mx-auto leading-relaxed">
+              Comprehensive financial solutions for businesses across
+              Australia, United States, Canada, and the United Kingdom. From
+              bookkeeping to strategic consulting, we deliver results that
+              drive growth.
+            </p>
+          </div>
+          <div class="flex flex-col sm:flex-row gap-4 justify-center">
+            <a class="bg-blue-600 text-white px-8 py-4 rounded-lg text-lg font-semibold hover:bg-blue-700 transition-all duration-200 flex items-center justify-center group animate-scroll animate-fade-right transition-transform duration-300 hover:scale-110 glow-on-hover"
+              href="./services.html">
+              Explore Our Services<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
+                fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+                class="lucide lucide-arrow-right ml-2 h-5 w-5 group-hover:translate-x-1 transition-transform">
+                <path d="M5 12h14"></path>
+                <path d="m12 5 7 7-7 7"></path>
+              </svg>
+            </a>
+
+            <a class="border-2 border-blue-600 text-blue-600 px-8 py-4 rounded-lg text-lg font-semibold hover:bg-blue-600 hover:text-white transition-all duration-200 animate-scroll animate-fade-right transition-transform duration-300 hover:scale-110 glow-on-hover"
+              href="./contact.html">
+              Get Free Consultation
+            </a>
+          </div>
+        </div>
+      </section>
+
+      <section class="bg-white py-16">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div class="grid grid-cols-2 lg:grid-cols-4 gap-8">
+            <div class="text-center group">
+              <div
+                class="bg-blue-50 w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-4 group-hover:bg-blue-100 transition-colors">
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
+                  stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+                  class="lucide lucide-users h-8 w-8 text-blue-600">
+                  <path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"></path>
+                  <circle cx="9" cy="7" r="4"></circle>
+                  <path d="M22 21v-2a4 4 0 0 0-3-3.87"></path>
+                  <path d="M16 3.13a4 4 0 0 1 0 7.75"></path>
+                </svg>
+              </div>
+              <div class="text-3xl font-bold text-slate-800 mb-2 animate-count" data-target="99" data-suffix="%">
+                0%
+              </div>
+              <div class="text-slate-600 font-medium">
+                Client Satisfaction
+              </div>
             </div>
-            <div class="flex flex-col sm:flex-row gap-4 justify-center">
-              <a
-                class="bg-blue-600 text-white px-8 py-4 rounded-lg text-lg font-semibold hover:bg-blue-700 transition-all duration-200 flex items-center justify-center group animate-scroll animate-fade-right transition-transform duration-300 hover:scale-110 glow-on-hover"
-                href="./services.html"
-              >
-                Explore Our Services<svg
-                  xmlns="http://www.w3.org/2000/svg"
-                  width="24"
-                  height="24"
-                  viewBox="0 0 24 24"
-                  fill="none"
-                  stroke="currentColor"
-                  stroke-width="2"
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
-                  class="lucide lucide-arrow-right ml-2 h-5 w-5 group-hover:translate-x-1 transition-transform"
-                >
+            <div class="text-center group">
+              <div
+                class="bg-blue-50 w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-4 group-hover:bg-blue-100 transition-colors">
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
+                  stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+                  class="lucide lucide-globe h-8 w-8 text-blue-600">
+                  <circle cx="12" cy="12" r="10"></circle>
+                  <path d="M12 2a14.5 14.5 0 0 0 0 20 14.5 14.5 0 0 0 0-20"></path>
+                  <path d="M2 12h20"></path>
+                </svg>
+              </div>
+              <div class="text-3xl font-bold text-slate-800 mb-2 animate-count" data-target="4" data-suffix="">
+                0
+              </div>
+              <div class="text-slate-600 font-medium">Countries Served</div>
+            </div>
+            <div class="text-center group">
+              <div
+                class="bg-blue-50 w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-4 group-hover:bg-blue-100 transition-colors">
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
+                  stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+                  class="lucide lucide-award h-8 w-8 text-blue-600">
+                  <circle cx="12" cy="8" r="6"></circle>
+                  <path d="M15.477 12.89 17 22l-5-3-5 3 1.523-9.11"></path>
+                </svg>
+              </div>
+              <div class="text-3xl font-bold text-slate-800 mb-2 animate-count" data-target="50" data-suffix="+">
+                0+
+              </div>
+              <div class="text-slate-600 font-medium">Projects Completed</div>
+            </div>
+            <div class="text-center group">
+              <div
+                class="bg-blue-50 w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-4 group-hover:bg-blue-100 transition-colors">
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
+                  stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+                  class="lucide lucide-trending-up h-8 w-8 text-blue-600">
+                  <polyline points="22 7 13.5 15.5 8.5 10.5 2 17"></polyline>
+                  <polyline points="16 7 22 7 22 13"></polyline>
+                </svg>
+              </div>
+              <div class="text-3xl font-bold text-slate-800 mb-2 animate-count" data-target="2" data-suffix="+">
+                0+
+              </div>
+              <div class="text-slate-600 font-medium">Years Experience</div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="bg-slate-50 py-20">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div class="text-center mb-16">
+            <h2 class="text-4xl font-bold text-slate-800 mb-4 animate-scroll animate-fade-up">
+              Our Core Services
+            </h2>
+            <p class="text-xl text-slate-600 max-w-2xl mx-auto animate-scroll animate-fade-up">
+              We provide comprehensive financial solutions tailored to your
+              business needs
+            </p>
+          </div>
+          <div class="grid md:grid-cols-3 gap-8">
+            <div
+              class="bg-white rounded-xl p-8 shadow-lg hover:shadow-xl transition-all duration-300 group animate-scroll animate-fade-up">
+              <div
+                class="bg-blue-50 w-16 h-16 rounded-lg flex items-center justify-center mb-6 group-hover:bg-blue-100 transition-colors">
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
+                  stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+                  class="lucide lucide-check-circle h-8 w-8 text-blue-600">
+                  <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path>
+                  <path d="m9 11 3 3L22 4"></path>
+                </svg>
+              </div>
+              <h3 class="text-xl font-semibold text-slate-800 mb-4">
+                Bookkeeping Services
+              </h3>
+              <p class="text-slate-600 mb-6">
+                Comprehensive bookkeeping solutions to keep your financial
+                records accurate and up-to-date.
+              </p>
+              <button class="text-blue-600 font-semibold hover:text-blue-700 flex items-center group">
+                <a href="./services.html#Bookkeeping">Learn More</a><svg xmlns="http://www.w3.org/2000/svg" width="24"
+                  height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                  stroke-linecap="round" stroke-linejoin="round"
+                  class="lucide lucide-arrow-right ml-1 h-4 w-4 group-hover:translate-x-1 transition-transform">
                   <path d="M5 12h14"></path>
                   <path d="m12 5 7 7-7 7"></path>
                 </svg>
-              </a>
-
-              <a
-                class="border-2 border-blue-600 text-blue-600 px-8 py-4 rounded-lg text-lg font-semibold hover:bg-blue-600 hover:text-white transition-all duration-200 animate-scroll animate-fade-right transition-transform duration-300 hover:scale-110 glow-on-hover"
-                href="./contact.html"
-              >
-                Get Free Consultation
-              </a>
+              </button>
             </div>
-          </div>
-        </section>
 
-        <section class="bg-white py-16">
-          <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="grid grid-cols-2 lg:grid-cols-4 gap-8">
-              <div class="text-center group">
-                <div
-                  class="bg-blue-50 w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-4 group-hover:bg-blue-100 transition-colors"
-                >
-                  <svg
-                    xmlns="http://www.w3.org/2000/svg"
-                    width="24"
-                    height="24"
-                    viewBox="0 0 24 24"
-                    fill="none"
-                    stroke="currentColor"
-                    stroke-width="2"
-                    stroke-linecap="round"
-                    stroke-linejoin="round"
-                    class="lucide lucide-users h-8 w-8 text-blue-600"
-                  >
-                    <path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"></path>
-                    <circle cx="9" cy="7" r="4"></circle>
-                    <path d="M22 21v-2a4 4 0 0 0-3-3.87"></path>
-                    <path d="M16 3.13a4 4 0 0 1 0 7.75"></path>
-                  </svg>
-                </div>
-                <div
-                  class="text-3xl font-bold text-slate-800 mb-2 animate-count"
-                  data-target="99"
-                  data-suffix="%"
-                >
-                  0%
-                </div>
-                <div class="text-slate-600 font-medium">
-                  Client Satisfaction
-                </div>
+            <div
+              class="bg-white rounded-xl p-8 shadow-lg hover:shadow-xl transition-all duration-300 group animate-scroll animate-fade-up">
+              <div
+                class="bg-blue-50 w-16 h-16 rounded-lg flex items-center justify-center mb-6 group-hover:bg-blue-100 transition-colors">
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
+                  stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+                  class="lucide lucide-trending-up h-8 w-8 text-blue-600">
+                  <polyline points="22 7 13.5 15.5 8.5 10.5 2 17"></polyline>
+                  <polyline points="16 7 22 7 22 13"></polyline>
+                </svg>
               </div>
-              <div class="text-center group">
-                <div
-                  class="bg-blue-50 w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-4 group-hover:bg-blue-100 transition-colors"
-                >
-                  <svg
-                    xmlns="http://www.w3.org/2000/svg"
-                    width="24"
-                    height="24"
-                    viewBox="0 0 24 24"
-                    fill="none"
-                    stroke="currentColor"
-                    stroke-width="2"
-                    stroke-linecap="round"
-                    stroke-linejoin="round"
-                    class="lucide lucide-globe h-8 w-8 text-blue-600"
-                  >
-                    <circle cx="12" cy="12" r="10"></circle>
-                    <path
-                      d="M12 2a14.5 14.5 0 0 0 0 20 14.5 14.5 0 0 0 0-20"
-                    ></path>
-                    <path d="M2 12h20"></path>
-                  </svg>
-                </div>
-                <div
-                  class="text-3xl font-bold text-slate-800 mb-2 animate-count"
-                  data-target="4"
-                  data-suffix=""
-                >
-                  0
-                </div>
-                <div class="text-slate-600 font-medium">Countries Served</div>
-              </div>
-              <div class="text-center group">
-                <div
-                  class="bg-blue-50 w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-4 group-hover:bg-blue-100 transition-colors"
-                >
-                  <svg
-                    xmlns="http://www.w3.org/2000/svg"
-                    width="24"
-                    height="24"
-                    viewBox="0 0 24 24"
-                    fill="none"
-                    stroke="currentColor"
-                    stroke-width="2"
-                    stroke-linecap="round"
-                    stroke-linejoin="round"
-                    class="lucide lucide-award h-8 w-8 text-blue-600"
-                  >
-                    <circle cx="12" cy="8" r="6"></circle>
-                    <path d="M15.477 12.89 17 22l-5-3-5 3 1.523-9.11"></path>
-                  </svg>
-                </div>
-                <div
-                  class="text-3xl font-bold text-slate-800 mb-2 animate-count"
-                  data-target="50"
-                  data-suffix="+"
-                >
-                  0+
-                </div>
-                <div class="text-slate-600 font-medium">Projects Completed</div>
-              </div>
-              <div class="text-center group">
-                <div
-                  class="bg-blue-50 w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-4 group-hover:bg-blue-100 transition-colors"
-                >
-                  <svg
-                    xmlns="http://www.w3.org/2000/svg"
-                    width="24"
-                    height="24"
-                    viewBox="0 0 24 24"
-                    fill="none"
-                    stroke="currentColor"
-                    stroke-width="2"
-                    stroke-linecap="round"
-                    stroke-linejoin="round"
-                    class="lucide lucide-trending-up h-8 w-8 text-blue-600"
-                  >
-                    <polyline points="22 7 13.5 15.5 8.5 10.5 2 17"></polyline>
-                    <polyline points="16 7 22 7 22 13"></polyline>
-                  </svg>
-                </div>
-                <div
-                  class="text-3xl font-bold text-slate-800 mb-2 animate-count"
-                  data-target="2"
-                  data-suffix="+"
-                >
-                  0+
-                </div>
-                <div class="text-slate-600 font-medium">Years Experience</div>
-              </div>
-            </div>
-          </div>
-        </section>
-
-        <section class="bg-slate-50 py-20">
-          <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="text-center mb-16">
-              <h2
-                class="text-4xl font-bold text-slate-800 mb-4 animate-scroll animate-fade-up"
-              >
-                Our Core Services
-              </h2>
-              <p
-                class="text-xl text-slate-600 max-w-2xl mx-auto animate-scroll animate-fade-up"
-              >
-                We provide comprehensive financial solutions tailored to your
-                business needs
+              <h3 class="text-xl font-semibold text-slate-800 mb-4">
+                Financial Analysis
+              </h3>
+              <p class="text-slate-600 mb-6">
+                In-depth financial analysis to help you make informed business
+                decisions.
               </p>
+              <button class="text-blue-600 font-semibold hover:text-blue-700 flex items-center group">
+                <a href="./services.html#Financial">Learn More</a><svg xmlns="http://www.w3.org/2000/svg" width="24"
+                  height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                  stroke-linecap="round" stroke-linejoin="round"
+                  class="lucide lucide-arrow-right ml-1 h-4 w-4 group-hover:translate-x-1 transition-transform">
+                  <path d="M5 12h14"></path>
+                  <path d="m12 5 7 7-7 7"></path>
+                </svg>
+              </button>
             </div>
-            <div class="grid md:grid-cols-3 gap-8">
-              <div
-                class="bg-white rounded-xl p-8 shadow-lg hover:shadow-xl transition-all duration-300 group animate-scroll animate-fade-up"
-              >
-                <div
-                  class="bg-blue-50 w-16 h-16 rounded-lg flex items-center justify-center mb-6 group-hover:bg-blue-100 transition-colors"
-                >
-                  <svg
-                    xmlns="http://www.w3.org/2000/svg"
-                    width="24"
-                    height="24"
-                    viewBox="0 0 24 24"
-                    fill="none"
-                    stroke="currentColor"
-                    stroke-width="2"
-                    stroke-linecap="round"
-                    stroke-linejoin="round"
-                    class="lucide lucide-check-circle h-8 w-8 text-blue-600"
-                  >
-                    <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path>
-                    <path d="m9 11 3 3L22 4"></path>
-                  </svg>
-                </div>
-                <h3 class="text-xl font-semibold text-slate-800 mb-4">
-                  Bookkeeping Services
-                </h3>
-                <p class="text-slate-600 mb-6">
-                  Comprehensive bookkeeping solutions to keep your financial
-                  records accurate and up-to-date.
-                </p>
-                <button
-                  class="text-blue-600 font-semibold hover:text-blue-700 flex items-center group"
-                >
-                  Learn More<svg
-                    xmlns="http://www.w3.org/2000/svg"
-                    width="24"
-                    height="24"
-                    viewBox="0 0 24 24"
-                    fill="none"
-                    stroke="currentColor"
-                    stroke-width="2"
-                    stroke-linecap="round"
-                    stroke-linejoin="round"
-                    class="lucide lucide-arrow-right ml-1 h-4 w-4 group-hover:translate-x-1 transition-transform"
-                  >
-                    <path d="M5 12h14"></path>
-                    <path d="m12 5 7 7-7 7"></path>
-                  </svg>
-                </button>
-              </div>
 
+            <div
+              class="bg-white rounded-xl p-8 shadow-lg hover:shadow-xl transition-all duration-300 group animate-scroll animate-fade-up">
               <div
-                class="bg-white rounded-xl p-8 shadow-lg hover:shadow-xl transition-all duration-300 group animate-scroll animate-fade-up"
-              >
-                <div
-                  class="bg-blue-50 w-16 h-16 rounded-lg flex items-center justify-center mb-6 group-hover:bg-blue-100 transition-colors"
-                >
-                  <svg
-                    xmlns="http://www.w3.org/2000/svg"
-                    width="24"
-                    height="24"
-                    viewBox="0 0 24 24"
-                    fill="none"
-                    stroke="currentColor"
-                    stroke-width="2"
-                    stroke-linecap="round"
-                    stroke-linejoin="round"
-                    class="lucide lucide-trending-up h-8 w-8 text-blue-600"
-                  >
-                    <polyline points="22 7 13.5 15.5 8.5 10.5 2 17"></polyline>
-                    <polyline points="16 7 22 7 22 13"></polyline>
-                  </svg>
-                </div>
-                <h3 class="text-xl font-semibold text-slate-800 mb-4">
-                  Financial Analysis
-                </h3>
-                <p class="text-slate-600 mb-6">
-                  In-depth financial analysis to help you make informed business
-                  decisions.
-                </p>
-                <button
-                  class="text-blue-600 font-semibold hover:text-blue-700 flex items-center group"
-                >
-                  Learn More<svg
-                    xmlns="http://www.w3.org/2000/svg"
-                    width="24"
-                    height="24"
-                    viewBox="0 0 24 24"
-                    fill="none"
-                    stroke="currentColor"
-                    stroke-width="2"
-                    stroke-linecap="round"
-                    stroke-linejoin="round"
-                    class="lucide lucide-arrow-right ml-1 h-4 w-4 group-hover:translate-x-1 transition-transform"
-                  >
-                    <path d="M5 12h14"></path>
-                    <path d="m12 5 7 7-7 7"></path>
-                  </svg>
-                </button>
+                class="bg-blue-50 w-16 h-16 rounded-lg flex items-center justify-center mb-6 group-hover:bg-blue-100 transition-colors">
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
+                  stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+                  class="lucide lucide-users h-8 w-8 text-blue-600">
+                  <path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"></path>
+                  <circle cx="9" cy="7" r="4"></circle>
+                  <path d="M22 21v-2a4 4 0 0 0-3-3.87"></path>
+                  <path d="M16 3.13a4 4 0 0 1 0 7.75"></path>
+                </svg>
               </div>
-
-              <div
-                class="bg-white rounded-xl p-8 shadow-lg hover:shadow-xl transition-all duration-300 group animate-scroll animate-fade-up"
-              >
-                <div
-                  class="bg-blue-50 w-16 h-16 rounded-lg flex items-center justify-center mb-6 group-hover:bg-blue-100 transition-colors"
-                >
-                  <svg
-                    xmlns="http://www.w3.org/2000/svg"
-                    width="24"
-                    height="24"
-                    viewBox="0 0 24 24"
-                    fill="none"
-                    stroke="currentColor"
-                    stroke-width="2"
-                    stroke-linecap="round"
-                    stroke-linejoin="round"
-                    class="lucide lucide-users h-8 w-8 text-blue-600"
-                  >
-                    <path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"></path>
-                    <circle cx="9" cy="7" r="4"></circle>
-                    <path d="M22 21v-2a4 4 0 0 0-3-3.87"></path>
-                    <path d="M16 3.13a4 4 0 0 1 0 7.75"></path>
-                  </svg>
-                </div>
-                <h3 class="text-xl font-semibold text-slate-800 mb-4">
-                  Custom Consulting
-                </h3>
-                <p class="text-slate-600 mb-6">
-                  Tailored financial consulting services designed specifically
-                  for your business needs.
-                </p>
-                <button
-                  class="text-blue-600 font-semibold hover:text-blue-700 flex items-center group"
-                >
-                  Learn More<svg
-                    xmlns="http://www.w3.org/2000/svg"
-                    width="24"
-                    height="24"
-                    viewBox="0 0 24 24"
-                    fill="none"
-                    stroke="currentColor"
-                    stroke-width="2"
-                    stroke-linecap="round"
-                    stroke-linejoin="round"
-                    class="lucide lucide-arrow-right ml-1 h-4 w-4 group-hover:translate-x-1 transition-transform"
-                  >
-                    <path d="M5 12h14"></path>
-                    <path d="m12 5 7 7-7 7"></path>
-                  </svg>
-                </button>
-              </div>
-            </div>
-            <div class="text-center mt-12">
-              <a
-                href="./services.html"
-                class="bg-blue-600 text-white px-8 py-3 rounded-lg font-semibold hover:bg-blue-700 transition-colors animate-scroll animate-fade-up transition-transform duration-300 hover:scale-110 glow-on-hover inline-block"
-              >
-                View All Services
-              </a>
-            </div>
-          </div>
-        </section>
-
-        <section class="bg-white py-20">
-          <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="text-center mb-16">
-              <h2
-                class="text-4xl font-bold text-slate-800 mb-4 animate-scroll animate-fade-up"
-              >
-                What Our Clients Say
-              </h2>
-              <p class="text-xl text-slate-600 animate-scroll animate-fade-up">
-                Trusted by businesses worldwide
+              <h3 class="text-xl font-semibold text-slate-800 mb-4">
+                Custom Consulting
+              </h3>
+              <p class="text-slate-600 mb-6">
+                Tailored financial consulting services designed specifically
+                for your business needs.
               </p>
-            </div>
-            <div class="grid md:grid-cols-3 gap-8">
-              <div
-                class="bg-slate-50 rounded-xl p-8 animate-scroll animate-fade-left"
-              >
-                <div class="flex items-center mb-4">
-                  <svg
-                    xmlns="http://www.w3.org/2000/svg"
-                    width="24"
-                    height="24"
-                    viewBox="0 0 24 24"
-                    fill="none"
-                    stroke="currentColor"
-                    stroke-width="2"
-                    stroke-linecap="round"
-                    stroke-linejoin="round"
-                    class="lucide lucide-star h-5 w-5 text-yellow-400 fill-current"
-                  >
-                    <polygon
-                      points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"
-                    ></polygon></svg
-                  ><svg
-                    xmlns="http://www.w3.org/2000/svg"
-                    width="24"
-                    height="24"
-                    viewBox="0 0 24 24"
-                    fill="none"
-                    stroke="currentColor"
-                    stroke-width="2"
-                    stroke-linecap="round"
-                    stroke-linejoin="round"
-                    class="lucide lucide-star h-5 w-5 text-yellow-400 fill-current"
-                  >
-                    <polygon
-                      points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"
-                    ></polygon></svg
-                  ><svg
-                    xmlns="http://www.w3.org/2000/svg"
-                    width="24"
-                    height="24"
-                    viewBox="0 0 24 24"
-                    fill="none"
-                    stroke="currentColor"
-                    stroke-width="2"
-                    stroke-linecap="round"
-                    stroke-linejoin="round"
-                    class="lucide lucide-star h-5 w-5 text-yellow-400 fill-current"
-                  >
-                    <polygon
-                      points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"
-                    ></polygon></svg
-                  ><svg
-                    xmlns="http://www.w3.org/2000/svg"
-                    width="24"
-                    height="24"
-                    viewBox="0 0 24 24"
-                    fill="none"
-                    stroke="currentColor"
-                    stroke-width="2"
-                    stroke-linecap="round"
-                    stroke-linejoin="round"
-                    class="lucide lucide-star h-5 w-5 text-yellow-400 fill-current"
-                  >
-                    <polygon
-                      points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"
-                    ></polygon></svg
-                  ><svg
-                    xmlns="http://www.w3.org/2000/svg"
-                    width="24"
-                    height="24"
-                    viewBox="0 0 24 24"
-                    fill="none"
-                    stroke="currentColor"
-                    stroke-width="2"
-                    stroke-linecap="round"
-                    stroke-linejoin="round"
-                    class="lucide lucide-star h-5 w-5 text-yellow-400 fill-current"
-                  >
-                    <polygon
-                      points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"
-                    ></polygon>
-                  </svg>
-                </div>
-                <p class="text-slate-700 mb-6 italic">
-                  "Global Financials transformed our financial processes. Their
-                  attention to detail and expertise is unmatched."
-                </p>
-                <div>
-                  <div class="font-semibold text-slate-800">Sa**** Jo******</div>
-                  <div class="text-blue-600">Te** In********* Ltd</div>
-                  <div class="text-slate-500 text-sm">Australia</div>
-                </div>
-              </div>
-              <div
-                class="bg-slate-50 rounded-xl p-8 animate-scroll animate-fade-left"
-              >
-                <div class="flex items-center mb-4">
-                  <svg
-                    xmlns="http://www.w3.org/2000/svg"
-                    width="24"
-                    height="24"
-                    viewbox="0 0 24 24"
-                    fill="none"
-                    stroke="currentColor"
-                    stroke-width="2"
-                    stroke-linecap="round"
-                    stroke-linejoin="round"
-                    class="lucide lucide-star h-5 w-5 text-yellow-400 fill-current"
-                  >
-                    <polygon
-                      points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"
-                    ></polygon></svg
-                  ><svg
-                    xmlns="http://www.w3.org/2000/svg"
-                    width="24"
-                    height="24"
-                    viewBox="0 0 24 24"
-                    fill="none"
-                    stroke="currentColor"
-                    stroke-width="2"
-                    stroke-linecap="round"
-                    stroke-linejoin="round"
-                    class="lucide lucide-star h-5 w-5 text-yellow-400 fill-current"
-                  >
-                    <polygon
-                      points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"
-                    ></polygon></svg
-                  ><svg
-                    xmlns="http://www.w3.org/2000/svg"
-                    width="24"
-                    height="24"
-                    viewBox="0 0 24 24"
-                    fill="none"
-                    stroke="currentColor"
-                    stroke-width="2"
-                    stroke-linecap="round"
-                    stroke-linejoin="round"
-                    class="lucide lucide-star h-5 w-5 text-yellow-400 fill-current"
-                  >
-                    <polygon
-                      points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"
-                    ></polygon></svg
-                  ><svg
-                    xmlns="http://www.w3.org/2000/svg"
-                    width="24"
-                    height="24"
-                    viewBox="0 0 24 24"
-                    fill="none"
-                    stroke="currentColor"
-                    stroke-width="2"
-                    stroke-linecap="round"
-                    stroke-linejoin="round"
-                    class="lucide lucide-star h-5 w-5 text-yellow-400 fill-current"
-                  >
-                    <polygon
-                      points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"
-                    ></polygon></svg
-                  ><svg
-                    xmlns="http://www.w3.org/2000/svg"
-                    width="24"
-                    height="24"
-                    viewBox="0 0 24 24"
-                    fill="none"
-                    stroke="currentColor"
-                    stroke-width="2"
-                    stroke-linecap="round"
-                    stroke-linejoin="round"
-                    class="lucide lucide-star h-5 w-5 text-yellow-400 fill-current"
-                  >
-                    <polygon
-                      points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"
-                    ></polygon>
-                  </svg>
-                </div>
-                <p class="text-slate-700 mb-6 italic">
-                  "Professional, reliable, and incredibly knowledgeable. They
-                  helped us streamline our financial operations significantly."
-                </p>
-                <div>
-                  <div class="font-semibold text-slate-800">Mi****** Ch**</div>
-                  <div class="text-blue-600">Gr**** Ve******* Inc</div>
-                  <div class="text-slate-500 text-sm">Canada</div>
-                </div>
-              </div>
-              <div
-                class="bg-slate-50 rounded-xl p-8 animate-scroll animate-fade-left"
-              >
-                <div class="flex items-center mb-4">
-                  <svg
-                    xmlns="http://www.w3.org/2000/svg"
-                    width="24"
-                    height="24"
-                    viewBox="0 0 24 24"
-                    fill="none"
-                    stroke="currentColor"
-                    stroke-width="2"
-                    stroke-linecap="round"
-                    stroke-linejoin="round"
-                    class="lucide lucide-star h-5 w-5 text-yellow-400 fill-current"
-                  >
-                    <polygon
-                      points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"
-                    ></polygon></svg
-                  ><svg
-                    xmlns="http://www.w3.org/2000/svg"
-                    width="24"
-                    height="24"
-                    viewBox="0 0 24 24"
-                    fill="none"
-                    stroke="currentColor"
-                    stroke-width="2"
-                    stroke-linecap="round"
-                    stroke-linejoin="round"
-                    class="lucide lucide-star h-5 w-5 text-yellow-400 fill-current"
-                  >
-                    <polygon
-                      points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"
-                    ></polygon></svg
-                  ><svg
-                    xmlns="http://www.w3.org/2000/svg"
-                    width="24"
-                    height="24"
-                    viewBox="0 0 24 24"
-                    fill="none"
-                    stroke="currentColor"
-                    stroke-width="2"
-                    stroke-linecap="round"
-                    stroke-linejoin="round"
-                    class="lucide lucide-star h-5 w-5 text-yellow-400 fill-current"
-                  >
-                    <polygon
-                      points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"
-                    ></polygon></svg
-                  ><svg
-                    xmlns="http://www.w3.org/2000/svg"
-                    width="24"
-                    height="24"
-                    viewBox="0 0 24 24"
-                    fill="none"
-                    stroke="currentColor"
-                    stroke-width="2"
-                    stroke-linecap="round"
-                    stroke-linejoin="round"
-                    class="lucide lucide-star h-5 w-5 text-yellow-400 fill-current"
-                  >
-                    <polygon
-                      points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"
-                    ></polygon></svg
-                  ><svg
-                    xmlns="http://www.w3.org/2000/svg"
-                    width="24"
-                    height="24"
-                    viewBox="0 0 24 24"
-                    fill="none"
-                    stroke="currentColor"
-                    stroke-width="2"
-                    stroke-linecap="round"
-                    stroke-linejoin="round"
-                    class="lucide lucide-star h-5 w-5 text-yellow-400 fill-current"
-                  >
-                    <polygon
-                      points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"
-                    ></polygon>
-                  </svg>
-                </div>
-                <p class="text-slate-700 mb-6 italic">
-                  "The team provided exceptional financial consulting that
-                  directly improved our bottom line. Highly recommended."
-                </p>
-                <div>
-                  <div class="font-semibold text-slate-800">Em** Th*******</div>
-                  <div class="text-blue-600">St********* So********</div>
-                  <div class="text-slate-500 text-sm">Australia</div>
-                </div>
-              </div>
+              <button class="text-blue-600 font-semibold hover:text-blue-700 flex items-center group">
+                <a href="./services.html#Customcons">Learn More</a><svg xmlns="http://www.w3.org/2000/svg" width="24"
+                  height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                  stroke-linecap="round" stroke-linejoin="round"
+                  class="lucide lucide-arrow-right ml-1 h-4 w-4 group-hover:translate-x-1 transition-transform">
+                  <path d="M5 12h14"></path>
+                  <path d="m12 5 7 7-7 7"></path>
+                </svg>
+              </button>
             </div>
           </div>
-        </section>
+          <div class="text-center mt-12">
+            <a href="./services.html"
+              class="bg-blue-600 text-white px-8 py-3 rounded-lg font-semibold hover:bg-blue-700 transition-colors animate-scroll animate-fade-up transition-transform duration-300 hover:scale-110 glow-on-hover inline-block">
+              View All Services
+            </a>
+          </div>
+        </div>
+      </section>
 
-        <section class="bg-gradient-to-r from-blue-600 to-blue-700 py-20">
-          <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-            <h2 class="text-4xl font-bold text-white mb-6">
-              Ready to Transform Your Financial Operations?
+      <section class="bg-white py-20">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div class="text-center mb-16">
+            <h2 class="text-4xl font-bold text-slate-800 mb-4 animate-scroll animate-fade-up">
+              What Our Clients Say
             </h2>
-            <p class="text-xl text-blue-100 mb-8">
-              Join hundreds of successful businesses that trust Global
-              Financials with their financial needs.
+            <p class="text-xl text-slate-600 animate-scroll animate-fade-up">
+              Trusted by businesses worldwide
             </p>
-            <div class="flex flex-col sm:flex-row gap-4 justify-center">
-              <a
-                href="./contact.html"
-                class="flex items-center justify-center bg-white text-blue-600 px-8 py-4 rounded-lg text-lg font-semibold hover:bg-slate-50 transition-colors transition-transform duration-300 hover:scale-110 glow-on-hover"
-              >
-                Start Your Free Consultation
-              </a>
-
-              <a
-                href="#"
-                class="border-2 border-white text-white px-8 py-4 rounded-lg text-lg font-semibold hover:bg-white hover:text-blue-600 transition-colors transition-transform duration-300 hover:scale-110 glow-on-hover"
-              >
-                View Our Work
-              </a>
-            </div>
           </div>
-        </section>
-      </div>
-    </main>
-    <footer class="bg-slate-900 text-white">
-      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
-        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
-          <div class="lg:col-span-2">
-            <div class="flex items-center mb-4">
-              <img class="size-10" src="./public/logo2.svg" alt="" />
-              <div class="ml-3">
-                <h3 class="text-xl font-bold">Global Financials</h3>
-                <p class="text-slate-300">Financial Excellence Worldwide</p>
+          <div class="grid md:grid-cols-3 gap-8">
+            <div class="bg-slate-50 rounded-xl p-8 animate-scroll animate-fade-left">
+              <div class="flex items-center mb-4">
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
+                  stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+                  class="lucide lucide-star h-5 w-5 text-yellow-400 fill-current">
+                  <polygon
+                    points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2">
+                  </polygon>
+                </svg><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
+                  stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+                  class="lucide lucide-star h-5 w-5 text-yellow-400 fill-current">
+                  <polygon
+                    points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2">
+                  </polygon>
+                </svg><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
+                  stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+                  class="lucide lucide-star h-5 w-5 text-yellow-400 fill-current">
+                  <polygon
+                    points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2">
+                  </polygon>
+                </svg><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
+                  stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+                  class="lucide lucide-star h-5 w-5 text-yellow-400 fill-current">
+                  <polygon
+                    points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2">
+                  </polygon>
+                </svg><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
+                  stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+                  class="lucide lucide-star h-5 w-5 text-yellow-400 fill-current">
+                  <polygon
+                    points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2">
+                  </polygon>
+                </svg>
+              </div>
+              <p class="text-slate-700 mb-6 italic">
+                "Global Financials transformed our financial processes. Their
+                attention to detail and expertise is unmatched."
+              </p>
+              <div>
+                <div class="font-semibold text-slate-800">Sa**** Jo******</div>
+                <div class="text-blue-600">Te** In********* Ltd</div>
+                <div class="text-slate-500 text-sm">Australia</div>
               </div>
             </div>
-            <p class="text-slate-300 mb-6 max-w-md">
-              Providing comprehensive financial solutions to businesses across
-              Australia, United States, Canada, and the United Kingdom. Your
-              trusted partner for financial success.
-            </p>
-            <div class="flex space-x-4">
-              <a
-                href="https://www.linkedin.com/company/globalfinancials/"
-                target="_blank"
-                class="bg-slate-800 p-2 rounded-lg hover:bg-slate-700 transition-colors cursor-pointer pulse-hover"
-              >
-                <svg
-                  xmlns="http://www.w3.org/2000/svg"
-                  class="lucide h-5 w-5 text-blue-400"
-                  viewBox="0 0 24 24"
-                  fill="none"
-                  stroke="currentColor"
-                  stroke-width="2"
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
-                >
-                  <path
-                    d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"
-                  ></path>
-                  <rect x="2" y="9" width="4" height="12"></rect>
-                  <circle cx="4" cy="4" r="2"></circle>
+            <div class="bg-slate-50 rounded-xl p-8 animate-scroll animate-fade-left">
+              <div class="flex items-center mb-4">
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewbox="0 0 24 24" fill="none"
+                  stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+                  class="lucide lucide-star h-5 w-5 text-yellow-400 fill-current">
+                  <polygon
+                    points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2">
+                  </polygon>
+                </svg><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
+                  stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+                  class="lucide lucide-star h-5 w-5 text-yellow-400 fill-current">
+                  <polygon
+                    points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2">
+                  </polygon>
+                </svg><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
+                  stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+                  class="lucide lucide-star h-5 w-5 text-yellow-400 fill-current">
+                  <polygon
+                    points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2">
+                  </polygon>
+                </svg><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
+                  stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+                  class="lucide lucide-star h-5 w-5 text-yellow-400 fill-current">
+                  <polygon
+                    points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2">
+                  </polygon>
+                </svg><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
+                  stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+                  class="lucide lucide-star h-5 w-5 text-yellow-400 fill-current">
+                  <polygon
+                    points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2">
+                  </polygon>
                 </svg>
-              </a>
-              <a
-                href="https://www.instagram.com/global_financials"
-                target="_blank"
-                class="bg-slate-800 p-2 rounded-lg hover:bg-slate-700 transition-colors cursor-pointer pulse-hover"
-              >
-                <svg
-                  xmlns="http://www.w3.org/2000/svg"
-                  class="lucide h-5 w-5 text-blue-400"
-                  viewBox="0 0 24 24"
-                  fill="none"
-                  stroke="currentColor"
-                  stroke-width="2"
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
-                >
-                  <rect width="20" height="20" x="2" y="2" rx="5" ry="5"></rect>
-                  <path
-                    d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"
-                  ></path>
-                  <line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line>
-                </svg>
-              </a>
-              <a
-                href="https://www.facebook.com/share/1C18jmnTSM/"
-                target="_blank"
-                class="bg-slate-800 p-2 rounded-lg hover:bg-slate-700 transition-colors cursor-pointer pulse-hover"
-              >
-                <svg
-                  xmlns="http://www.w3.org/2000/svg"
-                  class="lucide h-5 w-5 text-blue-400"
-                  viewBox="0 0 24 24"
-                  fill="none"
-                  stroke="currentColor"
-                  stroke-width="2"
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
-                >
-                  <path
-                    d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"
-                  ></path>
-                </svg>
-              </a>
+              </div>
+              <p class="text-slate-700 mb-6 italic">
+                "Professional, reliable, and incredibly knowledgeable. They
+                helped us streamline our financial operations significantly."
+              </p>
+              <div>
+                <div class="font-semibold text-slate-800">Mi****** Ch**</div>
+                <div class="text-blue-600">Gr**** Ve******* Inc</div>
+                <div class="text-slate-500 text-sm">Canada</div>
+              </div>
             </div>
-          </div>
-          <div>
-            <h3 class="text-lg font-semibold mb-4">Quick Links</h3>
-            <ul class="space-y-2">
-              <li>
-                <a
-                  href="#"
-                  class="text-slate-300 hover:text-white transition-colors duration-200"
-                >
-                  Home
-                </a>
-              </li>
-              <li>
-                <a
-                  href="./services.html"
-                  class="text-slate-300 hover:text-white transition-colors duration-200"
-                >
-                  Services
-                </a>
-              </li>
-              <li>
-                <a
-                  href="./projects.html"
-                  class="text-slate-300 hover:text-white transition-colors duration-200"
-                >
-                  Portfolio
-                </a>
-              </li>
-              <li>
-                <a
-                  href="./contact.html"
-                  class="text-slate-300 hover:text-white transition-colors duration-200"
-                >
-                  Contact
-                </a>
-              </li>
-            </ul>
-          </div>
-          <div>
-            <h3 class="text-lg font-semibold mb-4">Contact Info</h3>
-            <ul class="space-y-3">
-              <li>
-                <a
-                  href="https://wa.me/923216647827"
-                  target="_blank"
-                  class="flex items-center space-x-3 text-slate-300 hover:text-white transition-colors"
-                >
-                  <i class="fab fa-whatsapp text-xl text-blue-400"></i>
-                  <span>+92 321 6647827</span>
-                </a>
-              </li>
-              <li>
-                <a
-                  href="mailto:globalfinancials.org@gmail.com"
-                  class="flex items-center space-x-3 text-slate-300 hover:text-white transition-colors"
-                >
-                  <svg
-                    xmlns="http://www.w3.org/2000/svg"
-                    width="24"
-                    height="24"
-                    viewBox="0 0 24 24"
-                    fill="none"
-                    stroke="currentColor"
-                    stroke-width="2"
-                    stroke-linecap="round"
-                    stroke-linejoin="round"
-                    class="lucide lucide-mail h-5 w-5 text-blue-400"
-                  >
-                    <rect width="20" height="16" x="2" y="4" rx="2"></rect>
-                    <path
-                      d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"
-                    ></path></svg
-                  ><span>globalfinancials.org@gmail.com</span>
-                </a>
-              </li>
-            </ul>
+            <div class="bg-slate-50 rounded-xl p-8 animate-scroll animate-fade-left">
+              <div class="flex items-center mb-4">
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
+                  stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+                  class="lucide lucide-star h-5 w-5 text-yellow-400 fill-current">
+                  <polygon
+                    points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2">
+                  </polygon>
+                </svg><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
+                  stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+                  class="lucide lucide-star h-5 w-5 text-yellow-400 fill-current">
+                  <polygon
+                    points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2">
+                  </polygon>
+                </svg><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
+                  stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+                  class="lucide lucide-star h-5 w-5 text-yellow-400 fill-current">
+                  <polygon
+                    points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2">
+                  </polygon>
+                </svg><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
+                  stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+                  class="lucide lucide-star h-5 w-5 text-yellow-400 fill-current">
+                  <polygon
+                    points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2">
+                  </polygon>
+                </svg><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
+                  stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+                  class="lucide lucide-star h-5 w-5 text-yellow-400 fill-current">
+                  <polygon
+                    points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2">
+                  </polygon>
+                </svg>
+              </div>
+              <p class="text-slate-700 mb-6 italic">
+                "The team provided exceptional financial consulting that
+                directly improved our bottom line. Highly recommended."
+              </p>
+              <div>
+                <div class="font-semibold text-slate-800">Em** Th*******</div>
+                <div class="text-blue-600">St********* So********</div>
+                <div class="text-slate-500 text-sm">Australia</div>
+              </div>
+            </div>
           </div>
         </div>
-        <div class="border-t border-slate-800 pt-8 mt-8">
-          <div class="flex flex-col md:flex-row justify-between items-center">
-            <p class="text-slate-400 text-sm">
-              © 2025 Global Financials. All rights reserved.
-            </p>
-            <div class="flex space-x-6 mt-4 md:mt-0">
-              <a
-                href="#"
-                class="text-slate-400 hover:text-white text-sm transition-colors"
-                >Privacy Policy</a
-              ><a
-                href="#"
-                class="text-slate-400 hover:text-white text-sm transition-colors"
-                >Terms of Service</a
-              ><a
-                href="#"
-                class="text-slate-400 hover:text-white text-sm transition-colors"
-                >Cookie Policy</a
-              >
+      </section>
+
+      <section class="bg-gradient-to-r from-blue-600 to-blue-700 py-20">
+        <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+          <h2 class="text-4xl font-bold text-white mb-6">
+            Ready to Transform Your Financial Operations?
+          </h2>
+          <p class="text-xl text-blue-100 mb-8">
+            Join hundreds of successful businesses that trust Global
+            Financials with their financial needs.
+          </p>
+          <div class="flex flex-col sm:flex-row gap-4 justify-center">
+            <a href="./contact.html"
+              class="flex items-center justify-center bg-white text-blue-600 px-8 py-4 rounded-lg text-lg font-semibold hover:bg-slate-50 transition-colors transition-transform duration-300 hover:scale-110 glow-on-hover">
+              Start Your Free Consultation
+            </a>
+
+            <a href="#"
+              class="border-2 border-white text-white px-8 py-4 rounded-lg text-lg font-semibold hover:bg-white hover:text-blue-600 transition-colors transition-transform duration-300 hover:scale-110 glow-on-hover">
+              View Our Work
+            </a>
+          </div>
+        </div>
+      </section>
+    </div>
+  </main>
+  <footer class="bg-slate-900 text-white">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+        <div class="lg:col-span-2">
+          <div class="flex items-center mb-4">
+            <img class="size-10" src="./public/logo2.svg" alt="" />
+            <div class="ml-3">
+              <h3 class="text-xl font-bold">Global Financials</h3>
+              <p class="text-slate-300">Financial Excellence Worldwide</p>
             </div>
+          </div>
+          <p class="text-slate-300 mb-6 max-w-md">
+            Providing comprehensive financial solutions to businesses across
+            Australia, United States, Canada, and the United Kingdom. Your
+            trusted partner for financial success.
+          </p>
+          <div class="flex space-x-4">
+            <a href="https://www.linkedin.com/company/globalfinancials/" target="_blank"
+              class="bg-slate-800 p-2 rounded-lg hover:bg-slate-700 transition-colors cursor-pointer pulse-hover">
+              <svg xmlns="http://www.w3.org/2000/svg" class="lucide h-5 w-5 text-blue-400" viewBox="0 0 24 24"
+                fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"></path>
+                <rect x="2" y="9" width="4" height="12"></rect>
+                <circle cx="4" cy="4" r="2"></circle>
+              </svg>
+            </a>
+            <a href="https://www.instagram.com/global_financials" target="_blank"
+              class="bg-slate-800 p-2 rounded-lg hover:bg-slate-700 transition-colors cursor-pointer pulse-hover">
+              <svg xmlns="http://www.w3.org/2000/svg" class="lucide h-5 w-5 text-blue-400" viewBox="0 0 24 24"
+                fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <rect width="20" height="20" x="2" y="2" rx="5" ry="5"></rect>
+                <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path>
+                <line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line>
+              </svg>
+            </a>
+            <a href="https://www.facebook.com/share/1C18jmnTSM/" target="_blank"
+              class="bg-slate-800 p-2 rounded-lg hover:bg-slate-700 transition-colors cursor-pointer pulse-hover">
+              <svg xmlns="http://www.w3.org/2000/svg" class="lucide h-5 w-5 text-blue-400" viewBox="0 0 24 24"
+                fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"></path>
+              </svg>
+            </a>
+          </div>
+        </div>
+        <div>
+          <h3 class="text-lg font-semibold mb-4">Quick Links</h3>
+          <ul class="space-y-2">
+           
+            <li>
+              <a href="./services.html" class="text-slate-300 hover:text-white transition-colors duration-200">
+                Services
+              </a>
+            </li>
+            <li>
+              <a href="./projects.html" class="text-slate-300 hover:text-white transition-colors duration-200">
+                Portfolio
+              </a>
+            </li>
+            <li>
+              <a href="./contact.html" class="text-slate-300 hover:text-white transition-colors duration-200">
+                Contact
+              </a>
+            </li>
+          </ul>
+        </div>
+        <div>
+          <h3 class="text-lg font-semibold mb-4">Contact Info</h3>
+          <ul class="space-y-3">
+            <li>
+              <a href="https://wa.me/923216647827" target="_blank"
+                class="flex items-center space-x-3 text-slate-300 hover:text-white transition-colors">
+                <i class="fab fa-whatsapp text-xl text-blue-400"></i>
+                <span>+92 321 6647827</span>
+              </a>
+            </li>
+            <li>
+              <a href="mailto:globalfinancials.org@gmail.com"
+                class="flex items-center space-x-3 text-slate-300 hover:text-white transition-colors">
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
+                  stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+                  class="lucide lucide-mail h-5 w-5 text-blue-400">
+                  <rect width="20" height="16" x="2" y="4" rx="2"></rect>
+                  <path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"></path>
+                </svg><span>globalfinancials.org@gmail.com</span>
+              </a>
+            </li>
+          </ul>
+        </div>
+      </div>
+      <div class="border-t border-slate-800 pt-8 mt-8">
+        <div class="flex flex-col md:flex-row justify-between items-center">
+          <p class="text-slate-400 text-sm">
+            © 2025 Global Financials. All rights reserved.
+          </p>
+          <div class="flex space-x-6 mt-4 md:mt-0">
+            <a href="#" class="text-slate-400 hover:text-white text-sm transition-colors">Privacy Policy</a><a href="#"
+              class="text-slate-400 hover:text-white text-sm transition-colors">Terms of Service</a><a href="#"
+              class="text-slate-400 hover:text-white text-sm transition-colors">Cookie Policy</a>
           </div>
         </div>
       </div>
-    </footer>
+    </div>
+  </footer>
 
-    <script>
-      document.addEventListener('DOMContentLoaded', () => {
-        // ----------------------------------------------------------------------
-        // 1. Mobile Menu Toggle (Existing functionality)
-        // ----------------------------------------------------------------------
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      // ----------------------------------------------------------------------
+      // 1. Mobile Menu Toggle (Existing functionality)
+      // ----------------------------------------------------------------------
 
-        const mobileMenuBtn = document.getElementById('mobile-menu-btn');
-        const mobileMenu = document.getElementById('mobile-menu');
+      const mobileMenuBtn = document.getElementById('mobile-menu-btn');
+      const mobileMenu = document.getElementById('mobile-menu');
 
-        if (mobileMenuBtn) {
-          mobileMenuBtn.addEventListener('click', () => {
-            mobileMenu.classList.toggle('hidden');
-          });
-        }
+      if (mobileMenuBtn) {
+        mobileMenuBtn.addEventListener('click', () => {
+          mobileMenu.classList.toggle('hidden');
+        });
+      }
 
-        // ----------------------------------------------------------------------
-        // 2. Scroll-Triggered Reveals (Repeats every time element enters/leaves viewport)
-        // ----------------------------------------------------------------------
+      // ----------------------------------------------------------------------
+      // 2. Scroll-Triggered Reveals (Repeats every time element enters/leaves viewport)
+      // ----------------------------------------------------------------------
 
-        const revealElements = document.querySelectorAll('.animate-scroll');
+      const revealElements = document.querySelectorAll('.animate-scroll');
 
-        // Observer options: threshold 0.1 means the callback fires when 10% enters/leaves the viewport.
-        const observerOptions = {
-          root: null, // viewport
-          rootMargin: '0px',
-          threshold: 0.1,
+      // Observer options: threshold 0.1 means the callback fires when 10% enters/leaves the viewport.
+      const observerOptions = {
+        root: null, // viewport
+        rootMargin: '0px',
+        threshold: 0.1,
+      };
+
+      const revealObserver = new IntersectionObserver((entries, observer) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            // Element enters view: trigger the animation by adding the active class
+            entry.target.classList.add('is-active');
+            // NOTE: We DO NOT unobserve, allowing it to be triggered again.
+          } else {
+            // Element leaves view: reset the element to its initial (hidden/transformed) state
+            entry.target.classList.remove('is-active');
+          }
+        });
+      }, observerOptions);
+
+      revealElements.forEach((el) => revealObserver.observe(el));
+
+      // ----------------------------------------------------------------------
+      // 3. Stats/Metrics Number Counter Animation (Runs only once)
+      // ----------------------------------------------------------------------
+
+      const counterObserverOptions = {
+        root: null,
+        rootMargin: '0px',
+        threshold: 0.5, // Trigger when 50% of the counter is visible
+      };
+
+      /**
+       * Animates the counter from 0 to the final value using requestAnimationFrame.
+       */
+      function animateCounter(element, finalValue) {
+        let startTimestamp = null;
+        const duration = 1500; // 1.5 seconds animation
+
+        const step = (timestamp) => {
+          if (!startTimestamp) startTimestamp = timestamp;
+          const progress = Math.min(
+            (timestamp - startTimestamp) / duration,
+            1
+          );
+
+          // Calculate the current value
+          const currentValue = Math.floor(progress * finalValue);
+
+          // Update the element's text content
+          element.textContent = currentValue + element.dataset.suffix;
+
+          // Continue the animation if not complete
+          if (progress < 1) {
+            window.requestAnimationFrame(step);
+          }
         };
 
-        const revealObserver = new IntersectionObserver((entries, observer) => {
+        window.requestAnimationFrame(step);
+      }
+
+      const countElements = document.querySelectorAll('.animate-count');
+
+      const counterObserver = new IntersectionObserver(
+        (entries, observer) => {
           entries.forEach((entry) => {
-            if (entry.isIntersecting) {
-              // Element enters view: trigger the animation by adding the active class
-              entry.target.classList.add('is-active');
-              // NOTE: We DO NOT unobserve, allowing it to be triggered again.
-            } else {
-              // Element leaves view: reset the element to its initial (hidden/transformed) state
-              entry.target.classList.remove('is-active');
+            // Ensure the counter runs only once
+            if (
+              entry.isIntersecting &&
+              !entry.target.classList.contains('counted')
+            ) {
+              const finalValue = parseInt(entry.target.dataset.target);
+              const suffix = entry.target.dataset.suffix || '';
+
+              // Start the count up animation
+              animateCounter(entry.target, finalValue);
+              entry.target.classList.add('counted'); // Mark as counted
+              observer.unobserve(entry.target); // Stop observing after running once
             }
           });
-        }, observerOptions);
+        },
+        counterObserverOptions
+      );
 
-        revealElements.forEach((el) => revealObserver.observe(el));
+      countElements.forEach((el) => counterObserver.observe(el));
+    });
+  </script>
+</body>
 
-        // ----------------------------------------------------------------------
-        // 3. Stats/Metrics Number Counter Animation (Runs only once)
-        // ----------------------------------------------------------------------
-
-        const counterObserverOptions = {
-          root: null,
-          rootMargin: '0px',
-          threshold: 0.5, // Trigger when 50% of the counter is visible
-        };
-
-        /**
-         * Animates the counter from 0 to the final value using requestAnimationFrame.
-         */
-        function animateCounter(element, finalValue) {
-          let startTimestamp = null;
-          const duration = 1500; // 1.5 seconds animation
-
-          const step = (timestamp) => {
-            if (!startTimestamp) startTimestamp = timestamp;
-            const progress = Math.min(
-              (timestamp - startTimestamp) / duration,
-              1
-            );
-
-            // Calculate the current value
-            const currentValue = Math.floor(progress * finalValue);
-
-            // Update the element's text content
-            element.textContent = currentValue + element.dataset.suffix;
-
-            // Continue the animation if not complete
-            if (progress < 1) {
-              window.requestAnimationFrame(step);
-            }
-          };
-
-          window.requestAnimationFrame(step);
-        }
-
-        const countElements = document.querySelectorAll('.animate-count');
-
-        const counterObserver = new IntersectionObserver(
-          (entries, observer) => {
-            entries.forEach((entry) => {
-              // Ensure the counter runs only once
-              if (
-                entry.isIntersecting &&
-                !entry.target.classList.contains('counted')
-              ) {
-                const finalValue = parseInt(entry.target.dataset.target);
-                const suffix = entry.target.dataset.suffix || '';
-
-                // Start the count up animation
-                animateCounter(entry.target, finalValue);
-                entry.target.classList.add('counted'); // Mark as counted
-                observer.unobserve(entry.target); // Stop observing after running once
-              }
-            });
-          },
-          counterObserverOptions
-        );
-
-        countElements.forEach((el) => counterObserver.observe(el));
-      });
-    </script>
-  </body>
 </html>
