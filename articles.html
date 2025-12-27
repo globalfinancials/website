@@ -1,387 +1,281 @@
 <!DOCTYPE html>
 <html lang="en" class="scroll-smooth">
-
 <head>
-  <meta charset="UTF-8" />
-  <title>Articles - Global Financials Success Stories</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <link href="./output.css" rel="stylesheet" />
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet" />
-  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet" />
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" />
-  <link rel="shortcut icon" href="./public/Vector.svg" type="image/x-icon" />
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Articles & Insights | Global Financials</title>
+    
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
+    
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 
-  <style>
-    body{
-      padding-top: 6rem;
-    }
-    /* Initial state for elements with data-animate attribute (Scroll Reveal) */
-    [data-animate] {
-      opacity: 0;
-      transform: translateY(20px);
-      transition: opacity 0.8s ease-out, transform 0.8s ease-out;
-    }
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
 
-    /* Final state when element is visible */
-    [data-animate].animate-visible {
-      opacity: 1;
-      transform: translateY(0);
-    }
-
-    /* Zoom and Glow Effect for Buttons/Links */
-    .glow-button {
-      transition: all 0.3s ease-in-out;
-    }
-
-    .glow-button:hover {
-      transform: scale(1.05);
-      /* Zoom effect */
-      box-shadow: 0 0 10px rgba(59, 130, 246, 0.8),
-        /* Inner glow */
-        0 0 20px rgba(59, 130, 246, 0.5);
-      /* Outer glow */
-    }
-  </style>
-</head>
-
-<body>
-  <nav class="bg-white shadow-lg fixed top-0 left-0 right-0 z-50">
-    <div class="justify-center">
-      <div class="flex max-w-7xl mx-auto px-2 justify-between items-center h-16">
-        <div class="flex items-center justify-center p-4 gap-3">
-          <img class="size-10" src="./public/logo2.svg" alt="" />
-          <div>
-            <h1 class="text-xl font-semibold">Global Financials</h1>
-            <h6 class="text-gray-400 text-sm">
-              Financial Excellence Worldwide
-            </h6>
-          </div>
-        </div>
-        <div class="hidden md:flex space-x-8">
-          <a href="./index.html"
-            class="nav-link p-1 rounded-sm hover:text-blue-700 transition-colors glow-button">Home</a>
-          <a href="./services.html"
-            class="nav-link p-1 rounded-sm hover:text-blue-700 transition-colors glow-button">Services</a>
-          <a href="./projects.html"
-            class="nav-link p-1 rounded-sm hover:text-blue-700 transition-colors glow-button">Portfolio</a>
-          <a href="./articles.html"
-            class="nav-link p-1 rounded-sm text-blue-700 transition-colors glow-button">Articles</a>
-          <a href="./contact.html"
-            class="nav-link p-1 rounded-sm hover:text-blue-700 transition-colors glow-button">Contact</a>
-        </div>
-
-        <div class="md:hidden">
-          <button id="mobile-menu-btn"
-            class="text-black p-2 hover:text-gray-500 focus:outline-none flex justify-between items-center">
-            <i class="fas fa-bars text-xl"></i>
-          </button>
-        </div>
-      </div>
-
-      <div id="mobile-menu" class="md:hidden hidden">
-        <div class="m-4 bg-gray-100 rounded-lg">
-          <a href="./index.html" class="mobile-nav-link block px-3 py-2 text-black glow-button">Home</a>
-          <a href="./services.html" class="mobile-nav-link block px-3 py-2 text-black glow-button">Services</a>
-          <a href="./projects.html" class="mobile-nav-link block px-3 py-2 text-black glow-button">Portfolio</a>
-          <a href="./articles.html"
-            class="mobile-nav-link block rounded-lg px-3 py-2 font-bold text-white bg-blue-600 glow-button">Articles</a>
-          <a href="./contact.html" class="mobile-nav-link block px-3 py-2 text-black glow-button">Contact</a>
-        </div>
-      </div>
-    </div>
-  </nav>
-
-  <main class="flex-1 pt-16 bg-slate-50">
-
-    <section class="pt-24 pb-16 bg-white shadow-sm" data-animate>
-      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-        <span class="inline-block bg-blue-100 text-blue-800 text-sm font-medium px-4 py-1 rounded-full mb-3">
-          Financial Insight
-        </span>
-        <h1 class="text-5xl font-bold text-slate-800 mb-4">
-          Success Stories and Strategic Finance Articles
-        </h1>
-        <p class="text-xl text-slate-600 max-w-4xl mx-auto">
-          Read how real companies transformed their finances, moved from losses to profits, and secured their future
-          with strategic control.
-        </p>
-      </div>
-    </section>
-
-    <section class="py-20">
-      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10">
-
-          <div
-            class="bg-white p-6 rounded-xl shadow-lg border border-slate-200 transition duration-300 hover:shadow-2xl"
-            data-animate>
-            <i class="fas fa-piggy-bank text-4xl text-blue-600 mb-4"></i>
-            <h2 class="text-2xl font-semibold text-slate-800 mb-3">
-              The $50,000 Leak: How a Small Startup Saved Its Season
-            </h2>
-            <p class="text-slate-600 mb-5">
-              This tech startup was bleeding cash through hidden expenses and poor vendor contracts. We tracked every
-              dollar, sealed the budget leaks, and provided them with **\$50,000 in recovered capital**—enough to fund
-              their next product launch.
-            </p>
-            <a href="./article-1.html"
-              class="inline-flex items-center text-blue-600 font-semibold hover:text-blue-800 glow-button">
-              Read More &rarr;
-            </a>
-          </div>
-
-          <div
-            class="bg-white p-6 rounded-xl shadow-lg border border-slate-200 transition duration-300 hover:shadow-2xl"
-            data-animate>
-            <i class="fas fa-chart-line text-4xl text-blue-600 mb-4"></i>
-            <h2 class="text-2xl font-semibold text-slate-800 mb-3">
-              From Red Ink to Gold: The Pivot of 'Acme Retail Co.'
-            </h2>
-            <p class="text-slate-600 mb-5">
-              Facing bankruptcy from crippling debt and obsolete inventory, Acme Retail needed a lifeline. We
-              restructured their debt profile and streamlined operations, lifting them from **3 consecutive years of
-              loss to 15% annual profit**.
-            </p>
-            <a href="./article-2.html"
-              class="inline-flex items-center text-blue-600 font-semibold hover:text-blue-800 glow-button">
-              Read More &rarr;
-            </a>
-          </div>
-
-          <div
-            class="bg-white p-6 rounded-xl shadow-lg border border-slate-200 transition duration-300 hover:shadow-2xl"
-            data-animate>
-            <i class="fas fa-shield-alt text-4xl text-blue-600 mb-4"></i>
-            <h2 class="text-2xl font-semibold text-slate-800 mb-3">
-              The Accountant Who Said "No": Why Risk Control Matters
-            </h2>
-            <p class="text-slate-600 mb-5">
-              A mid-sized manufacturing firm was on the verge of violating critical regulatory compliance laws. Our
-              proactive risk audit prevented a potential **\$1M fine** and secured their licensing for the next decade.
-            </p>
-            <a href="./article-3.html"
-              class="inline-flex items-center text-blue-600 font-semibold hover:text-blue-800 glow-button">
-              Read More &rarr;
-            </a>
-          </div>
-
-          <div
-            class="bg-white p-6 rounded-xl shadow-lg border border-slate-200 transition duration-300 hover:shadow-2xl"
-            data-animate>
-            <i class="fas fa-hand-holding-usd text-4xl text-blue-600 mb-4"></i>
-            <h2 class="text-2xl font-semibold text-slate-800 mb-3">
-              Growth Trap: When Doubling Sales Kills Your Business
-            </h2>
-            <p class="text-slate-600 mb-5">
-              For one distribution company, rapid sales growth meant slow payments. We implemented a disciplined working
-              capital strategy that transformed their fast-growing revenue into **healthy, accessible cash flow**.
-            </p>
-            <a href="./article-4.html"
-              class="inline-flex items-center text-blue-600 font-semibold hover:text-blue-800 glow-button">
-              Read More &rarr;
-            </a>
-          </div>
-
-          <div
-            class="bg-white p-6 rounded-xl shadow-lg border border-slate-200 transition duration-300 hover:shadow-2xl"
-            data-animate>
-            <i class="fas fa-mug-hot text-4xl text-blue-600 mb-4"></i>
-            <h2 class="text-2xl font-semibold text-slate-800 mb-3">
-              The Coffee Shop That Outsmarted Inflation
-            </h2>
-            <p class="text-slate-600 mb-5">
-              Facing rising costs, a popular local café refused to compromise on quality. Our detailed cost analysis and
-              strategic pricing model allowed them to **raise margins without losing a single customer**.
-            </p>
-            <a href="./article-5.html"
-              class="inline-flex items-center text-blue-600 font-semibold hover:text-blue-800 glow-button">
-              Read More &rarr;
-            </a>
-          </div>
-
-          <div
-            class="bg-white p-6 rounded-xl shadow-lg border border-slate-200 transition duration-300 hover:shadow-2xl"
-            data-animate>
-            <i class="fas fa-cloud text-4xl text-blue-600 mb-4"></i>
-            <h2 class="text-2xl font-semibold text-slate-800 mb-3">
-              Digital Transformation: The Ledger That Changed Everything
-            </h2>
-            <p class="text-slate-600 mb-5">
-              A logistics firm relying on messy, image-based records faced constant errors. We digitized their entire
-              history and implemented a cloud-based system, **cutting quarterly audit time by 75%** and achieving 100%
-              data accuracy.
-            </p>
-            <a href="./article-6.html"
-              class="inline-flex items-center text-blue-600 font-semibold hover:text-blue-800 glow-button">
-              Read More &rarr;
-            </a>
-          </div>
-
-          <div
-            class="bg-white p-6 rounded-xl shadow-lg border border-slate-200 transition duration-300 hover:shadow-2xl"
-            data-animate>
-            <i class="fas fa-users text-4xl text-blue-600 mb-4"></i>
-            <h2 class="text-2xl font-semibold text-slate-800 mb-3">
-              The Inheritance Dilemma: Guiding a Family Business Revival
-            </h2>
-            <p class="text-slate-600 mb-5">
-              A generational handover was jeopardized by complex tax laws and a lack of clear strategy. We navigated the
-              succession planning, ensuring a smooth transition that **saved the family millions in tax liability** and
-              secured the business future.
-            </p>
-            <a href="./article-7.html"
-              class="inline-flex items-center text-blue-600 font-semibold hover:text-blue-800 glow-button">
-              Read More &rarr;
-            </a>
-          </div>
-
-        </div>
-      </div>
-    </section>
-
-    <footer class="bg-slate-900 text-white" data-animate>
-      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
-        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
-          <div class="lg:col-span-2">
-            <div class="flex items-center mb-4">
-              <img class="size-10" src="./public/logo2.svg" alt="" />
-              <div class="ml-3">
-                <h3 class="text-xl font-bold">Global Financials</h3>
-                <p class="text-slate-300">Financial Excellence Worldwide</p>
-              </div>
-            </div>
-            <p class="text-slate-300 mb-6 max-w-md">
-              Providing comprehensive financial solutions to businesses across
-              Australia, United States, Canada, and the United Kingdom. Your
-              trusted partner for financial success.
-            </p>
-            <div class="flex space-x-4">
-              <a href="https://www.linkedin.com/company/globalfinancials/" target="_blank"
-                class="bg-slate-800 p-2 rounded-lg hover:bg-slate-700 transition-colors cursor-pointer glow-button">
-                <svg xmlns="http://www.w3.org/2000/svg" class="lucide h-5 w-5 text-blue-400" viewBox="0 0 24 24"
-                  fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                  <path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"></path>
-                  <rect x="2" y="9" width="4" height="12"></rect>
-                  <circle cx="4" cy="4" r="2"></circle>
-                </svg>
-              </a>
-              <a href="https://www.instagram.com/global_financials" target="_blank"
-                class="bg-slate-800 p-2 rounded-lg hover:bg-slate-700 transition-colors cursor-pointer glow-button">
-                <svg xmlns="http://www.w3.org/2000/svg" class="lucide h-5 w-5 text-blue-400" viewBox="0 0 24 24"
-                  fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                  <rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect>
-                  <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path>
-                  <line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line>
-                </svg>
-              </a>
-              <a href="https://www.facebook.com/share/1C18jmnTSM/" target="_blank"
-                class="bg-slate-800 p-2 rounded-lg hover:bg-slate-700 transition-colors cursor-pointer glow-button">
-                <svg xmlns="http://www.w3.org/2000/svg" class="lucide h-5 w-5 text-blue-400" viewBox="0 0 24 24"
-                  fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                  <path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"></path>
-                </svg>
-              </a>
-            </div>
-          </div>
-          <div>
-            <h3 class="text-lg font-semibold mb-4">Quick Links</h3>
-            <ul class="space-y-2">
-              <li>
-                <a href="./index.html"
-                  class="text-slate-300 hover:text-white transition-colors duration-200 glow-button">
-                  Home
-                </a>
-              </li>
-              <li>
-                <a href="./services.html"
-                  class="text-slate-300 hover:text-white transition-colors duration-200 glow-button">
-                  Services
-                </a>
-              </li>
-              <li>
-                <a href="./projects.html"
-                  class="text-slate-300 hover:text-white transition-colors duration-200 glow-button">
-                  Portfolio
-                </a>
-              </li>
-              
-              <li>
-                <a href="./contact.html"
-                  class="text-slate-300 hover:text-white transition-colors duration-200 glow-button">
-                  Contact
-                </a>
-              </li>
-            </ul>
-          </div>
-          <div>
-            <h3 class="text-lg font-semibold mb-4">Contact Info</h3>
-            <ul class="space-y-3">
-              <li class="flex items-center space-x-3">
-                <a href="https://wa.me/923216647827" target="_blank" class="flex items-center space-x-3 glow-button">
-                  <i class="fab fa-whatsapp h-5 w-5 text-blue-400 text-xl"></i>
-                  <span class="text-slate-300 hover:text-white transition-colors">+92 321 6647827</span>
-                </a>
-              </li>
-              <li class="flex items-center space-x-3">
-                <a href="mailto:globalfinancials.org@gmail.com" target="_blank"
-                  class="flex items-center space-x-3 glow-button">
-                  <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
-                    stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
-                    class="lucide lucide-mail h-5 w-5 text-blue-400">
-                    <rect width="20" height="16" x="2" y="4" rx="2"></rect>
-                    <path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"></path>
-                  </svg><span
-                    class="text-slate-300 hover:text-white transition-colors">globalfinancials.org@gmail.com</span>
-                </a>
-              </li>
-            </ul>
-          </div>
-        </div>
-        <div class="border-t border-slate-800 pt-8 mt-8">
-          <div class="flex flex-col md:flex-row justify-between items-center">
-            <p class="text-slate-400 text-sm">
-              © 2025 Global Financials. All rights reserved.
-            </p>
-            <div class="flex space-x-6 mt-4 md:mt-0">
-              <a href="#" class="text-slate-400 hover:text-white text-sm transition-colors">Privacy Policy</a><a
-                href="#" class="text-slate-400 hover:text-white text-sm transition-colors">Terms of Service</a><a
-                href="#" class="text-slate-400 hover:text-white text-sm transition-colors">Cookie Policy</a>
-            </div>
-          </div>
-        </div>
-      </div>
-    </footer>
-  </main>
-
-  <script>
-    // Mobile Menu Toggle Logic
-    document.getElementById('mobile-menu-btn').addEventListener('click', function () {
-      var menu = document.getElementById('mobile-menu');
-      menu.classList.toggle('hidden');
-    });
-
-    // --- Scroll Reveal Animation Logic (Re-triggering on scroll up/down) ---
-    const observer = new IntersectionObserver((entries) => {
-      entries.forEach(entry => {
-        if (entry.isIntersecting) {
-          // Element is visible, add the visible class to trigger animation
-          entry.target.classList.add('animate-visible');
-        } else {
-          // Element is scrolled out of view, remove the visible class 
-          // so it can animate again when scrolled back into view
-          entry.target.classList.remove('animate-visible');
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        primary: '#0f172a', /* Deep Navy */
+                        accent: '#3b82f6',  /* Bright Blue */
+                        gold: '#fbbf24',    /* Trust/Finance Gold */
+                    },
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                        serif: ['Playfair Display', 'serif'],
+                    }
+                }
+            }
         }
-      });
-    }, {
-      // Options: Set a threshold to 0.1 (10% visibility)
-      threshold: 0.1
-    });
+    </script>
+</head>
+<body class="bg-slate-50 text-slate-800 font-sans antialiased overflow-x-hidden">
 
-    // Find all elements with the data-animate attribute and start observing them
-    document.querySelectorAll('[data-animate]').forEach(element => {
-      observer.observe(element);
-    });
-  </script>
+    <nav class="fixed w-full z-50 bg-white/95 backdrop-blur-md shadow-sm transition-all duration-300" id="navbar">
+        <div class="container mx-auto px-6 py-3 flex justify-between items-center">
+            <a href="index.html" class="flex items-center gap-3 group">
+                <img src="public/logo2.svg" alt="Global Financials Logo" class="h-12 w-auto object-contain transition-transform group-hover:scale-105">
+                <div>
+                    <h1 class="text-xl font-bold text-primary font-serif tracking-tight">Global Financials</h1>
+                    <p class="text-[10px] text-slate-500 tracking-[0.2em] uppercase">Financial Excellence Worldwide</p>
+                </div>
+            </a>
+
+            <div class="hidden md:flex items-center gap-8 font-medium text-sm">
+                <a href="index.html" class="hover:text-accent transition-colors">Home</a>
+                <a href="services.html" class="hover:text-accent transition-colors">Services</a>
+                <a href="portfolio.html" class="hover:text-accent transition-colors">Portfolio</a>
+                <a href="articles.html" class="text-accent font-bold">Articles</a>
+                <a href="contact.html" class="bg-primary text-white px-6 py-2.5 rounded-full hover:bg-accent hover:shadow-lg transition-all transform hover:-translate-y-0.5">
+                    Contact Us
+                </a>
+            </div>
+
+            <button class="md:hidden text-2xl text-primary" onclick="toggleMenu()">
+                <i class="fa-solid fa-bars"></i>
+            </button>
+        </div>
+        
+        <div id="mobile-menu" class="hidden md:hidden bg-white border-t border-gray-100 absolute w-full left-0 shadow-lg">
+            <div class="flex flex-col p-6 space-y-4 font-semibold text-center">
+                <a href="index.html">Home</a>
+                <a href="services.html">Services</a>
+                <a href="portfolio.html">Portfolio</a>
+                <a href="articles.html" class="text-accent">Articles</a>
+                <a href="contact.html" class="text-primary">Contact Us</a>
+            </div>
+        </div>
+    </nav>
+
+    <header class="pt-32 pb-16 bg-primary relative overflow-hidden">
+        <div class="absolute inset-0 opacity-10 bg-[url('https://www.transparenttextures.com/patterns/cubes.png')]"></div>
+        <div class="container mx-auto px-6 text-center relative z-10">
+            <span class="inline-block py-1 px-3 rounded-full bg-white/10 text-white text-xs font-bold tracking-wider mb-4 border border-white/20" data-aos="fade-down">
+                KNOWLEDGE HUB
+            </span>
+            <h1 class="text-4xl md:text-5xl font-serif font-bold text-white mb-4" data-aos="fade-up">Success Stories & Insights</h1>
+            <p class="text-slate-300 max-w-2xl mx-auto text-lg" data-aos="fade-up" data-aos-delay="100">
+                Read how real companies transformed their finances, moved from losses to profits, and secured their future with strategic control.
+            </p>
+        </div>
+    </header>
+
+    <section class="py-20 bg-slate-50">
+        <div class="container mx-auto px-6">
+            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+                
+                <div class="bg-white rounded-2xl p-8 shadow-sm hover:shadow-xl transition-all duration-300 border border-gray-100 group flex flex-col h-full" data-aos="fade-up">
+                    <div class="flex justify-between items-start mb-6">
+                        <div class="w-12 h-12 bg-blue-50 rounded-xl flex items-center justify-center text-accent text-xl group-hover:bg-accent group-hover:text-white transition-colors">
+                            <i class="fa-solid fa-piggy-bank"></i>
+                        </div>
+                        <span class="bg-green-100 text-green-700 text-[10px] font-bold px-3 py-1 rounded-full uppercase tracking-wide">Cost Reduction</span>
+                    </div>
+                    <h3 class="text-xl font-bold text-primary mb-3 leading-tight group-hover:text-accent transition-colors">The $50,000 Leak: How a Small Startup Saved Its Season</h3>
+                    <p class="text-slate-600 text-sm mb-6 leading-relaxed flex-grow">
+                        This tech startup was bleeding cash through hidden expenses and poor vendor contracts. We tracked every dollar and recovered capital.
+                    </p>
+                    <a href="article-1.html" class="inline-flex items-center text-sm font-bold text-accent group-hover:underline">
+                        Read Full Story <i class="fa-solid fa-arrow-right ml-2 group-hover:translate-x-1 transition-transform"></i>
+                    </a>
+                </div>
+
+                <div class="bg-white rounded-2xl p-8 shadow-sm hover:shadow-xl transition-all duration-300 border border-gray-100 group flex flex-col h-full" data-aos="fade-up" data-aos-delay="100">
+                    <div class="flex justify-between items-start mb-6">
+                        <div class="w-12 h-12 bg-blue-50 rounded-xl flex items-center justify-center text-accent text-xl group-hover:bg-accent group-hover:text-white transition-colors">
+                            <i class="fa-solid fa-arrow-trend-up"></i>
+                        </div>
+                        <span class="bg-red-100 text-red-700 text-[10px] font-bold px-3 py-1 rounded-full uppercase tracking-wide">Turnaround</span>
+                    </div>
+                    <h3 class="text-xl font-bold text-primary mb-3 leading-tight group-hover:text-accent transition-colors">From Red Ink to Gold: The Pivot of 'Acme Retail Co.'</h3>
+                    <p class="text-slate-600 text-sm mb-6 leading-relaxed flex-grow">
+                        Facing bankruptcy from crippling debt, Acme Retail needed a lifeline. We restructured their debt profile and lifted them to 15% annual profit.
+                    </p>
+                    <a href="article-2.html" class="inline-flex items-center text-sm font-bold text-accent group-hover:underline">
+                        Read Full Story <i class="fa-solid fa-arrow-right ml-2 group-hover:translate-x-1 transition-transform"></i>
+                    </a>
+                </div>
+
+                <div class="bg-white rounded-2xl p-8 shadow-sm hover:shadow-xl transition-all duration-300 border border-gray-100 group flex flex-col h-full" data-aos="fade-up" data-aos-delay="200">
+                    <div class="flex justify-between items-start mb-6">
+                        <div class="w-12 h-12 bg-blue-50 rounded-xl flex items-center justify-center text-accent text-xl group-hover:bg-accent group-hover:text-white transition-colors">
+                            <i class="fa-solid fa-shield-halved"></i>
+                        </div>
+                        <span class="bg-purple-100 text-purple-700 text-[10px] font-bold px-3 py-1 rounded-full uppercase tracking-wide">Compliance</span>
+                    </div>
+                    <h3 class="text-xl font-bold text-primary mb-3 leading-tight group-hover:text-accent transition-colors">The Accountant Who Said "No": Why Risk Control Matters</h3>
+                    <p class="text-slate-600 text-sm mb-6 leading-relaxed flex-grow">
+                        A mid-sized manufacturing firm was on the verge of violating critical regulatory compliance laws. Our proactive risk audit prevented a potential $1M fine.
+                    </p>
+                    <a href="article-3.html" class="inline-flex items-center text-sm font-bold text-accent group-hover:underline">
+                        Read Full Story <i class="fa-solid fa-arrow-right ml-2 group-hover:translate-x-1 transition-transform"></i>
+                    </a>
+                </div>
+
+                <div class="bg-white rounded-2xl p-8 shadow-sm hover:shadow-xl transition-all duration-300 border border-gray-100 group flex flex-col h-full" data-aos="fade-up">
+                    <div class="flex justify-between items-start mb-6">
+                        <div class="w-12 h-12 bg-blue-50 rounded-xl flex items-center justify-center text-accent text-xl group-hover:bg-accent group-hover:text-white transition-colors">
+                            <i class="fa-solid fa-hand-holding-dollar"></i>
+                        </div>
+                        <span class="bg-amber-100 text-amber-700 text-[10px] font-bold px-3 py-1 rounded-full uppercase tracking-wide">Strategy</span>
+                    </div>
+                    <h3 class="text-xl font-bold text-primary mb-3 leading-tight group-hover:text-accent transition-colors">Growth Trap: When Doubling Sales Kills Your Business</h3>
+                    <p class="text-slate-600 text-sm mb-6 leading-relaxed flex-grow">
+                        For one distribution company, rapid sales growth meant slow payments. We transformed their fast-growing revenue into healthy cash flow.
+                    </p>
+                    <a href="article-4.html" class="inline-flex items-center text-sm font-bold text-accent group-hover:underline">
+                        Read Full Story <i class="fa-solid fa-arrow-right ml-2 group-hover:translate-x-1 transition-transform"></i>
+                    </a>
+                </div>
+
+                <div class="bg-white rounded-2xl p-8 shadow-sm hover:shadow-xl transition-all duration-300 border border-gray-100 group flex flex-col h-full" data-aos="fade-up" data-aos-delay="100">
+                    <div class="flex justify-between items-start mb-6">
+                        <div class="w-12 h-12 bg-blue-50 rounded-xl flex items-center justify-center text-accent text-xl group-hover:bg-accent group-hover:text-white transition-colors">
+                            <i class="fa-solid fa-mug-hot"></i>
+                        </div>
+                        <span class="bg-orange-100 text-orange-700 text-[10px] font-bold px-3 py-1 rounded-full uppercase tracking-wide">Analysis</span>
+                    </div>
+                    <h3 class="text-xl font-bold text-primary mb-3 leading-tight group-hover:text-accent transition-colors">The Coffee Shop That Outsmarted Inflation</h3>
+                    <p class="text-slate-600 text-sm mb-6 leading-relaxed flex-grow">
+                        Facing rising costs, a popular local café refused to compromise on quality. Our detailed cost analysis allowed them to raise margins without losing customers.
+                    </p>
+                    <a href="article-5.html" class="inline-flex items-center text-sm font-bold text-accent group-hover:underline">
+                        Read Full Story <i class="fa-solid fa-arrow-right ml-2 group-hover:translate-x-1 transition-transform"></i>
+                    </a>
+                </div>
+
+                <div class="bg-white rounded-2xl p-8 shadow-sm hover:shadow-xl transition-all duration-300 border border-gray-100 group flex flex-col h-full" data-aos="fade-up" data-aos-delay="200">
+                    <div class="flex justify-between items-start mb-6">
+                        <div class="w-12 h-12 bg-blue-50 rounded-xl flex items-center justify-center text-accent text-xl group-hover:bg-accent group-hover:text-white transition-colors">
+                            <i class="fa-solid fa-cloud"></i>
+                        </div>
+                        <span class="bg-cyan-100 text-cyan-700 text-[10px] font-bold px-3 py-1 rounded-full uppercase tracking-wide">Digital</span>
+                    </div>
+                    <h3 class="text-xl font-bold text-primary mb-3 leading-tight group-hover:text-accent transition-colors">Digital Transformation: The Ledger That Changed Everything</h3>
+                    <p class="text-slate-600 text-sm mb-6 leading-relaxed flex-grow">
+                        We digitized their entire history and implemented a cloud-based system, cutting quarterly audit time by 75% and achieving 100% data accuracy.
+                    </p>
+                    <a href="article-6.html" class="inline-flex items-center text-sm font-bold text-accent group-hover:underline">
+                        Read Full Story <i class="fa-solid fa-arrow-right ml-2 group-hover:translate-x-1 transition-transform"></i>
+                    </a>
+                </div>
+
+                <div class="bg-white rounded-2xl p-8 shadow-sm hover:shadow-xl transition-all duration-300 border border-gray-100 group flex flex-col h-full md:col-span-2 lg:col-span-1" data-aos="fade-up">
+                    <div class="flex justify-between items-start mb-6">
+                        <div class="w-12 h-12 bg-blue-50 rounded-xl flex items-center justify-center text-accent text-xl group-hover:bg-accent group-hover:text-white transition-colors">
+                            <i class="fa-solid fa-users"></i>
+                        </div>
+                        <span class="bg-indigo-100 text-indigo-700 text-[10px] font-bold px-3 py-1 rounded-full uppercase tracking-wide">Succession</span>
+                    </div>
+                    <h3 class="text-xl font-bold text-primary mb-3 leading-tight group-hover:text-accent transition-colors">The Inheritance Dilemma: Guiding a Family Business Revival</h3>
+                    <p class="text-slate-600 text-sm mb-6 leading-relaxed flex-grow">
+                        A generational handover was jeopardized by complex tax laws. We navigated the succession planning, saving the family millions in tax liability.
+                    </p>
+                    <a href="article-7.html" class="inline-flex items-center text-sm font-bold text-accent group-hover:underline">
+                        Read Full Story <i class="fa-solid fa-arrow-right ml-2 group-hover:translate-x-1 transition-transform"></i>
+                    </a>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <footer class="bg-slate-900 text-slate-400 py-12 border-t border-slate-800">
+        <div class="container mx-auto px-6 grid md:grid-cols-4 gap-8">
+            <div class="col-span-1 md:col-span-2">
+                <a href="index.html" class="flex items-center gap-2 mb-4">
+                    <img src="public/logo2.svg" alt="Logo" class="h-8 w-auto grayscale opacity-80 hover:grayscale-0 hover:opacity-100 transition-all">
+                    <span class="text-white text-xl font-bold font-serif">Global Financials</span>
+                </a>
+                <p class="mb-6 max-w-sm text-sm">Trusted by businesses worldwide for expert financial analysis, bookkeeping, and strategic consulting.</p>
+                
+                <div class="flex gap-4">
+                    <a href="https://www.linkedin.com/company/108157474/admin/page-posts/published/" target="_blank" class="w-10 h-10 rounded-full bg-slate-800 flex items-center justify-center hover:bg-[#0077b5] hover:text-white transition-colors transform hover:scale-110">
+                        <i class="fa-brands fa-linkedin-in"></i>
+                    </a>
+                    <a href="https://www.facebook.com/profile.php?id=61580989243930#" target="_blank" class="w-10 h-10 rounded-full bg-slate-800 flex items-center justify-center hover:bg-[#1877F2] hover:text-white transition-colors transform hover:scale-110">
+                        <i class="fa-brands fa-facebook-f"></i>
+                    </a>
+                    <a href="https://www.instagram.com/global_financials" target="_blank" class="w-10 h-10 rounded-full bg-slate-800 flex items-center justify-center hover:bg-[#E1306C] hover:text-white transition-colors transform hover:scale-110">
+                        <i class="fa-brands fa-instagram"></i>
+                    </a>
+                </div>
+            </div>
+            
+            <div>
+                <h4 class="text-white font-bold mb-4">Quick Links</h4>
+                <ul class="space-y-2 text-sm">
+                    <li><a href="index.html" class="hover:text-accent transition-colors">Home</a></li>
+                    <li><a href="services.html" class="hover:text-accent transition-colors">Services</a></li>
+                    <li><a href="portfolio.html" class="hover:text-accent transition-colors">Portfolio</a></li>
+                    <li><a href="contact.html" class="hover:text-accent transition-colors">Contact</a></li>
+                </ul>
+            </div>
+
+            <div>
+                <h4 class="text-white font-bold mb-4">Contact Info</h4>
+                <ul class="space-y-3 text-sm">
+                    <li class="flex items-start gap-3 group">
+                        <div class="mt-1 w-6 text-center text-green-500">
+                            <i class="fa-brands fa-whatsapp text-lg"></i>
+                        </div>
+                        <a href="https://wa.me/923216647827" target="_blank" class="hover:text-white transition-colors">
+                            +92 321 6647827
+                            <span class="block text-xs text-slate-500">Available on WhatsApp</span>
+                        </a>
+                    </li>
+                    <li class="flex items-start gap-3 group">
+                        <div class="mt-1 w-6 text-center text-accent">
+                            <i class="fa-solid fa-envelope"></i>
+                        </div>
+                        <a href="mailto:globalfinancials.org@gmail.com" class="hover:text-white transition-colors break-all">
+                            globalfinancials.org@gmail.com
+                        </a>
+                    </li>
+                    <li class="flex items-start gap-3">
+                        <div class="mt-1 w-6 text-center text-accent">
+                            <i class="fa-solid fa-location-dot"></i>
+                        </div>
+                        <span>Worldwide Remote Services</span>
+                    </li>
+                </ul>
+            </div>
+        </div>
+        <div class="container mx-auto px-6 mt-12 pt-8 border-t border-slate-800 text-center text-xs text-slate-500">
+            &copy; 2025 Global Financials. All rights reserved.
+        </div>
+    </footer>
+
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script>
+        AOS.init({ duration: 800, once: true });
+        
+        // Mobile Menu
+        function toggleMenu() {
+            document.getElementById('mobile-menu').classList.toggle('hidden');
+        }
+    </script>
 </body>
-
 </html>
