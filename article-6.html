@@ -1,172 +1,309 @@
 <!DOCTYPE html>
 <html lang="en" class="scroll-smooth">
 <head>
-    <meta charset="UTF-8" />
-    <title>Article 6: Digital Transformation - Data Accuracy Case Study</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link href="./output.css" rel="stylesheet" />
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet" />
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet" />
-    <link rel="shortcut icon" href="./public/Vector.svg" type="image/x-icon" />
-    <style>
-        /* SCROLL ANIMATION */
-        [data-animate] { opacity: 0; transform: translateY(20px); transition: opacity 0.8s ease-out, transform 0.8s ease-out; }
-        [data-animate].animate-visible { opacity: 1; transform: translateY(0); }
-        /* BUTTON GLOW EFFECT */
-        .glow-button { transition: all 0.3s ease-in-out; }
-        .glow-button:hover { transform: scale(1.05); box-shadow: 0 0 10px rgba(59, 130, 246, 0.8), 0 0 20px rgba(59, 130, 246, 0.5); }
-        /* PROFESSIONAL WATERMARK BACKGROUND: Single, large, FIXED logo */
-        .article-bg-container { position: relative; min-height: 100vh; }
-        .article-bg-container::before { content: ""; position: fixed; top: 50%; left: 50%; width: 80vw; height: 80vh; transform: translate(-50%, -50%); background-image: url('./public/logo2.svg'); background-repeat: no-repeat; background-position: center; background-size: contain; opacity: 0.1; pointer-events: none; z-index: 0; }
-        /* Content wrapper and Card */
-        .article-content-wrapper { position: relative; z-index: 10; }
-        .article-card { background-color: white; border-radius: 0.75rem; }
-    </style>
-</head>
-<body>
-    <nav class="bg-white shadow-lg fixed top-0 left-0 right-0 z-50">
-        <div class="justify-center">
-            <div class="flex max-w-7xl mx-auto px-2 justify-between items-center h-16">
-                <div class="flex items-center justify-center p-4 gap-3">
-                    <img class="size-10" src="./public/logo2.svg" alt="" />
-                    <div>
-                        <h1 class="text-xl font-semibold">Global Financials</h1>
-                        <h6 class="text-gray-400 text-sm">
-                            Financial Excellence Worldwide
-                        </h6>
-                    </div>
-                </div>
-                <div class="hidden md:flex space-x-8">
-                    <a href="./index.html" class="nav-link p-1 rounded-sm hover:text-blue-700 transition-colors glow-button">Home</a>
-                    <a href="./services.html" class="nav-link p-1 rounded-sm hover:text-blue-700 transition-colors glow-button">Services</a>
-                    <a href="./projects.html" class="nav-link p-1 rounded-sm hover:text-blue-700 transition-colors glow-button">Portfolio</a>
-                    <a href="./articles.html" class="nav-link p-1 rounded-sm text-blue-700 transition-colors glow-button">Articles</a>
-                    <a href="./contact.html" class="nav-link p-1 rounded-sm hover:text-blue-700 transition-colors glow-button">Contact</a>
-                </div>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Digital Transformation Case Study | Global Financials</title>
+    
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&family=Playfair+Display:ital,wght@0,700;1,400&display=swap" rel="stylesheet">
+    
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 
-                <div class="md:hidden">
-                    <button id="mobile-menu-btn"
-                        class="text-black p-2 hover:text-gray-500 focus:outline-none flex justify-between items-center">
-                        <i class="fas fa-bars text-xl"></i>
-                    </button>
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        primary: '#0f172a', /* Deep Navy */
+                        accent: '#3b82f6',  /* Bright Blue */
+                        gold: '#fbbf24',    /* Trust/Finance Gold */
+                        tech: '#0ea5e9',    /* Cyan/Tech Blue */
+                    },
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                        serif: ['Playfair Display', 'serif'],
+                    }
+                }
+            }
+        }
+    </script>
+</head>
+<body class="bg-white text-slate-800 font-sans antialiased overflow-x-hidden">
+
+    <nav class="fixed w-full z-50 bg-white/95 backdrop-blur-md shadow-sm transition-all duration-300" id="navbar">
+        <div class="container mx-auto px-6 py-3 flex justify-between items-center">
+            <a href="index.html" class="flex items-center gap-3 group">
+                <img src="public/logo2.svg" alt="Global Financials Logo" class="h-12 w-auto object-contain transition-transform group-hover:scale-105">
+                <div>
+                    <h1 class="text-xl font-bold text-primary font-serif tracking-tight">Global Financials</h1>
+                    <p class="text-[10px] text-slate-500 tracking-[0.2em] uppercase">Financial Excellence Worldwide</p>
                 </div>
+            </a>
+
+            <div class="hidden md:flex items-center gap-8 font-medium text-sm">
+                <a href="index.html" class="hover:text-accent transition-colors">Home</a>
+                <a href="services.html" class="hover:text-accent transition-colors">Services</a>
+                <a href="portfolio.html" class="hover:text-accent transition-colors">Portfolio</a>
+                <a href="articles.html" class="text-accent font-bold">Articles</a>
+                <a href="contact.html" class="bg-primary text-white px-6 py-2.5 rounded-full hover:bg-accent hover:shadow-lg transition-all transform hover:-translate-y-0.5">
+                    Contact Us
+                </a>
             </div>
 
-            <div id="mobile-menu" class="md:hidden hidden">
-                <div class="m-4 bg-gray-100 rounded-lg">
-                    <a href="./index.html" class="mobile-nav-link block px-3 py-2 text-black glow-button">Home</a>
-                    <a href="./services.html" class="mobile-nav-link block px-3 py-2 text-black glow-button">Services</a>
-                    <a href="./projects.html" class="mobile-nav-link block px-3 py-2 text-black glow-button">Portfolio</a>
-                    <a href="./articles.html" class="mobile-nav-link block rounded-lg px-3 py-2 font-bold text-white bg-blue-600 glow-button">Articles</a>
-                    <a href="./contact.html" class="mobile-nav-link block px-3 py-2 text-black glow-button">Contact</a>
-                </div>
+            <button class="md:hidden text-2xl text-primary" onclick="toggleMenu()">
+                <i class="fa-solid fa-bars"></i>
+            </button>
+        </div>
+        
+        <div id="mobile-menu" class="hidden md:hidden bg-white border-t border-gray-100 absolute w-full left-0 shadow-lg">
+            <div class="flex flex-col p-6 space-y-4 font-semibold text-center">
+                <a href="index.html">Home</a>
+                <a href="services.html">Services</a>
+                <a href="portfolio.html">Portfolio</a>
+                <a href="articles.html">Articles</a>
+                <a href="contact.html" class="text-primary">Contact Us</a>
             </div>
         </div>
     </nav>
-    
-    <main class="flex-1 pt-16 bg-slate-50 article-bg-container">
-        
-        <section class="pt-24 pb-16 bg-white shadow-sm article-content-wrapper" data-animate> 
-            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-                <span class="inline-block bg-teal-100 text-teal-800 text-sm font-medium px-4 py-1 rounded-full mb-3 shadow-md">
+
+    <header class="pt-32 pb-16 bg-slate-50 relative overflow-hidden">
+        <div class="container mx-auto px-6 max-w-4xl relative z-10">
+            <a href="articles.html" class="inline-flex items-center text-sm font-semibold text-slate-500 hover:text-accent mb-6 transition-colors" data-aos="fade-right">
+                <i class="fa-solid fa-arrow-left mr-2"></i> Back to Articles
+            </a>
+            
+            <div data-aos="fade-up">
+                <span class="bg-cyan-100 text-cyan-700 text-xs font-bold px-3 py-1 rounded-full uppercase tracking-wider mb-4 inline-block">
                     Case Study: Data & Digitalization
                 </span>
-                <h1 class="text-5xl font-bold text-slate-800 mb-4">
+                <h1 class="text-3xl md:text-5xl font-serif font-bold text-primary mb-6 leading-tight">
                     Digital Transformation: The Ledger That Changed Everything
                 </h1>
-                <p class="text-xl text-slate-600 max-w-4xl mx-auto">
+                <p class="text-xl text-slate-600 leading-relaxed border-l-4 border-tech pl-6 italic">
+                    "Every single quarter was a scramble. We were making critical business decisions based on numbers that were two months old and contained dozens of manual errors. We weren't a modern company—we were glorified librarians."
+                </p>
+            </div>
+        </div>
+    </header>
+
+    <article class="py-16 bg-white">
+        <div class="container mx-auto px-6 max-w-3xl">
+            
+            <div class="mb-12" data-aos="fade-up">
+                <p class="text-lg text-slate-700 leading-relaxed mb-6">
                     A look at how a decades-old logistics firm escaped the 'paper trap,' achieving 100% data accuracy and reducing their annual tax preparation time by 90%.
                 </p>
             </div>
-        </section>
 
-        <section class="py-20 article-content-wrapper">
-            <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
-                <div class="article-card p-10 rounded-xl shadow-2xl border border-slate-200" data-animate>
-                    <p class="text-xl text-slate-700 mb-8 leading-relaxed border-l-4 border-blue-600 pl-6 italic font-medium">
-                        "Every single quarter was a scramble. We were making critical business decisions based on numbers that were two months old and contained dozens of manual errors. We weren't a modern company—we were glorified librarians."
-                    </p>
-
-                    <h2 class="text-3xl font-bold text-blue-600 mb-4 mt-10 border-b pb-2">1. The Challenge: The Cost of Manual Inefficiency</h2>
-                    <p class="text-lg text-slate-700 mb-6 leading-relaxed">
-                        The client, a traditional, family-run business we'll call <span class="font-semibold">TransGlobal Logistics</span>, had grown steadily for 30 years. However, their internal accounting practices failed to keep pace. Their entire financial history, including fuel receipts, cross-border manifests, and vendor invoices, existed primarily as physical paper copies, scanned PDFs, or unvalidated, manually-keyed entries into an archaic on-premise accounting system. The costs of this inefficiency were hidden but massive:
-                    </p>
-                    <ul class="list-disc list-outside text-lg text-slate-700 mb-6 space-y-3 pl-8">
-                        <li><span class="font-semibold">Data Lag:</span> Financial reports were typically 45 days old by the time the leadership received them, making tactical corrections impossible.</li>
-                        <li><span class="font-semibold">Audit Strain:</span> Annual tax and regulatory audits required the finance team to spend four full weeks manually verifying entries, costing thousands in overtime and lost productivity.</li>
-                        <li><span class="font-semibold">High Error Rate:</span> The manual re-keying of data resulted in a documented error rate of 3-5% on the general ledger, creating a high level of uncertainty for strategic planning.</li>
+            <div class="mb-16" data-aos="fade-up">
+                <h2 class="text-2xl font-bold text-primary mb-4 flex items-center gap-3">
+                    <span class="w-8 h-8 bg-blue-100 text-accent rounded-full flex items-center justify-center text-sm">1</span>
+                    The Challenge: The Cost of Manual Inefficiency
+                </h2>
+                <p class="text-slate-600 leading-relaxed mb-4">
+                    The client, a traditional, family-run business we'll call <strong>TransGlobal Logistics</strong>, had grown steadily for 30 years. However, their internal accounting practices failed to keep pace. Their entire financial history—including fuel receipts, cross-border manifests, and vendor invoices—existed primarily as physical paper copies, scanned PDFs, or unvalidated, manually-keyed entries into an archaic on-premise accounting system.
+                </p>
+                
+                <div class="bg-slate-50 p-6 rounded-xl border border-gray-100 mt-6">
+                    <h3 class="font-bold text-slate-700 mb-3">Hidden Costs of Inefficiency:</h3>
+                    <ul class="space-y-3">
+                        <li class="flex items-start gap-3 text-sm text-slate-600">
+                            <i class="fa-solid fa-clock text-red-500 mt-1"></i>
+                            <span><strong>Data Lag:</strong> Financial reports were typically 45 days old by the time leadership received them, making tactical corrections impossible.</span>
+                        </li>
+                        <li class="flex items-start gap-3 text-sm text-slate-600">
+                            <i class="fa-solid fa-triangle-exclamation text-red-500 mt-1"></i>
+                            <span><strong>Audit Strain:</strong> Annual tax and regulatory audits required the finance team to spend four full weeks manually verifying entries.</span>
+                        </li>
+                        <li class="flex items-start gap-3 text-sm text-slate-600">
+                            <i class="fa-solid fa-xmark text-red-500 mt-1"></i>
+                            <span><strong>High Error Rate:</strong> The manual re-keying of data resulted in a documented error rate of 3-5% on the general ledger.</span>
+                        </li>
                     </ul>
+                </div>
+            </div>
 
-                    <h2 class="text-3xl font-bold text-blue-600 mb-4 mt-10 border-b pb-2">2. The Diagnosis: Disconnected Systems and Siloed Data</h2>
-                    <p class="text-lg text-slate-700 mb-6 leading-relaxed">
-                        The advisory firm's diagnostic phase focused on mapping the flow of financial data from the point of transaction to the final P&L report. They found that every department—trucking, warehousing, and sales—used a different method for recording expenditures, creating data silos that required tedious manual bridge-building by the finance team. The core issue was not the competence of the employees, but the antiquated infrastructure.
-                    </p>
+            <div class="mb-16" data-aos="fade-up">
+                <h2 class="text-2xl font-bold text-primary mb-6 flex items-center gap-3">
+                    <span class="w-8 h-8 bg-blue-100 text-accent rounded-full flex items-center justify-center text-sm">2</span>
+                    The Diagnosis: Disconnected Systems and Siloed Data
+                </h2>
+                <p class="text-slate-600 leading-relaxed mb-8">
+                    The advisory firm's diagnostic phase focused on mapping the flow of financial data. They found that every department used a different method for recording expenditures, creating massive data silos.
+                </p>
 
-                    <h2 class="text-3xl font-bold text-blue-600 mb-4 mt-10 border-b pb-2">3. The Strategy: Cloud Migration and AI Automation</h2>
-                    <p class="text-lg text-slate-700 mb-6 leading-relaxed">
-                        A comprehensive digital transformation was launched, focused on creating a single source of truth for all financial data.
-                    </p>
-                    
-                    <h3 class="text-2xl font-semibold text-slate-800 mb-3 text-blue-800">Phase 1: Data Cleansing and Migration</h3>
-                    <p class="text-lg text-slate-700 mb-4 leading-relaxed">
-                        The firm’s data specialists first used advanced Optical Character Recognition (OCR) and data-cleaning tools to extract and validate the past three years of historical data from the thousands of scanned documents. All cleaned data was then migrated to a modern, secure, and integrated cloud-based Enterprise Resource Planning (ERP) platform.
-                    </p>
-                    
-                    <h3 class="text-2xl font-semibold text-slate-800 mb-3 text-blue-800">Phase 2: Automated Workflows</h3>
-                    <p class="text-lg text-slate-700 mb-6 leading-relaxed">
-                        Automation was built into the system to eliminate manual input:
-                    </p>
-                    <ul class="list-disc list-outside text-lg text-slate-700 mb-6 space-y-3 pl-8">
-                        <li><span class="font-semibold">Auto-Reconciliation:</span> Direct bank feeds were established, allowing all transactions to be automatically matched to the corresponding invoice, removing the need for manual reconciliation.</li>
-                        <li><span class="font-semibold">Expense Capture:</span> Truck drivers were given a mobile app to instantly photograph and categorize fuel receipts, which automatically populated the ERP ledger.</li>
-                        <li><span class="font-semibold">Real-Time Reporting:</span> Custom dashboards were created to provide management with live, instantaneous reports on cash flow, freight costs, and profitability.</li>
-                    </ul>
+                <div class="grid md:grid-cols-3 gap-4 text-center">
+                    <div class="bg-white shadow-md p-4 rounded-lg border-t-4 border-gray-400">
+                        <i class="fa-solid fa-truck text-2xl text-gray-400 mb-2"></i>
+                        <h4 class="font-bold text-sm">Trucking</h4>
+                        <p class="text-xs text-slate-500">Physical Receipts</p>
+                    </div>
+                    <div class="bg-white shadow-md p-4 rounded-lg border-t-4 border-gray-400">
+                        <i class="fa-solid fa-warehouse text-2xl text-gray-400 mb-2"></i>
+                        <h4 class="font-bold text-sm">Warehousing</h4>
+                        <p class="text-xs text-slate-500">Excel Spreadsheets</p>
+                    </div>
+                    <div class="bg-white shadow-md p-4 rounded-lg border-t-4 border-gray-400">
+                        <i class="fa-solid fa-chart-line text-2xl text-gray-400 mb-2"></i>
+                        <h4 class="font-bold text-sm">Sales</h4>
+                        <p class="text-xs text-slate-500">CRM Data</p>
+                    </div>
+                </div>
+                <div class="flex justify-center my-4 text-gray-300"><i class="fa-solid fa-arrow-down text-xl"></i></div>
+                <div class="bg-red-50 text-red-600 text-center p-3 rounded-lg font-bold border border-red-100 mb-8">
+                    Finance Team: Manual Bridge-Building (Bottleneck)
+                </div>
+            </div>
 
-                    <h2 class="text-3xl font-bold text-blue-600 mb-4 mt-10 border-b pb-2">4. The Result: Time Saved and Absolute Accuracy</h2>
-                    <p class="text-lg text-slate-700 mb-6 leading-relaxed">
-                        The digitalization effort achieved its most critical goal: <span class="font-semibold">100% financial data accuracy</span> within the new ERP system. The impact on operational efficiency was dramatic.
-                    </p>
-                    <ul class="list-disc list-outside text-lg text-slate-700 mb-6 space-y-3 pl-8">
-                        <li><span class="font-semibold">Audit Time Reduction:</span> The annual tax preparation time was slashed from four weeks (160+ hours) down to three days (less than 24 hours) because all data was instantly verifiable.</li>
-                        <li><span class="font-semibold">Strategic Shift:</span> The finance team was freed from data entry and error correction, allowing them to shift focus to predictive analytics and strategic cost reduction.</li>
-                    </ul>
-                    <p class="text-lg text-slate-700 mb-8 leading-relaxed">
-                        TransGlobal Logistics transformed from a slow-moving, paper-based relic into a lean, data-driven enterprise. This digital transformation didn't just save time; it gave management the real-time clarity needed to drive the company's next three decades of profitable growth.
-                    </p>
-                    
-                    <a href="./articles.html" class="inline-flex items-center bg-blue-600 text-white px-8 py-3 rounded-full font-semibold hover:bg-blue-700 shadow-xl glow-button transition-transform duration-300">
-                        <i class="fas fa-arrow-left mr-3"></i> Return to Success Stories
+            <div class="mb-16" data-aos="fade-up">
+                <h2 class="text-2xl font-bold text-primary mb-6 flex items-center gap-3">
+                    <span class="w-8 h-8 bg-blue-100 text-accent rounded-full flex items-center justify-center text-sm">3</span>
+                    The Strategy: Cloud Migration and AI Automation
+                </h2>
+                
+                <div class="space-y-8">
+                    <div>
+                        <h3 class="text-lg font-bold text-primary mb-2 flex items-center gap-2"><i class="fa-solid fa-cloud-arrow-up text-tech"></i> Phase 1: Data Cleansing and Migration</h3>
+                        <p class="text-slate-600 leading-relaxed mb-4">
+                            The firm's specialists used advanced Optical Character Recognition (OCR) tools to extract and validate the past three years of historical data from thousands of scanned documents. All cleaned data was then migrated to a modern, secure, cloud-based ERP platform.
+                        </p>
+                    </div>
+
+                    <div>
+                        <h3 class="text-lg font-bold text-primary mb-2 flex items-center gap-2"><i class="fa-solid fa-robot text-tech"></i> Phase 2: Automated Workflows</h3>
+                        <p class="text-slate-600 leading-relaxed mb-4">Automation was built into the system to eliminate manual input:</p>
+                        <ul class="space-y-4">
+                            <li class="flex items-start gap-3">
+                                <i class="fa-solid fa-check text-green-500 mt-1"></i>
+                                <span class="text-slate-600 text-sm"><strong>Auto-Reconciliation:</strong> Direct bank feeds now automatically match transactions to invoices.</span>
+                            </li>
+                            <li class="flex items-start gap-3">
+                                <i class="fa-solid fa-check text-green-500 mt-1"></i>
+                                <span class="text-slate-600 text-sm"><strong>Expense Capture:</strong> Drivers use a mobile app to photograph receipts, instantly populating the ledger.</span>
+                            </li>
+                            <li class="flex items-start gap-3">
+                                <i class="fa-solid fa-check text-green-500 mt-1"></i>
+                                <span class="text-slate-600 text-sm"><strong>Real-Time Reporting:</strong> Management now accesses live dashboards on cash flow and profitability.</span>
+                            </li>
+                        </ul>
+                        <div class="text-xs text-slate-400 mt-2 text-right italic"></div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="bg-primary text-white p-8 rounded-2xl shadow-xl" data-aos="zoom-in">
+                <h2 class="text-2xl font-serif font-bold mb-6">4. The Result: Time Saved and Absolute Accuracy</h2>
+                
+                <p class="text-slate-300 leading-relaxed mb-8">
+                    The digitalization effort achieved its most critical goal: <strong>100% financial data accuracy</strong> within the new ERP system. The impact on operational efficiency was dramatic.
+                </p>
+
+                <div class="grid md:grid-cols-2 gap-8 mb-8 border-t border-b border-white/20 py-8">
+                    <div>
+                        <div class="text-sm text-slate-400 uppercase mb-2">Audit Time</div>
+                        <div class="text-3xl font-bold text-emerald-400">90% Reduction</div>
+                        <div class="text-xs text-slate-400">From 160+ hours to <24 hours</div>
+                    </div>
+                    <div>
+                        <div class="text-sm text-slate-400 uppercase mb-2">Data Integrity</div>
+                        <div class="text-3xl font-bold text-emerald-400">100% Verified</div>
+                        <div class="text-xs text-slate-400">Zero manual entry errors</div>
+                    </div>
+                </div>
+
+                <p class="text-slate-300 leading-relaxed mb-6">
+                    TransGlobal Logistics transformed from a slow-moving, paper-based relic into a lean, data-driven enterprise. This digital transformation didn't just save time; it gave management the real-time clarity needed to drive the company's next three decades of profitable growth.
+                </p>
+
+                <div class="flex flex-col sm:flex-row gap-4">
+                    <a href="articles.html" class="bg-white text-primary px-6 py-3 rounded-full font-bold hover:bg-slate-100 transition-colors text-center">
+                        <i class="fa-solid fa-arrow-left mr-2"></i> Return to Success Stories
+                    </a>
+                    <a href="contact.html" class="bg-accent text-white px-6 py-3 rounded-full font-bold hover:bg-blue-600 transition-colors text-center">
+                        Digitize Your Business
                     </a>
                 </div>
             </div>
-        </section>
 
-        <footer class="bg-slate-900 text-white"></footer>
-    </main>
-    
+        </div>
+    </article>
+
+    <footer class="bg-slate-900 text-slate-400 py-12 border-t border-slate-800">
+        <div class="container mx-auto px-6 grid md:grid-cols-4 gap-8">
+            <div class="col-span-1 md:col-span-2">
+                <a href="index.html" class="flex items-center gap-2 mb-4">
+                    <img src="public/logo2.svg" alt="Logo" class="h-8 w-auto grayscale opacity-80 hover:grayscale-0 hover:opacity-100 transition-all">
+                    <span class="text-white text-xl font-bold font-serif">Global Financials</span>
+                </a>
+                <p class="mb-6 max-w-sm text-sm">Trusted by businesses worldwide for expert financial analysis, bookkeeping, and strategic consulting.</p>
+                
+                <div class="flex gap-4">
+                    <a href="https://www.linkedin.com/company/108157474/admin/page-posts/published/" target="_blank" class="w-10 h-10 rounded-full bg-slate-800 flex items-center justify-center hover:bg-[#0077b5] hover:text-white transition-colors transform hover:scale-110">
+                        <i class="fa-brands fa-linkedin-in"></i>
+                    </a>
+                    <a href="https://www.facebook.com/profile.php?id=61580989243930#" target="_blank" class="w-10 h-10 rounded-full bg-slate-800 flex items-center justify-center hover:bg-[#1877F2] hover:text-white transition-colors transform hover:scale-110">
+                        <i class="fa-brands fa-facebook-f"></i>
+                    </a>
+                    <a href="https://www.instagram.com/global_financials" target="_blank" class="w-10 h-10 rounded-full bg-slate-800 flex items-center justify-center hover:bg-[#E1306C] hover:text-white transition-colors transform hover:scale-110">
+                        <i class="fa-brands fa-instagram"></i>
+                    </a>
+                </div>
+            </div>
+            
+            <div>
+                <h4 class="text-white font-bold mb-4">Quick Links</h4>
+                <ul class="space-y-2 text-sm">
+                    <li><a href="index.html" class="hover:text-accent transition-colors">Home</a></li>
+                    <li><a href="services.html" class="hover:text-accent transition-colors">Services</a></li>
+                    <li><a href="portfolio.html" class="hover:text-accent transition-colors">Portfolio</a></li>
+                    <li><a href="contact.html" class="hover:text-accent transition-colors">Contact</a></li>
+                </ul>
+            </div>
+
+            <div>
+                <h4 class="text-white font-bold mb-4">Contact Info</h4>
+                <ul class="space-y-3 text-sm">
+                    <li class="flex items-start gap-3 group">
+                        <div class="mt-1 w-6 text-center text-green-500">
+                            <i class="fa-brands fa-whatsapp text-lg"></i>
+                        </div>
+                        <a href="https://wa.me/923216647827" target="_blank" class="hover:text-white transition-colors">
+                            +92 321 6647827
+                            <span class="block text-xs text-slate-500">Available on WhatsApp</span>
+                        </a>
+                    </li>
+                    <li class="flex items-start gap-3 group">
+                        <div class="mt-1 w-6 text-center text-accent">
+                            <i class="fa-solid fa-envelope"></i>
+                        </div>
+                        <a href="mailto:globalfinancials.org@gmail.com" class="hover:text-white transition-colors break-all">
+                            globalfinancials.org@gmail.com
+                        </a>
+                    </li>
+                    <li class="flex items-start gap-3">
+                        <div class="mt-1 w-6 text-center text-accent">
+                            <i class="fa-solid fa-location-dot"></i>
+                        </div>
+                        <span>Worldwide Remote Services</span>
+                    </li>
+                </ul>
+            </div>
+        </div>
+        <div class="container mx-auto px-6 mt-12 pt-8 border-t border-slate-800 text-center text-xs text-slate-500">
+            &copy; 2025 Global Financials. All rights reserved.
+        </div>
+    </footer>
+
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
     <script>
-        // Mobile Menu Toggle Logic
-        document.getElementById('mobile-menu-btn').addEventListener('click', function() {
-            var menu = document.getElementById('mobile-menu');
-            menu.classList.toggle('hidden');
-        });
-        
-        // --- Scroll Reveal Animation Logic (Re-triggering on scroll up/down) ---
-        const observer = new IntersectionObserver((entries) => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    entry.target.classList.add('animate-visible');
-                } else {
-                    entry.target.classList.remove('animate-visible');
-                }
-            });
-        }, {
-            threshold: 0.1 
-        });
-
-        document.querySelectorAll('[data-animate]').forEach(element => {
-            observer.observe(element);
-        });
+        AOS.init({ duration: 800, once: true });
+        function toggleMenu() {
+            document.getElementById('mobile-menu').classList.toggle('hidden');
+        }
     </script>
 </body>
 </html>
