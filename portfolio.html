@@ -1,390 +1,286 @@
 <!DOCTYPE html>
 <html lang="en" class="scroll-smooth">
-
 <head>
-  <meta charset="UTF-8" />
-  <title>Projects - Financial Ledger Transformation Case Study</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <link href="./output.css" rel="stylesheet" />
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet" />
-  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet" />
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" />
-  <link rel="shortcut icon" href="./public/Vector.svg" type="image/x-icon" />
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Portfolio | Global Financials</title>
+    
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
+    
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 
-  <style>
-    body {
-      padding-top: 6rem;
-      /* adjust for navbar height */
-    }
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
 
-    /* Initial state for elements with data-animate attribute (Scroll Reveal) */
-    [data-animate] {
-      opacity: 0;
-      transform: translateY(20px);
-      /* Start slightly below final position */
-      transition: opacity 0.8s ease-out, transform 0.8s ease-out;
-    }
-
-    /* Final state when element is visible */
-    [data-animate].animate-visible {
-      opacity: 1;
-      transform: translateY(0);
-    }
-
-    /* Zoom and Glow Effect for Buttons/Links */
-    .glow-button {
-      transition: all 0.3s ease-in-out;
-    }
-
-    .glow-button:hover {
-      transform: scale(1.05);
-      /* Zoom effect */
-      box-shadow: 0 0 10px rgba(59, 130, 246, 0.8),
-        /* Inner glow */
-        0 0 20px rgba(59, 130, 246, 0.5);
-      /* Outer glow */
-    }
-
-    /* Specific override for the active Projects link in the nav to show the glow */
-    .nav-link.glow-button:hover {
-      color: #1d4ed8;
-      /* Maintain active blue color on hover */
-    }
-  </style>
-</head>
-
-<body>
-  <nav class="bg-white shadow-lg fixed top-0 left-0 right-0 z-50">
-    <div class="justify-center">
-      <div class="flex max-w-7xl mx-auto px-2 justify-between items-center h-16">
-        <div class="flex items-center justify-center p-4 gap-3">
-          <img class="size-10" src="./public/logo2.svg" alt="" />
-          <div>
-            <h1 class="text-xl font-semibold">Global Financials</h1>
-            <h6 class="text-gray-400 text-sm">
-              Financial Excellence Worldwide
-            </h6>
-          </div>
-        </div>
-        <div class="hidden md:flex space-x-8">
-          <a href="./index.html"
-            class="nav-link p-1 rounded-sm hover:text-blue-700 transition-colors glow-button">Home</a>
-          <a href="./services.html"
-            class="nav-link p-1 rounded-sm hover:text-blue-700 transition-colors glow-button">Services</a>
-          <a href="./projects.html"
-            class="nav-link p-1 rounded-sm text-blue-700 transition-colors glow-button">Portfolio</a>
-          <a href="./articles.html"
-            class="nav-link p-1 rounded-sm hover:text-blue-700 transition-colors glow-button">Articles</a>
-          <a href="./contact.html"
-            class="nav-link p-1 rounded-sm hover:text-blue-700 transition-colors glow-button">Contact</a>
-        </div>
-
-        <div class="md:hidden">
-          <button id="mobile-menu-btn"
-            class="text-black p-2 hover:text-gray-500 focus:outline-none flex justify-between items-center">
-            <i class="fas fa-bars text-xl"></i>
-          </button>
-        </div>
-      </div>
-
-      <div id="mobile-menu" class="md:hidden hidden">
-        <div class="m-4 bg-gray-100 rounded-lg">
-          <a href="./index.html" class="mobile-nav-link block px-3 py-2 text-black glow-button">Home</a>
-          <a href="./services.html" class="mobile-nav-link block px-3 py-2 text-black glow-button">Services</a>
-          <a href="./projects.html"
-            class="mobile-nav-link block rounded-lg px-3 py-2 font-bold text-white bg-blue-600 glow-button">Portfolio</a>
-          <a href="./articles.html" class="mobile-nav-link block px-3 py-2 text-black glow-button">Articles</a>
-          <a href="./contact.html" class="mobile-nav-link block px-3 py-2 text-black glow-button">Contact</a>
-        </div>
-      </div>
-    </div>
-  </nav>
-
-  <main class="flex-1 pt-200 bg-slate-50">
-    <section class="pt-24 pb-20 bg-white shadow-sm" data-animate>
-      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-        <span class="inline-block bg-blue-100 text-blue-800 text-sm font-medium px-4 py-1 rounded-full mb-3 mt-200">
-          Featured Project
-        </span>
-        <h1 class="text-5xl font-bold text-slate-800 mb-10">
-          Unstructured Data to Financial Ledger: 100% Accuracy
-        </h1>
-        <p class="text-xl text-slate-600 max-w-4xl mx-auto">
-          A case study in transforming unorganized image data into clean, compliant, and ready-to-use financial records.
-        </p>
-      </div>
-    </section>
-
-    <section class="py-20" data-animate>
-      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div class="grid grid-cols-1 lg:grid-cols-3 gap-10">
-
-          <div class="lg:col-span-2" data-animate>
-            <h2 class="text-3xl font-semibold text-slate-800 mb-6 border-b pb-3">Project Overview</h2>
-            <p class="text-lg text-slate-700 mb-6 leading-relaxed">
-              The client provided a set of unorganized and randomly arranged images containing a full year’s cash inflow
-              and outflow data, with each month spread over four photos. I extracted key details including dates,
-              debit/credit descriptions, and balances, and organized them into clear monthly cash ledger accounts.
-            </p>
-            <p class="text-lg text-slate-700 mb-8 leading-relaxed">
-              I then prepared a comprehensive yearly ledger and a concise summary report in Excel. The project was
-              completed ahead of the deadline with **100% accuracy**, ensuring the client received well-structured,
-              error-free, and ready-to-use financial records for decision-making and reporting purposes.
-            </p>
-
-            <div
-              class="bg-white p-6 rounded-xl shadow-lg border border-slate-200 transition duration-700 ease-in-out hover:shadow-2xl">
-              <h3 class="text-xl font-bold text-blue-600 mb-4 flex items-center">
-                <i class="fas fa-file-excel mr-3"></i>
-                Key Deliverable: Final Excel Ledger
-              </h3>
-              <p class="text-slate-600 mb-4">
-                Download the organized and censored final ledger to see the quality of data transformation.
-              </p>
-              <a href="./public/Client Data 2023 sensored.xlsx" download
-                class="inline-flex items-center bg-blue-600 text-white px-6 py-3 rounded-lg font-semibold hover:bg-blue-700 shadow-md glow-button">
-                <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 mr-2" viewBox="0 0 24 24" fill="none"
-                  stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                  <path d="M12 17V3" />
-                  <path d="m6 11 6 6 6-6" />
-                  <path d="M19 21H5" />
-                </svg>
-                Download Excel File
-              </a>
-            </div>
-          </div>
-
-          <div class="lg:col-span-1" data-animate>
-            <div
-              class="bg-white p-6 rounded-xl shadow-lg border border-slate-200 transition duration-700 ease-in-out hover:shadow-2xl">
-              <h3 class="text-xl font-bold text-slate-800 mb-4 border-b pb-2">Project Summary</h3>
-              <ul class="space-y-4">
-                <li class="flex items-start">
-                  <i class="fas fa-chart-line text-blue-500 mt-1 mr-3"></i>
-                  <div>
-                    <div class="font-semibold text-slate-800">Service Category</div>
-                    <div class="text-slate-600">Data Extraction & Bookkeeping</div>
-                  </div>
-                </li>
-                <li class="flex items-start">
-                  <i class="fas fa-tachometer-alt text-blue-500 mt-1 mr-3"></i>
-                  <div>
-                    <div class="font-semibold text-slate-800">Accuracy Rate</div>
-                    <div class="text-slate-600">100% Verified</div>
-                  </div>
-                </li>
-                <li class="flex items-start">
-                  <i class="fas fa-hourglass-start text-blue-500 mt-1 mr-3"></i>
-                  <div>
-                    <div class="font-semibold text-slate-800">Timeline</div>
-                    <div class="text-slate-600">Completed ahead of schedule</div>
-                  </div>
-                </li>
-                <li class="flex items-start">
-                  <i class="fas fa-image text-blue-500 mt-1 mr-3"></i>
-                  <div>
-                    <div class="font-semibold text-slate-800">Source Data</div>
-                    <div class="text-slate-600">Unorganized Images (3 years total)</div>
-                  </div>
-                </li>
-              </ul>
-            </div>
-          </div>
-        </div>
-
-        <div class="mt-20" data-animate>
-          <h2 class="text-3xl font-semibold text-slate-800 mb-6 border-b pb-3">Client Data Sample (Unorganized Images)
-          </h2>
-          <p class="text-slate-600 mb-8">
-            The following images are samples of the raw, unorganized data provided by the client (one month's worth).
-          </p>
-          <div class="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-6 gap-4">
-            <a href="./public/5-1.jpg" target="_blank"
-              class="block overflow-hidden rounded-lg shadow-md transition duration-300 hover:shadow-xl">
-              <img src="./public/5-1.jpg" alt="Client Data Image Sample 1"
-                class="w-full h-36 object-cover transform hover:scale-105 transition-transform duration-300">
-              <p class="text-center text-xs text-slate-500 py-2">Image 1/6</p>
-            </a>
-            <a href="./public/5-2.jpg" target="_blank"
-              class="block overflow-hidden rounded-lg shadow-md transition duration-300 hover:shadow-xl">
-              <img src="./public/5-2.jpg" alt="Client Data Image Sample 2"
-                class="w-full h-36 object-cover transform hover:scale-105 transition-transform duration-300">
-              <p class="text-center text-xs text-slate-500 py-2">Image 2/6</p>
-            </a>
-            <a href="./public/5-3.jpg" target="_blank"
-              class="block overflow-hidden rounded-lg shadow-md transition duration-300 hover:shadow-xl">
-              <img src="./public/5-3.jpg" alt="Client Data Image Sample 3"
-                class="w-full h-36 object-cover transform hover:scale-105 transition-transform duration-300">
-              <p class="text-center text-xs text-slate-500 py-2">Image 3/6</p>
-            </a>
-            <a href="./public/5-4.jpg" target="_blank"
-              class="block overflow-hidden rounded-lg shadow-md transition duration-300 hover:shadow-xl">
-              <img src="./public/5-4.jpg" alt="Client Data Image Sample 4"
-                class="w-full h-36 object-cover transform hover:scale-105 transition-transform duration-300">
-              <p class="text-center text-xs text-slate-500 py-2">Image 4/6</p>
-            </a>
-            <a href="./public/5-5.jpg" target="_blank"
-              class="block overflow-hidden rounded-lg shadow-md transition duration-300 hover:shadow-xl">
-              <img src="./public/5-5.jpg" alt="Client Data Image Sample 5"
-                class="w-full h-36 object-cover transform hover:scale-105 transition-transform duration-300">
-              <p class="text-center text-xs text-slate-500 py-2">Image 5/6</p>
-            </a>
-            <a href="./public/5-6.jpg" target="_blank"
-              class="block overflow-hidden rounded-lg shadow-md transition duration-300 hover:shadow-xl">
-              <img src="./public/5-6.jpg" alt="Client Data Image Sample 6"
-                class="w-full h-36 object-cover transform hover:scale-105 transition-transform duration-300">
-              <p class="text-center text-xs text-slate-500 py-2">Image 6/6</p>
-            </a>
-          </div>
-          <p class="text-sm text-center text-slate-500 mt-6">
-            Click on any image above to view the raw data that was used for the ledger creation.
-          </p>
-        </div>
-      </div>
-    </section>
-
-    <footer class="bg-slate-900 text-white" data-animate>
-      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
-        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
-          <div class="lg:col-span-2">
-            <div class="flex items-center mb-4">
-              <img class="size-10" src="./public/logo2.svg" alt="" />
-              <div class="ml-3">
-                <h3 class="text-xl font-bold">Global Financials</h3>
-                <p class="text-slate-300">Financial Excellence Worldwide</p>
-              </div>
-            </div>
-            <p class="text-slate-300 mb-6 max-w-md">
-              Providing comprehensive financial solutions to businesses across
-              Australia, United States, Canada, and the United Kingdom. Your
-              trusted partner for financial success.
-            </p>
-            <div class="flex space-x-4">
-              <a href="https://www.linkedin.com/company/globalfinancials/" target="_blank"
-                class="bg-slate-800 p-2 rounded-lg hover:bg-slate-700 transition-colors cursor-pointer glow-button">
-                <svg xmlns="http://www.w3.org/2000/svg" class="lucide h-5 w-5 text-blue-400" viewBox="0 0 24 24"
-                  fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                  <path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"></path>
-                  <rect x="2" y="9" width="4" height="12"></rect>
-                  <circle cx="4" cy="4" r="2"></circle>
-                </svg>
-              </a>
-              <a href="https://www.instagram.com/global_financials" target="_blank"
-                class="bg-slate-800 p-2 rounded-lg hover:bg-slate-700 transition-colors cursor-pointer glow-button">
-                <svg xmlns="http://www.w3.org/2000/svg" class="lucide h-5 w-5 text-blue-400" viewBox="0 0 24 24"
-                  fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                  <rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect>
-                  <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path>
-                  <line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line>
-                </svg>
-              </a>
-              <a href="https://www.facebook.com/share/1C18jmnTSM/" target="_blank"
-                class="bg-slate-800 p-2 rounded-lg hover:bg-slate-700 transition-colors cursor-pointer glow-button">
-                <svg xmlns="http://www.w3.org/2000/svg" class="lucide h-5 w-5 text-blue-400" viewBox="0 0 24 24"
-                  fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                  <path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"></path>
-                </svg>
-              </a>
-            </div>
-          </div>
-          <div>
-            <h3 class="text-lg font-semibold mb-4">Quick Links</h3>
-            <ul class="space-y-2">
-              <li>
-                <a href="./index.html"
-                  class="text-slate-300 hover:text-white transition-colors duration-200 glow-button">
-                  Home
-                </a>
-              </li>
-              <li>
-                <a href="./services.html"
-                  class="text-slate-300 hover:text-white transition-colors duration-200 glow-button">
-                  Services
-                </a>
-              </li>
-               <li>
-                <a href="./articles.html"
-                  class="text-slate-300 hover:text-white transition-colors duration-200 glow-button">
-                  Articles
-                </a>
-              </li>
-              <li>
-                <a href="./contact.html"
-                  class="text-slate-300 hover:text-white transition-colors duration-200 glow-button">
-                  Contact
-                </a>
-              </li>
-            </ul>
-          </div>
-          <div>
-            <h3 class="text-lg font-semibold mb-4">Contact Info</h3>
-            <ul class="space-y-3">
-              <li class="flex items-center space-x-3">
-                <a href="https://wa.me/923216647827" target="_blank" class="flex items-center space-x-3 glow-button">
-                  <i class="fab fa-whatsapp h-5 w-5 text-blue-400 text-xl"></i>
-                  <span class="text-slate-300 hover:text-white transition-colors">+92 321 6647827</span>
-                </a>
-              </li>
-              <li class="flex items-center space-x-3">
-                <a href="mailto:globalfinancials.org@gmail.com" target="_blank"
-                  class="flex items-center space-x-3 glow-button">
-                  <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
-                    stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
-                    class="lucide lucide-mail h-5 w-5 text-blue-400">
-                    <rect width="20" height="16" x="2" y="4" rx="2"></rect>
-                    <path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"></path>
-                  </svg><span
-                    class="text-slate-300 hover:text-white transition-colors">globalfinancials.org@gmail.com</span>
-                </a>
-              </li>
-            </ul>
-          </div>
-        </div>
-        <div class="border-t border-slate-800 pt-8 mt-8">
-          <div class="flex flex-col md:flex-row justify-between items-center">
-            <p class="text-slate-400 text-sm">
-              © 2025 Global Financials. All rights reserved.
-            </p>
-            <div class="flex space-x-6 mt-4 md:mt-0">
-              <a href="#" class="text-slate-400 hover:text-white text-sm transition-colors">Privacy Policy</a><a
-                href="#" class="text-slate-400 hover:text-white text-sm transition-colors">Terms of Service</a><a
-                href="#" class="text-slate-400 hover:text-white text-sm transition-colors">Cookie Policy</a>
-            </div>
-          </div>
-        </div>
-      </div>
-    </footer>
-  </main>
-
-  <script>
-    // Mobile Menu Toggle Logic
-    document.getElementById('mobile-menu-btn').addEventListener('click', function () {
-      var menu = document.getElementById('mobile-menu');
-      menu.classList.toggle('hidden');
-    });
-
-    // --- Scroll Reveal Animation Logic (Re-triggering on scroll up/down) ---
-    const observer = new IntersectionObserver((entries) => {
-      entries.forEach(entry => {
-        if (entry.isIntersecting) {
-          // Element is visible, add the visible class to trigger animation
-          entry.target.classList.add('animate-visible');
-        } else {
-          // Element is scrolled out of view, remove the visible class 
-          // so it can animate again when scrolled back into view
-          entry.target.classList.remove('animate-visible');
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        primary: '#0f172a', /* Deep Navy */
+                        accent: '#3b82f6',  /* Bright Blue */
+                        gold: '#fbbf24',    /* Trust/Finance Gold */
+                    },
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                        serif: ['Playfair Display', 'serif'],
+                    }
+                }
+            }
         }
-      });
-    }, {
-      // Options: Set a threshold to 0.1 (10% visibility)
-      threshold: 0.1
-    });
+    </script>
+</head>
+<body class="bg-slate-50 text-slate-800 font-sans antialiased overflow-x-hidden">
 
-    // Find all elements with the data-animate attribute and start observing them
-    document.querySelectorAll('[data-animate]').forEach(element => {
-      observer.observe(element);
-    });
-  </script>
+    <nav class="fixed w-full z-50 bg-white/95 backdrop-blur-md shadow-sm transition-all duration-300" id="navbar">
+        <div class="container mx-auto px-6 py-3 flex justify-between items-center">
+            <a href="index.html" class="flex items-center gap-3 group">
+                <img src="public/logo2.svg" alt="Global Financials Logo" class="h-12 w-auto object-contain transition-transform group-hover:scale-105">
+                <div>
+                    <h1 class="text-xl font-bold text-primary font-serif tracking-tight">Global Financials</h1>
+                    <p class="text-[10px] text-slate-500 tracking-[0.2em] uppercase">Financial Excellence Worldwide</p>
+                </div>
+            </a>
+
+            <div class="hidden md:flex items-center gap-8 font-medium text-sm">
+                <a href="index.html" class="hover:text-accent transition-colors">Home</a>
+                <a href="services.html" class="hover:text-accent transition-colors">Services</a>
+                <a href="portfolio.html" class="text-accent font-bold">Portfolio</a>
+                <a href="articles.html" class="hover:text-accent transition-colors">Articles</a>
+                <a href="contact.html" class="bg-primary text-white px-6 py-2.5 rounded-full hover:bg-accent hover:shadow-lg transition-all transform hover:-translate-y-0.5">
+                    Contact Us
+                </a>
+            </div>
+
+            <button class="md:hidden text-2xl text-primary" onclick="toggleMenu()">
+                <i class="fa-solid fa-bars"></i>
+            </button>
+        </div>
+        
+        <div id="mobile-menu" class="hidden md:hidden bg-white border-t border-gray-100 absolute w-full left-0 shadow-lg">
+            <div class="flex flex-col p-6 space-y-4 font-semibold text-center">
+                <a href="index.html">Home</a>
+                <a href="services.html">Services</a>
+                <a href="portfolio.html" class="text-accent">Portfolio</a>
+                <a href="articles.html">Articles</a>
+                <a href="contact.html" class="text-primary">Contact Us</a>
+            </div>
+        </div>
+    </nav>
+
+    <header class="pt-32 pb-16 bg-primary relative overflow-hidden">
+        <div class="absolute inset-0 opacity-10 bg-[url('https://www.transparenttextures.com/patterns/cubes.png')]"></div>
+        <div class="container mx-auto px-6 text-center relative z-10">
+            <h1 class="text-4xl md:text-5xl font-serif font-bold text-white mb-4" data-aos="fade-down">Our Portfolio</h1>
+            <p class="text-slate-300 max-w-2xl mx-auto text-lg" data-aos="fade-up">
+                Real-world examples of financial precision and data transformation.
+            </p>
+        </div>
+    </header>
+
+    <section class="py-20 bg-white">
+        <div class="container mx-auto px-6">
+            
+            <div class="mb-12">
+                <span class="bg-blue-100 text-accent text-xs font-bold px-3 py-1 rounded-full uppercase tracking-wider mb-4 inline-block">Featured Project</span>
+                <h2 class="text-3xl md:text-4xl font-serif font-bold text-primary mb-4">Unstructured Data to Financial Ledger: 100% Accuracy</h2>
+                <p class="text-xl text-slate-500 font-light">A case study in transforming unorganized image data into clean, compliant, and ready-to-use financial records.</p>
+            </div>
+
+            <div class="grid lg:grid-cols-3 gap-12">
+                
+                <div class="lg:col-span-2 space-y-8">
+                    <div data-aos="fade-up">
+                        <h3 class="text-xl font-bold text-primary mb-4 border-b border-gray-100 pb-2">Project Overview</h3>
+                        <p class="text-slate-600 leading-relaxed mb-6">
+                            The client provided a set of unorganized and randomly arranged images containing a full year's cash inflow and outflow data, with each month spread over four photos. I extracted key details including dates, debit/credit descriptions, and balances, and organized them into clear monthly cash ledger accounts.
+                        </p>
+                        <p class="text-slate-600 leading-relaxed">
+                            I then prepared a comprehensive yearly ledger and a concise summary report in Excel. The project was completed ahead of the deadline with <strong>100% accuracy</strong>, ensuring the client received well-structured, error-free, and ready-to-use financial records for decision-making and reporting purposes.
+                        </p>
+                    </div>
+
+                    <div class="bg-blue-50 border border-blue-100 rounded-xl p-6" data-aos="fade-up" data-aos-delay="100">
+                        <div class="flex items-center gap-3 mb-4">
+                            <i class="fa-solid fa-file-excel text-green-600 text-2xl"></i>
+                            <h4 class="font-bold text-primary text-lg">Key Deliverable: Final Excel Ledger</h4>
+                        </div>
+                        <p class="text-sm text-slate-600 mb-6">
+                            View the organized and censored final ledger to see the quality of data transformation.
+                        </p>
+                        <a href="public/Client Data 2023 sensored.xlsx" target="_blank" class="inline-flex items-center gap-2 bg-green-600 text-white px-6 py-3 rounded-lg font-semibold hover:bg-green-700 transition-all shadow-md hover:shadow-lg">
+                            <i class="fa-solid fa-eye"></i> View Excel Ledger
+                        </a>
+                    </div>
+                </div>
+
+                <div class="lg:col-span-1">
+                    <div class="bg-slate-50 rounded-xl p-6 border border-gray-100 sticky top-24" data-aos="fade-left">
+                        <h3 class="font-bold text-primary text-lg mb-6">Project Summary</h3>
+                        
+                        <div class="space-y-6">
+                            <div class="flex items-start gap-4">
+                                <div class="mt-1 text-accent"><i class="fa-solid fa-chart-line"></i></div>
+                                <div>
+                                    <div class="text-xs text-slate-400 uppercase tracking-wider font-bold">Service Category</div>
+                                    <div class="font-medium text-slate-700">Data Extraction & Bookkeeping</div>
+                                </div>
+                            </div>
+
+                            <div class="flex items-start gap-4">
+                                <div class="mt-1 text-green-500"><i class="fa-solid fa-check-circle"></i></div>
+                                <div>
+                                    <div class="text-xs text-slate-400 uppercase tracking-wider font-bold">Accuracy Rate</div>
+                                    <div class="font-medium text-slate-700">100% Verified</div>
+                                </div>
+                            </div>
+
+                            <div class="flex items-start gap-4">
+                                <div class="mt-1 text-accent"><i class="fa-solid fa-hourglass-half"></i></div>
+                                <div>
+                                    <div class="text-xs text-slate-400 uppercase tracking-wider font-bold">Timeline</div>
+                                    <div class="font-medium text-slate-700">Completed ahead of schedule</div>
+                                </div>
+                            </div>
+
+                            <div class="flex items-start gap-4">
+                                <div class="mt-1 text-accent"><i class="fa-solid fa-images"></i></div>
+                                <div>
+                                    <div class="text-xs text-slate-400 uppercase tracking-wider font-bold">Source Data</div>
+                                    <div class="font-medium text-slate-700">Unorganized Images (3 years total)</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+
+            <div class="mt-20">
+                <h3 class="text-2xl font-bold text-primary mb-2">Client Data Sample (Unorganized Images)</h3>
+                <p class="text-slate-500 mb-8">The following images are samples of the raw, unorganized data provided by the client.</p>
+                
+                <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+                    <div class="group relative overflow-hidden rounded-xl shadow-md border border-gray-100 cursor-pointer" data-aos="zoom-in">
+                        <img src="public/5-1.jpg" alt="Client Data Sample 1" class="w-full h-64 object-cover object-top transition-transform duration-500 group-hover:scale-110">
+                        <div class="absolute inset-0 bg-black/50 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center">
+                            <span class="text-white font-semibold"><i class="fa-solid fa-magnifying-glass-plus"></i> View Full</span>
+                        </div>
+                    </div>
+
+                    <div class="group relative overflow-hidden rounded-xl shadow-md border border-gray-100 cursor-pointer" data-aos="zoom-in" data-aos-delay="100">
+                        <img src="public/5-2.jpg" alt="Client Data Sample 2" class="w-full h-64 object-cover object-top transition-transform duration-500 group-hover:scale-110">
+                        <div class="absolute inset-0 bg-black/50 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center">
+                            <span class="text-white font-semibold"><i class="fa-solid fa-magnifying-glass-plus"></i> View Full</span>
+                        </div>
+                    </div>
+
+                    <div class="group relative overflow-hidden rounded-xl shadow-md border border-gray-100 cursor-pointer" data-aos="zoom-in" data-aos-delay="200">
+                        <img src="public/5-3.jpg" alt="Client Data Sample 3" class="w-full h-64 object-cover object-top transition-transform duration-500 group-hover:scale-110">
+                        <div class="absolute inset-0 bg-black/50 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center">
+                            <span class="text-white font-semibold"><i class="fa-solid fa-magnifying-glass-plus"></i> View Full</span>
+                        </div>
+                    </div>
+
+                    <div class="group relative overflow-hidden rounded-xl shadow-md border border-gray-100 cursor-pointer" data-aos="zoom-in">
+                        <img src="public/5-4.jpg" alt="Client Data Sample 4" class="w-full h-64 object-cover object-top transition-transform duration-500 group-hover:scale-110">
+                        <div class="absolute inset-0 bg-black/50 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center">
+                            <span class="text-white font-semibold"><i class="fa-solid fa-magnifying-glass-plus"></i> View Full</span>
+                        </div>
+                    </div>
+
+                    <div class="group relative overflow-hidden rounded-xl shadow-md border border-gray-100 cursor-pointer" data-aos="zoom-in" data-aos-delay="100">
+                        <img src="public/5-5.jpg" alt="Client Data Sample 5" class="w-full h-64 object-cover object-top transition-transform duration-500 group-hover:scale-110">
+                        <div class="absolute inset-0 bg-black/50 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center">
+                            <span class="text-white font-semibold"><i class="fa-solid fa-magnifying-glass-plus"></i> View Full</span>
+                        </div>
+                    </div>
+
+                    <div class="group relative overflow-hidden rounded-xl shadow-md border border-gray-100 cursor-pointer" data-aos="zoom-in" data-aos-delay="200">
+                        <img src="public/5-6.jpg" alt="Client Data Sample 6" class="w-full h-64 object-cover object-top transition-transform duration-500 group-hover:scale-110">
+                        <div class="absolute inset-0 bg-black/50 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center">
+                            <span class="text-white font-semibold"><i class="fa-solid fa-magnifying-glass-plus"></i> View Full</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <footer class="bg-slate-900 text-slate-400 py-12 border-t border-slate-800">
+        <div class="container mx-auto px-6 grid md:grid-cols-4 gap-8">
+            <div class="col-span-1 md:col-span-2">
+                <a href="index.html" class="flex items-center gap-2 mb-4">
+                    <img src="public/logo2.svg" alt="Logo" class="h-8 w-auto grayscale opacity-80 hover:grayscale-0 hover:opacity-100 transition-all">
+                    <span class="text-white text-xl font-bold font-serif">Global Financials</span>
+                </a>
+                <p class="mb-6 max-w-sm text-sm">Trusted by businesses worldwide for expert financial analysis, bookkeeping, and strategic consulting.</p>
+                
+                <div class="flex gap-4">
+                    <a href="https://www.linkedin.com/company/108157474/admin/page-posts/published/" target="_blank" class="w-10 h-10 rounded-full bg-slate-800 flex items-center justify-center hover:bg-[#0077b5] hover:text-white transition-colors transform hover:scale-110">
+                        <i class="fa-brands fa-linkedin-in"></i>
+                    </a>
+                    <a href="https://www.facebook.com/profile.php?id=61580989243930#" target="_blank" class="w-10 h-10 rounded-full bg-slate-800 flex items-center justify-center hover:bg-[#1877F2] hover:text-white transition-colors transform hover:scale-110">
+                        <i class="fa-brands fa-facebook-f"></i>
+                    </a>
+                    <a href="https://www.instagram.com/global_financials" target="_blank" class="w-10 h-10 rounded-full bg-slate-800 flex items-center justify-center hover:bg-[#E1306C] hover:text-white transition-colors transform hover:scale-110">
+                        <i class="fa-brands fa-instagram"></i>
+                    </a>
+                </div>
+            </div>
+            
+            <div>
+                <h4 class="text-white font-bold mb-4">Quick Links</h4>
+                <ul class="space-y-2 text-sm">
+                    <li><a href="index.html" class="hover:text-accent transition-colors">Home</a></li>
+                    <li><a href="services.html" class="hover:text-accent transition-colors">Services</a></li>
+                    <li><a href="portfolio.html" class="hover:text-accent transition-colors">Portfolio</a></li>
+                    <li><a href="contact.html" class="hover:text-accent transition-colors">Contact</a></li>
+                </ul>
+            </div>
+
+            <div>
+                <h4 class="text-white font-bold mb-4">Contact Info</h4>
+                <ul class="space-y-3 text-sm">
+                    <li class="flex items-start gap-3 group">
+                        <div class="mt-1 w-6 text-center text-green-500">
+                            <i class="fa-brands fa-whatsapp text-lg"></i>
+                        </div>
+                        <a href="https://wa.me/923216647827" target="_blank" class="hover:text-white transition-colors">
+                            +92 321 6647827
+                            <span class="block text-xs text-slate-500">Available on WhatsApp</span>
+                        </a>
+                    </li>
+                    <li class="flex items-start gap-3 group">
+                        <div class="mt-1 w-6 text-center text-accent">
+                            <i class="fa-solid fa-envelope"></i>
+                        </div>
+                        <a href="mailto:globalfinancials.org@gmail.com" class="hover:text-white transition-colors break-all">
+                            globalfinancials.org@gmail.com
+                        </a>
+                    </li>
+                    <li class="flex items-start gap-3">
+                        <div class="mt-1 w-6 text-center text-accent">
+                            <i class="fa-solid fa-location-dot"></i>
+                        </div>
+                        <span>Worldwide Remote Services</span>
+                    </li>
+                </ul>
+            </div>
+        </div>
+        <div class="container mx-auto px-6 mt-12 pt-8 border-t border-slate-800 text-center text-xs text-slate-500">
+            &copy; 2025 Global Financials. All rights reserved.
+        </div>
+    </footer>
+
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script>
+        AOS.init({ duration: 800, once: true });
+        function toggleMenu() {
+            document.getElementById('mobile-menu').classList.toggle('hidden');
+        }
+    </script>
 </body>
-
 </html>
