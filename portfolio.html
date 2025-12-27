@@ -36,10 +36,10 @@
     <nav class="fixed w-full z-50 bg-white/95 backdrop-blur-md shadow-sm transition-all duration-300" id="navbar">
         <div class="container mx-auto px-6 py-3 flex justify-between items-center">
             <a href="index.html" class="flex items-center gap-3 group">
-                <img src="public/logo2.svg" alt="Global Financials Logo" class="h-12 w-auto object-contain transition-transform group-hover:scale-105">
+                <img src="public/logo2.svg" alt="Global Financials Logo" class="h-10 w-auto md:h-12 object-contain transition-transform group-hover:scale-105">
                 <div>
-                    <h1 class="text-xl font-bold text-primary font-serif tracking-tight">Global Financials</h1>
-                    <p class="text-[10px] text-slate-500 tracking-[0.2em] uppercase">Financial Excellence Worldwide</p>
+                    <h1 class="text-lg md:text-xl font-bold text-primary font-serif tracking-tight">Global Financials</h1>
+                    <p class="text-[8px] md:text-[10px] text-slate-500 tracking-[0.2em] uppercase">Financial Excellence Worldwide</p>
                 </div>
             </a>
 
@@ -53,50 +53,50 @@
                 </a>
             </div>
 
-            <button class="md:hidden text-2xl text-primary" onclick="toggleMenu()">
+            <button class="md:hidden text-2xl text-primary p-2" onclick="toggleMenu()">
                 <i class="fa-solid fa-bars"></i>
             </button>
         </div>
         
         <div id="mobile-menu" class="hidden md:hidden bg-white border-t border-gray-100 absolute w-full left-0 shadow-lg">
             <div class="flex flex-col p-6 space-y-4 font-semibold text-center">
-                <a href="index.html">Home</a>
-                <a href="services.html">Services</a>
-                <a href="portfolio.html" class="text-accent">Portfolio</a>
-                <a href="articles.html">Articles</a>
-                <a href="contact.html" class="text-primary">Contact Us</a>
+                <a href="index.html" class="block py-2">Home</a>
+                <a href="services.html" class="block py-2">Services</a>
+                <a href="portfolio.html" class="block py-2 text-accent">Portfolio</a>
+                <a href="articles.html" class="block py-2">Articles</a>
+                <a href="contact.html" class="block py-2 text-primary font-bold">Contact Us</a>
             </div>
         </div>
     </nav>
 
-    <header class="pt-32 pb-16 bg-primary relative overflow-hidden">
+    <header class="pt-28 md:pt-32 pb-12 md:pb-16 bg-primary relative overflow-hidden">
         <div class="absolute inset-0 opacity-10 bg-[url('https://www.transparenttextures.com/patterns/cubes.png')]"></div>
         <div class="container mx-auto px-6 text-center relative z-10">
-            <h1 class="text-4xl md:text-5xl font-serif font-bold text-white mb-4" data-aos="fade-down">Our Portfolio</h1>
-            <p class="text-slate-300 max-w-2xl mx-auto text-lg" data-aos="fade-up">
+            <h1 class="text-3xl md:text-5xl font-serif font-bold text-white mb-4" data-aos="fade-down">Our Portfolio</h1>
+            <p class="text-slate-300 max-w-2xl mx-auto text-base md:text-lg" data-aos="fade-up">
                 Real-world examples of financial precision and data transformation.
             </p>
         </div>
     </header>
 
-    <section class="py-20 bg-white">
+    <section class="py-12 md:py-20 bg-white">
         <div class="container mx-auto px-6">
             
-            <div class="mb-12">
+            <div class="mb-8 md:mb-12">
                 <span class="bg-blue-100 text-accent text-xs font-bold px-3 py-1 rounded-full uppercase tracking-wider mb-4 inline-block">Featured Project</span>
-                <h2 class="text-3xl md:text-4xl font-serif font-bold text-primary mb-4">Unstructured Data to Financial Ledger: 100% Accuracy</h2>
-                <p class="text-xl text-slate-500 font-light">A case study in transforming unorganized image data into clean, compliant, and ready-to-use financial records.</p>
+                <h2 class="text-2xl md:text-4xl font-serif font-bold text-primary mb-4 leading-tight">Unstructured Data to Financial Ledger: 100% Accuracy</h2>
+                <p class="text-lg md:text-xl text-slate-500 font-light">A case study in transforming unorganized image data into clean, compliant, and ready-to-use financial records.</p>
             </div>
 
-            <div class="grid lg:grid-cols-3 gap-12">
+            <div class="flex flex-col lg:grid lg:grid-cols-3 gap-8 lg:gap-12">
                 
-                <div class="lg:col-span-2 space-y-8">
+                <div class="lg:col-span-2 space-y-8 order-2 lg:order-1">
                     <div data-aos="fade-up">
                         <h3 class="text-xl font-bold text-primary mb-4 border-b border-gray-100 pb-2">Project Overview</h3>
-                        <p class="text-slate-600 leading-relaxed mb-6">
+                        <p class="text-slate-600 leading-relaxed mb-6 text-sm md:text-base">
                             The client provided a set of unorganized and randomly arranged images containing a full year's cash inflow and outflow data, with each month spread over four photos. I extracted key details including dates, debit/credit descriptions, and balances, and organized them into clear monthly cash ledger accounts.
                         </p>
-                        <p class="text-slate-600 leading-relaxed">
+                        <p class="text-slate-600 leading-relaxed text-sm md:text-base">
                             I then prepared a comprehensive yearly ledger and a concise summary report in Excel. The project was completed ahead of the deadline with <strong>100% accuracy</strong>, ensuring the client received well-structured, error-free, and ready-to-use financial records for decision-making and reporting purposes.
                         </p>
                     </div>
@@ -109,14 +109,14 @@
                         <p class="text-sm text-slate-600 mb-6">
                             View the organized and censored final ledger to see the quality of data transformation.
                         </p>
-                        <a href="public/Client Data 2023 sensored.xlsx" target="_blank" class="inline-flex items-center gap-2 bg-green-600 text-white px-6 py-3 rounded-lg font-semibold hover:bg-green-700 transition-all shadow-md hover:shadow-lg">
+                        <a href="public/Client Data 2023 sensored.xlsx" target="_blank" class="w-full md:w-auto inline-flex justify-center items-center gap-2 bg-green-600 text-white px-6 py-3 rounded-lg font-semibold hover:bg-green-700 transition-all shadow-md hover:shadow-lg">
                             <i class="fa-solid fa-eye"></i> View Excel Ledger
                         </a>
                     </div>
                 </div>
 
-                <div class="lg:col-span-1">
-                    <div class="bg-slate-50 rounded-xl p-6 border border-gray-100 sticky top-24" data-aos="fade-left">
+                <div class="lg:col-span-1 order-1 lg:order-2">
+                    <div class="bg-slate-50 rounded-xl p-6 border border-gray-100 lg:sticky lg:top-24" data-aos="fade-left">
                         <h3 class="font-bold text-primary text-lg mb-6">Project Summary</h3>
                         
                         <div class="space-y-6">
@@ -124,7 +124,7 @@
                                 <div class="mt-1 text-accent"><i class="fa-solid fa-chart-line"></i></div>
                                 <div>
                                     <div class="text-xs text-slate-400 uppercase tracking-wider font-bold">Service Category</div>
-                                    <div class="font-medium text-slate-700">Data Extraction & Bookkeeping</div>
+                                    <div class="font-medium text-slate-700 text-sm">Data Extraction & Bookkeeping</div>
                                 </div>
                             </div>
 
@@ -132,7 +132,7 @@
                                 <div class="mt-1 text-green-500"><i class="fa-solid fa-check-circle"></i></div>
                                 <div>
                                     <div class="text-xs text-slate-400 uppercase tracking-wider font-bold">Accuracy Rate</div>
-                                    <div class="font-medium text-slate-700">100% Verified</div>
+                                    <div class="font-medium text-slate-700 text-sm">100% Verified</div>
                                 </div>
                             </div>
 
@@ -140,7 +140,7 @@
                                 <div class="mt-1 text-accent"><i class="fa-solid fa-hourglass-half"></i></div>
                                 <div>
                                     <div class="text-xs text-slate-400 uppercase tracking-wider font-bold">Timeline</div>
-                                    <div class="font-medium text-slate-700">Completed ahead of schedule</div>
+                                    <div class="font-medium text-slate-700 text-sm">Completed ahead of schedule</div>
                                 </div>
                             </div>
 
@@ -148,7 +148,7 @@
                                 <div class="mt-1 text-accent"><i class="fa-solid fa-images"></i></div>
                                 <div>
                                     <div class="text-xs text-slate-400 uppercase tracking-wider font-bold">Source Data</div>
-                                    <div class="font-medium text-slate-700">Unorganized Images (3 years total)</div>
+                                    <div class="font-medium text-slate-700 text-sm">Unorganized Images (3 years total)</div>
                                 </div>
                             </div>
                         </div>
@@ -157,48 +157,48 @@
 
             </div>
 
-            <div class="mt-20">
-                <h3 class="text-2xl font-bold text-primary mb-2">Client Data Sample (Unorganized Images)</h3>
-                <p class="text-slate-500 mb-8">The following images are samples of the raw, unorganized data provided by the client. Click an image to view full size.</p>
+            <div class="mt-16 md:mt-20">
+                <h3 class="text-xl md:text-2xl font-bold text-primary mb-2">Client Data Sample (Unorganized Images)</h3>
+                <p class="text-slate-500 mb-8 text-sm md:text-base">The following images are samples of the raw, unorganized data provided by the client. Tap an image to view full size.</p>
                 
-                <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
-                    <div onclick="openModal('public/5-1.jpg')" class="group relative overflow-hidden rounded-xl shadow-md border border-gray-100 cursor-pointer" data-aos="zoom-in">
-                        <img src="public/5-1.jpg" alt="Client Data Sample 1" class="w-full h-64 object-cover object-top transition-transform duration-500 group-hover:scale-110">
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                    <div onclick="openModal('public/5-1.jpg')" class="group relative overflow-hidden rounded-xl shadow-md border border-gray-100 cursor-pointer h-64" data-aos="zoom-in">
+                        <img src="public/5-1.jpg" alt="Client Data Sample 1" class="w-full h-full object-cover object-top transition-transform duration-500 group-hover:scale-110">
                         <div class="absolute inset-0 bg-black/50 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center">
                             <span class="text-white font-semibold flex items-center gap-2"><i class="fa-solid fa-expand"></i> View Full Size</span>
                         </div>
                     </div>
 
-                    <div onclick="openModal('public/5-2.jpg')" class="group relative overflow-hidden rounded-xl shadow-md border border-gray-100 cursor-pointer" data-aos="zoom-in" data-aos-delay="100">
-                        <img src="public/5-2.jpg" alt="Client Data Sample 2" class="w-full h-64 object-cover object-top transition-transform duration-500 group-hover:scale-110">
+                    <div onclick="openModal('public/5-2.jpg')" class="group relative overflow-hidden rounded-xl shadow-md border border-gray-100 cursor-pointer h-64" data-aos="zoom-in" data-aos-delay="100">
+                        <img src="public/5-2.jpg" alt="Client Data Sample 2" class="w-full h-full object-cover object-top transition-transform duration-500 group-hover:scale-110">
                         <div class="absolute inset-0 bg-black/50 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center">
                             <span class="text-white font-semibold flex items-center gap-2"><i class="fa-solid fa-expand"></i> View Full Size</span>
                         </div>
                     </div>
 
-                    <div onclick="openModal('public/5-3.jpg')" class="group relative overflow-hidden rounded-xl shadow-md border border-gray-100 cursor-pointer" data-aos="zoom-in" data-aos-delay="200">
-                        <img src="public/5-3.jpg" alt="Client Data Sample 3" class="w-full h-64 object-cover object-top transition-transform duration-500 group-hover:scale-110">
+                    <div onclick="openModal('public/5-3.jpg')" class="group relative overflow-hidden rounded-xl shadow-md border border-gray-100 cursor-pointer h-64" data-aos="zoom-in" data-aos-delay="200">
+                        <img src="public/5-3.jpg" alt="Client Data Sample 3" class="w-full h-full object-cover object-top transition-transform duration-500 group-hover:scale-110">
                         <div class="absolute inset-0 bg-black/50 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center">
                             <span class="text-white font-semibold flex items-center gap-2"><i class="fa-solid fa-expand"></i> View Full Size</span>
                         </div>
                     </div>
 
-                    <div onclick="openModal('public/5-4.jpg')" class="group relative overflow-hidden rounded-xl shadow-md border border-gray-100 cursor-pointer" data-aos="zoom-in">
-                        <img src="public/5-4.jpg" alt="Client Data Sample 4" class="w-full h-64 object-cover object-top transition-transform duration-500 group-hover:scale-110">
+                    <div onclick="openModal('public/5-4.jpg')" class="group relative overflow-hidden rounded-xl shadow-md border border-gray-100 cursor-pointer h-64" data-aos="zoom-in">
+                        <img src="public/5-4.jpg" alt="Client Data Sample 4" class="w-full h-full object-cover object-top transition-transform duration-500 group-hover:scale-110">
                         <div class="absolute inset-0 bg-black/50 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center">
                             <span class="text-white font-semibold flex items-center gap-2"><i class="fa-solid fa-expand"></i> View Full Size</span>
                         </div>
                     </div>
 
-                    <div onclick="openModal('public/5-5.jpg')" class="group relative overflow-hidden rounded-xl shadow-md border border-gray-100 cursor-pointer" data-aos="zoom-in" data-aos-delay="100">
-                        <img src="public/5-5.jpg" alt="Client Data Sample 5" class="w-full h-64 object-cover object-top transition-transform duration-500 group-hover:scale-110">
+                    <div onclick="openModal('public/5-5.jpg')" class="group relative overflow-hidden rounded-xl shadow-md border border-gray-100 cursor-pointer h-64" data-aos="zoom-in" data-aos-delay="100">
+                        <img src="public/5-5.jpg" alt="Client Data Sample 5" class="w-full h-full object-cover object-top transition-transform duration-500 group-hover:scale-110">
                         <div class="absolute inset-0 bg-black/50 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center">
                             <span class="text-white font-semibold flex items-center gap-2"><i class="fa-solid fa-expand"></i> View Full Size</span>
                         </div>
                     </div>
 
-                    <div onclick="openModal('public/5-6.jpg')" class="group relative overflow-hidden rounded-xl shadow-md border border-gray-100 cursor-pointer" data-aos="zoom-in" data-aos-delay="200">
-                        <img src="public/5-6.jpg" alt="Client Data Sample 6" class="w-full h-64 object-cover object-top transition-transform duration-500 group-hover:scale-110">
+                    <div onclick="openModal('public/5-6.jpg')" class="group relative overflow-hidden rounded-xl shadow-md border border-gray-100 cursor-pointer h-64" data-aos="zoom-in" data-aos-delay="200">
+                        <img src="public/5-6.jpg" alt="Client Data Sample 6" class="w-full h-full object-cover object-top transition-transform duration-500 group-hover:scale-110">
                         <div class="absolute inset-0 bg-black/50 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center">
                             <span class="text-white font-semibold flex items-center gap-2"><i class="fa-solid fa-expand"></i> View Full Size</span>
                         </div>
@@ -236,8 +236,8 @@
                 <ul class="space-y-2 text-sm">
                     <li><a href="index.html" class="hover:text-accent transition-colors">Home</a></li>
                     <li><a href="services.html" class="hover:text-accent transition-colors">Services</a></li>
+                    <li><a href="portfolio.html" class="hover:text-accent transition-colors">Portfolio</a></li>
                     <li><a href="articles.html" class="hover:text-accent transition-colors">Articles</a></li>
-                    <li><a href="contact.html" class="hover:text-accent transition-colors">Contact</a></li>
                 </ul>
             </div>
 
@@ -275,10 +275,12 @@
         </div>
     </footer>
 
-    <div id="imageModal" class="fixed inset-0 z-[60] hidden bg-black/90 flex justify-center items-center backdrop-blur-sm transition-opacity duration-300" onclick="closeModal()">
-        <button class="absolute top-6 right-6 text-white text-4xl hover:text-accent transition-colors z-[70]">&times;</button>
+    <div id="imageModal" class="fixed inset-0 z-[100] hidden bg-black/95 flex justify-center items-center backdrop-blur-sm transition-opacity duration-300" onclick="closeModal()">
+        <button class="absolute top-4 right-4 text-white text-3xl p-4 bg-black/20 rounded-full hover:bg-white/20 transition-colors z-[110]" aria-label="Close">
+            <i class="fa-solid fa-xmark"></i>
+        </button>
         
-        <img id="modalImage" src="" alt="Full View" class="max-h-[90vh] max-w-[90vw] rounded-lg shadow-2xl scale-95 transition-transform duration-300" onclick="event.stopPropagation()">
+        <img id="modalImage" src="" alt="Full View" class="max-h-[85vh] max-w-[95vw] rounded-lg shadow-2xl scale-95 transition-transform duration-300" onclick="event.stopPropagation()">
     </div>
 
     <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
@@ -301,6 +303,9 @@
             // Show the modal
             modal.classList.remove('hidden');
             
+            // Lock body scroll
+            document.body.style.overflow = 'hidden';
+            
             // Small animation delay for smooth entry
             setTimeout(() => {
                 modalImg.classList.remove('scale-95');
@@ -315,6 +320,9 @@
             // Scale down animation
             modalImg.classList.remove('scale-100');
             modalImg.classList.add('scale-95');
+            
+            // Unlock body scroll
+            document.body.style.overflow = 'auto';
             
             // Hide after animation matches css duration
             setTimeout(() => {
