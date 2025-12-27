@@ -1,789 +1,249 @@
 <!DOCTYPE html>
-<html class="scroll-smooth">
-
+<html lang="en" class="scroll-smooth">
 <head>
-  <meta charset="UTF-8" />
-  <title>Global Financials</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <link href="./output.css" rel="stylesheet" />
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet" />
-  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet" />
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Global Financials | Financial Excellence Worldwide</title>
+    
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
+    
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 
-  <link rel="shortcut icon" href="./public/Vector.svg" type="image/x-icon" />
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
 
-  <style>
-    /* ====================================================================== */
-    /* 1. SCROLL-TRIGGERED REVEAL BASE STYLES */
-    /* ====================================================================== */
-
-    /* Base class for all scroll-revealed elements: initially transparent */
-    .animate-scroll {
-      opacity: 0;
-      /* GPU-accelerated transition on opacity and transform for smoothness */
-      transition: opacity 0.8s ease-out, transform 0.8s ease-out;
-      /* Optimization hint for the browser */
-      will-change: opacity, transform;
-    }
-
-    /* State when the element is intersecting (visible) */
-    .animate-scroll.is-active {
-      opacity: 1;
-      /* Reset transform to show the element at its natural position */
-      transform: translateY(0) translateX(0) scale(1) !important;
-    }
-
-    /* ====================================================================== */
-    /* 2. SPECIFIC ANIMATION EFFECTS */
-    /* ====================================================================== */
-
-    /* Fade-in-Up (For Core Services Cards and Section Headers) */
-    .animate-fade-up {
-      transform: translateY(30px);
-      /* Starts 30px below its final position */
-    }
-
-    /* Fade-in-Left (For Testimonial Cards) - Provides a subtle slide effect */
-    .animate-fade-left {
-      transform: translateX(-40px);
-      /* Starts 40px to the left */
-    }
-
-    /* Staggering delays for the testimonials grid */
-    .animate-fade-left:nth-child(2) {
-      transition-delay: 0.15s;
-    }
-
-    .animate-fade-left:nth-child(3) {
-      transition-delay: 0.3s;
-    }
-
-    /* NEW ANIMATION 1: Zoom-In (For Hero Section Content) */
-    .animate-zoom-in {
-      transform: scale(0.95);
-      /* Starts 5% smaller */
-    }
-
-    /* NEW ANIMATION 2: Fade-in-Right (For Buttons/Secondary Content) */
-    .animate-fade-right {
-      transform: translateX(40px);
-      /* Starts 40px to the right */
-    }
-
-    /* Staggering delays for Hero CTA buttons (nth-child in a flex container) */
-    .flex>.animate-fade-right:nth-child(2) {
-      transition-delay: 0.2s;
-      /* Delay the second button */
-    }
-
-    /* NEW ANIMATION 3: Pulse Hover (CSS only for footer icons) */
-    .pulse-hover {
-      transition: all 0.2s ease-in-out;
-    }
-
-    .pulse-hover:hover {
-      animation: pulse 1s infinite;
-    }
-
-    @keyframes pulse {
-
-      0%,
-      100% {
-        transform: scale(1);
-        box-shadow: 0 0 0 0 rgba(59, 130, 246, 0.7);
-        /* blue-500 equivalent */
-      }
-
-      50% {
-        transform: scale(1.05);
-        box-shadow: 0 0 0 8px rgba(59, 130, 246, 0);
-      }
-    }
-
-    /* NEW ANIMATION: Soft Glow for Buttons on Hover */
-    .glow-on-hover {
-      /* Ensure a transition on box-shadow as well */
-      transition: transform 0.3s ease, box-shadow 0.3s ease;
-    }
-
-    .glow-on-hover:hover {
-      /* Soft blue glow effect on primary buttons */
-      box-shadow: 0 0 10px rgba(59, 130, 246, 0.7), 0 0 20px rgba(59, 130, 246, 0.3);
-      /* blue-500 glow */
-    }
-
-    /* NEW: Glow and Zoom for Navigation Links */
-    .nav-link-effect {
-      /* Add relative positioning for stacking if needed, though not strictly required for this effect */
-      position: relative;
-      /* Ensure transition applies to transform and shadow */
-      transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
-      /* Increase z-index slightly on hover to ensure it sits above adjacent elements, giving a "lifted" feel */
-      z-index: 10;
-    }
-
-    .nav-link-effect:hover {
-      transform: scale(1.05);
-      /* Slight zoom: 5% larger */
-      /* Soft blue glow effect (using blue-600 equivalent) */
-      box-shadow: 0 0 5px rgba(37, 99, 235, 0.6);
-      /* Add a background color on hover to enhance the "tab" look and glow area */
-      background-color: rgba(37, 99, 235, 0.05);
-      /* Very light blue wash */
-      border-radius: 4px;
-      /* Matches the existing rounded-sm class style */
-    }
-  </style>
-</head>
-
-<body>
-  <nav class="bg-white shadow-lg fixed top-0 left-0 right-0 z-50">
-    <div class="justify-center">
-      <div class="flex max-w-7xl mx-auto px-2 justify-between items-center h-16">
-        <div class="flex items-center justify-center p-4 gap-3">
-          <img class="size-10" src="./public/logo2.svg" alt="" />
-          <div>
-            <h1 class="text-xl font-semibold">Global Financials</h1>
-            <h6 class="text-gray-400 text-sm">
-              Financial Excellence Worldwide
-            </h6>
-          </div>
-        </div>
-        <div class="hidden md:flex space-x-8">
-          <a href="#" class="nav-link p-1 rounded-sm text-blue-700 transition-colors nav-link-effect">Home</a>
-          <a href="./services.html"
-            class="nav-link p-1 rounded-sm hover:text-blue-700 transition-colors nav-link-effect">Services</a>
-          <a href="./projects.html"
-            class="nav-link p-1 rounded-sm hover:text-blue-700 transition-colors nav-link-effect">Portfolio</a>
-          <a href="./articles.html"
-            class="nav-link p-1 rounded-sm hover:text-blue-700 transition-colors nav-link-effect">Articles</a>
-          <a href="./contact.html"
-            class="nav-link p-1 rounded-sm hover:text-blue-700 transition-colors nav-link-effect">Contact</a>
-        </div>
-
-        <div class="md:hidden">
-          <button id="mobile-menu-btn"
-            class="text-black p-2 hover:text-gray-500 focus:outline-none flex justify-between items-center">
-            <i class="fas fa-bars text-xl"></i>
-          </button>
-        </div>
-      </div>
-
-      <div id="mobile-menu" class="md:hidden hidden">
-        <div class="m-4 bg-gray-100 rounded-lg">
-          <a href="#" class="mobile-nav-link block px-3 py-2 text-white font-bold bg-blue-600 rounded-lg">Home</a>
-          <a href="./services.html" class="mobile-nav-link block px-3 py-2 text-black">Services</a>
-          <a href="./projects.html" class="mobile-nav-link block px-3 py-2 text-black">Portfolio</a>
-          <a href="./articles.html" class="mobile-nav-link block px-3 py-2 text-black">Articles</a>
-          <a href="./contact.html" class="mobile-nav-link block px-3 py-2 text-black">Contact</a>
-        </div>
-      </div>
-    </div>
-  </nav>
-
-  <main class="flex-1">
-    <div class="min-h-screen">
-      <section class="bg-gradient-to-br from-blue-50 via-white to-slate-50 py-36">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-          <div class="animate-scroll animate-zoom-in">
-            <h1 class="text-5xl md:text-6xl font-bold text-slate-800 mb-6">
-              Financial Excellence<span class="text-blue-600 block">Delivered Globally</span>
-            </h1>
-            <p class="text-xl text-slate-600 mb-8 max-w-3xl mx-auto leading-relaxed">
-              Comprehensive financial solutions for businesses across
-              Australia, United States, Canada, and the United Kingdom. From
-              bookkeeping to strategic consulting, we deliver results that
-              drive growth.
-            </p>
-          </div>
-          <div class="flex flex-col sm:flex-row gap-4 justify-center">
-            <a class="bg-blue-600 text-white px-8 py-4 rounded-lg text-lg font-semibold hover:bg-blue-700 transition-all duration-200 flex items-center justify-center group animate-scroll animate-fade-right transition-transform duration-300 hover:scale-110 glow-on-hover"
-              href="./services.html">
-              Explore Our Services<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
-                fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
-                class="lucide lucide-arrow-right ml-2 h-5 w-5 group-hover:translate-x-1 transition-transform">
-                <path d="M5 12h14"></path>
-                <path d="m12 5 7 7-7 7"></path>
-              </svg>
-            </a>
-
-            <a class="border-2 border-blue-600 text-blue-600 px-8 py-4 rounded-lg text-lg font-semibold hover:bg-blue-600 hover:text-white transition-all duration-200 animate-scroll animate-fade-right transition-transform duration-300 hover:scale-110 glow-on-hover"
-              href="./contact.html">
-              Get Free Consultation
-            </a>
-          </div>
-        </div>
-      </section>
-
-      <section class="bg-white py-16">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div class="grid grid-cols-2 lg:grid-cols-4 gap-8">
-            <div class="text-center group">
-              <div
-                class="bg-blue-50 w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-4 group-hover:bg-blue-100 transition-colors">
-                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
-                  stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
-                  class="lucide lucide-users h-8 w-8 text-blue-600">
-                  <path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"></path>
-                  <circle cx="9" cy="7" r="4"></circle>
-                  <path d="M22 21v-2a4 4 0 0 0-3-3.87"></path>
-                  <path d="M16 3.13a4 4 0 0 1 0 7.75"></path>
-                </svg>
-              </div>
-              <div class="text-3xl font-bold text-slate-800 mb-2 animate-count" data-target="99" data-suffix="%">
-                0%
-              </div>
-              <div class="text-slate-600 font-medium">
-                Client Satisfaction
-              </div>
-            </div>
-            <div class="text-center group">
-              <div
-                class="bg-blue-50 w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-4 group-hover:bg-blue-100 transition-colors">
-                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
-                  stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
-                  class="lucide lucide-globe h-8 w-8 text-blue-600">
-                  <circle cx="12" cy="12" r="10"></circle>
-                  <path d="M12 2a14.5 14.5 0 0 0 0 20 14.5 14.5 0 0 0 0-20"></path>
-                  <path d="M2 12h20"></path>
-                </svg>
-              </div>
-              <div class="text-3xl font-bold text-slate-800 mb-2 animate-count" data-target="4" data-suffix="">
-                0
-              </div>
-              <div class="text-slate-600 font-medium">Countries Served</div>
-            </div>
-            <div class="text-center group">
-              <div
-                class="bg-blue-50 w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-4 group-hover:bg-blue-100 transition-colors">
-                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
-                  stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
-                  class="lucide lucide-award h-8 w-8 text-blue-600">
-                  <circle cx="12" cy="8" r="6"></circle>
-                  <path d="M15.477 12.89 17 22l-5-3-5 3 1.523-9.11"></path>
-                </svg>
-              </div>
-              <div class="text-3xl font-bold text-slate-800 mb-2 animate-count" data-target="50" data-suffix="+">
-                0+
-              </div>
-              <div class="text-slate-600 font-medium">Projects Completed</div>
-            </div>
-            <div class="text-center group">
-              <div
-                class="bg-blue-50 w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-4 group-hover:bg-blue-100 transition-colors">
-                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
-                  stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
-                  class="lucide lucide-trending-up h-8 w-8 text-blue-600">
-                  <polyline points="22 7 13.5 15.5 8.5 10.5 2 17"></polyline>
-                  <polyline points="16 7 22 7 22 13"></polyline>
-                </svg>
-              </div>
-              <div class="text-3xl font-bold text-slate-800 mb-2 animate-count" data-target="2" data-suffix="+">
-                0+
-              </div>
-              <div class="text-slate-600 font-medium">Years Experience</div>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      <section class="bg-slate-50 py-20">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div class="text-center mb-16">
-            <h2 class="text-4xl font-bold text-slate-800 mb-4 animate-scroll animate-fade-up">
-              Our Core Services
-            </h2>
-            <p class="text-xl text-slate-600 max-w-2xl mx-auto animate-scroll animate-fade-up">
-              We provide comprehensive financial solutions tailored to your
-              business needs
-            </p>
-          </div>
-          <div class="grid md:grid-cols-3 gap-8">
-            <div
-              class="bg-white rounded-xl p-8 shadow-lg hover:shadow-xl transition-all duration-300 group animate-scroll animate-fade-up">
-              <div
-                class="bg-blue-50 w-16 h-16 rounded-lg flex items-center justify-center mb-6 group-hover:bg-blue-100 transition-colors">
-                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
-                  stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
-                  class="lucide lucide-check-circle h-8 w-8 text-blue-600">
-                  <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path>
-                  <path d="m9 11 3 3L22 4"></path>
-                </svg>
-              </div>
-              <h3 class="text-xl font-semibold text-slate-800 mb-4">
-                Bookkeeping Services
-              </h3>
-              <p class="text-slate-600 mb-6">
-                Comprehensive bookkeeping solutions to keep your financial
-                records accurate and up-to-date.
-              </p>
-              <button class="text-blue-600 font-semibold hover:text-blue-700 flex items-center group">
-                <a href="./services.html#Bookkeeping">Learn More</a><svg xmlns="http://www.w3.org/2000/svg" width="24"
-                  height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
-                  stroke-linecap="round" stroke-linejoin="round"
-                  class="lucide lucide-arrow-right ml-1 h-4 w-4 group-hover:translate-x-1 transition-transform">
-                  <path d="M5 12h14"></path>
-                  <path d="m12 5 7 7-7 7"></path>
-                </svg>
-              </button>
-            </div>
-
-            <div
-              class="bg-white rounded-xl p-8 shadow-lg hover:shadow-xl transition-all duration-300 group animate-scroll animate-fade-up">
-              <div
-                class="bg-blue-50 w-16 h-16 rounded-lg flex items-center justify-center mb-6 group-hover:bg-blue-100 transition-colors">
-                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
-                  stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
-                  class="lucide lucide-trending-up h-8 w-8 text-blue-600">
-                  <polyline points="22 7 13.5 15.5 8.5 10.5 2 17"></polyline>
-                  <polyline points="16 7 22 7 22 13"></polyline>
-                </svg>
-              </div>
-              <h3 class="text-xl font-semibold text-slate-800 mb-4">
-                Financial Analysis
-              </h3>
-              <p class="text-slate-600 mb-6">
-                In-depth financial analysis to help you make informed business
-                decisions.
-              </p>
-              <button class="text-blue-600 font-semibold hover:text-blue-700 flex items-center group">
-                <a href="./services.html#Financial">Learn More</a><svg xmlns="http://www.w3.org/2000/svg" width="24"
-                  height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
-                  stroke-linecap="round" stroke-linejoin="round"
-                  class="lucide lucide-arrow-right ml-1 h-4 w-4 group-hover:translate-x-1 transition-transform">
-                  <path d="M5 12h14"></path>
-                  <path d="m12 5 7 7-7 7"></path>
-                </svg>
-              </button>
-            </div>
-
-            <div
-              class="bg-white rounded-xl p-8 shadow-lg hover:shadow-xl transition-all duration-300 group animate-scroll animate-fade-up">
-              <div
-                class="bg-blue-50 w-16 h-16 rounded-lg flex items-center justify-center mb-6 group-hover:bg-blue-100 transition-colors">
-                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
-                  stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
-                  class="lucide lucide-users h-8 w-8 text-blue-600">
-                  <path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"></path>
-                  <circle cx="9" cy="7" r="4"></circle>
-                  <path d="M22 21v-2a4 4 0 0 0-3-3.87"></path>
-                  <path d="M16 3.13a4 4 0 0 1 0 7.75"></path>
-                </svg>
-              </div>
-              <h3 class="text-xl font-semibold text-slate-800 mb-4">
-                Custom Consulting
-              </h3>
-              <p class="text-slate-600 mb-6">
-                Tailored financial consulting services designed specifically
-                for your business needs.
-              </p>
-              <button class="text-blue-600 font-semibold hover:text-blue-700 flex items-center group">
-                <a href="./services.html#Customcons">Learn More</a><svg xmlns="http://www.w3.org/2000/svg" width="24"
-                  height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
-                  stroke-linecap="round" stroke-linejoin="round"
-                  class="lucide lucide-arrow-right ml-1 h-4 w-4 group-hover:translate-x-1 transition-transform">
-                  <path d="M5 12h14"></path>
-                  <path d="m12 5 7 7-7 7"></path>
-                </svg>
-              </button>
-            </div>
-          </div>
-          <div class="text-center mt-12">
-            <a href="./services.html"
-              class="bg-blue-600 text-white px-8 py-3 rounded-lg font-semibold hover:bg-blue-700 transition-colors animate-scroll animate-fade-up transition-transform duration-300 hover:scale-110 glow-on-hover inline-block">
-              View All Services
-            </a>
-          </div>
-        </div>
-      </section>
-
-      <section class="bg-white py-20">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div class="text-center mb-16">
-            <h2 class="text-4xl font-bold text-slate-800 mb-4 animate-scroll animate-fade-up">
-              What Our Clients Say
-            </h2>
-            <p class="text-xl text-slate-600 animate-scroll animate-fade-up">
-              Trusted by businesses worldwide
-            </p>
-          </div>
-          <div class="grid md:grid-cols-3 gap-8">
-            <div class="bg-slate-50 rounded-xl p-8 animate-scroll animate-fade-left">
-              <div class="flex items-center mb-4">
-                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
-                  stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
-                  class="lucide lucide-star h-5 w-5 text-yellow-400 fill-current">
-                  <polygon
-                    points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2">
-                  </polygon>
-                </svg><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
-                  stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
-                  class="lucide lucide-star h-5 w-5 text-yellow-400 fill-current">
-                  <polygon
-                    points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2">
-                  </polygon>
-                </svg><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
-                  stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
-                  class="lucide lucide-star h-5 w-5 text-yellow-400 fill-current">
-                  <polygon
-                    points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2">
-                  </polygon>
-                </svg><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
-                  stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
-                  class="lucide lucide-star h-5 w-5 text-yellow-400 fill-current">
-                  <polygon
-                    points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2">
-                  </polygon>
-                </svg><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
-                  stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
-                  class="lucide lucide-star h-5 w-5 text-yellow-400 fill-current">
-                  <polygon
-                    points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2">
-                  </polygon>
-                </svg>
-              </div>
-              <p class="text-slate-700 mb-6 italic">
-                "Global Financials transformed our financial processes. Their
-                attention to detail and expertise is unmatched."
-              </p>
-              <div>
-                <div class="font-semibold text-slate-800">Sa**** Jo******</div>
-                <div class="text-blue-600">Te** In********* Ltd</div>
-                <div class="text-slate-500 text-sm">Australia</div>
-              </div>
-            </div>
-            <div class="bg-slate-50 rounded-xl p-8 animate-scroll animate-fade-left">
-              <div class="flex items-center mb-4">
-                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewbox="0 0 24 24" fill="none"
-                  stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
-                  class="lucide lucide-star h-5 w-5 text-yellow-400 fill-current">
-                  <polygon
-                    points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2">
-                  </polygon>
-                </svg><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
-                  stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
-                  class="lucide lucide-star h-5 w-5 text-yellow-400 fill-current">
-                  <polygon
-                    points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2">
-                  </polygon>
-                </svg><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
-                  stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
-                  class="lucide lucide-star h-5 w-5 text-yellow-400 fill-current">
-                  <polygon
-                    points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2">
-                  </polygon>
-                </svg><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
-                  stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
-                  class="lucide lucide-star h-5 w-5 text-yellow-400 fill-current">
-                  <polygon
-                    points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2">
-                  </polygon>
-                </svg><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
-                  stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
-                  class="lucide lucide-star h-5 w-5 text-yellow-400 fill-current">
-                  <polygon
-                    points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2">
-                  </polygon>
-                </svg>
-              </div>
-              <p class="text-slate-700 mb-6 italic">
-                "Professional, reliable, and incredibly knowledgeable. They
-                helped us streamline our financial operations significantly."
-              </p>
-              <div>
-                <div class="font-semibold text-slate-800">Mi****** Ch**</div>
-                <div class="text-blue-600">Gr**** Ve******* Inc</div>
-                <div class="text-slate-500 text-sm">Canada</div>
-              </div>
-            </div>
-            <div class="bg-slate-50 rounded-xl p-8 animate-scroll animate-fade-left">
-              <div class="flex items-center mb-4">
-                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
-                  stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
-                  class="lucide lucide-star h-5 w-5 text-yellow-400 fill-current">
-                  <polygon
-                    points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2">
-                  </polygon>
-                </svg><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
-                  stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
-                  class="lucide lucide-star h-5 w-5 text-yellow-400 fill-current">
-                  <polygon
-                    points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2">
-                  </polygon>
-                </svg><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
-                  stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
-                  class="lucide lucide-star h-5 w-5 text-yellow-400 fill-current">
-                  <polygon
-                    points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2">
-                  </polygon>
-                </svg><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
-                  stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
-                  class="lucide lucide-star h-5 w-5 text-yellow-400 fill-current">
-                  <polygon
-                    points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2">
-                  </polygon>
-                </svg><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
-                  stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
-                  class="lucide lucide-star h-5 w-5 text-yellow-400 fill-current">
-                  <polygon
-                    points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2">
-                  </polygon>
-                </svg>
-              </div>
-              <p class="text-slate-700 mb-6 italic">
-                "The team provided exceptional financial consulting that
-                directly improved our bottom line. Highly recommended."
-              </p>
-              <div>
-                <div class="font-semibold text-slate-800">Em** Th*******</div>
-                <div class="text-blue-600">St********* So********</div>
-                <div class="text-slate-500 text-sm">Australia</div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      <section class="bg-gradient-to-r from-blue-600 to-blue-700 py-20">
-        <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-          <h2 class="text-4xl font-bold text-white mb-6">
-            Ready to Transform Your Financial Operations?
-          </h2>
-          <p class="text-xl text-blue-100 mb-8">
-            Join hundreds of successful businesses that trust Global
-            Financials with their financial needs.
-          </p>
-          <div class="flex flex-col sm:flex-row gap-4 justify-center">
-            <a href="./contact.html"
-              class="flex items-center justify-center bg-white text-blue-600 px-8 py-4 rounded-lg text-lg font-semibold hover:bg-slate-50 transition-colors transition-transform duration-300 hover:scale-110 glow-on-hover">
-              Start Your Free Consultation
-            </a>
-
-            <a href="./projects.html"
-              class="border-2 border-white text-white px-8 py-4 rounded-lg text-lg font-semibold hover:bg-white hover:text-blue-600 transition-colors transition-transform duration-300 hover:scale-110 glow-on-hover">
-              View Our Work
-            </a>
-          </div>
-        </div>
-      </section>
-    </div>
-  </main>
-  <footer class="bg-slate-900 text-white">
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
-      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
-        <div class="lg:col-span-2">
-          <div class="flex items-center mb-4">
-            <img class="size-10" src="./public/logo2.svg" alt="" />
-            <div class="ml-3">
-              <h3 class="text-xl font-bold">Global Financials</h3>
-              <p class="text-slate-300">Financial Excellence Worldwide</p>
-            </div>
-          </div>
-          <p class="text-slate-300 mb-6 max-w-md">
-            Providing comprehensive financial solutions to businesses across
-            Australia, United States, Canada, and the United Kingdom. Your
-            trusted partner for financial success.
-          </p>
-          <div class="flex space-x-4">
-            <a href="https://www.linkedin.com/company/globalfinancials/" target="_blank"
-              class="bg-slate-800 p-2 rounded-lg hover:bg-slate-700 transition-colors cursor-pointer pulse-hover">
-              <svg xmlns="http://www.w3.org/2000/svg" class="lucide h-5 w-5 text-blue-400" viewBox="0 0 24 24"
-                fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                <path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"></path>
-                <rect x="2" y="9" width="4" height="12"></rect>
-                <circle cx="4" cy="4" r="2"></circle>
-              </svg>
-            </a>
-            <a href="https://www.instagram.com/global_financials" target="_blank"
-              class="bg-slate-800 p-2 rounded-lg hover:bg-slate-700 transition-colors cursor-pointer pulse-hover">
-              <svg xmlns="http://www.w3.org/2000/svg" class="lucide h-5 w-5 text-blue-400" viewBox="0 0 24 24"
-                fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                <rect width="20" height="20" x="2" y="2" rx="5" ry="5"></rect>
-                <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path>
-                <line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line>
-              </svg>
-            </a>
-            <a href="https://www.facebook.com/share/1C18jmnTSM/" target="_blank"
-              class="bg-slate-800 p-2 rounded-lg hover:bg-slate-700 transition-colors cursor-pointer pulse-hover">
-              <svg xmlns="http://www.w3.org/2000/svg" class="lucide h-5 w-5 text-blue-400" viewBox="0 0 24 24"
-                fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                <path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"></path>
-              </svg>
-            </a>
-          </div>
-        </div>
-        <div>
-          <h3 class="text-lg font-semibold mb-4">Quick Links</h3>
-          <ul class="space-y-2">
-
-            <li>
-              <a href="./services.html" class="text-slate-300 hover:text-white transition-colors duration-200">
-                Services
-              </a>
-            </li>
-            <li>
-              <a href="./projects.html" class="text-slate-300 hover:text-white transition-colors duration-200">
-                Portfolio
-              </a>
-            </li>
-            <li>
-              <a href="./articles.html" class="text-slate-300 hover:text-white transition-colors duration-200">
-                Articles
-              </a>
-            </li>
-            <li>
-              <a href="./contact.html" class="text-slate-300 hover:text-white transition-colors duration-200">
-                Contact
-              </a>
-            </li>
-          </ul>
-        </div>
-        <div>
-          <h3 class="text-lg font-semibold mb-4">Contact Info</h3>
-          <ul class="space-y-3">
-            <li>
-              <a href="https://wa.me/923216647827" target="_blank"
-                class="flex items-center space-x-3 text-slate-300 hover:text-white transition-colors">
-                <i class="fab fa-whatsapp text-xl text-blue-400"></i>
-                <span>+92 321 6647827</span>
-              </a>
-            </li>
-            <li>
-              <a href="mailto:globalfinancials.org@gmail.com"
-                class="flex items-center space-x-3 text-slate-300 hover:text-white transition-colors">
-                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
-                  stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
-                  class="lucide lucide-mail h-5 w-5 text-blue-400">
-                  <rect width="20" height="16" x="2" y="4" rx="2"></rect>
-                  <path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"></path>
-                </svg><span>globalfinancials.org@gmail.com</span>
-              </a>
-            </li>
-          </ul>
-        </div>
-      </div>
-      <div class="border-t border-slate-800 pt-8 mt-8">
-        <div class="flex flex-col md:flex-row justify-between items-center">
-          <p class="text-slate-400 text-sm">
-            © 2025 Global Financials. All rights reserved.
-          </p>
-          <div class="flex space-x-6 mt-4 md:mt-0">
-            <a href="#" class="text-slate-400 hover:text-white text-sm transition-colors">Privacy Policy</a><a href="#"
-              class="text-slate-400 hover:text-white text-sm transition-colors">Terms of Service</a><a href="#"
-              class="text-slate-400 hover:text-white text-sm transition-colors">Cookie Policy</a>
-          </div>
-        </div>
-      </div>
-    </div>
-  </footer>
-
-  <script>
-    document.addEventListener('DOMContentLoaded', () => {
-      // ----------------------------------------------------------------------
-      // 1. Mobile Menu Toggle (Existing functionality)
-      // ----------------------------------------------------------------------
-
-      const mobileMenuBtn = document.getElementById('mobile-menu-btn');
-      const mobileMenu = document.getElementById('mobile-menu');
-
-      if (mobileMenuBtn) {
-        mobileMenuBtn.addEventListener('click', () => {
-          mobileMenu.classList.toggle('hidden');
-        });
-      }
-
-      // ----------------------------------------------------------------------
-      // 2. Scroll-Triggered Reveals (Repeats every time element enters/leaves viewport)
-      // ----------------------------------------------------------------------
-
-      const revealElements = document.querySelectorAll('.animate-scroll');
-
-      // Observer options: threshold 0.1 means the callback fires when 10% enters/leaves the viewport.
-      const observerOptions = {
-        root: null, // viewport
-        rootMargin: '0px',
-        threshold: 0.1,
-      };
-
-      const revealObserver = new IntersectionObserver((entries, observer) => {
-        entries.forEach((entry) => {
-          if (entry.isIntersecting) {
-            // Element enters view: trigger the animation by adding the active class
-            entry.target.classList.add('is-active');
-            // NOTE: We DO NOT unobserve, allowing it to be triggered again.
-          } else {
-            // Element leaves view: reset the element to its initial (hidden/transformed) state
-            entry.target.classList.remove('is-active');
-          }
-        });
-      }, observerOptions);
-
-      revealElements.forEach((el) => revealObserver.observe(el));
-
-      // ----------------------------------------------------------------------
-      // 3. Stats/Metrics Number Counter Animation (Runs only once)
-      // ----------------------------------------------------------------------
-
-      const counterObserverOptions = {
-        root: null,
-        rootMargin: '0px',
-        threshold: 0.5, // Trigger when 50% of the counter is visible
-      };
-
-      /**
-       * Animates the counter from 0 to the final value using requestAnimationFrame.
-       */
-      function animateCounter(element, finalValue) {
-        let startTimestamp = null;
-        const duration = 1500; // 1.5 seconds animation
-
-        const step = (timestamp) => {
-          if (!startTimestamp) startTimestamp = timestamp;
-          const progress = Math.min(
-            (timestamp - startTimestamp) / duration,
-            1
-          );
-
-          // Calculate the current value
-          const currentValue = Math.floor(progress * finalValue);
-
-          // Update the element's text content
-          element.textContent = currentValue + element.dataset.suffix;
-
-          // Continue the animation if not complete
-          if (progress < 1) {
-            window.requestAnimationFrame(step);
-          }
-        };
-
-        window.requestAnimationFrame(step);
-      }
-
-      const countElements = document.querySelectorAll('.animate-count');
-
-      const counterObserver = new IntersectionObserver(
-        (entries, observer) => {
-          entries.forEach((entry) => {
-            // Ensure the counter runs only once
-            if (
-              entry.isIntersecting &&
-              !entry.target.classList.contains('counted')
-            ) {
-              const finalValue = parseInt(entry.target.dataset.target);
-              const suffix = entry.target.dataset.suffix || '';
-
-              // Start the count up animation
-              animateCounter(entry.target, finalValue);
-              entry.target.classList.add('counted'); // Mark as counted
-              observer.unobserve(entry.target); // Stop observing after running once
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        primary: '#0f172a', /* Deep Navy */
+                        accent: '#3b82f6',  /* Bright Blue */
+                        gold: '#fbbf24',    /* Trust/Finance Gold */
+                    },
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                        serif: ['Playfair Display', 'serif'],
+                    }
+                }
             }
-          });
-        },
-        counterObserverOptions
-      );
+        }
+    </script>
+</head>
+<body class="bg-slate-50 text-slate-800 font-sans antialiased overflow-x-hidden">
 
-      countElements.forEach((el) => counterObserver.observe(el));
-    });
-  </script>
+    <nav class="fixed w-full z-50 bg-white/95 backdrop-blur-md shadow-sm transition-all duration-300" id="navbar">
+        <div class="container mx-auto px-6 py-3 flex justify-between items-center">
+            <a href="index.html" class="flex items-center gap-3 group">
+                <img src="public/logo2.svg" alt="Global Financials Logo" class="h-12 w-auto object-contain transition-transform group-hover:scale-105">
+                <div>
+                    <h1 class="text-xl font-bold text-primary font-serif tracking-tight">Global Financials</h1>
+                    <p class="text-[10px] text-slate-500 tracking-[0.2em] uppercase">Financial Excellence Worldwide</p>
+                </div>
+            </a>
+
+            <div class="hidden md:flex items-center gap-8 font-medium text-sm">
+                <a href="index.html" class="text-accent font-bold">Home</a>
+                <a href="services.html" class="hover:text-accent transition-colors">Services</a>
+                <a href="portfolio.html" class="hover:text-accent transition-colors">Portfolio</a>
+                <a href="articles.html" class="hover:text-accent transition-colors">Articles</a>
+                <a href="contact.html" class="bg-primary text-white px-6 py-2.5 rounded-full hover:bg-accent hover:shadow-lg transition-all transform hover:-translate-y-0.5">
+                    Contact Us
+                </a>
+            </div>
+
+            <button class="md:hidden text-2xl text-primary" onclick="toggleMenu()">
+                <i class="fa-solid fa-bars"></i>
+            </button>
+        </div>
+        
+        <div id="mobile-menu" class="hidden md:hidden bg-white border-t border-gray-100 absolute w-full left-0 shadow-lg">
+            <div class="flex flex-col p-6 space-y-4 font-semibold text-center">
+                <a href="index.html" class="text-accent">Home</a>
+                <a href="services.html">Services</a>
+                <a href="portfolio.html">Portfolio</a>
+                <a href="articles.html">Articles</a>
+                <a href="contact.html" class="text-primary">Contact Us</a>
+            </div>
+        </div>
+    </nav>
+
+    <header class="relative pt-32 pb-20 lg:pt-48 lg:pb-32 bg-primary overflow-hidden">
+        <div class="absolute inset-0 opacity-10 bg-[url('https://www.transparenttextures.com/patterns/cubes.png')]"></div>
+        <div class="absolute top-0 right-0 w-96 h-96 bg-accent/20 rounded-full blur-3xl -translate-y-1/2 translate-x-1/2"></div>
+
+        <div class="container mx-auto px-6 relative z-10 text-center">
+            <span class="inline-block py-1 px-3 rounded-full bg-accent/10 text-accent text-xs font-bold tracking-wider mb-6 border border-accent/20" data-aos="fade-down">
+                WORLDWIDE SERVICES
+            </span>
+            <h1 class="text-4xl md:text-6xl font-serif font-bold text-white mb-6 leading-tight" data-aos="fade-up" data-aos-delay="100">
+                Financial Excellence <br> <span class="text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-emerald-400">Delivered Globally</span>
+            </h1>
+            <p class="text-lg md:text-xl text-slate-300 max-w-2xl mx-auto mb-10" data-aos="fade-up" data-aos-delay="200">
+                We provide comprehensive financial solutions tailored to your business needs, helping you optimize operations and ensure compliance.
+            </p>
+            <div class="flex justify-center gap-4" data-aos="fade-up" data-aos-delay="300">
+                <a href="services.html" class="bg-accent text-white px-8 py-3 rounded-full font-semibold hover:bg-blue-600 transition-all shadow-lg hover:shadow-blue-500/30">
+                    Explore Services
+                </a>
+                <a href="https://wa.me/923216647827" target="_blank" class="bg-white/10 text-white backdrop-blur-sm border border-white/20 px-8 py-3 rounded-full font-semibold hover:bg-green-600 hover:border-green-600 transition-all flex items-center gap-2">
+                    <i class="fa-brands fa-whatsapp text-xl"></i> Chat on WhatsApp
+                </a>
+            </div>
+        </div>
+    </header>
+
+    <section class="py-12 bg-white -mt-10 relative z-20 container mx-auto px-4">
+        <div class="bg-white rounded-2xl shadow-xl border border-gray-100 p-8 md:p-12 grid grid-cols-2 md:grid-cols-4 gap-8 text-center" data-aos="zoom-in">
+            <div class="space-y-2 group">
+                <div class="w-12 h-12 mx-auto bg-blue-50 rounded-full flex items-center justify-center text-accent mb-3 group-hover:bg-accent group-hover:text-white transition-colors">
+                    <i class="fa-solid fa-users"></i>
+                </div>
+                <div class="text-4xl font-bold text-primary">99%</div>
+                <p class="text-sm text-slate-500 font-medium uppercase tracking-wide">Client Satisfaction</p>
+            </div>
+            <div class="space-y-2 group">
+                <div class="w-12 h-12 mx-auto bg-blue-50 rounded-full flex items-center justify-center text-accent mb-3 group-hover:bg-accent group-hover:text-white transition-colors">
+                    <i class="fa-solid fa-globe"></i>
+                </div>
+                <div class="text-4xl font-bold text-primary">4</div>
+                <p class="text-sm text-slate-500 font-medium uppercase tracking-wide">Countries Served</p>
+            </div>
+            <div class="space-y-2 group">
+                <div class="w-12 h-12 mx-auto bg-blue-50 rounded-full flex items-center justify-center text-accent mb-3 group-hover:bg-accent group-hover:text-white transition-colors">
+                    <i class="fa-solid fa-ribbon"></i>
+                </div>
+                <div class="text-4xl font-bold text-primary">50+</div>
+                <p class="text-sm text-slate-500 font-medium uppercase tracking-wide">Projects Completed</p>
+            </div>
+            <div class="space-y-2 group">
+                <div class="w-12 h-12 mx-auto bg-blue-50 rounded-full flex items-center justify-center text-accent mb-3 group-hover:bg-accent group-hover:text-white transition-colors">
+                    <i class="fa-solid fa-chart-line"></i>
+                </div>
+                <div class="text-4xl font-bold text-primary">2+</div>
+                <p class="text-sm text-slate-500 font-medium uppercase tracking-wide">Years Experience</p>
+            </div>
+        </div>
+    </section>
+
+    <section class="py-20 bg-slate-50">
+        <div class="container mx-auto px-6">
+            <div class="text-center max-w-2xl mx-auto mb-16" data-aos="fade-up">
+                <h2 class="text-3xl font-serif font-bold text-primary mb-4">Our Core Services</h2>
+                <p class="text-slate-600">We provide comprehensive financial solutions tailored to your business needs.</p>
+            </div>
+
+            <div class="grid md:grid-cols-3 gap-8">
+                <div class="bg-white p-8 rounded-xl shadow-sm hover:shadow-xl transition-all duration-300 border border-gray-100 group cursor-pointer" data-aos="fade-up" data-aos-delay="100">
+                    <div class="w-14 h-14 bg-blue-50 text-accent rounded-lg flex items-center justify-center text-2xl mb-6 group-hover:bg-accent group-hover:text-white group-hover:scale-110 transition-all duration-300">
+                        <i class="fa-solid fa-check-circle"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-primary mb-3">Bookkeeping Services</h3>
+                    <p class="text-slate-500 mb-6 leading-relaxed">Comprehensive bookkeeping solutions to keep your financial records accurate and up-to-date.</p>
+                    <a href="services.html" class="text-accent font-semibold group-hover:translate-x-2 inline-block transition-transform">Learn More <i class="fa-solid fa-arrow-right ml-1"></i></a>
+                </div>
+
+                <div class="bg-white p-8 rounded-xl shadow-sm hover:shadow-xl transition-all duration-300 border border-gray-100 group cursor-pointer" data-aos="fade-up" data-aos-delay="200">
+                    <div class="w-14 h-14 bg-blue-50 text-accent rounded-lg flex items-center justify-center text-2xl mb-6 group-hover:bg-accent group-hover:text-white group-hover:scale-110 transition-all duration-300">
+                        <i class="fa-solid fa-chart-line"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-primary mb-3">Financial Analysis</h3>
+                    <p class="text-slate-500 mb-6 leading-relaxed">In-depth financial analysis to help you make informed business decisions.</p>
+                    <a href="services.html" class="text-accent font-semibold group-hover:translate-x-2 inline-block transition-transform">Learn More <i class="fa-solid fa-arrow-right ml-1"></i></a>
+                </div>
+
+                <div class="bg-white p-8 rounded-xl shadow-sm hover:shadow-xl transition-all duration-300 border border-gray-100 group cursor-pointer" data-aos="fade-up" data-aos-delay="300">
+                    <div class="w-14 h-14 bg-blue-50 text-accent rounded-lg flex items-center justify-center text-2xl mb-6 group-hover:bg-accent group-hover:text-white group-hover:scale-110 transition-all duration-300">
+                        <i class="fa-solid fa-user-group"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-primary mb-3">Custom Consulting</h3>
+                    <p class="text-slate-500 mb-6 leading-relaxed">Tailored financial consulting services designed specifically for your business needs.</p>
+                    <a href="services.html" class="text-accent font-semibold group-hover:translate-x-2 inline-block transition-transform">Learn More <i class="fa-solid fa-arrow-right ml-1"></i></a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer class="bg-slate-900 text-slate-400 py-12 border-t border-slate-800">
+        <div class="container mx-auto px-6 grid md:grid-cols-4 gap-8">
+            <div class="col-span-1 md:col-span-2">
+                <a href="index.html" class="flex items-center gap-2 mb-4">
+                    <img src="public/logo2.svg" alt="Logo" class="h-8 w-auto grayscale opacity-80 hover:grayscale-0 hover:opacity-100 transition-all">
+                    <span class="text-white text-xl font-bold font-serif">Global Financials</span>
+                </a>
+                <p class="mb-6 max-w-sm text-sm">Trusted by businesses worldwide for expert financial analysis, bookkeeping, and strategic consulting.</p>
+                
+                <div class="flex gap-4">
+                    <a href="https://www.linkedin.com/company/108157474/admin/page-posts/published/" target="_blank" class="w-10 h-10 rounded-full bg-slate-800 flex items-center justify-center hover:bg-[#0077b5] hover:text-white transition-colors transform hover:scale-110">
+                        <i class="fa-brands fa-linkedin-in"></i>
+                    </a>
+                    <a href="https://www.facebook.com/profile.php?id=61580989243930#" target="_blank" class="w-10 h-10 rounded-full bg-slate-800 flex items-center justify-center hover:bg-[#1877F2] hover:text-white transition-colors transform hover:scale-110">
+                        <i class="fa-brands fa-facebook-f"></i>
+                    </a>
+                    <a href="https://www.instagram.com/global_financials" target="_blank" class="w-10 h-10 rounded-full bg-slate-800 flex items-center justify-center hover:bg-[#E1306C] hover:text-white transition-colors transform hover:scale-110">
+                        <i class="fa-brands fa-instagram"></i>
+                    </a>
+                </div>
+            </div>
+            
+            <div>
+                <h4 class="text-white font-bold mb-4">Quick Links</h4>
+                <ul class="space-y-2 text-sm">
+                    <li><a href="services.html" class="hover:text-accent transition-colors">Services</a></li>
+                    <li><a href="portfolio.html" class="hover:text-accent transition-colors">Portfolio</a></li>
+                    <li><a href="articles.html" class="hover:text-accent transition-colors">Articles</a></li>
+                    <li><a href="contact.html" class="hover:text-accent transition-colors">Contact</a></li>
+                </ul>
+            </div>
+
+            <div>
+                <h4 class="text-white font-bold mb-4">Contact Info</h4>
+                <ul class="space-y-3 text-sm">
+                    <li class="flex items-start gap-3 group">
+                        <div class="mt-1 w-6 text-center text-green-500">
+                            <i class="fa-brands fa-whatsapp text-lg"></i>
+                        </div>
+                        <a href="https://wa.me/923216647827" target="_blank" class="hover:text-white transition-colors">
+                            +92 321 6647827
+                            <span class="block text-xs text-slate-500">Available on WhatsApp</span>
+                        </a>
+                    </li>
+                    <li class="flex items-start gap-3 group">
+                        <div class="mt-1 w-6 text-center text-accent">
+                            <i class="fa-solid fa-envelope"></i>
+                        </div>
+                        <a href="mailto:globalfinancials.org@gmail.com" class="hover:text-white transition-colors break-all">
+                            globalfinancials.org@gmail.com
+                        </a>
+                    </li>
+                    <li class="flex items-start gap-3">
+                        <div class="mt-1 w-6 text-center text-accent">
+                            <i class="fa-solid fa-location-dot"></i>
+                        </div>
+                        <span>Worldwide Remote Services</span>
+                    </li>
+                </ul>
+            </div>
+        </div>
+        <div class="container mx-auto px-6 mt-12 pt-8 border-t border-slate-800 text-center text-xs text-slate-500">
+            &copy; 2025 Global Financials. All rights reserved.
+        </div>
+    </footer>
+
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script>
+        // Initialize Animate On Scroll
+        AOS.init({
+            duration: 800,
+            once: true,
+        });
+
+        // Mobile Menu Toggle logic
+        function toggleMenu() {
+            const menu = document.getElementById('mobile-menu');
+            menu.classList.toggle('hidden');
+        }
+    </script>
 </body>
-
 </html>
