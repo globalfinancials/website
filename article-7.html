@@ -1,168 +1,300 @@
 <!DOCTYPE html>
 <html lang="en" class="scroll-smooth">
 <head>
-    <meta charset="UTF-8" />
-    <title>Article 7: The Inheritance Dilemma - Succession Planning Case Study</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link href="./output.css" rel="stylesheet" />
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet" />
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet" />
-    <link rel="shortcut icon" href="./public/Vector.svg" type="image/x-icon" />
-    <style>
-        /* SCROLL ANIMATION */
-        [data-animate] { opacity: 0; transform: translateY(20px); transition: opacity 0.8s ease-out, transform 0.8s ease-out; }
-        [data-animate].animate-visible { opacity: 1; transform: translateY(0); }
-        /* BUTTON GLOW EFFECT */
-        .glow-button { transition: all 0.3s ease-in-out; }
-        .glow-button:hover { transform: scale(1.05); box-shadow: 0 0 10px rgba(59, 130, 246, 0.8), 0 0 20px rgba(59, 130, 246, 0.5); }
-        /* PROFESSIONAL WATERMARK BACKGROUND: Single, large, FIXED logo */
-        .article-bg-container { position: relative; min-height: 100vh; }
-        .article-bg-container::before { content: ""; position: fixed; top: 50%; left: 50%; width: 80vw; height: 80vh; transform: translate(-50%, -50%); background-image: url('./public/logo2.svg'); background-repeat: no-repeat; background-position: center; background-size: contain; opacity: 0.1; pointer-events: none; z-index: 0; }
-        /* Content wrapper and Card */
-        .article-content-wrapper { position: relative; z-index: 10; }
-        .article-card { background-color: white; border-radius: 0.75rem; }
-    </style>
-</head>
-<body>
-    <nav class="bg-white shadow-lg fixed top-0 left-0 right-0 z-50">
-        <div class="justify-center">
-            <div class="flex max-w-7xl mx-auto px-2 justify-between items-center h-16">
-                <div class="flex items-center justify-center p-4 gap-3">
-                    <img class="size-10" src="./public/logo2.svg" alt="" />
-                    <div>
-                        <h1 class="text-xl font-semibold">Global Financials</h1>
-                        <h6 class="text-gray-400 text-sm">
-                            Financial Excellence Worldwide
-                        </h6>
-                    </div>
-                </div>
-                <div class="hidden md:flex space-x-8">
-                    <a href="./index.html" class="nav-link p-1 rounded-sm hover:text-blue-700 transition-colors glow-button">Home</a>
-                    <a href="./services.html" class="nav-link p-1 rounded-sm hover:text-blue-700 transition-colors glow-button">Services</a>
-                    <a href="./projects.html" class="nav-link p-1 rounded-sm hover:text-blue-700 transition-colors glow-button">Portfolio</a>
-                    <a href="./articles.html" class="nav-link p-1 rounded-sm text-blue-700 transition-colors glow-button">Articles</a>
-                    <a href="./contact.html" class="nav-link p-1 rounded-sm hover:text-blue-700 transition-colors glow-button">Contact</a>
-                </div>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>The Inheritance Dilemma | Global Financials Case Study</title>
+    
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&family=Playfair+Display:ital,wght@0,700;1,400&display=swap" rel="stylesheet">
+    
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 
-                <div class="md:hidden">
-                    <button id="mobile-menu-btn"
-                        class="text-black p-2 hover:text-gray-500 focus:outline-none flex justify-between items-center">
-                        <i class="fas fa-bars text-xl"></i>
-                    </button>
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        primary: '#0f172a', /* Deep Navy */
+                        accent: '#3b82f6',  /* Bright Blue */
+                        gold: '#fbbf24',    /* Trust/Finance Gold */
+                        legacy: '#4f46e5',  /* Indigo/Legacy Purple */
+                    },
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                        serif: ['Playfair Display', 'serif'],
+                    }
+                }
+            }
+        }
+    </script>
+</head>
+<body class="bg-white text-slate-800 font-sans antialiased overflow-x-hidden">
+
+    <nav class="fixed w-full z-50 bg-white/95 backdrop-blur-md shadow-sm transition-all duration-300" id="navbar">
+        <div class="container mx-auto px-6 py-3 flex justify-between items-center">
+            <a href="index.html" class="flex items-center gap-3 group">
+                <img src="public/logo2.svg" alt="Global Financials Logo" class="h-12 w-auto object-contain transition-transform group-hover:scale-105">
+                <div>
+                    <h1 class="text-xl font-bold text-primary font-serif tracking-tight">Global Financials</h1>
+                    <p class="text-[10px] text-slate-500 tracking-[0.2em] uppercase">Financial Excellence Worldwide</p>
                 </div>
+            </a>
+
+            <div class="hidden md:flex items-center gap-8 font-medium text-sm">
+                <a href="index.html" class="hover:text-accent transition-colors">Home</a>
+                <a href="services.html" class="hover:text-accent transition-colors">Services</a>
+                <a href="portfolio.html" class="hover:text-accent transition-colors">Portfolio</a>
+                <a href="articles.html" class="text-accent font-bold">Articles</a>
+                <a href="contact.html" class="bg-primary text-white px-6 py-2.5 rounded-full hover:bg-accent hover:shadow-lg transition-all transform hover:-translate-y-0.5">
+                    Contact Us
+                </a>
             </div>
 
-            <div id="mobile-menu" class="md:hidden hidden">
-                <div class="m-4 bg-gray-100 rounded-lg">
-                    <a href="./index.html" class="mobile-nav-link block px-3 py-2 text-black glow-button">Home</a>
-                    <a href="./services.html" class="mobile-nav-link block px-3 py-2 text-black glow-button">Services</a>
-                    <a href="./projects.html" class="mobile-nav-link block px-3 py-2 text-black glow-button">Portfolio</a>
-                    <a href="./articles.html" class="mobile-nav-link block rounded-lg px-3 py-2 font-bold text-white bg-blue-600 glow-button">Articles</a>
-                    <a href="./contact.html" class="mobile-nav-link block px-3 py-2 text-black glow-button">Contact</a>
-                </div>
+            <button class="md:hidden text-2xl text-primary" onclick="toggleMenu()">
+                <i class="fa-solid fa-bars"></i>
+            </button>
+        </div>
+        
+        <div id="mobile-menu" class="hidden md:hidden bg-white border-t border-gray-100 absolute w-full left-0 shadow-lg">
+            <div class="flex flex-col p-6 space-y-4 font-semibold text-center">
+                <a href="index.html">Home</a>
+                <a href="services.html">Services</a>
+                <a href="portfolio.html">Portfolio</a>
+                <a href="articles.html">Articles</a>
+                <a href="contact.html" class="text-primary">Contact Us</a>
             </div>
         </div>
     </nav>
-    
-    <main class="flex-1 pt-16 bg-slate-50 article-bg-container">
-        
-        <section class="pt-24 pb-16 bg-white shadow-sm article-content-wrapper" data-animate> 
-            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-                <span class="inline-block bg-orange-100 text-orange-800 text-sm font-medium px-4 py-1 rounded-full mb-3 shadow-md">
+
+    <header class="pt-32 pb-16 bg-slate-50 relative overflow-hidden">
+        <div class="container mx-auto px-6 max-w-4xl relative z-10">
+            <a href="articles.html" class="inline-flex items-center text-sm font-semibold text-slate-500 hover:text-accent mb-6 transition-colors" data-aos="fade-right">
+                <i class="fa-solid fa-arrow-left mr-2"></i> Back to Articles
+            </a>
+            
+            <div data-aos="fade-up">
+                <span class="bg-indigo-100 text-indigo-700 text-xs font-bold px-3 py-1 rounded-full uppercase tracking-wider mb-4 inline-block">
                     Case Study: Succession & Tax Strategy
                 </span>
-                <h1 class="text-5xl font-bold text-slate-800 mb-4">
+                <h1 class="text-3xl md:text-5xl font-serif font-bold text-primary mb-6 leading-tight">
                     The Inheritance Dilemma: Securing a Multi-Generational Family Legacy
                 </h1>
-                <p class="text-xl text-slate-600 max-w-4xl mx-auto">
+                <p class="text-xl text-slate-600 leading-relaxed border-l-4 border-legacy pl-6 italic">
+                    "The founder built a successful company, but the biggest threat wasn't the market—it was the tax code. We were staring at an inheritance tax bill that would have forced us to sell 40% of the business just to pay the government. We needed a strategy that protected the company from the transfer itself."
+                </p>
+            </div>
+        </div>
+    </header>
+
+    <article class="py-16 bg-white">
+        <div class="container mx-auto px-6 max-w-3xl">
+            
+            <div class="mb-12" data-aos="fade-up">
+                <p class="text-lg text-slate-700 leading-relaxed mb-6">
                     A deep dive into how thoughtful, long-term succession planning structured a multi-million dollar business transfer, saving a family ownership group millions in inheritance tax and preserving their operating control.
                 </p>
             </div>
-        </section>
 
-        <section class="py-20 article-content-wrapper">
-            <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
-                <div class="article-card p-10 rounded-xl shadow-2xl border border-slate-200" data-animate>
-                    <p class="text-xl text-slate-700 mb-8 leading-relaxed border-l-4 border-blue-600 pl-6 italic font-medium">
-                        "The founder built a successful company, but the biggest threat wasn't the market—it was the tax code. We were staring at an inheritance tax bill that would have forced us to sell 40% of the business just to pay the government. We needed a strategy that protected the company from the transfer itself."
-                    </p>
+            <div class="mb-16" data-aos="fade-up">
+                <h2 class="text-2xl font-bold text-primary mb-4 flex items-center gap-3">
+                    <span class="w-8 h-8 bg-blue-100 text-accent rounded-full flex items-center justify-center text-sm">1</span>
+                    The Challenge: The Looming Tax Cliff
+                </h2>
+                <p class="text-slate-600 leading-relaxed mb-4">
+                    The client, a regional <strong>construction and development firm</strong> known for its civic projects, was facing a difficult generational transition. The founder wished to transfer 100% ownership to his two children over a five-year period.
+                </p>
+                <p class="text-slate-600 leading-relaxed">
+                    However, without proper planning, the estimated fair market value of the company placed the inheritance well within the highest tax brackets for succession. The projected tax liability was so massive that the family would have been forced to liquidate core assets or, worse, sell a controlling stake to an external private equity firm simply to generate the liquidity needed for the tax payment.
+                </p>
+            </div>
 
-                    <h2 class="text-3xl font-bold text-blue-600 mb-4 mt-10 border-b pb-2">1. The Challenge: The Looming Tax Cliff</h2>
-                    <p class="text-lg text-slate-700 mb-6 leading-relaxed">
-                        The client, a regional <span class="font-semibold">construction and development firm</span> known for its civic projects, was facing a difficult generational transition. The founder wished to transfer 100% ownership to his two children over a five-year period. However, without proper planning, the estimated fair market value of the company placed the inheritance well within the highest tax brackets for succession. The projected tax liability was so massive that the family would have been forced to liquidate core assets or, worse, sell a controlling stake to an external private equity firm simply to generate the liquidity needed for the tax payment. This outcome was unacceptable to the founder, who prioritized the family's continued control and legacy.
-                    </p>
+            <div class="mb-16" data-aos="fade-up">
+                <h2 class="text-2xl font-bold text-primary mb-6 flex items-center gap-3">
+                    <span class="w-8 h-8 bg-blue-100 text-accent rounded-full flex items-center justify-center text-sm">2</span>
+                    The Diagnosis: Vague Valuation and Inefficient Structure
+                </h2>
+                <p class="text-slate-600 leading-relaxed mb-8">
+                    The advisory firm, in partnership with legal counsel, conducted a dual-focus diagnosis. They identified three critical structural weaknesses threatening the transfer.
+                </p>
 
-                    <h2 class="text-3xl font-bold text-blue-600 mb-4 mt-10 border-b pb-2">2. The Diagnosis: Vague Valuation and Inefficient Structure</h2>
-                    <p class="text-lg text-slate-700 mb-6 leading-relaxed">
-                        The advisory firm, in partnership with legal counsel, conducted a dual-focus diagnosis:
-                    </p>
-                    <h3 class="text-2xl font-semibold text-slate-800 mb-3">Key Risks Identified:</h3>
-                    <ul class="list-disc list-outside text-lg text-slate-700 mb-6 space-y-3 pl-8">
-                        <li><span class="font-semibold">Liquidity Gap:</span> The primary concern was the lack of liquid assets within the business structure to cover the impending tax bill. The assets were tied up in equipment and real estate.</li>
-                        <li><span class="font-semibold">Unstructured Transfer:</span> The founder's will provided a general intent to transfer, but lacked the legally required staged mechanisms to utilize annual and lifetime gifting exemptions.</li>
-                        <li><span class="font-semibold">Governance Vacuum:</span> The next-generation leadership lacked a formal financial roadmap or training on the tax implications of managing the newly inherited wealth.</li>
-                    </ul>
+                <div class="space-y-4">
+                    <div class="bg-indigo-50 p-6 rounded-xl border border-indigo-100 flex gap-4 items-start">
+                        <div class="text-legacy text-xl mt-1"><i class="fa-solid fa-droplet-slash"></i></div>
+                        <div>
+                            <h3 class="font-bold text-slate-800 mb-1">Liquidity Gap</h3>
+                            <p class="text-sm text-slate-600">The primary concern was the lack of liquid assets within the business structure to cover the impending tax bill. The assets were almost entirely tied up in equipment and real estate.</p>
+                        </div>
+                    </div>
 
-                    <h2 class="text-3xl font-bold text-blue-600 mb-4 mt-10 border-b pb-2">3. The Strategy: The Graduated Transfer Plan</h2>
-                    <p class="text-lg text-slate-700 mb-6 leading-relaxed">
-                        The solution involved structuring a multi-year, tax-optimized transfer that legally utilized all available exemptions while preparing the company for the leadership change.
-                    </p>
-                    
-                    <h3 class="text-2xl font-semibold text-slate-800 mb-3 text-blue-800">Phase 1: Valuation and Business Reorganization</h3>
-                    <p class="text-lg text-slate-700 mb-4 leading-relaxed">
-                        The firm first performed a rigorous, defensible valuation of the business, establishing a clear baseline for the transfer. The company structure was then reorganized to separate non-core, high-value real estate assets from the operating business, allowing the transfer of the operating entity to proceed under more favorable conditions.
-                    </p>
-                    
-                    <h3 class="text-2xl font-semibold text-slate-800 mb-3 text-blue-800">Phase 2: Optimized Transfer Mechanism</h3>
-                    <p class="text-lg text-slate-700 mb-6 leading-relaxed">
-                        A detailed <span class="font-semibold">Graduated Gifting Strategy</span> was implemented. This allowed the founder to transfer minority portions of the company's equity annually, utilizing the annual gifting exclusion to legally reduce the taxable estate value over time.
-                    </p>
-                    <ul class="list-disc list-outside text-lg text-slate-700 mb-6 space-y-3 pl-8">
-                        <li><span class="font-semibold">Buy-Sell Agreement:</span> A new agreement was drafted to ensure that shares, once transferred, could not be sold outside the family, protecting control.</li>
-                        <li><span class="font-semibold">Discount Utilization:</span> The advisory team correctly applied the lack of marketability discount (for transferring minority, non-controlling stakes) to further reduce the taxable value of the transferred shares.</li>
-                    </ul>
+                    <div class="bg-indigo-50 p-6 rounded-xl border border-indigo-100 flex gap-4 items-start">
+                        <div class="text-legacy text-xl mt-1"><i class="fa-solid fa-file-contract"></i></div>
+                        <div>
+                            <h3 class="font-bold text-slate-800 mb-1">Unstructured Transfer</h3>
+                            <p class="text-sm text-slate-600">The founder's will provided a general intent to transfer, but lacked the legally required staged mechanisms to utilize annual and lifetime gifting exemptions.</p>
+                        </div>
+                    </div>
 
-                    <h2 class="text-3xl font-bold text-blue-600 mb-4 mt-10 border-b pb-2">4. The Result: Legacy Secured and Millions Saved</h2>
-                    <p class="text-lg text-slate-700 mb-6 leading-relaxed">
-                        By executing the Graduated Transfer Plan over five years, the family successfully moved 100% of the operating business to the next generation. The strategic use of gifting exclusions and discounts resulted in a staggering tax reduction.
-                    </p>
-                    <p class="text-lg text-slate-700 mb-8 leading-relaxed">
-                        The company avoided the original tax burden and the need for liquidation, <span class="font-semibold">saving an estimated $3.5 million</span> in tax liability and associated transfer costs. The family business transitioned smoothly, demonstrating that successful succession planning is fundamentally a complex exercise in financial strategy and tax optimization.
-                    </p>
-                    
-                    <a href="./articles.html" class="inline-flex items-center bg-blue-600 text-white px-8 py-3 rounded-full font-semibold hover:bg-blue-700 shadow-xl glow-button transition-transform duration-300">
-                        <i class="fas fa-arrow-left mr-3"></i> Return to Success Stories
+                    <div class="bg-indigo-50 p-6 rounded-xl border border-indigo-100 flex gap-4 items-start">
+                        <div class="text-legacy text-xl mt-1"><i class="fa-solid fa-users-slash"></i></div>
+                        <div>
+                            <h3 class="font-bold text-slate-800 mb-1">Governance Vacuum</h3>
+                            <p class="text-sm text-slate-600">The next-generation leadership lacked a formal financial roadmap or training on the tax implications of managing the newly inherited wealth.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="mb-16" data-aos="fade-up">
+                <h2 class="text-2xl font-bold text-primary mb-6 flex items-center gap-3">
+                    <span class="w-8 h-8 bg-blue-100 text-accent rounded-full flex items-center justify-center text-sm">3</span>
+                    The Strategy: The Graduated Transfer Plan
+                </h2>
+                
+                <div class="space-y-8">
+                    <div>
+                        <h3 class="text-lg font-bold text-primary mb-2 flex items-center gap-2"><i class="fa-solid fa-building text-legacy"></i> Phase 1: Business Reorganization</h3>
+                        <p class="text-slate-600 leading-relaxed mb-4">
+                            The firm first performed a rigorous, defensible valuation of the business. The company structure was then reorganized to separate non-core, high-value real estate assets from the operating business, allowing the transfer of the operating entity to proceed under more favorable conditions.
+                        </p>
+                    </div>
+
+                    <div>
+                        <h3 class="text-lg font-bold text-primary mb-2 flex items-center gap-2"><i class="fa-solid fa-gift text-legacy"></i> Phase 2: Optimized Transfer Mechanism</h3>
+                        <p class="text-slate-600 leading-relaxed mb-4">
+                            The transfer was executed not as a lump sum, but through a tactical multi-year approach:
+                        </p>
+                        <ul class="space-y-4">
+                            <li class="flex items-start gap-3">
+                                <i class="fa-solid fa-check text-green-500 mt-1"></i>
+                                <span class="text-slate-600 text-sm"><strong>Graduated Gifting Strategy:</strong> Minority portions of equity were transferred annually, utilizing the annual gifting exclusion to legally reduce the taxable estate value over time.</span>
+                            </li>
+                            <li class="flex items-start gap-3">
+                                <i class="fa-solid fa-check text-green-500 mt-1"></i>
+                                <span class="text-slate-600 text-sm"><strong>Buy-Sell Agreement:</strong> A new agreement was drafted to ensure that shares, once transferred, could not be sold outside the family, protecting control.</span>
+                            </li>
+                            <li class="flex items-start gap-3">
+                                <i class="fa-solid fa-check text-green-500 mt-1"></i>
+                                <span class="text-slate-600 text-sm"><strong>Discount Utilization:</strong> The advisory team correctly applied the "lack of marketability discount" for transferring non-controlling minority stakes, further reducing the taxable value of the transferred shares.</span>
+                            </li>
+                        </ul>
+                        <div class="text-xs text-slate-400 mt-2 text-right italic"></div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="bg-primary text-white p-8 rounded-2xl shadow-xl" data-aos="zoom-in">
+                <h2 class="text-2xl font-serif font-bold mb-6">4. The Result: Legacy Secured and Millions Saved</h2>
+                
+                <p class="text-slate-300 leading-relaxed mb-8">
+                    By executing the Graduated Transfer Plan over five years, the family successfully moved 100% of the operating business to the next generation. The strategic use of gifting exclusions and discounts resulted in a staggering tax reduction.
+                </p>
+
+                <div class="grid md:grid-cols-2 gap-8 mb-8 border-t border-b border-white/20 py-8">
+                    <div>
+                        <div class="text-sm text-slate-400 uppercase mb-2">Tax Savings</div>
+                        <div class="text-3xl font-bold text-emerald-400">$3.5 Million</div>
+                        <div class="text-xs text-slate-400">Estimated liability avoided</div>
+                    </div>
+                    <div>
+                        <div class="text-sm text-slate-400 uppercase mb-2">Business Control</div>
+                        <div class="text-3xl font-bold text-emerald-400">100% Retained</div>
+                        <div class="text-xs text-slate-400">Zero equity sold to outsiders</div>
+                    </div>
+                </div>
+
+                <p class="text-slate-300 leading-relaxed mb-6">
+                    The company avoided the original tax burden and the need for liquidation. The family business transitioned smoothly, demonstrating that successful succession planning is fundamentally a complex exercise in financial strategy and tax optimization.
+                </p>
+
+                <div class="flex flex-col sm:flex-row gap-4">
+                    <a href="articles.html" class="bg-white text-primary px-6 py-3 rounded-full font-bold hover:bg-slate-100 transition-colors text-center">
+                        <i class="fa-solid fa-arrow-left mr-2"></i> Return to Success Stories
+                    </a>
+                    <a href="contact.html" class="bg-accent text-white px-6 py-3 rounded-full font-bold hover:bg-blue-600 transition-colors text-center">
+                        Plan Your Succession
                     </a>
                 </div>
             </div>
-        </section>
 
-        <footer class="bg-slate-900 text-white"></footer>
-    </main>
-    
+        </div>
+    </article>
+
+    <footer class="bg-slate-900 text-slate-400 py-12 border-t border-slate-800">
+        <div class="container mx-auto px-6 grid md:grid-cols-4 gap-8">
+            <div class="col-span-1 md:col-span-2">
+                <a href="index.html" class="flex items-center gap-2 mb-4">
+                    <img src="public/logo2.svg" alt="Logo" class="h-8 w-auto grayscale opacity-80 hover:grayscale-0 hover:opacity-100 transition-all">
+                    <span class="text-white text-xl font-bold font-serif">Global Financials</span>
+                </a>
+                <p class="mb-6 max-w-sm text-sm">Trusted by businesses worldwide for expert financial analysis, bookkeeping, and strategic consulting.</p>
+                
+                <div class="flex gap-4">
+                    <a href="https://www.linkedin.com/company/108157474/admin/page-posts/published/" target="_blank" class="w-10 h-10 rounded-full bg-slate-800 flex items-center justify-center hover:bg-[#0077b5] hover:text-white transition-colors transform hover:scale-110">
+                        <i class="fa-brands fa-linkedin-in"></i>
+                    </a>
+                    <a href="https://www.facebook.com/profile.php?id=61580989243930#" target="_blank" class="w-10 h-10 rounded-full bg-slate-800 flex items-center justify-center hover:bg-[#1877F2] hover:text-white transition-colors transform hover:scale-110">
+                        <i class="fa-brands fa-facebook-f"></i>
+                    </a>
+                    <a href="https://www.instagram.com/global_financials" target="_blank" class="w-10 h-10 rounded-full bg-slate-800 flex items-center justify-center hover:bg-[#E1306C] hover:text-white transition-colors transform hover:scale-110">
+                        <i class="fa-brands fa-instagram"></i>
+                    </a>
+                </div>
+            </div>
+            
+            <div>
+                <h4 class="text-white font-bold mb-4">Quick Links</h4>
+                <ul class="space-y-2 text-sm">
+                    <li><a href="index.html" class="hover:text-accent transition-colors">Home</a></li>
+                    <li><a href="services.html" class="hover:text-accent transition-colors">Services</a></li>
+                    <li><a href="portfolio.html" class="hover:text-accent transition-colors">Portfolio</a></li>
+                    <li><a href="contact.html" class="hover:text-accent transition-colors">Contact</a></li>
+                </ul>
+            </div>
+
+            <div>
+                <h4 class="text-white font-bold mb-4">Contact Info</h4>
+                <ul class="space-y-3 text-sm">
+                    <li class="flex items-start gap-3 group">
+                        <div class="mt-1 w-6 text-center text-green-500">
+                            <i class="fa-brands fa-whatsapp text-lg"></i>
+                        </div>
+                        <a href="https://wa.me/923216647827" target="_blank" class="hover:text-white transition-colors">
+                            +92 321 6647827
+                            <span class="block text-xs text-slate-500">Available on WhatsApp</span>
+                        </a>
+                    </li>
+                    <li class="flex items-start gap-3 group">
+                        <div class="mt-1 w-6 text-center text-accent">
+                            <i class="fa-solid fa-envelope"></i>
+                        </div>
+                        <a href="mailto:globalfinancials.org@gmail.com" class="hover:text-white transition-colors break-all">
+                            globalfinancials.org@gmail.com
+                        </a>
+                    </li>
+                    <li class="flex items-start gap-3">
+                        <div class="mt-1 w-6 text-center text-accent">
+                            <i class="fa-solid fa-location-dot"></i>
+                        </div>
+                        <span>Worldwide Remote Services</span>
+                    </li>
+                </ul>
+            </div>
+        </div>
+        <div class="container mx-auto px-6 mt-12 pt-8 border-t border-slate-800 text-center text-xs text-slate-500">
+            &copy; 2025 Global Financials. All rights reserved.
+        </div>
+    </footer>
+
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
     <script>
-        // Mobile Menu Toggle Logic
-        document.getElementById('mobile-menu-btn').addEventListener('click', function() {
-            var menu = document.getElementById('mobile-menu');
-            menu.classList.toggle('hidden');
-        });
-        
-        // --- Scroll Reveal Animation Logic (Re-triggering on scroll up/down) ---
-        const observer = new IntersectionObserver((entries) => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    entry.target.classList.add('animate-visible');
-                } else {
-                    entry.target.classList.remove('animate-visible');
-                }
-            });
-        }, {
-            threshold: 0.1 
-        });
-
-        document.querySelectorAll('[data-animate]').forEach(element => {
-            observer.observe(element);
-        });
+        AOS.init({ duration: 800, once: true });
+        function toggleMenu() {
+            document.getElementById('mobile-menu').classList.toggle('hidden');
+        }
     </script>
 </body>
 </html>
