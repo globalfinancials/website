@@ -35,6 +35,7 @@
 
     <nav class="fixed w-full z-50 bg-white/95 backdrop-blur-md shadow-sm transition-all duration-300" id="navbar">
         <div class="container mx-auto px-6 py-3 flex justify-between items-center">
+            
             <a href="index.html" class="flex items-center gap-3 group">
                 <img src="public/logo2.svg" alt="Global Financials Logo" class="h-12 w-auto object-contain transition-transform group-hover:scale-105">
                 <div>
@@ -58,13 +59,13 @@
             </button>
         </div>
         
-        <div id="mobile-menu" class="hidden md:hidden bg-white border-t border-gray-100 absolute w-full left-0 shadow-lg">
+        <div id="mobile-menu" class="hidden md:hidden bg-white border-t border-gray-100 absolute w-full left-0 shadow-lg h-screen overflow-y-auto pb-32">
             <div class="flex flex-col p-6 space-y-4 font-semibold text-center">
                 <a href="index.html" class="text-accent">Home</a>
                 <a href="services.html">Services</a>
                 <a href="portfolio.html">Portfolio</a>
                 <a href="articles.html">Articles</a>
-                <a href="contact.html" class="text-primary">Contact Us</a>
+                <a href="contact.html" class="text-primary mt-4">Contact Us</a>
             </div>
         </div>
     </nav>
@@ -72,6 +73,7 @@
     <header class="relative pt-32 pb-20 lg:pt-48 lg:pb-32 bg-primary overflow-hidden">
         <div class="absolute inset-0 opacity-10 bg-[url('https://www.transparenttextures.com/patterns/cubes.png')]"></div>
         <div class="absolute top-0 right-0 w-96 h-96 bg-accent/20 rounded-full blur-3xl -translate-y-1/2 translate-x-1/2"></div>
+        <div class="absolute bottom-0 left-0 w-72 h-72 bg-gold/10 rounded-full blur-3xl translate-y-1/2 -translate-x-1/2"></div>
 
         <div class="container mx-auto px-6 relative z-10 text-center">
             <span class="inline-block py-1 px-3 rounded-full bg-accent/10 text-accent text-xs font-bold tracking-wider mb-6 border border-accent/20" data-aos="fade-down">
@@ -95,7 +97,8 @@
     </header>
 
     <section class="py-12 bg-white -mt-10 relative z-20 container mx-auto px-4">
-        <div class="bg-white rounded-2xl shadow-xl border border-gray-100 p-8 md:p-12 grid grid-cols-2 md:grid-cols-4 gap-8 text-center" data-aos="zoom-in">
+        <div class="bg-white rounded-2xl shadow-xl border border-gray-100 p-8 md:p-12 grid grid-cols-2 md:grid-cols-4 gap-8 text-center relative overflow-visible" data-aos="zoom-in">
+            
             <div class="space-y-2 group">
                 <div class="w-12 h-12 mx-auto bg-blue-50 rounded-full flex items-center justify-center text-accent mb-3 group-hover:bg-accent group-hover:text-white transition-colors">
                     <i class="fa-solid fa-users"></i>
@@ -103,13 +106,41 @@
                 <div class="text-4xl font-bold text-primary">95%+</div>
                 <p class="text-sm text-slate-500 font-medium uppercase tracking-wide">Client Satisfaction</p>
             </div>
-            <div class="space-y-2 group">
+            
+            <div class="space-y-2 group relative cursor-pointer">
                 <div class="w-12 h-12 mx-auto bg-blue-50 rounded-full flex items-center justify-center text-accent mb-3 group-hover:bg-accent group-hover:text-white transition-colors">
                     <i class="fa-solid fa-globe"></i>
                 </div>
-                <div class="text-4xl font-bold text-primary">4</div>
-                <p class="text-sm text-slate-500 font-medium uppercase tracking-wide">Countries Served</p>
+                <div class="text-4xl font-bold text-primary">5+</div>
+                <p class="text-sm text-slate-500 font-medium uppercase tracking-wide flex items-center justify-center gap-1 group-hover:text-accent transition-colors">
+                    Countries Serving In <i class="fa-solid fa-chevron-down text-[10px] mt-0.5"></i>
+                </p>
+
+                <div class="absolute left-1/2 -translate-x-1/2 top-full mt-4 w-56 bg-white rounded-xl shadow-2xl border border-gray-100 invisible opacity-0 transform translate-y-2 group-hover:visible group-hover:opacity-100 group-hover:translate-y-0 transition-all duration-300 z-50 overflow-hidden text-left">
+                    <div class="absolute -top-1.5 left-1/2 -translate-x-1/2 w-4 h-4 bg-white border-t border-l border-gray-100 transform rotate-45"></div>
+                    <div class="p-2 relative bg-white">
+                        <div class="flex items-center gap-3 px-4 py-2 hover:bg-blue-50 rounded-lg text-slate-700 transition-colors">
+                            <span class="text-lg">🇺🇸</span> <span class="text-sm font-semibold">United States</span>
+                        </div>
+                        <div class="flex items-center gap-3 px-4 py-2 hover:bg-blue-50 rounded-lg text-slate-700 transition-colors">
+                            <span class="text-lg">🇬🇧</span> <span class="text-sm font-semibold">United Kingdom</span>
+                        </div>
+                        <div class="flex items-center gap-3 px-4 py-2 hover:bg-blue-50 rounded-lg text-slate-700 transition-colors">
+                            <span class="text-lg">🇨🇦</span> <span class="text-sm font-semibold">Canada</span>
+                        </div>
+                        <div class="flex items-center gap-3 px-4 py-2 hover:bg-blue-50 rounded-lg text-slate-700 transition-colors">
+                            <span class="text-lg">🇦🇺</span> <span class="text-sm font-semibold">Australia</span>
+                        </div>
+                        <div class="flex items-center gap-3 px-4 py-2 hover:bg-blue-50 rounded-lg text-slate-700 transition-colors">
+                            <span class="text-lg">🇦🇪</span> <span class="text-sm font-semibold">UAE</span>
+                        </div>
+                        <div class="flex items-center gap-3 px-4 py-2 hover:bg-blue-50 rounded-lg text-slate-700 transition-colors">
+                            <span class="text-lg">🇵🇰</span> <span class="text-sm font-semibold">Pakistan</span>
+                        </div>
+                    </div>
+                </div>
             </div>
+
             <div class="space-y-2 group">
                 <div class="w-12 h-12 mx-auto bg-blue-50 rounded-full flex items-center justify-center text-accent mb-3 group-hover:bg-accent group-hover:text-white transition-colors">
                     <i class="fa-solid fa-ribbon"></i>
@@ -117,6 +148,7 @@
                 <div class="text-4xl font-bold text-primary">50+</div>
                 <p class="text-sm text-slate-500 font-medium uppercase tracking-wide">Projects Completed</p>
             </div>
+
             <div class="space-y-2 group">
                 <div class="w-12 h-12 mx-auto bg-blue-50 rounded-full flex items-center justify-center text-accent mb-3 group-hover:bg-accent group-hover:text-white transition-colors">
                     <i class="fa-solid fa-chart-line"></i>
@@ -162,6 +194,13 @@
                     <a href="services.html" class="text-accent font-semibold group-hover:translate-x-2 inline-block transition-transform">Learn More <i class="fa-solid fa-arrow-right ml-1"></i></a>
                 </div>
             </div>
+
+            <div class="text-center mt-12" data-aos="fade-up">
+                <a href="services.html" class="inline-flex items-center gap-2 border border-accent text-accent px-8 py-3 rounded-full font-semibold hover:bg-accent hover:text-white transition-all shadow-sm hover:shadow-blue-500/30">
+                    View All Services <i class="fa-solid fa-arrow-right"></i>
+                </a>
+            </div>
+
         </div>
     </section>
 
