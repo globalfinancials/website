@@ -364,7 +364,7 @@
         </div>
     </div>
 
-    <script>
+<script>
         // ==========================================
         // Gemini API Key Included Here
         // ==========================================
@@ -403,26 +403,32 @@
             const userText = chatInput.value.trim();
             if (!userText) return;
 
+            // 1. Show user message in the chat window normally
             appendMessage('user', userText);
             chatInput.value = '';
 
+            // 2. INVISIBLE PERSONALITY INJECTION: 
+            // If this is the first message, secretly attach the bot's instructions
+            let promptToSend = userText;
+            if (chatHistory.length === 0) {
+                promptToSend = "System Context: You are the official, professional AI assistant for 'Global Financials'. You help website visitors. Services offered: Professional Bookkeeping (from $199/mo), Financial Statement Preparation (from $125/stmt), Data Cleaning & Extraction (Custom Pricing), Financial Analysis & Visualization (from $149/analysis), Tax Preparation & Filing (from $99/filing), and Custom Consulting. Be polite, concise, and helpful. Format with short paragraphs. Do not make up information. If a request is too complex, suggest they use the Contact Form or WhatsApp.\n\nUser's Actual Message: " + userText;
+            }
+
+            // 3. Save to history (This goes to the API, but not the UI)
             chatHistory.push({
                 role: "user",
-                parts: [{ text: userText }]
+                parts: [{ text: promptToSend }]
             });
 
             const typingId = 'typing-' + Date.now();
             appendTypingIndicator(typingId);
 
             try {
-                // EXACT MODEL NAME REQUIRED BY GOOGLE: gemini-1.5-flash
-                const response = await fetch(`https://generativelanguage.googleapis.com/v1beta/models/gemini-1.5-flash:generateContent?key=${GEMINI_API_KEY}`, {
+                // FIXED: Using the universally stable 'gemini-pro' model
+                const response = await fetch(`https://generativelanguage.googleapis.com/v1beta/models/gemini-pro:generateContent?key=${GEMINI_API_KEY}`, {
                     method: 'POST',
                     headers: { 'Content-Type': 'application/json' },
                     body: JSON.stringify({
-                        systemInstruction: {
-                            parts: [{ text: "You are the official, professional AI assistant for 'Global Financials'. Your job is to help website visitors. You offer services: Professional Bookkeeping (from $199/mo), Financial Statement Preparation (from $125/stmt), Data Cleaning & Extraction (Custom Pricing), Financial Analysis & Visualization (from $149/analysis), Tax Preparation & Filing (from $99/filing), and Custom Consulting. Be polite, concise, and helpful. Do not make up information. If a request is too complex, suggest they use the Contact Form or WhatsApp." }]
-                        },
                         contents: chatHistory
                     })
                 });
@@ -443,7 +449,7 @@
                     console.error("API Error Response:", data);
                     const errorDetails = data.error ? data.error.message : "Unknown formatting error";
                     appendMessage('bot', `⚠️ Google API Error: ${errorDetails}`);
-                    chatHistory.pop(); 
+                    chatHistory.pop(); // Remove failed message from history
                 }
 
             } catch (error) {
@@ -457,6 +463,7 @@
         function appendMessage(sender, text) {
             const msgDiv = document.createElement('div');
             
+            // Format text (convert markdown bold **text** to HTML bold and newlines to <br>)
             let formattedText = text.replace(/\*\*(.*?)\*\*/g, '<strong>$1</strong>');
             formattedText = formattedText.replace(/\n/g, '<br>');
 
